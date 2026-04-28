@@ -10,15 +10,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0f172a",
-        ocean: "#0369a1",
-        skyline: "#e0f2fe",
-        coral: "#f97316",
-        mint: "#14b8a6"
+        ink: "#0F172A",
+        gulf: "#0284C7",
+        ocean: "#0EA5E9",
+        gold: "#F59E0B",
+        sand: "#FAFAF7",
+        slateText: "#475569",
+        skyline: "#E0F2FE",
+        coral: "#F59E0B",
+        mint: "#14B8A6"
       },
       boxShadow: {
-        soft: "0 18px 60px rgba(15, 23, 42, 0.10)",
-        card: "0 12px 36px rgba(2, 132, 199, 0.10)"
+        soft: "0 24px 80px rgba(15, 23, 42, 0.12)",
+        card: "0 16px 50px rgba(15, 23, 42, 0.08)",
+        premium: "0 24px 70px rgba(14, 165, 233, 0.16)"
       }
     }
   },

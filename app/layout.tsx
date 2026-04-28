@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
+const siteUrl = "https://floridaflightdeals.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Florida Flight Deals | Cheap Flights In & Out of Florida",
   description:
-    "Daily airfare deals from Orlando, Miami, Tampa, Fort Lauderdale and Jacksonville. Find domestic, international, weekend and under $99 flight deals.",
+    "Find cheap flights to and from Florida with daily airfare deals from Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and more.",
   keywords: [
     "Florida flight deals",
     "cheap flights Florida",
@@ -14,16 +18,38 @@ export const metadata: Metadata = {
     "Tampa flight deals",
     "Jacksonville flights"
   ],
+  alternates: {
+    canonical: siteUrl
+  },
   openGraph: {
-    title: "Florida Flight Deals",
-    description: "Cheap flights in and out of Florida's biggest travel markets.",
+    title: "Florida Flight Deals | Cheap Flights In & Out of Florida",
+    description:
+      "Find cheap flights to and from Florida with daily airfare deals from Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and more.",
     type: "website",
-    url: "https://floridaflightdeals.com"
+    url: siteUrl,
+    siteName: "Florida Flight Deals",
+    locale: "en_US"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Florida Flight Deals | Cheap Flights In & Out of Florida",
+    description:
+      "Daily airfare deals from Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and more."
   },
   robots: {
     index: true,
-    follow: true
-  }
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  },
+  icons: {
+    icon: "/icon.svg"
+  },
+  category: "travel"
 };
 
 export default function RootLayout({
@@ -33,7 +59,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }

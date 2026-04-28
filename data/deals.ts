@@ -3,7 +3,7 @@ export type DealCategory =
   | "Orlando"
   | "Miami"
   | "Fort Lauderdale"
-  | "Tampa Bay"
+  | "Tampa"
   | "Jacksonville"
   | "Domestic"
   | "International"
@@ -29,13 +29,12 @@ export const filters: DealCategory[] = [
   "All Deals",
   "Orlando",
   "Miami",
+  "Tampa",
   "Fort Lauderdale",
-  "Tampa Bay",
   "Jacksonville",
-  "Domestic",
-  "International",
   "Weekend",
-  "Under $99"
+  "Under $99",
+  "International"
 ];
 
 export const deals: FlightDeal[] = [
@@ -78,14 +77,38 @@ export const deals: FlightDeal[] = [
   {
     id: "tpa-nyc-jetblue-98",
     airline: "JetBlue",
-    from: "Tampa Bay",
+    from: "Tampa",
     to: "New York",
     price: 98,
     dates: "May 17-20",
-    category: ["Tampa Bay", "Domestic", "Weekend", "Under $99"],
+    category: ["Tampa", "Domestic", "Weekend", "Under $99"],
     booking_url: "https://www.jetblue.com/",
     image: "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=900&q=80",
     badge: "Under $99"
+  },
+  {
+    id: "mia-nyc-jetblue-79",
+    airline: "JetBlue",
+    from: "Miami",
+    to: "New York",
+    price: 79,
+    dates: "Jun 14-17",
+    category: ["Miami", "Domestic", "Weekend", "Under $99"],
+    booking_url: "https://www.jetblue.com/",
+    image: "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=900&q=80",
+    badge: "Hot Deal"
+  },
+  {
+    id: "tpa-cun-southwest-119",
+    airline: "Southwest",
+    from: "Tampa",
+    to: "Cancun",
+    price: 119,
+    dates: "Aug 8-12",
+    category: ["Tampa", "International", "Weekend"],
+    booking_url: "https://www.southwest.com/",
+    image: "https://images.unsplash.com/photo-1510097467424-192d713fd8b2?auto=format&fit=crop&w=900&q=80",
+    badge: "International"
   },
   {
     id: "jax-dfw-american-128",
@@ -138,11 +161,11 @@ export const deals: FlightDeal[] = [
   {
     id: "tpa-ord-united-104",
     airline: "United",
-    from: "Tampa Bay",
+    from: "Tampa",
     to: "Chicago",
     price: 104,
     dates: "Jun 13-16",
-    category: ["Tampa Bay", "Domestic", "Weekend"],
+    category: ["Tampa", "Domestic", "Weekend"],
     booking_url: "https://www.united.com/",
     image: "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?auto=format&fit=crop&w=900&q=80",
     badge: "Weekend"
@@ -198,11 +221,11 @@ export const deals: FlightDeal[] = [
   {
     id: "tpa-msy-southwest-79",
     airline: "Southwest",
-    from: "Tampa Bay",
+    from: "Tampa",
     to: "New Orleans",
     price: 79,
     dates: "May 24-27",
-    category: ["Tampa Bay", "Domestic", "Weekend", "Under $99"],
+    category: ["Tampa", "Domestic", "Weekend", "Under $99"],
     booking_url: "https://www.southwest.com/",
     image: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=900&q=80",
     badge: "Under $99"
@@ -258,11 +281,11 @@ export const deals: FlightDeal[] = [
   {
     id: "tpa-lhr-delta-516",
     airline: "Delta",
-    from: "Tampa Bay",
+    from: "Tampa",
     to: "London",
     price: 516,
     dates: "Nov 5-13",
-    category: ["Tampa Bay", "International"],
+    category: ["Tampa", "International"],
     booking_url: "https://www.delta.com/",
     image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80",
     badge: "International"
@@ -318,11 +341,11 @@ export const deals: FlightDeal[] = [
   {
     id: "tpa-sfo-united-149",
     airline: "United",
-    from: "Tampa Bay",
+    from: "Tampa",
     to: "San Francisco",
     price: 149,
     dates: "Sep 4-10",
-    category: ["Tampa Bay", "Domestic"],
+    category: ["Tampa", "Domestic"],
     booking_url: "https://www.united.com/",
     image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=900&q=80",
     badge: "Hot Deal"
