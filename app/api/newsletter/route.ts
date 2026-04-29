@@ -205,7 +205,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         ok: true,
-        message: "You're on the list. Watch your inbox for the next drop."
+        message: "You’re in! Florida flight deals are on the way."
       },
       {
         headers: {

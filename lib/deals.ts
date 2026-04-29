@@ -18,7 +18,7 @@ export function getFeaturedStats() {
   const lowest = Math.min(...deals.map((deal) => deal.price));
 
   return [
-    { label: "Live sample deals", value: deals.length.toString() },
+    { label: "Latest fare finds", value: deals.length.toString() },
     { label: "Under $99", value: under99.toString() },
     { label: "International finds", value: international.toString() },
     { label: "Lowest fare", value: `$${lowest}` }

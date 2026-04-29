@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, Bell, Building2, CheckCircle2, Compass, Hotel, MapPinned, Plane, Sailboat, Sparkles, Sun, Ticket, WalletCards } from "lucide-react";
 import { deals, type FlightDeal } from "@/data/deals";
 import { getFeaturedStats } from "@/lib/deals";
+import { getTrustedDealImage } from "@/lib/dealImages";
 import { DealCard } from "@/components/DealCard";
 import { DealsExplorer } from "@/components/DealsExplorer";
 import { NewsletterForm } from "@/components/NewsletterForm";
 
-const siteUrl = "https://floridaflightdeals.com";
+const siteUrl = "https://flightdealsflorida.org";
 
 export const metadata: Metadata = {
   title: "Florida Flight Deals | Cheap Flights In & Out of Florida",
@@ -20,11 +22,11 @@ export const metadata: Metadata = {
 const trustSignals = ["Updated Often", "Real Deals", "Florida Focused"];
 
 const navItems = [
-  { label: "Flights", href: "#deals", active: true },
-  { label: "Hotels", href: "#sister-sites" },
-  { label: "Cruises", href: "#sister-sites" },
-  { label: "Local Deals", href: "#sister-sites" },
-  { label: "Florida Deals Hub", href: "#sister-sites" }
+  { label: "Flights", href: "/", active: true },
+  { label: "Hotels", href: "https://hoteldealsflorida.org" },
+  { label: "Cruises", href: "https://cruisedealsflorida.org" },
+  { label: "Local Deals", href: "https://localdealsflorida.org" },
+  { label: "Florida Deals Hub", href: "https://floridadealshub.com" }
 ];
 
 const reasons = [
@@ -49,25 +51,25 @@ const sisterSites = [
   {
     title: "Florida Hotel Deals",
     description: "Premium stays, resort escapes and smart nightly rates across the state.",
-    href: "#",
+    href: "https://hoteldealsflorida.org",
     icon: Hotel
   },
   {
     title: "Florida Cruise Deals",
     description: "Sailings from Florida ports, last-minute offers and warm-weather itineraries.",
-    href: "#",
+    href: "https://cruisedealsflorida.org",
     icon: Sailboat
   },
   {
     title: "Local Florida Deals",
     description: "Restaurants, attractions, weekend plans and local finds worth sharing.",
-    href: "#",
+    href: "https://localdealsflorida.org",
     icon: Ticket
   },
   {
     title: "Florida Deals Hub",
     description: "The parent network for flights, hotels, cruises and local Florida savings.",
-    href: "#",
+    href: "https://floridadealshub.com",
     icon: Building2
   }
 ];
@@ -92,6 +94,21 @@ function RouteGraphic({ featuredDeal }: { featuredDeal: FlightDeal }) {
         </div>
 
         <div className="mt-7 rounded-3xl border border-slate-200 bg-white/90 p-5 shadow-card backdrop-blur">
+          <div className="relative mb-5 h-32 overflow-hidden rounded-2xl bg-sand sm:h-36">
+            <Image
+              src={getTrustedDealImage(featuredDeal)}
+              alt={`${featuredDeal.to} destination mood for ${featuredDeal.from} to ${featuredDeal.to} fare deal`}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 42vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/35 via-slate-950/5 to-white/10" />
+            <div className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-black text-ink shadow-sm ring-1 ring-white/70">
+              Colorado mountain fare
+            </div>
+          </div>
+
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm font-black text-ocean">{featuredDeal.airline}</p>
@@ -122,7 +139,7 @@ function RouteGraphic({ featuredDeal }: { featuredDeal: FlightDeal }) {
           {["Updated Daily", "No Spam", "100% Free Alerts"].map((item) => (
             <div key={item} className="rounded-2xl border border-slate-200 bg-white/80 p-3 text-center shadow-sm">
               <CheckCircle2 className="mx-auto h-4 w-4 text-ocean" />
-                <p className="mt-2 text-xs font-black leading-4 text-ink">{item}</p>
+              <p className="mt-2 text-xs font-black leading-4 text-ink">{item}</p>
             </div>
           ))}
         </div>
@@ -160,7 +177,7 @@ export default function Home() {
 
       <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <a href="#" className="flex min-w-0 items-center gap-3" aria-label="Florida Flight Deals home">
+          <a href="https://flightdealsflorida.org" className="flex min-w-0 items-center gap-3" aria-label="Florida Flight Deals home">
             <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-ink text-white shadow-lg shadow-slate-900/15">
               <Plane className="h-5 w-5" />
               <span className="absolute -right-1 -top-1 h-4 w-4 rounded-full bg-gold ring-2 ring-white" />
@@ -188,7 +205,7 @@ export default function Home() {
 
           <a
             href="#alerts"
-            className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-gulf px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:bg-ocean focus:outline-none focus:ring-4 focus:ring-sky-200"
+            className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gulf to-ocean px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-200"
           >
             <Bell className="h-4 w-4" />
             Get Alerts
@@ -218,7 +235,7 @@ export default function Home() {
             </a>
             <a
               href="#alerts"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-6 text-sm font-black text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-ocean hover:bg-sky-50 hover:text-gulf hover:shadow-card focus:outline-none focus:ring-4 focus:ring-sky-200"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-6 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
             >
               <Bell className="h-4 w-4" />
               Get Alerts
@@ -358,9 +375,16 @@ export default function Home() {
             </div>
           </div>
           <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText sm:grid-cols-3" aria-label="Footer navigation">
-            {["About", "Contact", "Privacy", "Terms", "Sitemap", "Sister Sites"].map((item) => (
-              <a key={item} className="transition hover:text-ocean" href={item === "Contact" ? "mailto:hello@floridaflightdeals.com" : item === "Sister Sites" ? "#sister-sites" : "#"}>
-                {item}
+            {[
+              { label: "About", href: "/about" },
+              { label: "Contact", href: "/contact" },
+              { label: "Privacy", href: "/privacy" },
+              { label: "Terms", href: "/terms" },
+              { label: "Sitemap", href: "/sitemap.xml" },
+              { label: "Sister Sites", href: "https://floridadealshub.com" }
+            ].map((item) => (
+              <a key={item.label} className="transition hover:text-ocean" href={item.href}>
+                {item.label}
               </a>
             ))}
           </nav>

@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "https://floridaflightdeals.com/sitemap.xml",
-    host: "https://floridaflightdeals.com"
+    sitemap: "https://flightdealsflorida.org/sitemap.xml",
+    host: "https://flightdealsflorida.org"
   };
 }

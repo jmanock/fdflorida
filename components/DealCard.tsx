@@ -48,7 +48,7 @@ export function DealCard({
       <div className={`relative overflow-hidden bg-skyline ${featured ? "h-52" : "h-40 sm:h-44"}`}>
         <Image
           src={getTrustedDealImage(deal)}
-          alt={`Trusted travel image for ${deal.from} to ${deal.to}`}
+          alt={`${deal.to} travel inspiration for a ${deal.airline} fare from ${deal.from}`}
           fill
           priority={priority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -108,7 +108,7 @@ export function DealCard({
               }
             })
           }
-          className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-ink px-4 text-sm font-black text-white shadow-md shadow-slate-900/15 transition hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-900/20 focus:outline-none focus:ring-4 focus:ring-sky-200"
+          className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
           aria-label={`Book ${deal.from} to ${deal.to} on ${deal.airline}`}
         >
           View Fare

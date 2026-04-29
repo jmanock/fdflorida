@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
-const siteUrl = "https://floridaflightdeals.com";
+const siteUrl = "https://flightdealsflorida.org";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

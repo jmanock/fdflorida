@@ -65,7 +65,7 @@ export function NewsletterForm() {
       });
 
       setStatus("success");
-      setMessage(result.message ?? "You're on the list. Watch your inbox for the next drop.");
+      setMessage("You’re in! Florida flight deals are on the way.");
       setEmail("");
     } catch (error) {
       setStatus("error");
@@ -101,9 +101,9 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="h-12 w-full rounded-xl bg-gradient-to-r from-gulf to-ocean px-6 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-200 sm:w-auto"
+          className="h-12 w-full rounded-xl bg-gradient-to-r from-gulf to-ocean px-6 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-200 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
         >
-          {status === "submitting" ? "Sending..." : "Send Me Deals"}
+          {status === "submitting" ? "Sending…" : "Send Me Deals"}
         </button>
       </div>
       <p
