@@ -23,7 +23,7 @@ export function NewsletterForm() {
     setHasTrackedStart(true);
   }
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleClientSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmedEmail = email.trim();
 
@@ -40,7 +40,9 @@ export function NewsletterForm() {
       const response = await fetch("/api/newsletter", {
         method: "POST",
         cache: "no-store",
+        credentials: "same-origin",
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -72,7 +74,7 @@ export function NewsletterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-6 space-y-3">
+    <form onSubmit={handleClientSubmit} className="mt-6 space-y-3">
       <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto]">
         <label className="sr-only" htmlFor="email-alerts">
           Email address
