@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { appendFile, mkdir } from "node:fs/promises";
+import { dirname } from "node:path";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -6,6 +8,7 @@ export const revalidate = 0;
 export const fetchCache = "force-no-store";
 
 const SIGNUP_SOURCE = "flightdealsflorida.org";
+const DEFAULT_FALLBACK_CSV_PATH = "/var/www/fdflorida/newsletter-signups.csv";
 
 type SignupPayload = {
   email?: string;
@@ -44,6 +47,25 @@ function parsePayload(payload: SignupPayload): SignupData {
     dealInterest: cleanOptional(payload.dealInterest),
     source: SIGNUP_SOURCE
   };
+}
+
+function csvEscape(value: string) {
+  return `"${value.replaceAll('"', '""')}"`;
+}
+
+async function saveSignupToCsv(signup: SignupData) {
+  const csvPath = process.env.NEWSLETTER_FALLBACK_CSV_PATH ?? DEFAULT_FALLBACK_CSV_PATH;
+  const createdAt = new Date().toISOString();
+  const line = [signup.email, signup.source, createdAt].map(csvEscape).join(",") + "\n";
+
+  await mkdir(dirname(csvPath), { recursive: true });
+  await appendFile(csvPath, line, "utf8");
+
+  console.info(`[newsletter] Saved signup via local CSV fallback: ${csvPath}`, {
+    email: signup.email,
+    source: signup.source,
+    createdAt
+  });
 }
 
 async function subscribeWithBeehiiv(signup: SignupData) {
@@ -149,6 +171,12 @@ async function subscribeWithResend(signup: SignupData) {
 async function subscribe(signup: SignupData) {
   const provider = process.env.EMAIL_PROVIDER?.toLowerCase();
 
+  if (!provider) {
+    console.info("[newsletter] EMAIL_PROVIDER not configured. Using local CSV fallback.");
+    await saveSignupToCsv(signup);
+    return;
+  }
+
   if (provider === "beehiiv") {
     await subscribeWithBeehiiv(signup);
     return;
@@ -161,11 +189,6 @@ async function subscribe(signup: SignupData) {
 
   if (provider === "resend") {
     await subscribeWithResend(signup);
-    return;
-  }
-
-  if (process.env.NODE_ENV !== "production") {
-    console.info("Newsletter signup captured in development mode:", signup);
     return;
   }
 
