@@ -39,6 +39,7 @@ export function NewsletterForm() {
     try {
       const response = await fetch("/api/newsletter", {
         method: "POST",
+        cache: "no-store",
         headers: {
           "Content-Type": "application/json"
         },

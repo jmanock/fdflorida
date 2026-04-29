@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const SIGNUP_SOURCE = "flightdealsflorida.org";
 
 type SignupPayload = {
@@ -51,6 +55,7 @@ async function subscribeWithBeehiiv(signup: SignupData) {
 
   const response = await fetch(`https://api.beehiiv.com/v2/publications/${publicationId}/subscriptions`, {
     method: "POST",
+    cache: "no-store",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json"
@@ -84,6 +89,7 @@ async function subscribeWithMailchimp(signup: SignupData) {
 
   const response = await fetch(`https://${serverPrefix}.api.mailchimp.com/3.0/lists/${listId}/members`, {
     method: "POST",
+    cache: "no-store",
     headers: {
       Authorization: `Basic ${Buffer.from(`anystring:${apiKey}`).toString("base64")}`,
       "Content-Type": "application/json"
@@ -116,6 +122,7 @@ async function subscribeWithResend(signup: SignupData) {
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
+    cache: "no-store",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json"
@@ -171,10 +178,17 @@ export async function POST(request: Request) {
 
     await subscribe(signup);
 
-    return NextResponse.json({
-      ok: true,
-      message: "You're on the list. Watch your inbox for the next drop."
-    });
+    return NextResponse.json(
+      {
+        ok: true,
+        message: "You're on the list. Watch your inbox for the next drop."
+      },
+      {
+        headers: {
+          "Cache-Control": "no-store, max-age=0"
+        }
+      }
+    );
   } catch (error) {
     const message = error instanceof Error ? error.message : "Something went wrong. Please try again.";
     const isValidationError = message.includes("valid email");
@@ -184,7 +198,12 @@ export async function POST(request: Request) {
         ok: false,
         message: isValidationError ? message : "We couldn't save your signup. Please try again in a moment."
       },
-      { status: isValidationError ? 400 : 500 }
+      {
+        status: isValidationError ? 400 : 500,
+        headers: {
+          "Cache-Control": "no-store, max-age=0"
+        }
+      }
     );
   }
 }
