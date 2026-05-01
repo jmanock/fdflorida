@@ -7,7 +7,7 @@ import { trackEvent } from "@/lib/analytics";
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [message, setMessage] = useState("No spam. 100% free alerts for fresh Florida deals.");
+  const [message, setMessage] = useState("No spam. 100% free alerts for fresh Florida flight deals.");
   const [hasTrackedStart, setHasTrackedStart] = useState(false);
 
   function trackSignupStarted() {

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   }
 };
 
-const trustSignals = ["Updated Often", "Real Deals", "Florida Focused"];
+const trustSignals = ["Curated Florida deals", "Updated often", "Free deal alerts", "No spam"];
 
 const navItems = [
   { label: "Flights", href: "/", active: true },
@@ -71,6 +71,30 @@ const sisterSites = [
     description: "The parent network for flights, hotels, cruises and local Florida savings.",
     href: "https://floridadealshub.com",
     icon: Building2
+  }
+];
+
+const crossPromos = [
+  {
+    title: "Need a hotel after your flight?",
+    description: "Compare Florida hotel deals for beach weekends, airport stays and resort escapes.",
+    href: "https://hoteldealsflorida.org",
+    cta: "Browse Florida hotel deals",
+    icon: Hotel
+  },
+  {
+    title: "Cruising from Florida?",
+    description: "Find cheap sailings from Miami, Port Canaveral, Tampa and Fort Lauderdale.",
+    href: "https://cruisedealsflorida.org",
+    cta: "Browse Florida cruise deals",
+    icon: Sailboat
+  },
+  {
+    title: "Planning a weekend trip?",
+    description: "Pair your fare with local Florida deals on attractions, restaurants and events.",
+    href: "https://localdealsflorida.org",
+    cta: "Browse local Florida deals",
+    icon: Ticket
   }
 ];
 
@@ -284,6 +308,32 @@ export default function Home() {
 
       <DealsExplorer initialDeals={deals} />
 
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-5 md:grid-cols-3">
+          {crossPromos.map((promo) => {
+            const Icon = promo.icon;
+
+            return (
+              <a
+                key={promo.title}
+                href={promo.href}
+                className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-skyline text-ocean ring-1 ring-sky-100">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h2 className="mt-5 text-xl font-black text-ink">{promo.title}</h2>
+                <p className="mt-2 text-sm font-medium leading-6 text-slateText">{promo.description}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                  {promo.cta}
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                </span>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+
       <section id="why" className="section-fade mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         <div className="max-w-2xl">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Why use us</p>
@@ -376,12 +426,15 @@ export default function Home() {
           </div>
           <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText sm:grid-cols-3" aria-label="Footer navigation">
             {[
+              { label: "Flight Deals", href: "https://flightdealsflorida.org" },
+              { label: "Hotel Deals", href: "https://hoteldealsflorida.org" },
+              { label: "Cruise Deals", href: "https://cruisedealsflorida.org" },
+              { label: "Local Deals", href: "https://localdealsflorida.org" },
+              { label: "Florida Deals Hub", href: "https://floridadealshub.com" },
               { label: "About", href: "/about" },
               { label: "Contact", href: "/contact" },
               { label: "Privacy", href: "/privacy" },
-              { label: "Terms", href: "/terms" },
-              { label: "Sitemap", href: "/sitemap.xml" },
-              { label: "Sister Sites", href: "https://floridadealshub.com" }
+              { label: "Terms", href: "/terms" }
             ].map((item) => (
               <a key={item.label} className="transition hover:text-ocean" href={item.href}>
                 {item.label}
