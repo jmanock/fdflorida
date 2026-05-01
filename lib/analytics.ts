@@ -8,6 +8,7 @@ type AnalyticsEvent = {
 
 declare global {
   interface Window {
+    dataLayer?: unknown[];
     gtag?: (command: "event", action: string, params?: Record<string, string | number | boolean | undefined>) => void;
   }
 }
@@ -17,10 +18,23 @@ export function trackEvent({ action, category, label, value, params }: Analytics
     return;
   }
 
-  window.gtag("event", action, {
-    event_category: category,
-    event_label: label,
-    value,
+  const eventParams: Record<string, string | number | boolean | undefined> = {
+    site: "flightdealsflorida.org",
+    source: "flights",
     ...params
-  });
+  };
+
+  if (category) {
+    eventParams.event_category = category;
+  }
+
+  if (label) {
+    eventParams.event_label = label;
+  }
+
+  if (typeof value === "number") {
+    eventParams.value = value;
+  }
+
+  window.gtag("event", action, eventParams);
 }

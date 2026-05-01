@@ -17,8 +17,10 @@ export function NewsletterForm() {
 
     trackEvent({
       action: "newsletter_signup_started",
-      category: "newsletter",
-      label: "flightdealsflorida.org"
+      params: {
+        site: "flightdealsflorida.org",
+        source: "flights"
+      }
     });
     setHasTrackedStart(true);
   }
@@ -60,8 +62,10 @@ export function NewsletterForm() {
 
       trackEvent({
         action: "newsletter_signup_success",
-        category: "newsletter",
-        label: "flightdealsflorida.org"
+        params: {
+          site: "flightdealsflorida.org",
+          source: "flights"
+        }
       });
 
       setStatus("success");

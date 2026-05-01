@@ -104,7 +104,9 @@ export function DealCard({
               params: {
                 airline: deal.airline,
                 destination: deal.to,
-                origin: deal.from
+                origin: deal.from,
+                route_or_destination: `${deal.from} to ${deal.to}`,
+                outbound_url: deal.booking_url
               }
             })
           }
