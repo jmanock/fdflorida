@@ -1,8 +1,16 @@
 import type { MetadataRoute } from "next";
+import { seoFlightPageSlugs } from "@/lib/seoFlightPages";
 
 const siteUrl = "https://flightdealsflorida.org";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const flightPages = seoFlightPageSlugs.map((slug) => ({
+    url: `${siteUrl}/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8
+  }));
+
   return [
     {
       url: siteUrl,
@@ -10,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 1
     },
+    ...flightPages,
     {
       url: `${siteUrl}/about`,
       lastModified: new Date(),

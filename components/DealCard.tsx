@@ -94,7 +94,7 @@ export function DealCard({
         <a
           href={deal.booking_url}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           onClick={() =>
             trackEvent({
               action: "deal_click",

@@ -4,6 +4,7 @@ import { ArrowRight, Bell, Building2, CheckCircle2, Compass, Hotel, MapPinned, P
 import { deals, type FlightDeal } from "@/data/deals";
 import { getFeaturedStats } from "@/lib/deals";
 import { getTrustedDealImage } from "@/lib/dealImages";
+import { flightSearchLinks } from "@/lib/siteLinks";
 import { DealCard } from "@/components/DealCard";
 import { DealsExplorer } from "@/components/DealsExplorer";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -213,18 +214,24 @@ export default function Home() {
           </a>
 
           <nav className="hidden items-center gap-1 rounded-full border border-slate-200 bg-sand p-1 text-sm font-bold text-slateText lg:flex" aria-label="Primary navigation">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                className={`rounded-full px-4 py-2 transition ${
-                  item.active ? "bg-white text-ink shadow-sm" : "hover:bg-white hover:text-ocean"
-                }`}
-                href={item.href}
-                aria-current={item.active ? "page" : undefined}
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const opensNewTab = item.href.startsWith("https://") && !item.href.includes("flightdealsflorida.org");
+
+              return (
+                <a
+                  key={item.label}
+                  className={`rounded-full px-4 py-2 transition ${
+                    item.active ? "bg-white text-ink shadow-sm" : "hover:bg-white hover:text-ocean"
+                  }`}
+                  href={item.href}
+                  target={opensNewTab ? "_blank" : undefined}
+                  rel={opensNewTab ? "noopener noreferrer" : undefined}
+                  aria-current={item.active ? "page" : undefined}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </nav>
 
           <a
@@ -317,6 +324,8 @@ export default function Home() {
               <a
                 key={promo.title}
                 href={promo.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-skyline text-ocean ring-1 ring-sky-100">
@@ -393,6 +402,8 @@ export default function Home() {
               <a
                 key={site.title}
                 href={site.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sand text-ink ring-1 ring-slate-200 transition group-hover:bg-skyline group-hover:text-ocean">
@@ -435,12 +446,36 @@ export default function Home() {
               { label: "Contact", href: "/contact" },
               { label: "Privacy", href: "/privacy" },
               { label: "Terms", href: "/terms" }
-            ].map((item) => (
-              <a key={item.label} className="transition hover:text-ocean" href={item.href}>
-                {item.label}
-              </a>
-            ))}
+            ].map((item) => {
+              const opensNewTab = item.href.startsWith("https://") && !item.href.includes("flightdealsflorida.org");
+
+              return (
+                <a
+                  key={item.label}
+                  className="transition hover:text-ocean"
+                  href={item.href}
+                  target={opensNewTab ? "_blank" : undefined}
+                  rel={opensNewTab ? "noopener noreferrer" : undefined}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </nav>
+          <div className="border-t border-slate-200 pt-7 md:col-span-2">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-ocean">Popular Flight Searches</p>
+            <nav className="mt-4 flex flex-wrap gap-2" aria-label="Popular flight searches">
+              {flightSearchLinks.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-full border border-slate-200 bg-sand px-3 py-2 text-xs font-black text-slateText transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
         </div>
       </footer>
     </main>
