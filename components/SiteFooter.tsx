@@ -26,21 +26,11 @@ export function SiteFooter() {
           </div>
         </div>
         <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText sm:grid-cols-3" aria-label="Footer navigation">
-          {footerLinks.map((item) => {
-            const opensNewTab = item.href.startsWith("https://") && !item.href.includes("flightdealsflorida.org");
-
-            return (
-              <a
-                key={item.label}
-                className="transition hover:text-ocean"
-                href={item.href}
-                target={opensNewTab ? "_blank" : undefined}
-                rel={opensNewTab ? "noopener noreferrer" : undefined}
-              >
-                {item.label}
-              </a>
-            );
-          })}
+          {footerLinks.map((item) => (
+            <a key={item.label} className="transition hover:text-ocean" href={item.href}>
+              {item.label}
+            </a>
+          ))}
         </nav>
         <div className="border-t border-slate-200 pt-7 md:col-span-2">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-ocean">Popular Flight Searches</p>

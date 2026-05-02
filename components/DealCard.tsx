@@ -14,6 +14,12 @@ const badgeStyles = {
   "Under $99": "bg-emerald-100 text-emerald-800 ring-emerald-200"
 };
 
+const qualityLabels = {
+  "Low Fare": "🔥 Low Fare",
+  "Good Deal": "👍 Good Deal",
+  "Popular Route": "✈️ Popular Route"
+};
+
 function getValueStatement(deal: FlightDeal) {
   if (deal.category.includes("Under $99")) {
     return "A rare sub-$99 fare from a major Florida market.";
@@ -39,6 +45,12 @@ export function DealCard({
   priority?: boolean;
   featured?: boolean;
 }) {
+  const origin = deal.origin ?? deal.from;
+  const destination = deal.destination ?? deal.to;
+  const outboundUrl = deal.link ?? deal.booking_url;
+  const qualityTag = deal.quality_tag ?? "Good Deal";
+  const freshness = deal.freshness ?? "Updated daily";
+
   return (
     <article
       className={`group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft ${
@@ -48,7 +60,7 @@ export function DealCard({
       <div className={`relative overflow-hidden bg-skyline ${featured ? "h-52" : "h-40 sm:h-44"}`}>
         <Image
           src={getTrustedDealImage(deal)}
-          alt={`${deal.to} travel inspiration for a ${deal.airline} fare from ${deal.from}`}
+          alt={`${destination} travel inspiration for a ${deal.airline} fare from ${origin}`}
           fill
           priority={priority}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -69,16 +81,21 @@ export function DealCard({
           <div className="min-w-0">
             <p className="flex items-center gap-2 text-sm font-semibold text-slate-500">
               <PlaneTakeoff className="h-4 w-4 text-ocean" />
-              Roundtrip fare
+              {freshness}
             </p>
             <h3 className="mt-1 text-xl font-black leading-tight tracking-normal text-ink">
-              {deal.from} to {deal.to}
+              {origin} to {destination}
             </h3>
           </div>
           <div className="shrink-0 text-right">
             <p className="text-xs font-semibold uppercase text-slate-400">From</p>
             <p className="text-3xl font-black text-gold">${deal.price}</p>
+            <p className="mt-1 text-[11px] font-black uppercase text-slate-400">Prices may change</p>
           </div>
+        </div>
+
+        <div className="inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-black text-ocean ring-1 ring-sky-100">
+          {qualityLabels[qualityTag]}
         </div>
 
         <p className="flex items-start gap-2 text-sm font-semibold leading-6 text-slateText">
@@ -92,7 +109,7 @@ export function DealCard({
         </div>
 
         <a
-          href={deal.booking_url}
+          href={outboundUrl}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() =>
@@ -103,17 +120,18 @@ export function DealCard({
               value: deal.price,
               params: {
                 airline: deal.airline,
-                destination: deal.to,
-                origin: deal.from,
-                route_or_destination: `${deal.from} to ${deal.to}`,
-                outbound_url: deal.booking_url
+                destination,
+                origin,
+                price: deal.price,
+                route_or_destination: `${origin} to ${destination}`,
+                outbound_url: outboundUrl
               }
             })
           }
           className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
-          aria-label={`Book ${deal.from} to ${deal.to} on ${deal.airline}`}
+          aria-label={`Check fares for ${origin} to ${destination}`}
         >
-          View Fare
+          Check Fares
           <ArrowRight className="h-4 w-4" />
         </a>
       </div>

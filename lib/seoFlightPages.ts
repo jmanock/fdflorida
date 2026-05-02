@@ -1,4 +1,4 @@
-import { deals, type FlightDeal } from "@/data/deals";
+import { createFlightSearchUrl, deals, type FlightDeal } from "@/data/deals";
 
 export type SeoFlightPage = {
   slug: string;
@@ -14,19 +14,8 @@ export type SeoFlightPage = {
   relatedSlugs: string[];
 };
 
-function googleFlightsUrl(from: string, to: string) {
-  return `https://www.google.com/travel/flights?q=${encodeURIComponent(`Flights from ${from} to ${to}`)}`;
-}
-
-function withSearchUrl(deal: FlightDeal): FlightDeal {
-  return {
-    ...deal,
-    booking_url: googleFlightsUrl(deal.from, deal.to)
-  };
-}
-
 function findDeals(ids: string[]) {
-  return ids.map((id) => deals.find((deal) => deal.id === id)).filter((deal): deal is FlightDeal => Boolean(deal)).map(withSearchUrl);
+  return ids.map((id) => deals.find((deal) => deal.id === id)).filter((deal): deal is FlightDeal => Boolean(deal));
 }
 
 const inboundFloridaDeals: FlightDeal[] = [
@@ -38,9 +27,14 @@ const inboundFloridaDeals: FlightDeal[] = [
     price: 89,
     dates: "Flexible dates",
     category: ["Orlando", "Domestic", "Under $99"],
-    booking_url: googleFlightsUrl("New York", "Orlando"),
+    booking_url: createFlightSearchUrl("New York", "Orlando"),
+    link: createFlightSearchUrl("New York", "Orlando"),
     image: "https://images.unsplash.com/photo-1597466599360-3b9775841aec?auto=format&fit=crop&w=900&q=80",
-    badge: "Under $99"
+    badge: "Under $99",
+    origin: "New York",
+    destination: "Orlando",
+    quality_tag: "Low Fare",
+    freshness: "Based on recent searches"
   },
   {
     id: "atl-mia-google-72",
@@ -50,9 +44,14 @@ const inboundFloridaDeals: FlightDeal[] = [
     price: 72,
     dates: "Flexible dates",
     category: ["Miami", "Domestic", "Under $99"],
-    booking_url: googleFlightsUrl("Atlanta", "Miami"),
+    booking_url: createFlightSearchUrl("Atlanta", "Miami"),
+    link: createFlightSearchUrl("Atlanta", "Miami"),
     image: "https://images.unsplash.com/photo-1572996045200-9ed403fb5396?auto=format&fit=crop&w=900&q=80",
-    badge: "Hot Deal"
+    badge: "Hot Deal",
+    origin: "Atlanta",
+    destination: "Miami",
+    quality_tag: "Low Fare",
+    freshness: "Based on recent searches"
   },
   {
     id: "ord-tpa-google-104",
@@ -62,9 +61,14 @@ const inboundFloridaDeals: FlightDeal[] = [
     price: 104,
     dates: "Flexible dates",
     category: ["Tampa", "Domestic"],
-    booking_url: googleFlightsUrl("Chicago", "Tampa"),
+    booking_url: createFlightSearchUrl("Chicago", "Tampa"),
+    link: createFlightSearchUrl("Chicago", "Tampa"),
     image: "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=900&q=80",
-    badge: "Weekend"
+    badge: "Weekend",
+    origin: "Chicago",
+    destination: "Tampa",
+    quality_tag: "Popular Route",
+    freshness: "Latest route deals"
   },
   {
     id: "bos-fll-google-98",
@@ -74,9 +78,14 @@ const inboundFloridaDeals: FlightDeal[] = [
     price: 98,
     dates: "Flexible dates",
     category: ["Fort Lauderdale", "Domestic", "Under $99"],
-    booking_url: googleFlightsUrl("Boston", "Fort Lauderdale"),
+    booking_url: createFlightSearchUrl("Boston", "Fort Lauderdale"),
+    link: createFlightSearchUrl("Boston", "Fort Lauderdale"),
     image: "https://images.unsplash.com/photo-1602011528362-d6fd7324d194?auto=format&fit=crop&w=900&q=80",
-    badge: "Under $99"
+    badge: "Under $99",
+    origin: "Boston",
+    destination: "Fort Lauderdale",
+    quality_tag: "Low Fare",
+    freshness: "Based on recent searches"
   },
   {
     id: "phl-jax-google-112",
@@ -86,9 +95,14 @@ const inboundFloridaDeals: FlightDeal[] = [
     price: 112,
     dates: "Flexible dates",
     category: ["Jacksonville", "Domestic"],
-    booking_url: googleFlightsUrl("Philadelphia", "Jacksonville"),
+    booking_url: createFlightSearchUrl("Philadelphia", "Jacksonville"),
+    link: createFlightSearchUrl("Philadelphia", "Jacksonville"),
     image: "https://images.unsplash.com/photo-1571771019784-3ff35f4f4277?auto=format&fit=crop&w=900&q=80",
-    badge: "Limited"
+    badge: "Limited",
+    origin: "Philadelphia",
+    destination: "Jacksonville",
+    quality_tag: "Good Deal",
+    freshness: "Updated daily"
   }
 ];
 

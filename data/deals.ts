@@ -11,19 +11,53 @@ export type DealCategory =
   | "Under $99";
 
 export type DealBadge = "Hot Deal" | "Weekend" | "International" | "Limited" | "Under $99";
+export type DealQualityTag = "Low Fare" | "Good Deal" | "Popular Route";
 
 export type FlightDeal = {
   id: string;
   airline: string;
   from: string;
   to: string;
+  origin?: string;
+  destination?: string;
   price: number;
   dates: string;
   category: DealCategory[];
   booking_url: string;
+  link?: string;
   image: string;
   badge: DealBadge;
+  quality_tag?: DealQualityTag;
+  freshness?: string;
 };
+
+export function createFlightSearchUrl(origin: string, destination: string) {
+  return `https://www.google.com/travel/flights?q=${encodeURIComponent(`${origin} to ${destination}`)}`;
+}
+
+function getDealQualityTag(deal: Pick<FlightDeal, "price" | "category">): DealQualityTag {
+  if (deal.price < 100) {
+    return "Low Fare";
+  }
+
+  if (deal.category.includes("Weekend") || deal.category.includes("International")) {
+    return "Popular Route";
+  }
+
+  return "Good Deal";
+}
+
+function getFreshnessSignal(deal: Pick<FlightDeal, "price" | "category">) {
+  if (deal.price < 100) {
+    return "Recent fare found";
+  }
+
+  if (deal.category.includes("Weekend")) {
+    return "Latest route deals";
+  }
+
+  return "Updated daily";
+}
 
 export const filters: DealCategory[] = [
   "All Deals",
@@ -37,7 +71,7 @@ export const filters: DealCategory[] = [
   "International"
 ];
 
-export const deals: FlightDeal[] = [
+const routeDeals: FlightDeal[] = [
   {
     id: "mco-den-frontier-58",
     airline: "Frontier",
@@ -351,3 +385,17 @@ export const deals: FlightDeal[] = [
     badge: "Hot Deal"
   }
 ];
+
+export const deals: FlightDeal[] = routeDeals.map((deal) => {
+  const link = createFlightSearchUrl(deal.from, deal.to);
+
+  return {
+    ...deal,
+    origin: deal.from,
+    destination: deal.to,
+    booking_url: link,
+    link,
+    quality_tag: deal.quality_tag ?? getDealQualityTag(deal),
+    freshness: deal.freshness ?? getFreshnessSignal(deal)
+  };
+});

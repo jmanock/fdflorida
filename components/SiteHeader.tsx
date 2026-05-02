@@ -17,24 +17,18 @@ export function SiteHeader() {
         </a>
 
         <nav className="hidden items-center gap-1 rounded-full border border-slate-200 bg-sand p-1 text-sm font-bold text-slateText lg:flex" aria-label="Primary navigation">
-          {networkLinks.map((item) => {
-            const opensNewTab = item.label !== "Flights";
-
-            return (
-              <a
-                key={item.label}
-                className={`rounded-full px-4 py-2 transition ${
-                  item.label === "Flights" ? "bg-white text-ink shadow-sm" : "hover:bg-white hover:text-ocean"
-                }`}
-                href={item.href}
-                target={opensNewTab ? "_blank" : undefined}
-                rel={opensNewTab ? "noopener noreferrer" : undefined}
-                aria-current={item.label === "Flights" ? "page" : undefined}
-              >
-                {item.label}
-              </a>
-            );
-          })}
+          {networkLinks.map((item) => (
+            <a
+              key={item.label}
+              className={`rounded-full px-4 py-2 transition ${
+                item.label === "Flights" ? "bg-white text-ink shadow-sm" : "hover:bg-white hover:text-ocean"
+              }`}
+              href={item.href}
+              aria-current={item.label === "Flights" ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         <a
