@@ -31,8 +31,21 @@ export type FlightDeal = {
   freshness?: string;
 };
 
+export type FlightSearchUrlParams = {
+  origin: string;
+  destination: string;
+  departDate?: string;
+  returnDate?: string;
+};
+
+export function getFlightSearchUrl({ origin, destination, departDate, returnDate }: FlightSearchUrlParams) {
+  const dateText = departDate && returnDate ? ` ${departDate} to ${returnDate}` : "";
+
+  return `https://www.google.com/travel/flights?q=${encodeURIComponent(`${origin} to ${destination}${dateText}`)}`;
+}
+
 export function createFlightSearchUrl(origin: string, destination: string) {
-  return `https://www.google.com/travel/flights?q=${encodeURIComponent(`${origin} to ${destination}`)}`;
+  return getFlightSearchUrl({ origin, destination });
 }
 
 function getDealQualityTag(deal: Pick<FlightDeal, "price" | "category">): DealQualityTag {

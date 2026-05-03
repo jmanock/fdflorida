@@ -22,18 +22,18 @@ const qualityLabels = {
 
 function getValueStatement(deal: FlightDeal) {
   if (deal.category.includes("Under $99")) {
-    return "A rare sub-$99 fare from a major Florida market.";
+    return "A recent sub-$99 fare find from a major Florida market.";
   }
 
   if (deal.category.includes("International")) {
-    return "A sharp international escape for flexible Florida travelers.";
+    return "A recent international fare example for flexible Florida travelers.";
   }
 
   if (deal.category.includes("Weekend")) {
-    return "Built for a quick long-weekend getaway.";
+    return "A route worth checking for quick long-weekend dates.";
   }
 
-  return "A strong fare worth checking before prices move.";
+  return "A recent fare find worth checking before prices move.";
 }
 
 export function DealCard({
@@ -88,9 +88,9 @@ export function DealCard({
             </h3>
           </div>
           <div className="shrink-0 text-right">
-            <p className="text-xs font-semibold uppercase text-slate-400">From</p>
-            <p className="text-3xl font-black text-gold">${deal.price}</p>
-            <p className="mt-1 text-[11px] font-black uppercase text-slate-400">Prices may change</p>
+            <p className="text-xs font-semibold uppercase text-slate-400">Recent fares</p>
+            <p className="text-3xl font-black text-gold">from ${deal.price}</p>
+            <p className="mt-1 text-[11px] font-black uppercase text-slate-400">When available</p>
           </div>
         </div>
 
@@ -123,8 +123,10 @@ export function DealCard({
                 destination,
                 origin,
                 price: deal.price,
+                price_text: `Recent fares from $${deal.price} when available`,
                 route_or_destination: `${origin} to ${destination}`,
-                outbound_url: outboundUrl
+                outbound_url: outboundUrl,
+                page_path: window.location.pathname
               }
             })
           }

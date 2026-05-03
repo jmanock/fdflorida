@@ -14,6 +14,11 @@ export type SeoFlightPage = {
   relatedSlugs: string[];
 };
 
+export type SeoFlightFaq = {
+  question: string;
+  answer: string;
+};
+
 function findDeals(ids: string[]) {
   return ids.map((id) => deals.find((deal) => deal.id === id)).filter((deal): deal is FlightDeal => Boolean(deal));
 }
@@ -229,4 +234,127 @@ export function getSeoFlightPage(slug: string) {
 
 export function getSeoFlightPageDeals(page: SeoFlightPage) {
   return page.customDeals ?? findDeals(page.dealIds ?? []);
+}
+
+const seoFlightFaqs: Record<string, SeoFlightFaq[]> = {
+  "orlando-flight-deals": [
+    {
+      question: "What airports serve Orlando flight deals?",
+      answer: "Most Orlando fare finds use Orlando International Airport, but Sanford can also be worth checking when your dates and driving plans are flexible."
+    },
+    {
+      question: "When is the best time to find cheap flights from Orlando?",
+      answer: "Flexible weekday travel, shoulder-season dates, and non-holiday weekends usually create the best chances to find lower Orlando fares."
+    },
+    {
+      question: "Are Orlando flight prices updated in real time?",
+      answer: "The page shows recent fare finds and route examples. Prices may change, so always check current availability before booking."
+    },
+    {
+      question: "Do fares from Sanford and Orlando International both count?",
+      answer: "This page focuses on the Orlando market. Most examples use Orlando International, but nearby Sanford can be useful for some Central Florida travelers."
+    }
+  ],
+  "miami-flight-deals": [
+    {
+      question: "What types of Miami flight deals are most common?",
+      answer: "Miami often has useful domestic, Caribbean, Latin America, and Europe fare examples because it is one of Florida's biggest international gateways."
+    },
+    {
+      question: "Should I compare Miami and Fort Lauderdale?",
+      answer: "Yes. Miami and Fort Lauderdale can price differently on similar trips, so South Florida travelers should compare both when timing and ground travel work."
+    },
+    {
+      question: "Can Miami fares change after they appear here?",
+      answer: "No. These are recent fare finds and route examples. Fares may change and seats may be limited."
+    }
+  ],
+  "tampa-flight-deals": [
+    {
+      question: "What routes are good for Tampa weekend flight deals?",
+      answer: "Tampa can be useful for Northeast, Midwest, Mexico, Caribbean, and short domestic getaway searches, especially with flexible weekend dates."
+    },
+    {
+      question: "How often should I check Tampa fares?",
+      answer: "Check regularly when you have flexible dates. Weekend fares can move quickly, especially around holidays and school breaks."
+    },
+    {
+      question: "Do Tampa fares include St. Pete travelers?",
+      answer: "This page focuses on Tampa Bay airfare. Travelers in the region may also compare nearby airports when schedules and total trip cost make sense."
+    }
+  ],
+  "fort-lauderdale-flight-deals": [
+    {
+      question: "Why check Fort Lauderdale flight deals?",
+      answer: "Fort Lauderdale can be a strong South Florida airport for domestic routes, budget carriers, Caribbean trips, and quick weekend fare examples."
+    },
+    {
+      question: "Is Fort Lauderdale sometimes cheaper than Miami?",
+      answer: "It can be. Prices vary by airline, route, fees, and dates, so compare both airports before booking South Florida trips."
+    },
+    {
+      question: "Are FLL fares updated in real time?",
+      answer: "The page uses recent fare finds and curated route examples. Check current availability through the fare links before making plans."
+    }
+  ],
+  "jacksonville-flight-deals": [
+    {
+      question: "What routes are common for Jacksonville flight deals?",
+      answer: "Jacksonville fare examples often center on domestic hub routes, East Coast cities, and weekend-friendly trips from North Florida."
+    },
+    {
+      question: "Can flexible dates help with JAX fares?",
+      answer: "Yes. Smaller markets can see wider price swings, so shifting by a day or two may make a meaningful difference."
+    },
+    {
+      question: "Should Jacksonville travelers compare other Florida airports?",
+      answer: "Sometimes. Compare total travel time, parking, baggage fees, and fare savings before choosing a different airport."
+    }
+  ],
+  "cheap-flights-from-orlando": [
+    {
+      question: "How do I find cheap flights from Orlando?",
+      answer: "Start with flexible dates, compare multiple airlines or travel searches, and check nearby route examples before prices move."
+    },
+    {
+      question: "Can these Orlando prices change?",
+      answer: "No. The page shows recent fare finds and examples. Fares may change and availability can vary."
+    },
+    {
+      question: "Which Orlando routes are worth checking first?",
+      answer: "Domestic weekend routes, Western U.S. cities, and selected international leisure routes are often worth checking first."
+    }
+  ],
+  "flights-to-florida-deals": [
+    {
+      question: "What Florida airports usually have the best fares?",
+      answer: "Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville can all have strong fares depending on origin city, dates, and season."
+    },
+    {
+      question: "Is it cheaper to fly into Orlando, Miami, Tampa, or Fort Lauderdale?",
+      answer: "It depends on your origin, trip dates, and final destination. Compare nearby Florida airports when ground travel is practical."
+    },
+    {
+      question: "When should I book flights to Florida?",
+      answer: "Check earlier for peak holidays, cruises, and school breaks. Flexible shoulder-season dates often have better fare opportunities."
+    }
+  ],
+  "weekend-flight-deals-florida": [
+    {
+      question: "What makes a good weekend flight deal from Florida?",
+      answer: "A useful weekend fare usually has reasonable flight times, manageable fees, and dates that work for a short trip."
+    },
+    {
+      question: "Are weekend fares from Florida updated in real time?",
+      answer: "These are recent fare finds and route ideas. Always check current availability before booking."
+    },
+    {
+      question: "How can I find cheaper weekend flights?",
+      answer: "Try shifting your trip by one day, comparing nearby airports, and checking both nonstop and one-stop routes."
+    }
+  ]
+};
+
+export function getSeoFlightPageFaqs(page: SeoFlightPage) {
+  return seoFlightFaqs[page.slug] ?? [];
 }

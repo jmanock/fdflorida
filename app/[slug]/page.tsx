@@ -6,12 +6,14 @@ import { DealCard } from "@/components/DealCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getSeoFlightPage, getSeoFlightPageDeals, seoFlightPageSlugs, type SeoFlightPage } from "@/lib/seoFlightPages";
-import { siteUrl } from "@/lib/siteLinks";
+import { getSeoFlightPage, getSeoFlightPageDeals, getSeoFlightPageFaqs, seoFlightPageSlugs, type SeoFlightPage } from "@/lib/seoFlightPages";
+import { flightSearchLinks, siteUrl } from "@/lib/siteLinks";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
+
+const lastUpdated = "May 2026";
 
 const sisterSites = [
   {
@@ -67,12 +69,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: page.description,
       type: "website",
       url: canonical,
-      siteName: "Florida Flight Deals"
+      siteName: "Florida Flight Deals",
+      images: [
+        {
+          url: "/icon.svg",
+          width: 512,
+          height: 512,
+          alt: "Florida Flight Deals"
+        }
+      ]
     },
     twitter: {
       card: "summary_large_image",
       title: page.title,
-      description: page.description
+      description: page.description,
+      images: ["/icon.svg"]
     }
   };
 }
@@ -87,17 +98,72 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
 
   const pageDeals = getSeoFlightPageDeals(page);
   const relatedPages = page.relatedSlugs.map(getSeoFlightPage).filter((item): item is SeoFlightPage => Boolean(item));
+  const faqs = getSeoFlightPageFaqs(page);
+  const relatedFlightLinks = [
+    ...relatedPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
+    ...flightSearchLinks.filter((link) => link.href !== `/${page.slug}` && !page.relatedSlugs.some((slug) => link.href === `/${slug}`))
+  ].slice(0, 5);
+  const relatedSearchLinks = [...relatedFlightLinks, { label: "Florida Hotel Deals", href: "https://hoteldealsflorida.org" }].slice(0, 6);
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: page.title,
-    url: `${siteUrl}/${page.slug}`,
-    description: page.description,
-    isPartOf: {
-      "@type": "WebSite",
-      name: "Florida Flight Deals",
-      url: siteUrl
-    }
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: page.title,
+        url: `${siteUrl}/${page.slug}`,
+        description: page.description,
+        dateModified: "2026-05-01",
+        isPartOf: {
+          "@type": "WebSite",
+          name: "Florida Flight Deals",
+          url: siteUrl
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Florida Flight Deals",
+            item: siteUrl
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: page.h1,
+            item: `${siteUrl}/${page.slug}`
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer
+          }
+        }))
+      },
+      {
+        "@type": "ItemList",
+        name: `${page.h1} route examples`,
+        itemListElement: pageDeals.map((deal, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: `${deal.origin ?? deal.from} to ${deal.destination ?? deal.to}`,
+          url: deal.link ?? deal.booking_url
+        }))
+      }
+    ]
   };
 
   return (
@@ -106,12 +172,24 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       <SiteHeader />
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
+        <nav className="mb-6 flex flex-wrap items-center gap-2 text-sm font-bold text-slateText" aria-label="Breadcrumb">
+          <Link className="transition hover:text-ocean" href="/">
+            Home
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link className="transition hover:text-ocean" href="/">
+            Florida Flight Deals
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span className="text-ink">{page.h1}</span>
+        </nav>
         <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3 py-1.5 text-sm font-black text-ocean shadow-sm">
               <Search className="h-4 w-4 text-gold" />
               {page.eyebrow}
             </div>
+            <p className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-slateText">Updated: {lastUpdated}</p>
             <h1 className="mt-6 max-w-3xl text-5xl font-black leading-[0.96] tracking-normal text-ink sm:text-6xl">
               {page.h1}
             </h1>
@@ -140,7 +218,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
               Prices may change and seats may be limited. View current fares through the linked airline or travel search before booking.
             </p>
             <div className="mt-5 space-y-3">
-              {["Latest fare finds", "Check current availability", "Florida-focused routes"].map((item) => (
+              {[`Updated: ${lastUpdated}`, "Recent fare finds", "Check current availability", "Fares may change"].map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-ocean" />
                   <span className="text-sm font-black text-ink">{item}</span>
@@ -174,7 +252,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
             <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Fare examples worth checking.</h2>
           </div>
           <p className="max-w-md text-sm font-semibold leading-6 text-slateText">
-            From prices are examples when available. Use the fare links to view current availability.
+            Updated: {lastUpdated}. Recent fares are examples when available. Use the fare links to check current availability.
           </p>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -186,20 +264,32 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Related searches</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Related Flight Searches</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Keep exploring Florida fares.</h2>
           <div className="mt-6 grid gap-3 md:grid-cols-3">
-            <Link className="rounded-2xl border border-slate-200 bg-sand p-4 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean" href="/">
-              Florida Flight Deals homepage
-            </Link>
-            {relatedPages.map((related) => (
-              <Link
-                key={related.slug}
+            {relatedSearchLinks.map((related) => (
+              <a
+                key={related.href}
                 className="rounded-2xl border border-slate-200 bg-sand p-4 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
-                href={`/${related.slug}`}
+                href={related.href}
               >
-                {related.h1}
-              </Link>
+                {related.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Flight deal FAQ</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Questions travelers ask before checking fares.</h2>
+          <div className="mt-7 grid gap-4 md:grid-cols-2">
+            {faqs.map((faq) => (
+              <article key={faq.question} className="rounded-3xl border border-slate-200 bg-sand p-5">
+                <h3 className="text-base font-black text-ink">{faq.question}</h3>
+                <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{faq.answer}</p>
+              </article>
             ))}
           </div>
         </div>

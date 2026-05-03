@@ -10,6 +10,7 @@ import { DealsExplorer } from "@/components/DealsExplorer";
 import { NewsletterForm } from "@/components/NewsletterForm";
 
 const siteUrl = "https://flightdealsflorida.org";
+const lastUpdated = "May 2026";
 
 export const metadata: Metadata = {
   title: "Florida Flight Deals | Cheap Flights In & Out of Florida",
@@ -143,8 +144,9 @@ function RouteGraphic({ featuredDeal }: { featuredDeal: FlightDeal }) {
               <p className="mt-2 text-sm font-bold text-slateText">{featuredDeal.dates} roundtrip</p>
             </div>
             <div className="text-right">
-              <p className="text-xs font-black uppercase text-slate-400">From</p>
-              <p className="text-5xl font-black text-gold">${featuredDeal.price}</p>
+              <p className="text-xs font-black uppercase text-slate-400">Recent fares</p>
+              <p className="text-5xl font-black text-gold">from ${featuredDeal.price}</p>
+              <p className="mt-1 text-[11px] font-black uppercase text-slate-400">When available</p>
             </div>
           </div>
 
@@ -161,7 +163,7 @@ function RouteGraphic({ featuredDeal }: { featuredDeal: FlightDeal }) {
         </div>
 
         <div className="mt-5 grid grid-cols-3 gap-3">
-          {["Updated Daily", "No Spam", "100% Free Alerts"].map((item) => (
+          {["Updated regularly", "Fares may change", "Check availability"].map((item) => (
             <div key={item} className="rounded-2xl border border-slate-200 bg-white/80 p-3 text-center shadow-sm">
               <CheckCircle2 className="mx-auto h-4 w-4 text-ocean" />
               <p className="mt-2 text-xs font-black leading-4 text-ink">{item}</p>
@@ -180,20 +182,34 @@ export default function Home() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Florida Flight Deals",
-    url: siteUrl,
-    description:
-      "Find cheap flights to and from Florida with daily airfare deals from Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and more.",
-    publisher: {
-      "@type": "Organization",
-      name: "Florida Deals Hub"
-    },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${siteUrl}/?q={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        name: "Florida Flight Deals",
+        url: siteUrl,
+        description:
+          "Find cheap flights to and from Florida with daily airfare deals from Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and more.",
+        publisher: {
+          "@type": "Organization",
+          name: "Florida Deals Hub"
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${siteUrl}/?q={search_term_string}`,
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "ItemList",
+        name: "Florida Flight Deals fare examples",
+        itemListElement: deals.slice(0, 12).map((deal, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: `${deal.origin ?? deal.from} to ${deal.destination ?? deal.to}`,
+          url: deal.link ?? deal.booking_url
+        }))
+      }
+    ]
   };
 
   return (
@@ -244,6 +260,7 @@ export default function Home() {
             <Sparkles className="h-4 w-4 text-gold" />
             Part of Florida Deals Hub
           </div>
+          <p className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-slateText">Updated: {lastUpdated}</p>
           <h1 className="mt-6 max-w-3xl text-5xl font-black leading-[0.96] tracking-normal text-ink sm:text-6xl lg:text-7xl">
             Cheap Flights In & Out of Florida
           </h1>
@@ -290,9 +307,32 @@ export default function Home() {
       </section>
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-card sm:p-6">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Popular Florida Flight Searches</p>
+              <h2 className="mt-2 text-2xl font-black tracking-normal text-ink">Quick routes and city pages to check next.</h2>
+            </div>
+            <p className="text-sm font-semibold text-slateText">Updated: {lastUpdated}. Fares may change fast.</p>
+          </div>
+          <nav className="mt-5 flex flex-wrap gap-2" aria-label="Popular Florida flight searches">
+            {flightSearchLinks.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="rounded-full border border-slate-200 bg-sand px-3 py-2 text-xs font-black text-slateText transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Featured deals</p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Featured deals · Updated {lastUpdated}</p>
             <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">The first three fares to check today.</h2>
           </div>
           <a href="#deals" className="inline-flex items-center gap-2 text-sm font-black text-ocean transition hover:text-ink">
@@ -423,6 +463,7 @@ export default function Home() {
               <p className="mt-1 max-w-md text-sm font-medium leading-6 text-slateText">
                 Cheap flights in and out of Florida. Part of Florida Deals Hub.
               </p>
+              <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] text-slateText">Updated: {lastUpdated}</p>
             </div>
           </div>
           <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText sm:grid-cols-3" aria-label="Footer navigation">
