@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { cityFlightPageSlugs } from "@/lib/cityFlightPages";
 import { seoFlightPageSlugs } from "@/lib/seoFlightPages";
 
 const siteUrl = "https://flightdealsflorida.org";
@@ -10,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
     priority: 0.8
   }));
+  const cityFlightPages = cityFlightPageSlugs.map((slug) => ({
+    url: `${siteUrl}/flights/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.85
+  }));
 
   return [
     {
@@ -18,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 1
     },
+    ...cityFlightPages,
     ...flightPages,
     {
       url: `${siteUrl}/about`,

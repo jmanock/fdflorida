@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight, Bell, Building2, CheckCircle2, Compass, Hotel, MapPinned, Plane, Sailboat, Sparkles, Sun, Ticket, WalletCards } from "lucide-react";
 import { deals, type FlightDeal } from "@/data/deals";
+import { getBookingSearchUrl } from "@/lib/booking";
+import { cityFlightPages } from "@/lib/cityFlightPages";
 import { getFeaturedStats } from "@/lib/deals";
 import { getTrustedDealImage } from "@/lib/dealImages";
-import { flightSearchLinks } from "@/lib/siteLinks";
+import { cityFlightLinks, flightSearchLinks } from "@/lib/siteLinks";
 import { DealCard } from "@/components/DealCard";
 import { DealsExplorer } from "@/components/DealsExplorer";
+import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
 
 const siteUrl = "https://flightdealsflorida.org";
@@ -272,7 +275,7 @@ export default function Home() {
               href="#deals"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-6 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
             >
-              View Deals
+              View Flights
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
@@ -316,7 +319,7 @@ export default function Home() {
             <p className="text-sm font-semibold text-slateText">Updated: {lastUpdated}. Fares may change fast.</p>
           </div>
           <nav className="mt-5 flex flex-wrap gap-2" aria-label="Popular Florida flight searches">
-            {flightSearchLinks.map((item) => (
+            {[...cityFlightLinks, ...flightSearchLinks].map((item) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -326,6 +329,41 @@ export default function Home() {
               </a>
             ))}
           </nav>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Popular Florida Destinations</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Plan the flight and the stay together.</h2>
+          </div>
+          <p className="max-w-md text-sm font-semibold leading-6 text-slateText">
+            Compare current flight searches, then check Booking.com hotel options for current availability.
+          </p>
+        </div>
+        <div className="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {cityFlightPages.map((destination) => (
+            <article key={destination.slug} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card">
+              <h3 className="text-xl font-black text-ink">{destination.city}</h3>
+              <p className="mt-2 text-sm font-semibold leading-6 text-slateText">Flights, hotels, and local trip ideas for {destination.city}.</p>
+              <div className="mt-5 grid gap-2">
+                <a
+                  href={`/flights/${destination.slug}`}
+                  className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-200"
+                >
+                  View Flights
+                </a>
+                <HotelCtaLink
+                  href={getBookingSearchUrl(destination.hotelLocation)}
+                  location={destination.hotelLocation}
+                  className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-4 text-sm font-black text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-ocean hover:bg-sky-50 hover:text-gulf hover:shadow-card focus:outline-none focus:ring-4 focus:ring-sky-200"
+                >
+                  Check Hotels
+                </HotelCtaLink>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -486,7 +524,7 @@ export default function Home() {
           <div className="border-t border-slate-200 pt-7 md:col-span-2">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-ocean">Popular Flight Searches</p>
             <nav className="mt-4 flex flex-wrap gap-2" aria-label="Popular flight searches">
-              {flightSearchLinks.map((item) => (
+              {[...cityFlightLinks, ...flightSearchLinks].map((item) => (
                 <a
                   key={item.href}
                   href={item.href}

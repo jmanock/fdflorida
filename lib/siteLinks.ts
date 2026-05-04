@@ -18,3 +18,10 @@ export const flightSearchLinks = [
   { label: "Flights To Florida Deals", href: "/flights-to-florida-deals" },
   { label: "Weekend Flight Deals Florida", href: "/weekend-flight-deals-florida" }
 ];
+
+export const cityFlightLinks = [
+  { label: "Cheap Flights to Orlando", href: "/flights/orlando" },
+  { label: "Cheap Flights to Miami", href: "/flights/miami" },
+  { label: "Cheap Flights to Tampa", href: "/flights/tampa" },
+  { label: "Cheap Flights to Fort Lauderdale", href: "/flights/fort-lauderdale" }
+];

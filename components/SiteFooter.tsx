@@ -1,5 +1,5 @@
 import { Plane } from "lucide-react";
-import { flightSearchLinks, networkLinks } from "@/lib/siteLinks";
+import { cityFlightLinks, flightSearchLinks, networkLinks } from "@/lib/siteLinks";
 
 const footerLinks = [
   ...networkLinks.map((item) => ({ label: item.label === "Flights" ? "Flight Deals" : item.label, href: item.href })),
@@ -36,7 +36,7 @@ export function SiteFooter() {
         <div className="border-t border-slate-200 pt-7 md:col-span-2">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-ocean">Popular Flight Searches</p>
           <nav className="mt-4 flex flex-wrap gap-2" aria-label="Popular flight searches">
-            {flightSearchLinks.map((item) => (
+            {[...cityFlightLinks, ...flightSearchLinks].map((item) => (
               <a
                 key={item.href}
                 href={item.href}

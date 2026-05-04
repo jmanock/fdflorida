@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, CalendarDays, PlaneTakeoff, Sparkles, Tag } from "lucide-react";
+import { ArrowRight, CalendarDays, Hotel, PlaneTakeoff, Sparkles, Tag } from "lucide-react";
 import type { FlightDeal } from "@/data/deals";
+import { getBookingSearchUrl, getHotelLocationForRoute } from "@/lib/booking";
 import { getTrustedDealImage } from "@/lib/dealImages";
 import { trackEvent } from "@/lib/analytics";
+import { HotelCtaLink } from "@/components/HotelCtaLink";
 
 const badgeStyles = {
   "Hot Deal": "bg-gold/10 text-amber-700 ring-amber-200",
@@ -48,6 +50,8 @@ export function DealCard({
   const origin = deal.origin ?? deal.from;
   const destination = deal.destination ?? deal.to;
   const outboundUrl = deal.link ?? deal.booking_url;
+  const hotelLocation = getHotelLocationForRoute(origin, destination);
+  const hotelUrl = getBookingSearchUrl(hotelLocation);
   const qualityTag = deal.quality_tag ?? "Good Deal";
   const freshness = deal.freshness ?? "Updated daily";
 
@@ -124,6 +128,8 @@ export function DealCard({
                 origin,
                 price: deal.price,
                 price_text: `Recent fares from $${deal.price} when available`,
+                type: "flight",
+                provider: "google_flights",
                 route_or_destination: `${origin} to ${destination}`,
                 outbound_url: outboundUrl,
                 page_path: window.location.pathname
@@ -133,9 +139,22 @@ export function DealCard({
           className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
           aria-label={`Check fares for ${origin} to ${destination}`}
         >
-          Check Fares
+          View Flights
           <ArrowRight className="h-4 w-4" />
         </a>
+        <HotelCtaLink
+          href={hotelUrl}
+          location={hotelLocation}
+          className="flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-4 text-sm font-black text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-ocean hover:bg-sky-50 hover:text-gulf hover:shadow-card focus:outline-none focus:ring-4 focus:ring-sky-200"
+        >
+          <Hotel className="h-4 w-4" />
+          Check Hotels
+        </HotelCtaLink>
+        <div className="space-y-1 text-xs font-bold leading-5 text-slate-500">
+          <p>✓ Free cancellation on most hotels</p>
+          <p>✓ No booking fees</p>
+          <p>✓ Verified prices</p>
+        </div>
       </div>
     </article>
   );
