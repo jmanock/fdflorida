@@ -6,7 +6,7 @@ import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getBookingSearchUrl } from "@/lib/booking";
+import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { cityFlightPageSlugs, getCityFlightPage } from "@/lib/cityFlightPages";
 import { siteUrl } from "@/lib/siteLinks";
 
@@ -68,7 +68,8 @@ export default async function CityFlightPage({ params }: PageProps) {
     notFound();
   }
 
-  const hotelUrl = getBookingSearchUrl(page.hotelLocation);
+  const destinationKey = getDestinationKey(page.hotelLocation);
+  const hotelUrl = getExpediaHotelLink(destinationKey);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "TravelAction",
@@ -102,10 +103,11 @@ export default async function CityFlightPage({ params }: PageProps) {
             <HotelCtaLink
               href={hotelUrl}
               location={page.hotelLocation}
+              destinationKey={destinationKey}
               className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-6 text-sm font-black text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-ocean hover:bg-sky-50 hover:text-gulf hover:shadow-card focus:outline-none focus:ring-4 focus:ring-sky-200"
             >
               <Hotel className="h-4 w-4" />
-              Compare Hotels
+              Compare Hotel Rates
             </HotelCtaLink>
           </div>
         </div>
@@ -140,24 +142,48 @@ export default async function CityFlightPage({ params }: PageProps) {
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Need a hotel after your flight?</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Compare destination hotels before rates change.</h2>
+          <p className="mt-4 max-w-3xl text-base font-medium leading-8 text-slateText">
+            Planning a weekend trip or longer Florida getaway? Flight fares and hotel rates can change quickly. Check current hotel availability near {page.city} before booking.
+          </p>
+          <HotelCtaLink
+            href={hotelUrl}
+            location={page.hotelLocation}
+            destinationKey={destinationKey}
+            className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-6 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
+          >
+            <Hotel className="h-4 w-4" />
+            Find Places To Stay
+          </HotelCtaLink>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Complete Your Trip</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Flights are only the start.</h2>
-          <div className="mt-7 grid gap-4 md:grid-cols-3">
+          <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <HotelCtaLink
               href={hotelUrl}
               location={page.hotelLocation}
+              destinationKey={destinationKey}
               className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
             >
               <Hotel className="mb-4 h-5 w-5 text-gold" />
-              Find Hotels
+              Check destination hotels
             </HotelCtaLink>
+            <a className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean" href="https://hoteldealsflorida.org">
+              <Hotel className="mb-4 h-5 w-5 text-gold" />
+              Browse Florida hotel deals
+            </a>
             <a className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean" href="https://cruisedealsflorida.org">
               <Sailboat className="mb-4 h-5 w-5 text-gold" />
-              Find Cruises
+              Explore Florida cruise deals
             </a>
             <a className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean" href="https://localdealsflorida.org">
               <MapPinned className="mb-4 h-5 w-5 text-gold" />
-              Local Deals
+              Find local Florida deals
             </a>
           </div>
           <div className="mt-6 space-y-1 text-sm font-bold leading-6 text-slateText">

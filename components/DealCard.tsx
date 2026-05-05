@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowRight, CalendarDays, Hotel, PlaneTakeoff, Sparkles, Tag } from "lucide-react";
 import type { FlightDeal } from "@/data/deals";
-import { getBookingSearchUrl, getHotelLocationForRoute } from "@/lib/booking";
+import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { getTrustedDealImage } from "@/lib/dealImages";
 import { trackEvent } from "@/lib/analytics";
 import { HotelCtaLink } from "@/components/HotelCtaLink";
@@ -50,8 +50,8 @@ export function DealCard({
   const origin = deal.origin ?? deal.from;
   const destination = deal.destination ?? deal.to;
   const outboundUrl = deal.link ?? deal.booking_url;
-  const hotelLocation = getHotelLocationForRoute(origin, destination);
-  const hotelUrl = getBookingSearchUrl(hotelLocation);
+  const destinationKey = getDestinationKey(destination);
+  const hotelUrl = getExpediaHotelLink(destinationKey);
   const qualityTag = deal.quality_tag ?? "Good Deal";
   const freshness = deal.freshness ?? "Updated daily";
 
@@ -144,11 +144,12 @@ export function DealCard({
         </a>
         <HotelCtaLink
           href={hotelUrl}
-          location={hotelLocation}
+          location={destination}
+          destinationKey={destinationKey}
           className="flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-4 text-sm font-black text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-ocean hover:bg-sky-50 hover:text-gulf hover:shadow-card focus:outline-none focus:ring-4 focus:ring-sky-200"
         >
           <Hotel className="h-4 w-4" />
-          Check Hotels
+          Find {destination} Hotels
         </HotelCtaLink>
         <div className="space-y-1 text-xs font-bold leading-5 text-slate-500">
           <p>✓ Free cancellation on most hotels</p>

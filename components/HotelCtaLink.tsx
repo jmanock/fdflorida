@@ -5,11 +5,13 @@ import { trackEvent } from "@/lib/analytics";
 export function HotelCtaLink({
   href,
   location,
+  destinationKey,
   className,
   children
 }: {
   href: string;
   location: string;
+  destinationKey: string;
   className: string;
   children: React.ReactNode;
 }) {
@@ -21,8 +23,8 @@ export function HotelCtaLink({
       onClick={() => {
         const params = {
           type: "hotel",
-          provider: "booking",
-          location: location.toLowerCase(),
+          provider: "expedia",
+          destination_key: destinationKey,
           outbound_url: href,
           page_path: window.location.pathname
         };
@@ -34,7 +36,7 @@ export function HotelCtaLink({
           params
         });
         trackEvent({
-          action: "hotel_click",
+          action: "hotel_booking_click",
           category: "hotels",
           label: location,
           params

@@ -27,6 +27,56 @@ The site automatically loads GA when this value is present and tracks:
 - `newsletter_signup_success`
 - `deal_click`
 - `filter_click`
+- `hotel_booking_click`
+- `navigation_click`
+
+Hotel affiliate clicks use `hotel_booking_click` with:
+
+```json
+{
+  "site": "flightdealsflorida.org",
+  "source": "flights",
+  "provider": "expedia",
+  "destination_key": "orlando",
+  "page_path": "/flights/orlando",
+  "outbound_url": "https://expedia.com/affiliate/2Wbjdi2"
+}
+```
+
+## Expedia Affiliate Links
+
+Expedia hotel affiliate links live in:
+
+```text
+lib/affiliateLinks.ts
+```
+
+The current base link is:
+
+```text
+https://expedia.com/affiliate/2Wbjdi2
+```
+
+All Expedia hotel CTAs must go through:
+
+```ts
+getExpediaHotelLink(destinationKey)
+```
+
+When Expedia Creator Hub provides destination-specific deep links, replace the matching entries inside `expediaDestinationLinks` in `lib/affiliateLinks.ts`. Do not paste Expedia URLs directly into components.
+
+Available destination keys:
+
+```text
+orlando
+miami
+tampa
+fortLauderdale
+jacksonville
+denver
+newYork
+cancun
+```
 
 ### Newsletter Provider
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight, Bell, Building2, CheckCircle2, Compass, Hotel, MapPinned, Plane, Sailboat, Sparkles, Sun, Ticket, WalletCards } from "lucide-react";
 import { deals, type FlightDeal } from "@/data/deals";
-import { getBookingSearchUrl } from "@/lib/booking";
+import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { cityFlightPages } from "@/lib/cityFlightPages";
 import { getFeaturedStats } from "@/lib/deals";
 import { getTrustedDealImage } from "@/lib/dealImages";
@@ -339,7 +339,7 @@ export default function Home() {
             <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Plan the flight and the stay together.</h2>
           </div>
           <p className="max-w-md text-sm font-semibold leading-6 text-slateText">
-            Compare current flight searches, then check Booking.com hotel options for current availability.
+            Compare current flight searches, then check Expedia hotel options for current rates and availability.
           </p>
         </div>
         <div className="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -355,8 +355,9 @@ export default function Home() {
                   View Flights
                 </a>
                 <HotelCtaLink
-                  href={getBookingSearchUrl(destination.hotelLocation)}
+                  href={getExpediaHotelLink(getDestinationKey(destination.hotelLocation))}
                   location={destination.hotelLocation}
+                  destinationKey={getDestinationKey(destination.hotelLocation)}
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-4 text-sm font-black text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-ocean hover:bg-sky-50 hover:text-gulf hover:shadow-card focus:outline-none focus:ring-4 focus:ring-sky-200"
                 >
                   Check Hotels
@@ -532,8 +533,11 @@ export default function Home() {
                 >
                   {item.label}
                 </a>
-              ))}
-            </nav>
+            ))}
+          </nav>
+          <p className="mt-5 max-w-3xl text-xs font-semibold leading-5 text-slateText">
+            Florida Deals Hub may earn a commission when you book through some links. This helps keep our deal alerts free.
+          </p>
           </div>
         </div>
       </footer>

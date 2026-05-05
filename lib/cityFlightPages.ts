@@ -106,7 +106,7 @@ export const cityFlightPages: CityFlightPage[] = [
     sections: [
       "For 2026 Fort Lauderdale flight searches, compare FLL with Miami before booking. Some routes price better into Fort Lauderdale, while others may be cheaper or more convenient through Miami. The best choice depends on total travel time, hotel location, bags, rental car costs, and whether the trip is built around beaches, cruises, or family visits.",
       "FLL fare examples can change quickly because many routes are leisure-heavy and date-sensitive. Weekend trips, school breaks, cruise dates, and winter travel can all affect availability. Use the route examples as a way to open useful searches, then check current fares and final booking terms directly before committing.",
-      "Once flights are checked, hotel location becomes important. Beachfront stays, Las Olas, airport hotels, and cruise-friendly hotels serve different travel plans. This page connects flight searches with Booking.com hotel searches, Florida Cruise Deals, Local Florida Deals, and the broader Florida Deals Hub network."
+      "Once flights are checked, hotel location becomes important. Beachfront stays, Las Olas, airport hotels, and cruise-friendly hotels serve different travel plans. This page connects flight searches with Expedia hotel options, Florida Cruise Deals, Local Florida Deals, and the broader Florida Deals Hub network."
     ],
     hotelLocation: "Fort Lauderdale",
     deals: [

@@ -3,9 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Building2, CheckCircle2, Hotel, Plane, Sailboat, Search, Ticket } from "lucide-react";
 import { DealCard } from "@/components/DealCard";
+import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { getSeoFlightPage, getSeoFlightPageDeals, getSeoFlightPageFaqs, seoFlightPageSlugs, type SeoFlightPage } from "@/lib/seoFlightPages";
 import { flightSearchLinks, siteUrl } from "@/lib/siteLinks";
 
@@ -97,6 +99,9 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   }
 
   const pageDeals = getSeoFlightPageDeals(page);
+  const primaryHotelDestination = pageDeals[0]?.destination ?? pageDeals[0]?.to ?? "Orlando";
+  const primaryHotelDestinationKey = getDestinationKey(primaryHotelDestination);
+  const floridaHotelDestinations = ["Orlando", "Miami", "Tampa", "Fort Lauderdale", "Jacksonville"];
   const relatedPages = page.relatedSlugs.map(getSeoFlightPage).filter((item): item is SeoFlightPage => Boolean(item));
   const faqs = getSeoFlightPageFaqs(page);
   const relatedFlightLinks = [
@@ -259,6 +264,75 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
           {pageDeals.map((deal, index) => (
             <DealCard key={deal.id} deal={deal} priority={index === 0} />
           ))}
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Need a hotel after your flight?</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Compare destination hotels before rates change.</h2>
+          <p className="mt-4 max-w-3xl text-base font-medium leading-8 text-slateText">
+            Planning a weekend trip? Flight fares and hotel rates can change quickly. Compare destination hotels and check current availability before booking.
+          </p>
+          <HotelCtaLink
+            href={getExpediaHotelLink(primaryHotelDestinationKey)}
+            location={primaryHotelDestination}
+            destinationKey={primaryHotelDestinationKey}
+            className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-6 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
+          >
+            <Hotel className="h-4 w-4" />
+            Check Hotels
+          </HotelCtaLink>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Florida City Hotel Links</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Turn your cheap flight into a full Florida getaway.</h2>
+          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {floridaHotelDestinations.map((destination) => {
+              const destinationKey = getDestinationKey(destination);
+
+              return (
+                <HotelCtaLink
+                  key={destination}
+                  href={getExpediaHotelLink(destinationKey)}
+                  location={destination}
+                  destinationKey={destinationKey}
+                  className="rounded-2xl border border-slate-200 bg-sand p-4 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
+                >
+                  {destination} hotels
+                </HotelCtaLink>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Complete Your Trip</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Flights, hotels, cruises, and local plans in one flow.</h2>
+          <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <HotelCtaLink
+              href={getExpediaHotelLink(primaryHotelDestinationKey)}
+              location={primaryHotelDestination}
+              destinationKey={primaryHotelDestinationKey}
+              className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
+            >
+              Check destination hotels
+            </HotelCtaLink>
+            <a className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean" href="https://hoteldealsflorida.org">
+              Browse Florida hotel deals
+            </a>
+            <a className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean" href="https://cruisedealsflorida.org">
+              Explore Florida cruise deals
+            </a>
+            <a className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean" href="https://localdealsflorida.org">
+              Find local Florida deals
+            </a>
+          </div>
         </div>
       </section>
 

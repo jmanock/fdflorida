@@ -46,6 +46,9 @@ export function SiteFooter() {
               </a>
             ))}
           </nav>
+          <p className="mt-5 max-w-3xl text-xs font-semibold leading-5 text-slateText">
+            Florida Deals Hub may earn a commission when you book through some links. This helps keep our deal alerts free.
+          </p>
         </div>
       </div>
     </footer>
