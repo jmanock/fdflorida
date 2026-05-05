@@ -1,12 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, CalendarDays, Hotel, PlaneTakeoff, Sparkles, Tag } from "lucide-react";
+import { ArrowRight, CalendarDays, PlaneTakeoff, Sparkles, Tag } from "lucide-react";
 import type { FlightDeal } from "@/data/deals";
-import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { getTrustedDealImage } from "@/lib/dealImages";
 import { trackEvent } from "@/lib/analytics";
-import { HotelCtaLink } from "@/components/HotelCtaLink";
 
 const badgeStyles = {
   "Hot Deal": "bg-gold/10 text-amber-700 ring-amber-200",
@@ -38,6 +36,22 @@ function getValueStatement(deal: FlightDeal) {
   return "A recent fare find worth checking before prices move.";
 }
 
+function getWhyThisFare(deal: FlightDeal) {
+  if (deal.category.includes("Under $99")) {
+    return "Strong sub-$99 domestic fare.";
+  }
+
+  if (deal.category.includes("International")) {
+    return "Useful international fare example.";
+  }
+
+  if (deal.category.includes("Weekend")) {
+    return "Popular weekend getaway route.";
+  }
+
+  return "Good flexible-date route for Florida travelers.";
+}
+
 export function DealCard({
   deal,
   priority = false,
@@ -50,14 +64,13 @@ export function DealCard({
   const origin = deal.origin ?? deal.from;
   const destination = deal.destination ?? deal.to;
   const outboundUrl = deal.link ?? deal.booking_url;
-  const destinationKey = getDestinationKey(destination);
-  const hotelUrl = getExpediaHotelLink(destinationKey);
   const qualityTag = deal.quality_tag ?? "Good Deal";
   const freshness = deal.freshness ?? "Updated daily";
+  const ctaText = deal.price ? `View Flights From $${deal.price}` : "Check Current Fares";
 
   return (
     <article
-      className={`group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft ${
+      className={`group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft ${
         featured ? "ring-1 ring-sky-100" : ""
       }`}
     >
@@ -80,7 +93,7 @@ export function DealCard({
         </div>
       </div>
 
-      <div className="space-y-4 p-5">
+      <div className="flex flex-1 flex-col space-y-4 p-5">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
             <p className="flex items-center gap-2 text-sm font-semibold text-slate-500">
@@ -93,7 +106,7 @@ export function DealCard({
           </div>
           <div className="shrink-0 text-right">
             <p className="text-xs font-semibold uppercase text-slate-400">Recent fares</p>
-            <p className="text-3xl font-black text-gold">from ${deal.price}</p>
+            <p className="text-3xl font-black text-gulf">from ${deal.price}</p>
             <p className="mt-1 text-[11px] font-black uppercase text-slate-400">When available</p>
           </div>
         </div>
@@ -105,6 +118,10 @@ export function DealCard({
         <p className="flex items-start gap-2 text-sm font-semibold leading-6 text-slateText">
           <Tag className="mt-1 h-4 w-4 shrink-0 text-gold" />
           {getValueStatement(deal)}
+        </p>
+
+        <p className="rounded-xl bg-sky-50 px-3 py-2 text-sm font-black text-ink ring-1 ring-sky-100">
+          Why this fare? {getWhyThisFare(deal)}
         </p>
 
         <div className="flex items-center gap-2 rounded-xl bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-600">
@@ -128,6 +145,7 @@ export function DealCard({
                 origin,
                 price: deal.price,
                 price_text: `Recent fares from $${deal.price} when available`,
+                cta_text: ctaText,
                 type: "flight",
                 provider: "google_flights",
                 route_or_destination: `${origin} to ${destination}`,
@@ -136,26 +154,13 @@ export function DealCard({
               }
             })
           }
-          className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
+          className="mt-auto flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
           aria-label={`Check fares for ${origin} to ${destination}`}
         >
-          View Flights
+          {ctaText}
           <ArrowRight className="h-4 w-4" />
         </a>
-        <HotelCtaLink
-          href={hotelUrl}
-          location={destination}
-          destinationKey={destinationKey}
-          className="flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-4 text-sm font-black text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-ocean hover:bg-sky-50 hover:text-gulf hover:shadow-card focus:outline-none focus:ring-4 focus:ring-sky-200"
-        >
-          <Hotel className="h-4 w-4" />
-          Find {destination} Hotels
-        </HotelCtaLink>
-        <div className="space-y-1 text-xs font-bold leading-5 text-slate-500">
-          <p>✓ Free cancellation on most hotels</p>
-          <p>✓ No booking fees</p>
-          <p>✓ Verified prices</p>
-        </div>
+        <p className="text-xs font-bold leading-5 text-slate-500">Fares may change. Availability varies by date.</p>
       </div>
     </article>
   );

@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight, Bell, Building2, CheckCircle2, Compass, Hotel, MapPinned, Plane, Sailboat, Sparkles, Sun, Ticket, WalletCards } from "lucide-react";
 import { deals, type FlightDeal } from "@/data/deals";
-import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { cityFlightPages } from "@/lib/cityFlightPages";
 import { getFeaturedStats } from "@/lib/deals";
 import { getTrustedDealImage } from "@/lib/dealImages";
 import { cityFlightLinks, flightSearchLinks } from "@/lib/siteLinks";
 import { DealCard } from "@/components/DealCard";
 import { DealsExplorer } from "@/components/DealsExplorer";
-import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
 
 const siteUrl = "https://flightdealsflorida.org";
@@ -148,7 +146,7 @@ function RouteGraphic({ featuredDeal }: { featuredDeal: FlightDeal }) {
             </div>
             <div className="text-right">
               <p className="text-xs font-black uppercase text-slate-400">Recent fares</p>
-              <p className="text-5xl font-black text-gold">from ${featuredDeal.price}</p>
+              <p className="text-5xl font-black text-gulf">from ${featuredDeal.price}</p>
               <p className="mt-1 text-[11px] font-black uppercase text-slate-400">When available</p>
             </div>
           </div>
@@ -336,32 +334,24 @@ export default function Home() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Popular Florida Destinations</p>
-            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Plan the flight and the stay together.</h2>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Explore city fare pages.</h2>
           </div>
           <p className="max-w-md text-sm font-semibold leading-6 text-slateText">
-            Compare current flight searches, then check Expedia hotel options for current rates and availability.
+            Start with popular Florida destination pages, then compare current fares when your dates are ready.
           </p>
         </div>
         <div className="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {cityFlightPages.map((destination) => (
             <article key={destination.slug} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card">
               <h3 className="text-xl font-black text-ink">{destination.city}</h3>
-              <p className="mt-2 text-sm font-semibold leading-6 text-slateText">Flights, hotels, and local trip ideas for {destination.city}.</p>
-              <div className="mt-5 grid gap-2">
+              <p className="mt-2 text-sm font-semibold leading-6 text-slateText">Flight routes, fare tips, and current-search links for {destination.city}.</p>
+              <div className="mt-5">
                 <a
                   href={`/flights/${destination.slug}`}
                   className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-200"
                 >
                   View Flights
                 </a>
-                <HotelCtaLink
-                  href={getExpediaHotelLink(getDestinationKey(destination.hotelLocation))}
-                  location={destination.hotelLocation}
-                  destinationKey={getDestinationKey(destination.hotelLocation)}
-                  className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-4 text-sm font-black text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-ocean hover:bg-sky-50 hover:text-gulf hover:shadow-card focus:outline-none focus:ring-4 focus:ring-sky-200"
-                >
-                  Check Hotels
-                </HotelCtaLink>
               </div>
             </article>
           ))}
@@ -372,7 +362,10 @@ export default function Home() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Featured deals · Updated {lastUpdated}</p>
-            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">The first three fares to check today.</h2>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Featured fare finds from Florida airports.</h2>
+            <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slateText">
+              Fares are examples from recent searches. Prices and availability may change.
+            </p>
           </div>
           <a href="#deals" className="inline-flex items-center gap-2 text-sm font-black text-ocean transition hover:text-ink">
             Browse all deals
@@ -383,6 +376,23 @@ export default function Home() {
           {featuredDeals.map((deal, index) => (
             <DealCard key={deal.id} deal={deal} priority={index === 0} featured />
           ))}
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Need a place to stay after your flight?</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Browse Florida hotels for the full trip.</h2>
+          <p className="mt-3 max-w-3xl text-base font-medium leading-8 text-slateText">
+            Planning a full trip? Browse Florida Hotel Deals for stays, resorts, weekend getaways, and beach hotels.
+          </p>
+          <a
+            href="https://hoteldealsflorida.org"
+            className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-6 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
+          >
+            Browse Florida Hotel Deals
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </section>
 
