@@ -30,13 +30,7 @@ export function HotelCtaLink({
         };
 
         trackEvent({
-          action: "deal_click",
-          category: "hotels",
-          label: location,
-          params
-        });
-        trackEvent({
-          action: "hotel_booking_click",
+          action: "hotel_crosslink_click",
           category: "hotels",
           label: location,
           params

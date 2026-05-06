@@ -384,7 +384,7 @@ export default function Home() {
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Need a place to stay after your flight?</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Browse Florida hotels for the full trip.</h2>
           <p className="mt-3 max-w-3xl text-base font-medium leading-8 text-slateText">
-            Planning a full trip? Browse Florida Hotel Deals for stays, resorts, weekend getaways, and beach hotels.
+            Planning a full Florida trip? Browse Florida Hotel Deals for stays, resorts, weekend getaways, and beach hotels.
           </p>
           <a
             href="https://hoteldealsflorida.org"

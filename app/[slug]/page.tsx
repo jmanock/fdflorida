@@ -239,6 +239,12 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Route notes</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">What to know before checking fares.</h2>
           <p className="mt-4 text-base font-medium leading-8 text-slateText">{page.detail}</p>
+          <p className="mt-4 text-base font-medium leading-8 text-slateText">
+            Use this page as a focused starting point for current fare checks. Compare the airport market, route type, travel window, and airline or search source before booking. Flexible dates can help because airfare often moves around weekends, holidays, school breaks, cruise departures, and major events.
+          </p>
+          <p className="mt-4 text-base font-medium leading-8 text-slateText">
+            The fare cards below are recent fare examples, not fixed prices. Open the route search, confirm current fares with the booking source, review baggage and seat fees, and check whether nearby Florida airports create a better total trip value.
+          </p>
         </div>
         <div className="mt-7 grid gap-4 md:grid-cols-3">
           {page.tips.map((tip) => (

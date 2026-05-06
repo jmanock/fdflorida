@@ -27,10 +27,10 @@ The site automatically loads GA when this value is present and tracks:
 - `newsletter_signup_success`
 - `deal_click`
 - `filter_click`
-- `hotel_booking_click`
+- `hotel_crosslink_click`
 - `navigation_click`
 
-Hotel affiliate clicks use `hotel_booking_click` with:
+Page-level hotel cross-link clicks use `hotel_crosslink_click` with:
 
 ```json
 {

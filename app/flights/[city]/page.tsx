@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { cityFlightPageSlugs, getCityFlightPage } from "@/lib/cityFlightPages";
-import { siteUrl } from "@/lib/siteLinks";
+import { cityFlightLinks, flightSearchLinks, siteUrl } from "@/lib/siteLinks";
 
 type PageProps = {
   params: Promise<{ city: string }>;
@@ -70,6 +70,7 @@ export default async function CityFlightPage({ params }: PageProps) {
 
   const destinationKey = getDestinationKey(page.hotelLocation);
   const hotelUrl = getExpediaHotelLink(destinationKey);
+  const relatedFlightSearches = [...cityFlightLinks, ...flightSearchLinks].filter((link) => link.href !== `/flights/${page.slug}`).slice(0, 6);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "TravelAction",
@@ -137,6 +138,24 @@ export default async function CityFlightPage({ params }: PageProps) {
           {page.deals.map((deal, index) => (
             <DealCard key={deal.id} deal={deal} priority={index === 0} />
           ))}
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Related Flight Searches</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Keep comparing Florida fare pages.</h2>
+          <div className="mt-7 grid gap-3 md:grid-cols-3">
+            {relatedFlightSearches.map((link) => (
+              <a
+                key={link.href}
+                className="rounded-2xl border border-slate-200 bg-sand p-4 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 

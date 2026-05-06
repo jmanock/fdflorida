@@ -7,7 +7,7 @@ import { trackEvent } from "@/lib/analytics";
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [message, setMessage] = useState("Free alerts. No spam. Fares may change fast.");
+  const [message, setMessage] = useState("Free alerts. No spam. Flight fares can change quickly.");
   const [hasTrackedStart, setHasTrackedStart] = useState(false);
 
   function trackSignupStarted() {
@@ -69,7 +69,7 @@ export function NewsletterForm() {
       });
 
       setStatus("success");
-      setMessage("You’re in! Florida flight deals are on the way.");
+      setMessage("You’re in! Flight deals are on the way.");
       setEmail("");
     } catch (error) {
       setStatus("error");
