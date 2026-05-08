@@ -121,7 +121,7 @@ export const seoFlightPages: SeoFlightPage[] = [
     intro:
       "Find airfare deals from Orlando to popular domestic and international destinations. Browse current fare examples, weekend trip ideas, and cheap flights from Central Florida.",
     detail:
-      "Orlando is one of Florida's busiest leisure travel markets, which can create frequent fare movement on routes to the West, Northeast, Caribbean, and major weekend cities. Use these live fare examples as a starting point, then check current availability before booking.",
+      "Orlando is one of Florida's busiest leisure travel markets, which can create frequent fare movement on routes to the West, Northeast, Caribbean, and major weekend cities. Use these recent fare examples as a starting point, then check current availability before booking.",
     tips: ["Compare Orlando International and Sanford when your dates are flexible.", "Weekend fares can move quickly around holidays and school breaks.", "Check both nonstop and one-stop options for longer domestic routes."],
     dealIds: ["mco-den-frontier-58", "mco-san-southwest-115", "mco-cun-jetblue-172", "mco-sea-alaska-158", "mco-bna-spirit-64"],
     relatedSlugs: ["cheap-flights-from-orlando", "weekend-flight-deals-florida", "flights-to-florida-deals"]
@@ -223,6 +223,34 @@ export const seoFlightPages: SeoFlightPage[] = [
     tips: ["Shift your trip by one day when weekend fares look high.", "Check bag fees before comparing budget-airline weekend fares.", "Book only after confirming times, fees, and current availability."],
     dealIds: ["fll-atl-spirit-72", "tpa-nyc-jetblue-98", "mia-nyc-jetblue-79", "tpa-cun-southwest-119", "fll-las-frontier-96", "tpa-msy-southwest-79"],
     relatedSlugs: ["orlando-flight-deals", "miami-flight-deals", "tampa-flight-deals"]
+  },
+  {
+    slug: "cheap-weekend-getaway-flights",
+    title: "Cheap Weekend Getaway Flights | Florida Flight Deals",
+    description: "Find cheap weekend getaway flights from Florida with recent fare examples, flexible-date tips, and quick trip routes from major Florida airports.",
+    h1: "Cheap Weekend Getaway Flights",
+    eyebrow: "Short-trip fare finds",
+    intro:
+      "Cheap weekend getaway flights from Florida can work well when dates are flexible and travelers compare several airport markets. This page focuses on short-trip fare examples from Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville.",
+    detail:
+      "Weekend airfare can change quickly because many travelers search the same Thursday-to-Monday and Friday-to-Sunday windows. Routes to New York, Chicago, New Orleans, Cancun, Atlanta, Las Vegas, and other short-break destinations are useful starting points. Compare flight times, bag fees, and nearby airports before deciding whether a fare is actually a good fit for a quick trip.",
+    tips: ["Try shifting a weekend trip by one day to compare fares.", "Check early and late flights if you want to maximize a short getaway.", "Review baggage fees before choosing a budget fare."],
+    dealIds: ["tpa-nyc-jetblue-98", "fll-atl-spirit-72", "tpa-msy-southwest-79", "mia-nyc-jetblue-79", "fll-las-frontier-96", "fll-dca-jetblue-84"],
+    relatedSlugs: ["weekend-flight-deals-florida", "orlando-flight-deals", "flights-to-florida-deals"]
+  },
+  {
+    slug: "florida-airfare-deals",
+    title: "Florida Airfare Deals | Cheap Flights From Florida",
+    description: "Browse Florida airfare deals with recent fare examples from Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and other major Florida markets.",
+    h1: "Florida Airfare Deals",
+    eyebrow: "Statewide fare examples",
+    intro:
+      "Florida airfare deals can vary widely by airport, season, airline, and route. This page brings together recent fare examples across the state's biggest flight markets so travelers can compare routes before checking current fares.",
+    detail:
+      "Orlando, Miami, Fort Lauderdale, Tampa, and Jacksonville each behave differently. Orlando often has strong leisure routes, Miami and Fort Lauderdale can be useful for South Florida and international trips, Tampa works well for Gulf Coast getaways, and Jacksonville is important for North Florida travelers. Fares may change, so compare flexible dates and confirm details with the booking source before purchasing.",
+    tips: ["Compare multiple Florida airport markets when driving time is reasonable.", "Look at total trip cost, including bags, seats, and ground transportation.", "Use recent fare examples as route ideas, not fixed prices."],
+    dealIds: ["mco-den-frontier-58", "mia-nyc-jetblue-79", "tpa-cun-southwest-119", "fll-sju-spirit-88", "jax-phl-frontier-92", "mia-mad-iberia-412"],
+    relatedSlugs: ["orlando-flight-deals", "miami-flight-deals", "weekend-flight-deals-florida"]
   }
 ];
 
@@ -266,7 +294,7 @@ const seoFlightFaqs: Record<string, SeoFlightFaq[]> = {
     },
     {
       question: "Can Miami fares change after they appear here?",
-      answer: "No. These are recent fare finds and route examples. Fares may change and seats may be limited."
+      answer: "Yes. These are recent fare finds and route examples. Fares may change and seats may be limited."
     }
   ],
   "tampa-flight-deals": [
@@ -318,7 +346,7 @@ const seoFlightFaqs: Record<string, SeoFlightFaq[]> = {
     },
     {
       question: "Can these Orlando prices change?",
-      answer: "No. The page shows recent fare finds and examples. Fares may change and availability can vary."
+      answer: "Yes. The page shows recent fare finds and examples. Fares may change and availability can vary."
     },
     {
       question: "Which Orlando routes are worth checking first?",
@@ -351,6 +379,34 @@ const seoFlightFaqs: Record<string, SeoFlightFaq[]> = {
     {
       question: "How can I find cheaper weekend flights?",
       answer: "Try shifting your trip by one day, comparing nearby airports, and checking both nonstop and one-stop routes."
+    }
+  ],
+  "cheap-weekend-getaway-flights": [
+    {
+      question: "What cities are good for cheap weekend getaway flights from Florida?",
+      answer: "Popular weekend searches often include New York, Chicago, New Orleans, Atlanta, Las Vegas, Cancun, and short domestic routes with useful flight times."
+    },
+    {
+      question: "Are last-minute weekend flights usually cheaper?",
+      answer: "Not always. Last-minute fares can rise quickly, so flexible dates and nearby airport comparisons are usually more reliable than waiting."
+    },
+    {
+      question: "How can flexible dates help with weekend flights?",
+      answer: "Moving from Friday-to-Sunday to Thursday-to-Monday, or shifting by one day, can reveal different fare and schedule options."
+    }
+  ],
+  "florida-airfare-deals": [
+    {
+      question: "Which Florida airports should I compare for airfare deals?",
+      answer: "Orlando, Miami, Fort Lauderdale, Tampa, and Jacksonville are the main markets to compare, depending on your location and destination."
+    },
+    {
+      question: "Why do Florida airfare deals change so often?",
+      answer: "Demand, seasonality, airline inventory, holidays, cruise dates, and school breaks can all affect Florida fare movement."
+    },
+    {
+      question: "Should I compare domestic and international Florida routes together?",
+      answer: "It can help if your dates are flexible. Domestic weekend routes and international leisure routes often move differently."
     }
   ]
 };

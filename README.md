@@ -163,3 +163,109 @@ Payload:
 ```
 
 The server validates email, adds the signup source `flightdealsflorida.org`, and either forwards the subscriber to the configured provider or saves the signup to the local CSV fallback without exposing API keys to the frontend.
+
+## SEO Operations
+
+### Sitemap Strategy
+
+The sitemap is generated from:
+
+```text
+app/sitemap.ts
+```
+
+It should only include canonical HTTPS URLs on the non-www domain:
+
+```text
+https://flightdealsflorida.org
+```
+
+The sitemap combines the homepage, city guide pages from `lib/cityFlightPages.ts`, SEO landing pages from `lib/seoFlightPages.ts`, and core legal/contact pages. Add new public flight pages to the shared data files so they are picked up by the sitemap automatically.
+
+### Robots Strategy
+
+Robots rules live in:
+
+```text
+app/robots.ts
+```
+
+The current strategy allows crawling and references the canonical sitemap:
+
+```text
+User-agent: *
+Allow: /
+Sitemap: https://flightdealsflorida.org/sitemap.xml
+```
+
+Do not block flight SEO pages unless a page is intentionally removed from search.
+
+### Canonical Strategy
+
+Canonical URLs must be absolute, HTTPS, non-www, and self-referencing.
+
+- Homepage canonical is defined in `app/layout.tsx` and `app/page.tsx`.
+- SEO landing page canonicals are generated in `app/[slug]/page.tsx`.
+- City guide canonicals are generated in `app/flights/[city]/page.tsx`.
+
+Do not point all pages to the homepage. The canonical URL should match the URL in `app/sitemap.ts`.
+
+### Structured Data
+
+Global `Organization` and `WebSite` JSON-LD live in `app/layout.tsx`.
+
+Page-level schema is generated where the content exists:
+
+- `BreadcrumbList` for visible breadcrumbs
+- `FAQPage` for rendered FAQ sections
+- `ItemList` for flight route/deal cards
+- `TravelAction` for city guide pages
+
+Avoid `Offer`, `Product`, or guaranteed availability schema unless the source data is accurate enough to support it.
+
+### SEO Page Structure
+
+Primary SEO landing page content lives in:
+
+```text
+lib/seoFlightPages.ts
+```
+
+Each page should include:
+
+- unique title and meta description
+- H1 and intro copy
+- 250-400 words of useful page copy
+- relevant deal IDs
+- related page slugs
+- 3-5 FAQs
+- safe fare language such as "recent fare examples" and "fares may change"
+
+City guide content for `/flights/orlando`, `/flights/miami`, `/flights/tampa`, and `/flights/fort-lauderdale` lives in:
+
+```text
+lib/cityFlightPages.ts
+```
+
+### Adding New Flight Pages
+
+To safely add a new flight SEO page:
+
+1. Add the page object to `seoFlightPages` in `lib/seoFlightPages.ts`.
+2. Add matching FAQs in `seoFlightPageFaqs`.
+3. Add a descriptive internal link in `flightSearchLinks` inside `lib/siteLinks.ts`.
+4. Use real deal IDs from `data/deals.ts`.
+5. Run `npm run lint` and `npm run build`.
+6. Confirm the new URL appears in `/sitemap.xml`.
+
+### Adding New Flight Cards
+
+Flight cards live in:
+
+```text
+data/deals.ts
+```
+
+Each card should include origin, destination, airline/source, price when available, route-specific flight search URL, destination-relevant image, safe fare copy, and a clear CTA. Use `getFlightSearchUrl()` for flight links so route URLs can be swapped later without editing components.
+
+Use descriptive image alt text. Avoid mismatched destination images, placeholder links, guaranteed prices, and unsupported urgency.

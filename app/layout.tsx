@@ -5,6 +5,7 @@ import "./globals.css";
 
 const siteUrl = "https://flightdealsflorida.org";
 const GA_MEASUREMENT_ID = "G-6Y3PZJ046S";
+const defaultOgImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80";
 const globalStructuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -54,10 +55,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/icon.svg",
-        width: 512,
-        height: 512,
-        alt: "Florida Flight Deals"
+        url: defaultOgImage,
+        width: 1200,
+        height: 800,
+        alt: "Airplane wing above clouds for Florida flight deals"
       }
     ]
   },
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
     title: "Florida Flight Deals | Cheap Flights In & Out of Florida",
     description:
       "Daily airfare deals from Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and more.",
-    images: ["/icon.svg"]
+    images: [defaultOgImage]
   },
   robots: {
     index: true,

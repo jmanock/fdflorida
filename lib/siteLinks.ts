@@ -16,7 +16,9 @@ export const flightSearchLinks = [
   { label: "Jacksonville Flight Deals", href: "/jacksonville-flight-deals" },
   { label: "Cheap Flights From Orlando", href: "/cheap-flights-from-orlando" },
   { label: "Flights To Florida Deals", href: "/flights-to-florida-deals" },
-  { label: "Weekend Flight Deals Florida", href: "/weekend-flight-deals-florida" }
+  { label: "Weekend Flight Deals Florida", href: "/weekend-flight-deals-florida" },
+  { label: "Cheap Weekend Getaway Flights", href: "/cheap-weekend-getaway-flights" },
+  { label: "Florida Airfare Deals", href: "/florida-airfare-deals" }
 ];
 
 export const cityFlightLinks = [

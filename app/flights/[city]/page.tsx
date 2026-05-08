@@ -14,6 +14,8 @@ type PageProps = {
   params: Promise<{ city: string }>;
 };
 
+const ogImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80";
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -44,10 +46,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: "Florida Flight Deals",
       images: [
         {
-          url: "/icon.svg",
-          width: 512,
-          height: 512,
-          alt: page.h1
+          url: ogImage,
+          width: 1200,
+          height: 800,
+          alt: `${page.city} flight search travel view`
         }
       ]
     },
@@ -55,7 +57,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: page.title,
       description: page.description,
-      images: ["/icon.svg"]
+      images: [ogImage]
     }
   };
 }
@@ -73,12 +75,60 @@ export default async function CityFlightPage({ params }: PageProps) {
   const relatedFlightSearches = [...cityFlightLinks, ...flightSearchLinks].filter((link) => link.href !== `/flights/${page.slug}`).slice(0, 6);
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "TravelAction",
-    name: `Find Cheap Flights to ${page.city}`,
-    provider: {
-      "@type": "Organization",
-      name: "Florida Deals Hub"
-    }
+    "@graph": [
+      {
+        "@type": "TravelAction",
+        name: `Find Cheap Flights to ${page.city}`,
+        provider: {
+          "@type": "Organization",
+          name: "Florida Deals Hub"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Florida Flight Deals",
+            item: siteUrl
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: page.h1,
+            item: `${siteUrl}/flights/${page.slug}`
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: page.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer
+          }
+        }))
+      },
+      {
+        "@type": "ItemList",
+        name: `${page.city} flight route examples`,
+        itemListElement: page.deals.map((deal, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: `${deal.origin} to ${deal.destination}`,
+          url: deal.link ?? deal.booking_url
+        }))
+      }
+    ]
   };
 
   return (
@@ -88,6 +138,17 @@ export default async function CityFlightPage({ params }: PageProps) {
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
         <div className="max-w-4xl">
+          <nav aria-label="Breadcrumb" className="mb-5 text-sm font-bold text-slateText">
+            <a className="transition hover:text-ocean" href={siteUrl}>
+              Home
+            </a>
+            <span className="px-2 text-slate-300">/</span>
+            <a className="transition hover:text-ocean" href={siteUrl}>
+              Florida Flight Deals
+            </a>
+            <span className="px-2 text-slate-300">/</span>
+            <span className="text-ink">{page.h1}</span>
+          </nav>
           <p className="inline-flex rounded-full border border-sky-200 bg-white px-3 py-1.5 text-sm font-black text-ocean shadow-sm">
             Updated: May 2026
           </p>
@@ -161,6 +222,21 @@ export default async function CityFlightPage({ params }: PageProps) {
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Flight FAQs</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Helpful notes before checking fares.</h2>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {page.faqs.map((faq) => (
+              <article key={faq.question} className="rounded-3xl border border-slate-200 bg-sand p-5">
+                <h3 className="text-base font-black leading-6 text-ink">{faq.question}</h3>
+                <p className="mt-3 text-sm font-medium leading-6 text-slateText">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Need a hotel after your flight?</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Compare destination hotels before rates change.</h2>
           <p className="mt-4 max-w-3xl text-base font-medium leading-8 text-slateText">
@@ -206,9 +282,8 @@ export default async function CityFlightPage({ params }: PageProps) {
             </a>
           </div>
           <div className="mt-6 space-y-1 text-sm font-bold leading-6 text-slateText">
-            <p>✓ Free cancellation on most hotels</p>
-            <p>✓ No booking fees</p>
-            <p>✓ Verified prices</p>
+            <p>Flight fares and hotel rates may change.</p>
+            <p>Confirm current availability with the booking source.</p>
           </div>
         </div>
       </section>

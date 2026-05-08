@@ -8,6 +8,10 @@ export type CityFlightPage = {
   h1: string;
   intro: string;
   sections: string[];
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
   hotelLocation: string;
   deals: FlightDeal[];
 };
@@ -48,6 +52,20 @@ export const cityFlightPages: CityFlightPage[] = [
       "Travelers flying to Orlando should compare total trip cost, not only the ticket price. A low base fare can change once seats, bags, arrival time, rental car needs, and hotel location are included. If your trip includes theme parks, downtown Orlando, Winter Park, or Port Canaveral, hotel location can matter as much as airfare. Use the flight links to check availability, then compare hotels before locking in dates.",
       "Florida Flight Deals is part of Florida Deals Hub, which means the goal is not only finding airfare. The strongest trip planning flow is flights, then hotels, then local deals or cruises if your itinerary continues beyond Orlando. This page connects those next steps so visitors can move from fare discovery to a more complete Florida trip plan without hunting across unrelated sites."
     ],
+    faqs: [
+      {
+        question: "Which airports should I compare for Orlando flights?",
+        answer: "Orlando International Airport is usually the main airport to check, while Sanford can be useful for select routes and airlines. Compare total trip cost, schedule, bags, and ground transportation before booking."
+      },
+      {
+        question: "Do Orlando flight fares change often?",
+        answer: "Yes. Orlando fares can move around holidays, school breaks, events, and weekend travel windows, so confirm current pricing with the booking source."
+      },
+      {
+        question: "Can flexible dates help with Orlando flight deals?",
+        answer: "Flexible dates can help because a nearby departure or return day may price differently, especially for family travel, theme park trips, and long weekends."
+      }
+    ],
     hotelLocation: "Orlando",
     deals: [
       flightDeal("nyc-orlando-2026", "New York", "Orlando", 89),
@@ -67,6 +85,20 @@ export const cityFlightPages: CityFlightPage[] = [
       "For 2026 Miami flight searches, compare both fare price and arrival airport. Miami International is often strongest for international connections and South Florida city trips, while Fort Lauderdale can sometimes price better for beach weekends or budget-carrier routes. Recent fare examples help you decide which searches are worth opening, but current availability should always be checked before planning around a price.",
       "Miami trips can be especially sensitive to events, cruise departures, holidays, and winter demand. If your dates are flexible, check midweek departures, longer weekend windows, and nearby airports. A fare that looks higher at first may still be better if it lands at a more convenient time or avoids extra ground transportation. The best cheap flight is the one that keeps the full trip cost under control.",
       "After checking flights, compare hotels early. Miami Beach, Brickell, Downtown Miami, Coral Gables, and airport-area stays can serve very different trips. Florida Flight Deals connects flight searches with hotel options, cruise planning, and local deals so visitors can build the full trip from one travel network."
+    ],
+    faqs: [
+      {
+        question: "Should I compare Miami and Fort Lauderdale airports?",
+        answer: "Yes. Miami International and Fort Lauderdale can price differently depending on airline, schedule, bags, and final destination in South Florida."
+      },
+      {
+        question: "When do Miami flight prices usually move?",
+        answer: "Miami fares can change around cruise dates, winter demand, holidays, events, and weekend travel, so check current availability before planning around a fare example."
+      },
+      {
+        question: "Are Miami flight deals mostly domestic or international?",
+        answer: "Miami can be useful for both domestic and international routes, especially Caribbean, Latin America, South Florida weekend, and major U.S. city searches."
+      }
     ],
     hotelLocation: "Miami Beach",
     deals: [
@@ -88,6 +120,20 @@ export const cityFlightPages: CityFlightPage[] = [
       "When comparing cheap flights to Tampa, look closely at flight times and total trip needs. A slightly higher fare may be better if it lands closer to hotel check-in, cruise boarding, or beach plans. Budget fares should also be checked for bag rules, seat costs, and change terms. Prices may change quickly, so availability matters more than any single listed fare example.",
       "The best Tampa trip planning flow often includes flights, hotels, and local activities. Florida Flight Deals connects visitors to hotel searches, Florida Cruise Deals, and Local Florida Deals so a fare search can turn into a complete Gulf Coast plan."
     ],
+    faqs: [
+      {
+        question: "What airport should I use for Tampa flight deals?",
+        answer: "Tampa International is usually the primary airport, but Orlando or Sarasota may be worth comparing depending on your final Gulf Coast destination and rental car plans."
+      },
+      {
+        question: "Are Tampa weekend flights usually cheaper with flexible dates?",
+        answer: "Flexible dates can help because Tampa fares often shift around long weekends, spring travel, cruise departures, and beach-season demand."
+      },
+      {
+        question: "What should I check before booking a Tampa fare?",
+        answer: "Confirm current fare, baggage rules, seat costs, arrival time, and whether the airport works for your hotel, beach, or cruise plans."
+      }
+    ],
     hotelLocation: "Tampa",
     deals: [
       flightDeal("chicago-tampa-2026", "Chicago", "Tampa", 104),
@@ -107,6 +153,20 @@ export const cityFlightPages: CityFlightPage[] = [
       "For 2026 Fort Lauderdale flight searches, compare FLL with Miami before booking. Some routes price better into Fort Lauderdale, while others may be cheaper or more convenient through Miami. The best choice depends on total travel time, hotel location, bags, rental car costs, and whether the trip is built around beaches, cruises, or family visits.",
       "FLL fare examples can change quickly because many routes are leisure-heavy and date-sensitive. Weekend trips, school breaks, cruise dates, and winter travel can all affect availability. Use the route examples as a way to open useful searches, then check current fares and final booking terms directly before committing.",
       "Once flights are checked, hotel location becomes important. Beachfront stays, Las Olas, airport hotels, and cruise-friendly hotels serve different travel plans. This page connects flight searches with Expedia hotel options, Florida Cruise Deals, Local Florida Deals, and the broader Florida Deals Hub network."
+    ],
+    faqs: [
+      {
+        question: "Should I compare Fort Lauderdale and Miami flights?",
+        answer: "Yes. FLL and Miami can price differently by route, airline, and date, so compare both if your South Florida plans can work from either airport."
+      },
+      {
+        question: "Do Fort Lauderdale fares change quickly?",
+        answer: "Yes. FLL fares can shift around cruises, winter travel, school breaks, and weekend beach trips, so confirm current availability before booking."
+      },
+      {
+        question: "What kinds of trips are good for Fort Lauderdale flights?",
+        answer: "Fort Lauderdale is useful for beach weekends, cruise departures, Broward County trips, Miami alternatives, and travelers watching budget-carrier routes."
+      }
     ],
     hotelLocation: "Fort Lauderdale",
     deals: [

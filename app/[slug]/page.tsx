@@ -16,6 +16,7 @@ type PageProps = {
 };
 
 const lastUpdated = "May 2026";
+const ogImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80";
 
 const sisterSites = [
   {
@@ -74,10 +75,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: "Florida Flight Deals",
       images: [
         {
-          url: "/icon.svg",
-          width: 512,
-          height: 512,
-          alt: "Florida Flight Deals"
+          url: ogImage,
+          width: 1200,
+          height: 800,
+          alt: `${page.h1} flight travel preview`
         }
       ]
     },
@@ -85,7 +86,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: page.title,
       description: page.description,
-      images: ["/icon.svg"]
+      images: [ogImage]
     }
   };
 }
