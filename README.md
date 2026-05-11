@@ -223,7 +223,7 @@ Page-level schema is generated where the content exists:
 
 Avoid `Offer`, `Product`, or guaranteed availability schema unless the source data is accurate enough to support it.
 
-### SEO Page Structure
+### SEO Page Strategy
 
 Primary SEO landing page content lives in:
 
@@ -231,15 +231,23 @@ Primary SEO landing page content lives in:
 lib/seoFlightPages.ts
 ```
 
-Each page should include:
+Each market or deal page should include:
 
 - unique title and meta description
 - H1 and intro copy
-- 250-400 words of useful page copy
+- 300-600 words of useful page copy when rendered
 - relevant deal IDs
 - related page slugs
 - 3-5 FAQs
 - safe fare language such as "recent fare examples" and "fares may change"
+
+Supported page types in `lib/seoFlightPages.ts`:
+
+```ts
+pageType?: "deals" | "route" | "guide";
+```
+
+Deal pages show curated route cards. Route pages focus on one high-intent origin-to-destination search. Guide pages are informational and do not render fare cards unless useful.
 
 City guide content for `/flights/orlando`, `/flights/miami`, `/flights/tampa`, and `/flights/fort-lauderdale` lives in:
 
@@ -247,16 +255,37 @@ City guide content for `/flights/orlando`, `/flights/miami`, `/flights/tampa`, a
 lib/cityFlightPages.ts
 ```
 
+### Route Page Strategy
+
+Route pages should only be created when there is enough useful content to avoid thin pages. Each route page should include:
+
+- route-specific title, description, H1, and canonical URL
+- airport notes for the origin and destination
+- one recent fare example or useful route search
+- flexible-date tip
+- destination travel tip
+- related route and market links
+- FAQPage, BreadcrumbList, and ItemList schema when fare cards exist
+
+Use route-specific Google Flights links through `createFlightSearchUrl()` or `getFlightSearchUrl()`. Do not add placeholder links.
+
+### Informational Guide Strategy
+
+Informational pages should build topical authority without feeling like affiliate pages. Use `pageType: "guide"` for guides such as airport comparisons, booking timing, and cheap-flight search tactics.
+
+Guide pages should include practical headings, internal links to relevant deal pages, FAQs, BreadcrumbList schema, and FAQPage schema. They should not force deal cards unless the page naturally benefits from route examples.
+
 ### Adding New Flight Pages
 
 To safely add a new flight SEO page:
 
 1. Add the page object to `seoFlightPages` in `lib/seoFlightPages.ts`.
-2. Add matching FAQs in `seoFlightPageFaqs`.
-3. Add a descriptive internal link in `flightSearchLinks` inside `lib/siteLinks.ts`.
-4. Use real deal IDs from `data/deals.ts`.
-5. Run `npm run lint` and `npm run build`.
-6. Confirm the new URL appears in `/sitemap.xml`.
+2. Choose the right `pageType`: `deals`, `route`, or `guide`.
+3. Add matching FAQs in `seoFlightPageFaqs`.
+4. Add a descriptive internal link in `flightSearchLinks` inside `lib/siteLinks.ts`.
+5. Use real deal IDs from `data/deals.ts` or a route-specific `customDeals` object with a real flight search URL.
+6. Run `npm run lint` and `npm run build`.
+7. Confirm the new URL appears in `/sitemap.xml`.
 
 ### Adding New Flight Cards
 
