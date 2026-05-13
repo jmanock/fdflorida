@@ -1,5 +1,5 @@
 import { Plane } from "lucide-react";
-import { cityFlightLinks, flightSearchLinks, networkLinks } from "@/lib/siteLinks";
+import { flightSearchLinks, networkLinks } from "@/lib/siteLinks";
 
 const footerLinks = [
   ...networkLinks.map((item) => ({ label: item.label === "Flights" ? "Flight Deals" : item.label, href: item.href })),
@@ -8,6 +8,39 @@ const footerLinks = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" }
 ];
+
+const flightMarkets = [
+  { label: "Orlando Flight Deals", href: "/orlando-flight-deals" },
+  { label: "Miami Flight Deals", href: "/miami-flight-deals" },
+  { label: "Tampa Flight Deals", href: "/tampa-flight-deals" },
+  { label: "Fort Lauderdale Flight Deals", href: "/fort-lauderdale-flight-deals" },
+  { label: "Jacksonville Flight Deals", href: "/jacksonville-flight-deals" }
+];
+
+const flightTypes = [
+  { label: "Cheap Flights From Orlando", href: "/cheap-flights-from-orlando" },
+  { label: "Flights To Florida Deals", href: "/flights-to-florida-deals" },
+  { label: "Weekend Flight Deals Florida", href: "/weekend-flight-deals-florida" },
+  { label: "Cheap Weekend Getaway Flights", href: "/cheap-weekend-getaway-flights" },
+  { label: "Florida Airfare Deals", href: "/florida-airfare-deals" }
+];
+
+const networkFooterLinks = networkLinks.filter((link) => link.label !== "Flights");
+
+function FooterColumn({ title, links }: { title: string; links: { label: string; href: string }[] }) {
+  return (
+    <div>
+      <p className="text-xs font-black uppercase tracking-[0.18em] text-ocean">{title}</p>
+      <nav className="mt-4 grid gap-2 text-sm font-bold text-slateText" aria-label={title}>
+        {links.map((item) => (
+          <a key={item.href} className="transition hover:text-ocean" href={item.href}>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  );
+}
 
 export function SiteFooter() {
   return (
@@ -33,15 +66,16 @@ export function SiteFooter() {
             </a>
           ))}
         </nav>
+        <div className="grid gap-7 border-t border-slate-200 pt-7 md:col-span-2 lg:grid-cols-3">
+          <FooterColumn title="Florida Flight Markets" links={flightMarkets} />
+          <FooterColumn title="Flight Types" links={flightTypes} />
+          <FooterColumn title="Florida Deals Network" links={networkFooterLinks} />
+        </div>
         <div className="border-t border-slate-200 pt-7 md:col-span-2">
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-ocean">Popular Flight Searches</p>
-          <nav className="mt-4 flex flex-wrap gap-2" aria-label="Popular flight searches">
-            {[...cityFlightLinks, ...flightSearchLinks].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="rounded-full border border-slate-200 bg-sand px-3 py-2 text-xs font-black text-slateText transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
-              >
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-ocean">Related Flight Searches</p>
+          <nav className="mt-4 flex flex-wrap gap-2" aria-label="Related flight searches">
+            {flightSearchLinks.slice(0, 12).map((item) => (
+              <a key={item.href} href={item.href} className="rounded-full border border-slate-200 bg-sand px-3 py-2 text-xs font-black text-slateText transition hover:border-sky-200 hover:bg-skyline hover:text-ocean">
                 {item.label}
               </a>
             ))}

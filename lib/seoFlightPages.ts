@@ -13,6 +13,10 @@ export type SeoFlightPage = {
     heading: string;
     body: string;
   }[];
+  comparisonTable?: {
+    columns: [string, string, string];
+    rows: [string, string, string][];
+  };
   tips: string[];
   dealIds?: string[];
   customDeals?: FlightDeal[];
@@ -584,6 +588,14 @@ export const seoFlightPages: SeoFlightPage[] = [
         body: "Do not compare only the displayed fare. Add bags, seat selection, parking, drive time, and arrival/departure convenience before deciding."
       }
     ],
+    comparisonTable: {
+      columns: ["Compare", "Orlando International", "Sanford"],
+      rows: [
+        ["Best for", "More airline choice, route depth, and international options", "Select routes and travelers north or east of Orlando"],
+        ["Flight search strength", "Usually the first airport to check", "Useful when a specific airline or schedule fits"],
+        ["Watch out for", "Peak family travel and busy holiday windows", "Ground transportation and fewer route choices"]
+      ]
+    },
     tips: ["Start with MCO for route depth.", "Check Sanford when location and schedule work.", "Compare total trip time and fees."],
     relatedSlugs: ["orlando-flight-deals", "cheap-flights-from-orlando", "orlando-to-denver-flight-deals"]
   },
@@ -612,6 +624,14 @@ export const seoFlightPages: SeoFlightPage[] = [
         body: "Add bags, seat fees, rideshare or rental car costs, and time before deciding which airport actually wins."
       }
     ],
+    comparisonTable: {
+      columns: ["Compare", "Miami International", "Fort Lauderdale"],
+      rows: [
+        ["Best for", "International routes, Miami trips, and long-haul service", "Budget routes, Broward trips, cruises, and some domestic fares"],
+        ["Flight search strength", "Deep Latin America, Caribbean, and Europe options", "Strong South Florida alternative for flexible travelers"],
+        ["Watch out for", "Airport congestion and ground transfer time", "Fees, schedule fit, and distance to Miami-area hotels"]
+      ]
+    },
     tips: ["Compare both airports for South Florida trips.", "Include ground transportation in the fare decision.", "Check route availability before planning around a price."],
     relatedSlugs: ["miami-flight-deals", "fort-lauderdale-flight-deals", "cheap-flights-from-miami"]
   },
@@ -642,6 +662,150 @@ export const seoFlightPages: SeoFlightPage[] = [
     ],
     tips: ["Move dates before changing the destination.", "Check nearby airports when practical.", "Confirm fares with the booking source."],
     relatedSlugs: ["florida-airfare-deals", "cheap-weekend-getaway-flights", "cheapest-airports-in-florida"]
+  },
+  {
+    slug: "tampa-vs-orlando-flights",
+    title: "Tampa vs Orlando Flights | Which Airport Is Better For Deals?",
+    description: "Compare Tampa and Orlando flights for cheap fares, airport convenience, route options, Gulf Coast travel, and Central Florida trips.",
+    h1: "Tampa vs Orlando Flights",
+    eyebrow: "Central Florida comparison",
+    intro:
+      "Tampa and Orlando can both be useful for Central Florida and Gulf Coast travelers, but the better flight choice depends on route, drive time, airline options, and total trip cost.",
+    detail:
+      "Orlando usually has more route depth, more leisure demand, and more airline variety. Tampa can be easier for Gulf Coast travelers and may offer a smoother airport experience for some trips. The right choice is not always the cheapest base fare. Compare flight times, parking, rental cars, baggage fees, and the drive on both ends before deciding which airport creates the better trip.",
+    pageType: "guide",
+    contentSections: [
+      {
+        heading: "When Tampa may be better",
+        body: "Tampa is often better for St. Pete, Clearwater, Sarasota, Gulf Coast beaches, and travelers who value airport convenience or shorter ground transfers."
+      },
+      {
+        heading: "When Orlando may be better",
+        body: "Orlando is often stronger for route variety, family travel, theme park trips, and destinations with more frequent service from MCO."
+      },
+      {
+        heading: "How to compare fairly",
+        body: "Check the same dates from both airports, add fees and ground costs, and decide based on total trip value rather than the headline fare."
+      }
+    ],
+    comparisonTable: {
+      columns: ["Compare", "Tampa", "Orlando"],
+      rows: [
+        ["Best for", "Gulf Coast, St. Pete, Clearwater, smoother regional trips", "Theme parks, Central Florida, wider route choice"],
+        ["Flight search strength", "Useful weekend and leisure routes", "More airline depth and destination variety"],
+        ["Watch out for", "Fewer options on some routes", "Busy peak family travel windows"]
+      ]
+    },
+    tips: ["Compare both airports when driving time is reasonable.", "Include parking and rental car costs.", "Use flexible dates before choosing an airport."],
+    relatedSlugs: ["tampa-flight-deals", "orlando-flight-deals", "cheap-flights-from-tampa"]
+  },
+  {
+    slug: "direct-vs-connecting-flights-from-florida",
+    title: "Direct vs Connecting Flights From Florida | Fare Comparison Guide",
+    description: "Compare direct and connecting flights from Florida, including when nonstop flights are worth more and when connections may lower fares.",
+    h1: "Direct vs Connecting Flights From Florida",
+    eyebrow: "Flight choice guide",
+    intro:
+      "Direct and connecting flights can both make sense from Florida. The better choice depends on route length, fare difference, schedule, traveler needs, and risk tolerance.",
+    detail:
+      "Nonstop flights are often worth paying more for when the trip is short, when delays would create problems, or when travelers want a simpler airport day. Connecting flights may be useful when nonstop fares are high, route options are limited, or the destination is not served directly from your Florida airport. Compare the fare gap against travel time, bags, arrival time, and the chance of missed connections.",
+    pageType: "guide",
+    contentSections: [
+      {
+        heading: "When nonstop is worth it",
+        body: "Nonstop flights can be especially valuable for weekend trips, family travel, tight schedules, and beach or cruise trips where arrival timing matters."
+      },
+      {
+        heading: "When connections can help",
+        body: "Connections can unlock more destinations and sometimes lower fares, especially from smaller markets like Jacksonville or on long-haul routes."
+      },
+      {
+        heading: "What to check before booking",
+        body: "Review layover length, airport reliability, baggage rules, arrival time, and whether the savings are worth the extra time."
+      }
+    ],
+    comparisonTable: {
+      columns: ["Compare", "Direct flights", "Connecting flights"],
+      rows: [
+        ["Best for", "Short trips, families, cruises, tight schedules", "Lower fare searches, smaller markets, long-haul options"],
+        ["Main advantage", "Simpler travel day and lower connection risk", "More route choices and possible fare savings"],
+        ["Watch out for", "Higher fares on peak routes", "Layover delays and longer travel time"]
+      ]
+    },
+    tips: ["Use nonstop flights for short weekend trips when possible.", "Compare connection savings against extra travel time.", "Avoid tight layovers when weather or delays are likely."],
+    relatedSlugs: ["how-to-find-cheap-flights-from-florida", "jacksonville-flight-deals", "weekend-flight-deals-florida"]
+  },
+  {
+    slug: "weekend-vs-weeklong-flight-deals",
+    title: "Weekend vs Weeklong Flight Deals | Florida Fare Planning Guide",
+    description: "Compare weekend and weeklong flight deals from Florida with tips for flexible dates, trip length, fare timing, and total travel value.",
+    h1: "Weekend vs Weeklong Flight Deals",
+    eyebrow: "Trip length comparison",
+    intro:
+      "Weekend and weeklong flight deals behave differently. Florida travelers should compare trip length, flight times, hotel costs, and flexible dates before choosing a fare.",
+    detail:
+      "Weekend fares often face heavy demand because many travelers search Friday-to-Sunday or Thursday-to-Monday windows. Weeklong trips can open more flexible date combinations and may reduce pressure on specific flights, but hotel and time-off costs matter. The strongest deal is the one where airfare, schedule, lodging, and trip purpose all line up.",
+    pageType: "guide",
+    contentSections: [
+      {
+        heading: "Weekend flight deal strategy",
+        body: "Prioritize useful flight times. A cheaper weekend fare may not be worth it if it removes too much usable time at the destination."
+      },
+      {
+        heading: "Weeklong flight deal strategy",
+        body: "Weeklong trips can benefit from midweek departures and returns. Test multiple date pairs before choosing a final itinerary."
+      },
+      {
+        heading: "How to choose",
+        body: "Compare total trip value, not only fare price. A higher fare can be better if it improves schedule, hotel cost, or trip quality."
+      }
+    ],
+    comparisonTable: {
+      columns: ["Compare", "Weekend trips", "Weeklong trips"],
+      rows: [
+        ["Best for", "Quick getaways and event travel", "Flexible vacations and broader date searches"],
+        ["Main advantage", "Less time away and focused itinerary", "More date flexibility and destination time"],
+        ["Watch out for", "Peak Friday and Sunday fare pressure", "Hotel and time-off costs"]
+      ]
+    },
+    tips: ["Try Thursday-to-Monday instead of Friday-to-Sunday.", "Use midweek dates for longer trips.", "Compare hotel cost before choosing trip length."],
+    relatedSlugs: ["weekend-flight-deals-florida", "cheap-weekend-getaway-flights", "best-weekend-flight-destinations-from-florida"]
+  },
+  {
+    slug: "google-flights-vs-skyscanner-for-florida-routes",
+    title: "Google Flights vs Skyscanner For Florida Routes | Search Guide",
+    description: "Compare Google Flights and Skyscanner for Florida route searches, flexible dates, airline comparison, and current fare checking.",
+    h1: "Google Flights vs Skyscanner For Florida Routes",
+    eyebrow: "Search tool comparison",
+    intro:
+      "Google Flights and Skyscanner can both help Florida travelers compare fares, but each tool is better for different search habits.",
+    detail:
+      "Google Flights is useful for fast route checks, flexible date calendars, airport comparisons, and filtering by airline or stop count. Skyscanner can be useful for broad destination exploration and comparing travel sellers. For Florida routes, a practical workflow is to use route examples as a starting point, compare dates in a flight search tool, then confirm final details with the booking source.",
+    pageType: "guide",
+    contentSections: [
+      {
+        heading: "When Google Flights helps",
+        body: "Use Google Flights when you know the origin and destination and want a fast calendar-style comparison across dates and airlines."
+      },
+      {
+        heading: "When Skyscanner helps",
+        body: "Use Skyscanner when you are exploring broader destination ideas or want to compare multiple sellers for the same trip."
+      },
+      {
+        heading: "How Florida travelers should verify fares",
+        body: "After finding a promising fare, confirm current price, baggage rules, and booking terms directly with the airline or booking source."
+      }
+    ],
+    comparisonTable: {
+      columns: ["Compare", "Google Flights", "Skyscanner"],
+      rows: [
+        ["Best for", "Known routes, flexible dates, fast filtering", "Broad searches and seller comparisons"],
+        ["Main advantage", "Clean calendar and airport comparison tools", "Wide marketplace-style discovery"],
+        ["Watch out for", "Final booking still happens elsewhere", "Seller terms can vary"]
+      ]
+    },
+    tips: ["Use route examples before opening search tools.", "Confirm final fare with the booking source.", "Compare nearby Florida airports when practical."],
+    relatedSlugs: ["how-to-find-cheap-flights-from-florida", "florida-airfare-deals", "cheapest-airports-in-florida"]
   },
   {
     slug: "best-weekend-flight-destinations-from-florida",
@@ -1008,6 +1172,62 @@ const seoFlightFaqs: Record<string, SeoFlightFaq[]> = {
     {
       question: "When is Fort Lauderdale the better airport?",
       answer: "Fort Lauderdale can be better for Broward trips, cruise departures, budget-carrier routes, and some domestic fares."
+    }
+  ],
+  "tampa-vs-orlando-flights": [
+    {
+      question: "Is Tampa or Orlando better for cheap flights?",
+      answer: "It depends on route, dates, and drive time. Orlando often has more route depth, while Tampa can be more convenient for Gulf Coast trips."
+    },
+    {
+      question: "Should I compare Tampa and Orlando for the same trip?",
+      answer: "Yes, when both airports are practical. Include parking, bags, flight times, and ground transportation before choosing."
+    },
+    {
+      question: "Which airport is better for Gulf Coast travelers?",
+      answer: "Tampa is often more convenient for St. Pete, Clearwater, and Gulf Coast trips, but Orlando may have more route options."
+    }
+  ],
+  "direct-vs-connecting-flights-from-florida": [
+    {
+      question: "Are direct flights from Florida always better?",
+      answer: "Not always. Direct flights are simpler, but connecting flights can sometimes provide better fares or more destination options."
+    },
+    {
+      question: "When should I avoid connecting flights?",
+      answer: "Avoid tight connections when traveling for cruises, short weekends, family trips, or weather-sensitive itineraries."
+    },
+    {
+      question: "Can connecting flights save money?",
+      answer: "Sometimes. Compare the fare difference against extra travel time, layover risk, and baggage rules."
+    }
+  ],
+  "weekend-vs-weeklong-flight-deals": [
+    {
+      question: "Are weekend flight deals cheaper than weeklong trips?",
+      answer: "Not always. Weekend demand can be high, while weeklong trips may allow more flexible departure and return dates."
+    },
+    {
+      question: "What dates should I compare for weekend trips?",
+      answer: "Try Thursday-to-Monday, Friday-to-Monday, and Saturday-to-Tuesday patterns instead of only Friday-to-Sunday."
+    },
+    {
+      question: "Should hotel cost affect my flight decision?",
+      answer: "Yes. A lower airfare can be less useful if hotel rates are much higher for the same dates."
+    }
+  ],
+  "google-flights-vs-skyscanner-for-florida-routes": [
+    {
+      question: "Is Google Flights or Skyscanner better for Florida routes?",
+      answer: "Google Flights is strong for known routes and flexible dates, while Skyscanner can help with broader destination and seller comparisons."
+    },
+    {
+      question: "Should I book directly after finding a fare?",
+      answer: "Confirm final price, fees, and booking terms with the airline or booking source before purchasing."
+    },
+    {
+      question: "Can both tools show different prices?",
+      answer: "Yes. Timing, seller availability, and fare updates can differ, so compare carefully before booking."
     }
   ],
   "how-to-find-cheap-flights-from-florida": [

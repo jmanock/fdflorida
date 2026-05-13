@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowRight, CalendarDays, PlaneTakeoff, Sparkles, Tag } from "lucide-react";
 import type { FlightDeal } from "@/data/deals";
 import { getTrustedDealImage } from "@/lib/dealImages";
 import { trackEvent } from "@/lib/analytics";
+import { FallbackImage } from "@/components/FallbackImage";
 
 const badgeStyles = {
   "Hot Deal": "bg-gold/10 text-amber-700 ring-amber-200",
@@ -52,6 +52,48 @@ function getWhyThisFare(deal: FlightDeal) {
   return "Good flexible-date route for Florida travelers.";
 }
 
+function getBestForTags(deal: FlightDeal) {
+  const tags = new Set<string>();
+
+  if (deal.category.includes("Weekend")) {
+    tags.add("Weekend Trip");
+    tags.add("Quick Getaway");
+  }
+
+  if (deal.category.includes("Under $99")) {
+    tags.add("Budget Friendly");
+    tags.add("Under $100 When Available");
+  }
+
+  if (deal.category.includes("International")) {
+    tags.add("International Escape");
+  } else {
+    tags.add("Domestic Route");
+  }
+
+  if (["Cancun", "Miami", "Fort Lauderdale", "San Juan"].includes(deal.to)) {
+    tags.add("Beach Trip");
+  }
+
+  if (["Orlando", "Tampa", "Jacksonville"].includes(deal.from)) {
+    tags.add("Flexible Dates");
+  }
+
+  return Array.from(tags).slice(0, 3);
+}
+
+function getCtaText(deal: FlightDeal, origin: string, destination: string) {
+  if (!deal.price) {
+    return "Compare Current Fares";
+  }
+
+  if (deal.category.includes("Weekend")) {
+    return `Check ${origin} to ${destination} Fares`;
+  }
+
+  return `View Flights From $${deal.price}`;
+}
+
 export function DealCard({
   deal,
   priority = false,
@@ -66,7 +108,8 @@ export function DealCard({
   const outboundUrl = deal.link ?? deal.booking_url;
   const qualityTag = deal.quality_tag ?? "Good Deal";
   const freshness = deal.freshness ?? "Updated daily";
-  const ctaText = deal.price ? `View Flights From $${deal.price}` : "Check Current Fares";
+  const ctaText = getCtaText(deal, origin, destination);
+  const bestForTags = getBestForTags(deal);
 
   return (
     <article
@@ -75,7 +118,7 @@ export function DealCard({
       }`}
     >
       <div className={`relative overflow-hidden bg-skyline ${featured ? "h-52" : "h-40 sm:h-44"}`}>
-        <Image
+        <FallbackImage
           src={getTrustedDealImage(deal)}
           alt={`${destination} travel inspiration for a ${deal.airline} fare from ${origin}`}
           fill
@@ -113,6 +156,17 @@ export function DealCard({
 
         <div className="inline-flex rounded-full bg-sky-50 px-3 py-1 text-xs font-black text-ocean ring-1 ring-sky-100">
           {qualityLabels[qualityTag]}
+        </div>
+
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-slate-400">Best for</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {bestForTags.map((tag) => (
+              <span key={tag} className="rounded-full border border-slate-200 bg-sand px-2.5 py-1 text-xs font-black text-slateText">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
 
         <p className="flex items-start gap-2 text-sm font-semibold leading-6 text-slateText">

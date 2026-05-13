@@ -32,6 +32,10 @@ export const flightSearchLinks = [
   { label: "Cheapest Airports In Florida", href: "/cheapest-airports-in-florida" },
   { label: "Orlando Airport vs Sanford Airport", href: "/orlando-airport-vs-sanford-airport" },
   { label: "Miami Airport vs Fort Lauderdale Airport", href: "/miami-airport-vs-fort-lauderdale-airport" },
+  { label: "Tampa vs Orlando Flights", href: "/tampa-vs-orlando-flights" },
+  { label: "Direct vs Connecting Flights From Florida", href: "/direct-vs-connecting-flights-from-florida" },
+  { label: "Weekend vs Weeklong Flight Deals", href: "/weekend-vs-weeklong-flight-deals" },
+  { label: "Google Flights vs Skyscanner For Florida Routes", href: "/google-flights-vs-skyscanner-for-florida-routes" },
   { label: "How To Find Cheap Flights From Florida", href: "/how-to-find-cheap-flights-from-florida" },
   { label: "Best Weekend Flight Destinations From Florida", href: "/best-weekend-flight-destinations-from-florida" }
 ];

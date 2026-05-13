@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ArrowRight, Bell, Building2, CheckCircle2, Compass, Hotel, MapPinned, Plane, Sailboat, Sparkles, Sun, Ticket, WalletCards } from "lucide-react";
 import { deals, type FlightDeal } from "@/data/deals";
 import { cityFlightPages } from "@/lib/cityFlightPages";
@@ -8,7 +7,9 @@ import { getTrustedDealImage } from "@/lib/dealImages";
 import { cityFlightLinks, flightSearchLinks } from "@/lib/siteLinks";
 import { DealCard } from "@/components/DealCard";
 import { DealsExplorer } from "@/components/DealsExplorer";
+import { FallbackImage } from "@/components/FallbackImage";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const siteUrl = "https://flightdealsflorida.org";
 const lastUpdated = "May 2026";
@@ -102,6 +103,40 @@ const crossPromos = [
 ];
 
 const featuredDealIds = ["mco-den-frontier-58", "mia-nyc-jetblue-79", "tpa-cun-southwest-119"];
+const popularThisWeek = [
+  { label: "Orlando Flight Deals", href: "/orlando-flight-deals", note: "Central Florida fare ideas" },
+  { label: "Miami Flight Deals", href: "/miami-flight-deals", note: "South Florida and Caribbean routes" },
+  { label: "Tampa Flight Deals", href: "/tampa-flight-deals", note: "Gulf Coast weekend searches" },
+  { label: "Fort Lauderdale Flight Deals", href: "/fort-lauderdale-flight-deals", note: "FLL budget route examples" },
+  { label: "Cheap Flights From Orlando", href: "/cheap-flights-from-orlando", note: "Flexible-date Orlando departures" },
+  { label: "Weekend Flight Deals Florida", href: "/weekend-flight-deals-florida", note: "Short-trip route ideas" }
+];
+const flightTypes = [
+  { label: "Flights To Florida Deals", href: "/flights-to-florida-deals", description: "Inbound Florida fare ideas for Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville." },
+  { label: "Cheap Weekend Getaway Flights", href: "/cheap-weekend-getaway-flights", description: "Short-trip searches for flexible Florida travelers watching quick escapes." },
+  { label: "Florida Airfare Deals", href: "/florida-airfare-deals", description: "Statewide route examples and airport-market comparisons." }
+];
+const editorialPicks = [
+  { label: "Best quick getaway search", value: "Orlando to New York", href: "/orlando-to-new-york-flight-deals" },
+  { label: "Best beach escape", value: "Tampa to Cancun", href: "/tampa-to-cancun-flight-deals" },
+  { label: "Best budget search", value: "Cheap flights from Orlando", href: "/cheap-flights-from-orlando" },
+  { label: "Best flexible-date search", value: "Miami flight deals", href: "/miami-flight-deals" },
+  { label: "Best weekend idea", value: "Florida weekend flight deals", href: "/weekend-flight-deals-florida" }
+];
+const homepageFaqs = [
+  {
+    question: "Are these Florida flight prices fixed?",
+    answer: "No. The site uses recent fare examples and route ideas. Fares may change and availability varies by date."
+  },
+  {
+    question: "Which Florida airports do you focus on?",
+    answer: "Florida Flight Deals focuses on Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and related route searches."
+  },
+  {
+    question: "How should I use the fare cards?",
+    answer: "Use them as a starting point, then open the route search and confirm current fares, fees, and flight times with the booking source."
+  }
+];
 
 function getDealById(id: string) {
   return deals.find((deal) => deal.id === id);
@@ -122,7 +157,7 @@ function RouteGraphic({ featuredDeal }: { featuredDeal: FlightDeal }) {
 
         <div className="mt-7 rounded-3xl border border-slate-200 bg-white/90 p-5 shadow-card backdrop-blur">
           <div className="relative mb-5 h-32 overflow-hidden rounded-2xl bg-sand sm:h-36">
-            <Image
+            <FallbackImage
               src={getTrustedDealImage(featuredDeal)}
               alt={`${featuredDeal.to} destination mood for ${featuredDeal.from} to ${featuredDeal.to} fare deal`}
               fill
@@ -333,6 +368,35 @@ export default function Home() {
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Popular this week</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Popular Florida Flight Searches This Week</h2>
+          </div>
+          <p className="max-w-md text-sm font-semibold leading-6 text-slateText">
+            Popular searches from Florida travelers watching fare changes.
+          </p>
+        </div>
+        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {popularThisWeek.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
+            >
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Flight search</p>
+              <h3 className="mt-3 text-xl font-black text-ink">{item.label}</h3>
+              <p className="mt-2 text-sm font-semibold leading-6 text-slateText">{item.note}</p>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                Compare routes
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Popular Florida Destinations</p>
             <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Explore city fare pages.</h2>
           </div>
@@ -359,6 +423,41 @@ export default function Home() {
       </section>
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Flight types</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Compare by trip intent.</h2>
+            <p className="mt-3 text-sm font-semibold leading-6 text-slateText">
+              Browse pages built around how travelers actually search: inbound Florida trips, weekend getaways, and statewide airfare ideas.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {flightTypes.map((type) => (
+              <a key={type.href} href={type.href} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+                <h3 className="text-lg font-black text-ink">{type.label}</h3>
+                <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{type.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Editor Picks</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Useful searches to start with.</h2>
+          <div className="mt-7 grid gap-4 md:grid-cols-5">
+            {editorialPicks.map((pick) => (
+              <a key={pick.href} href={pick.href} className="rounded-3xl border border-slate-200 bg-sand p-4 transition hover:border-sky-200 hover:bg-skyline">
+                <p className="text-xs font-black uppercase leading-5 text-slateText">{pick.label}</p>
+                <p className="mt-3 text-base font-black leading-6 text-ink">{pick.value}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Featured deals · Updated {lastUpdated}</p>
@@ -381,18 +480,23 @@ export default function Home() {
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Need a place to stay after your flight?</p>
-          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Browse Florida hotels for the full trip.</h2>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Start Planning Your Florida Trip</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Flights are the start of the trip.</h2>
           <p className="mt-3 max-w-3xl text-base font-medium leading-8 text-slateText">
-            Planning a full Florida trip? Browse Florida Hotel Deals for stays, resorts, weekend getaways, and beach hotels.
+            Once a route looks promising, compare hotels, cruises, and local plans across the Florida Deals Hub network.
           </p>
-          <a
-            href="https://hoteldealsflorida.org"
-            className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-6 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
-          >
-            Browse Florida Hotel Deals
-            <ArrowRight className="h-4 w-4" />
-          </a>
+          <div className="mt-7 grid gap-4 md:grid-cols-4">
+            {[
+              { label: "Compare Florida Hotels", href: "https://hoteldealsflorida.org" },
+              { label: "Browse Florida Cruise Deals", href: "https://cruisedealsflorida.org" },
+              { label: "Explore Local Deals Nearby", href: "https://localdealsflorida.org" },
+              { label: "Start at Florida Deals Hub", href: "https://floridadealshub.com" }
+            ].map((item) => (
+              <a key={item.href} href={item.href} className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean">
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -448,6 +552,38 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Why Trust This Site?</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">A Florida-focused airfare resource.</h2>
+          <p className="mt-4 max-w-4xl text-base font-medium leading-8 text-slateText">
+            Florida Flight Deals is part of the Florida Deals Hub network. We organize flight searches by Florida airport, route type, destination, and trip intent so visitors can compare airfare ideas faster.
+          </p>
+          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {["Updated regularly", "Fares may change", "Availability varies by date", "Confirm current fares with the booking source"].map((item) => (
+              <div key={item} className="rounded-2xl border border-slate-200 bg-sand p-4 text-sm font-black text-ink">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Flight FAQs</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Before you compare fares.</h2>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {homepageFaqs.map((faq) => (
+              <article key={faq.question} className="rounded-3xl border border-slate-200 bg-sand p-5">
+                <h3 className="text-base font-black leading-6 text-ink">{faq.question}</h3>
+                <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="alerts" className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid gap-8 overflow-hidden rounded-[28px] bg-ink p-6 text-white shadow-soft sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
           <div>
@@ -500,57 +636,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.1fr_1fr] lg:px-8">
-          <div className="flex items-start gap-3">
-            <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-ink text-white">
-              <Plane className="h-5 w-5" />
-              <span className="absolute -right-1 -top-1 h-4 w-4 rounded-full bg-gold ring-2 ring-white" />
-            </span>
-            <div>
-              <p className="font-black text-ink">Florida Flight Deals</p>
-              <p className="mt-1 max-w-md text-sm font-medium leading-6 text-slateText">
-                Cheap flights in and out of Florida. Part of Florida Deals Hub.
-              </p>
-              <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] text-slateText">Updated: {lastUpdated}</p>
-            </div>
-          </div>
-          <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText sm:grid-cols-3" aria-label="Footer navigation">
-            {[
-              { label: "Flight Deals", href: "https://flightdealsflorida.org" },
-              { label: "Hotel Deals", href: "https://hoteldealsflorida.org" },
-              { label: "Cruise Deals", href: "https://cruisedealsflorida.org" },
-              { label: "Local Deals", href: "https://localdealsflorida.org" },
-              { label: "Florida Deals Hub", href: "https://floridadealshub.com" },
-              { label: "About", href: "/about" },
-              { label: "Contact", href: "/contact" },
-              { label: "Privacy", href: "/privacy" },
-              { label: "Terms", href: "/terms" }
-            ].map((item) => (
-              <a key={item.label} className="transition hover:text-ocean" href={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div className="border-t border-slate-200 pt-7 md:col-span-2">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-ocean">Popular Flight Searches</p>
-            <nav className="mt-4 flex flex-wrap gap-2" aria-label="Popular flight searches">
-              {[...cityFlightLinks, ...flightSearchLinks].map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-full border border-slate-200 bg-sand px-3 py-2 text-xs font-black text-slateText transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
-                >
-                  {item.label}
-                </a>
-            ))}
-          </nav>
-          <p className="mt-5 max-w-3xl text-xs font-semibold leading-5 text-slateText">
-            Florida Deals Hub may earn a commission when you book through some links. This helps keep our deal alerts free.
-          </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

@@ -275,6 +275,71 @@ Informational pages should build topical authority without feeling like affiliat
 
 Guide pages should include practical headings, internal links to relevant deal pages, FAQs, BreadcrumbList schema, and FAQPage schema. They should not force deal cards unless the page naturally benefits from route examples.
 
+### Comparison Page Strategy
+
+Comparison pages use `pageType: "guide"` plus `comparisonTable` in `lib/seoFlightPages.ts`.
+
+Each comparison page should include:
+
+- a clear comparison-focused title and meta description
+- practical intro and detail copy
+- `contentSections` for context
+- `comparisonTable` rows for scan-friendly decisions
+- related flight searches
+- FAQs and FAQPage schema
+- no fixed-price or fake availability claims
+
+### Image Fallback Strategy
+
+Flight images use the reusable client wrapper:
+
+```text
+components/FallbackImage.tsx
+```
+
+The branded fallback asset lives at:
+
+```text
+public/images/fallbacks/flight-placeholder.svg
+```
+
+Use `FallbackImage` anywhere a remote card or hero image could fail. The wrapper preserves the existing `next/image` layout, swaps to the local fallback on error, and tracks `image_fallback_used` with the failed `image_src` and `page_path`.
+
+When adding flight card images:
+
+- prefer destination or route-mood imagery
+- keep remote images on approved domains in `next.config.ts`
+- use descriptive alt text
+- avoid repeated images in the same section when practical
+- keep `w=900&q=80` or similarly optimized source parameters for card imagery
+
+### Related Searches And Clusters
+
+Related flight links live in:
+
+```text
+lib/siteLinks.ts
+```
+
+Use descriptive internal anchors and keep internal links same-tab. Major pages render related flight searches and destination/route clusters so crawlers and visitors can move between airport, route, guide, and trip-intent pages.
+
+### Footer SEO Structure
+
+The crawl-friendly footer lives in:
+
+```text
+components/SiteFooter.tsx
+```
+
+Footer sections are organized as:
+
+- Florida Flight Markets
+- Flight Types
+- Florida Deals Network
+- Related Flight Searches
+
+Keep the footer useful and scannable. Do not turn it into an unfiltered dump of every page.
+
 ### Adding New Flight Pages
 
 To safely add a new flight SEO page:

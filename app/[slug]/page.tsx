@@ -44,6 +44,41 @@ const sisterSites = [
     icon: Building2
   }
 ];
+const routeClusters = [
+  {
+    title: "Orlando Flight Cluster",
+    links: [
+      { label: "Orlando Flight Deals", href: "/orlando-flight-deals" },
+      { label: "Cheap Flights From Orlando", href: "/cheap-flights-from-orlando" },
+      { label: "Orlando to Denver Flight Deals", href: "/orlando-to-denver-flight-deals" },
+      { label: "Orlando to New York Flight Deals", href: "/orlando-to-new-york-flight-deals" },
+      { label: "Orlando Hotel Deals", href: "https://hoteldealsflorida.org" },
+      { label: "Florida Deals Hub", href: "https://floridadealshub.com" }
+    ]
+  },
+  {
+    title: "Miami Flight Cluster",
+    links: [
+      { label: "Miami Flight Deals", href: "/miami-flight-deals" },
+      { label: "Cheap Flights From Miami", href: "/cheap-flights-from-miami" },
+      { label: "Miami to New York Flight Deals", href: "/miami-to-new-york-flight-deals" },
+      { label: "Miami to Bahamas Flight Deals", href: "/miami-to-bahamas-flight-deals" },
+      { label: "Miami Hotel Deals", href: "https://hoteldealsflorida.org" },
+      { label: "Local Deals Florida", href: "https://localdealsflorida.org" }
+    ]
+  },
+  {
+    title: "Tampa Flight Cluster",
+    links: [
+      { label: "Tampa Flight Deals", href: "/tampa-flight-deals" },
+      { label: "Cheap Flights From Tampa", href: "/cheap-flights-from-tampa" },
+      { label: "Tampa to Cancun Flight Deals", href: "/tampa-to-cancun-flight-deals" },
+      { label: "Tampa vs Orlando Flights", href: "/tampa-vs-orlando-flights" },
+      { label: "Tampa Hotel Deals", href: "https://hoteldealsflorida.org" },
+      { label: "Florida Weekend Getaways", href: "/weekend-flight-deals-florida" }
+    ]
+  }
+];
 
 export const dynamicParams = false;
 
@@ -110,8 +145,8 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const relatedFlightLinks = [
     ...relatedPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
     ...flightSearchLinks.filter((link) => link.href !== `/${page.slug}` && !page.relatedSlugs.some((slug) => link.href === `/${slug}`))
-  ].slice(0, 5);
-  const relatedSearchLinks = [...relatedFlightLinks, { label: "Florida Hotel Deals", href: "https://hoteldealsflorida.org" }].slice(0, 6);
+  ].slice(0, 9);
+  const relatedSearchLinks = [...relatedFlightLinks, { label: "Florida Hotel Deals", href: "https://hoteldealsflorida.org" }].slice(0, 10);
   const structuredGraph = [
     {
       "@type": isGuide ? "Article" : "CollectionPage",
@@ -269,6 +304,26 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
             ))}
           </div>
         ) : null}
+        {page.comparisonTable ? (
+          <div className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+            <div className="grid bg-skyline text-sm font-black text-ink md:grid-cols-3">
+              {page.comparisonTable.columns.map((column) => (
+                <div key={column} className="border-b border-slate-200 px-4 py-3 md:border-r md:last:border-r-0">
+                  {column}
+                </div>
+              ))}
+            </div>
+            {page.comparisonTable.rows.map((row) => (
+              <div key={row.join("-")} className="grid text-sm font-semibold leading-6 text-slateText md:grid-cols-3">
+                {row.map((cell, index) => (
+                  <div key={`${cell}-${index}`} className="border-b border-slate-200 px-4 py-4 md:border-r md:last:border-r-0">
+                    {cell}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ) : null}
         <div className="mt-7 grid gap-4 md:grid-cols-3">
           {page.tips.map((tip) => (
             <div key={tip} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card">
@@ -343,7 +398,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Complete Your Trip</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Start Planning Your Florida Trip</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Flights, hotels, cruises, and local plans in one flow.</h2>
           <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <HotelCtaLink
@@ -363,6 +418,27 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
             <a className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean" href="https://localdealsflorida.org">
               Find local Florida deals
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Destination and Route Clusters</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Keep exploring by airport and route.</h2>
+          <div className="mt-7 grid gap-5 lg:grid-cols-3">
+            {routeClusters.map((cluster) => (
+              <div key={cluster.title} className="rounded-3xl border border-slate-200 bg-sand p-5">
+                <h3 className="text-lg font-black text-ink">{cluster.title}</h3>
+                <div className="mt-4 grid gap-2">
+                  {cluster.links.map((link) => (
+                    <a key={link.href} href={link.href} className="text-sm font-bold text-slateText transition hover:text-ocean">
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
