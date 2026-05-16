@@ -15,9 +15,9 @@ const siteUrl = "https://flightdealsflorida.org";
 const lastUpdated = "May 2026";
 
 export const metadata: Metadata = {
-  title: "Florida Flight Deals | Cheap Flights In & Out of Florida",
+  title: "Florida Flight Deals | Cheap Flights & Weekend Getaways",
   description:
-    "Find cheap flights to and from Florida with daily airfare deals from Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and more.",
+    "Discover Florida flight deals, weekend getaway ideas, airport guides, cheap airfare routes, and destination travel planning resources.",
   alternates: {
     canonical: siteUrl
   }
@@ -115,6 +115,35 @@ const flightTypes = [
   { label: "Flights To Florida Deals", href: "/flights-to-florida-deals", description: "Inbound Florida fare ideas for Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville." },
   { label: "Cheap Weekend Getaway Flights", href: "/cheap-weekend-getaway-flights", description: "Short-trip searches for flexible Florida travelers watching quick escapes." },
   { label: "Florida Airfare Deals", href: "/florida-airfare-deals", description: "Statewide route examples and airport-market comparisons." }
+];
+const seasonalIdeas = [
+  { label: "Summer Flight Deals", href: "/summer-flight-deals", description: "Beach, city, and family-route ideas for summer travel windows." },
+  { label: "Holiday Flights From Florida", href: "/holiday-flights-from-florida", description: "Plan around busy holiday fare periods and flexible airport choices." },
+  { label: "Spring Break Flights", href: "/spring-break-flights", description: "Route ideas for spring beach trips, family travel, and quick escapes." },
+  { label: "Winter Getaway Flights", href: "/winter-getaway-flights", description: "Warm-weather and city-escape searches for winter travel planning." }
+];
+const airportGuides = [
+  { label: "Orlando Airport Guide", href: "/orlando-airport-guide" },
+  { label: "Miami Airport Guide", href: "/miami-airport-guide" },
+  { label: "Tampa Airport Guide", href: "/tampa-airport-guide" },
+  { label: "Fort Lauderdale Airport Guide", href: "/fort-lauderdale-airport-guide" },
+  { label: "Jacksonville Airport Guide", href: "/jacksonville-airport-guide" }
+];
+const planningGuides = [
+  { label: "Best Time To Book Flights", href: "/best-time-to-book-flights" },
+  { label: "How To Find Cheap Flights", href: "/how-to-find-cheap-flights" },
+  { label: "Best Airports In Florida", href: "/best-airports-in-florida" },
+  { label: "Family Flight Planning Guide", href: "/family-flight-planning-guide" },
+  { label: "Weekend Flight Getaways", href: "/weekend-flight-getaways" },
+  { label: "International Airports In Florida", href: "/best-florida-airports-for-international-travel" }
+];
+const destinationTypes = [
+  { label: "Beach Destinations", href: "/flights-to-florida-deals", description: "Miami, Fort Lauderdale, Cancun, San Juan, and Gulf Coast route ideas." },
+  { label: "City Escapes", href: "/weekend-flight-deals-florida", description: "New York, Chicago, Atlanta, New Orleans, Nashville, and quick city weekends." },
+  { label: "Family Trips", href: "/family-flight-planning-guide", description: "Orlando, Tampa, and flexible airport planning for family travel." },
+  { label: "International Flights", href: "/best-florida-airports-for-international-travel", description: "Miami, Fort Lauderdale, Orlando, and Tampa international route planning." },
+  { label: "Weekend Getaways", href: "/weekend-flight-getaways", description: "Short-trip routes and flexible date ideas from Florida airports." },
+  { label: "Cruise Departure Cities", href: "https://cruisedealsflorida.org", description: "Miami, Port Canaveral, Tampa, and Fort Lauderdale cruise planning." }
 ];
 const editorialPicks = [
   { label: "Best quick getaway search", value: "Orlando to New York", href: "/orlando-to-new-york-flight-deals" },
@@ -434,6 +463,68 @@ export default function Home() {
           <div className="grid gap-4 md:grid-cols-3">
             {flightTypes.map((type) => (
               <a key={type.href} href={type.href} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+                <h3 className="text-lg font-black text-ink">{type.label}</h3>
+                <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{type.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Seasonal travel ideas</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Plan around the travel calendar.</h2>
+          </div>
+          <p className="max-w-md text-sm font-semibold leading-6 text-slateText">
+            Seasonal pages help compare Florida airfare around summer, holidays, spring break, and winter escapes.
+          </p>
+        </div>
+        <div className="mt-7 grid gap-4 md:grid-cols-4">
+          {seasonalIdeas.map((idea) => (
+            <a key={idea.href} href={idea.href} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+              <h3 className="text-lg font-black text-ink">{idea.label}</h3>
+              <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{idea.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid gap-5 lg:grid-cols-2">
+          <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Airport Guides</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Compare Florida airports before choosing a route.</h2>
+            <div className="mt-6 grid gap-2">
+              {airportGuides.map((guide) => (
+                <a key={guide.href} href={guide.href} className="rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean">
+                  {guide.label}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Flight Planning Guides</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Learn how to compare fares with more context.</h2>
+            <div className="mt-6 grid gap-2">
+              {planningGuides.map((guide) => (
+                <a key={guide.href} href={guide.href} className="rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean">
+                  {guide.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Destination Discovery</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Explore by destination type.</h2>
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {destinationTypes.map((type) => (
+              <a key={type.href} href={type.href} className="rounded-3xl border border-slate-200 bg-sand p-5 transition hover:border-sky-200 hover:bg-skyline">
                 <h3 className="text-lg font-black text-ink">{type.label}</h3>
                 <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{type.description}</p>
               </a>

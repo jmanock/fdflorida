@@ -40,6 +40,35 @@ export const flightSearchLinks = [
   { label: "Best Weekend Flight Destinations From Florida", href: "/best-weekend-flight-destinations-from-florida" }
 ];
 
+export const v2FlightDiscoveryLinks = [
+  { label: "Orlando Airport Guide", href: "/orlando-airport-guide" },
+  { label: "Miami Airport Guide", href: "/miami-airport-guide" },
+  { label: "Tampa Airport Guide", href: "/tampa-airport-guide" },
+  { label: "Fort Lauderdale Airport Guide", href: "/fort-lauderdale-airport-guide" },
+  { label: "Jacksonville Airport Guide", href: "/jacksonville-airport-guide" },
+  { label: "Best Time To Book Flights", href: "/best-time-to-book-flights" },
+  { label: "Cheap Flights From Florida", href: "/cheap-flights-from-florida" },
+  { label: "Weekend Flight Getaways", href: "/weekend-flight-getaways" },
+  { label: "Best Airports In Florida", href: "/best-airports-in-florida" },
+  { label: "Family Flight Planning Guide", href: "/family-flight-planning-guide" },
+  { label: "How To Find Cheap Flights", href: "/how-to-find-cheap-flights" },
+  { label: "International Airports In Florida", href: "/best-florida-airports-for-international-travel" },
+  { label: "Best Weekend Destinations From Florida", href: "/best-weekend-destinations-from-florida" },
+  { label: "Summer Flight Deals", href: "/summer-flight-deals" },
+  { label: "Holiday Flights From Florida", href: "/holiday-flights-from-florida" },
+  { label: "Spring Break Flights", href: "/spring-break-flights" },
+  { label: "Winter Getaway Flights", href: "/winter-getaway-flights" },
+  { label: "Memorial Day Flight Deals", href: "/memorial-day-flight-deals" },
+  { label: "Cheap Summer Travel", href: "/cheap-summer-travel" },
+  { label: "Orlando vs Miami Airport", href: "/orlando-vs-miami-airport" },
+  { label: "Tampa vs Fort Lauderdale Flights", href: "/tampa-vs-fort-lauderdale-flights" },
+  { label: "Budget Airlines vs Major Airlines", href: "/budget-airlines-vs-major-airlines" },
+  { label: "Weekend Trip vs Long Vacation", href: "/weekend-trip-vs-long-vacation" },
+  { label: "Domestic vs International Flights From Florida", href: "/domestic-vs-international-flights-from-florida" },
+  { label: "Editorial Policy", href: "/editorial-policy" },
+  { label: "How Flight Prices Work", href: "/how-flight-prices-work" }
+];
+
 export const cityFlightLinks = [
   { label: "Cheap Flights to Orlando", href: "/flights/orlando" },
   { label: "Cheap Flights to Miami", href: "/flights/miami" },

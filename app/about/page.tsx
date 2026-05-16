@@ -4,7 +4,7 @@ import { ArrowLeft, Plane } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About | Florida Flight Deals",
-  description: "Learn about Florida Flight Deals, part of the Florida Deals Hub network."
+  description: "Learn how Florida Flight Deals organizes airfare routes, airport guides, travel ideas, and planning resources as part of Florida Deals Hub."
 };
 
 export default function AboutPage() {
@@ -29,6 +29,16 @@ export default function AboutPage() {
         <p className="mt-4 text-base font-medium leading-8 text-slateText">
           The site is part of the Florida Deals Hub network, connecting Floridians with trustworthy travel and local deal resources across flights, hotels, cruises, and local experiences.
         </p>
+        <p className="mt-4 text-base font-medium leading-8 text-slateText">
+          Flight prices may change and availability varies by date. We organize route examples, airport guides, comparison pages, and planning resources so travelers can compare options faster before confirming current fares with the booking source.
+        </p>
+        <div className="mt-7 grid gap-3 sm:grid-cols-2">
+          {["Florida airport focus", "Route discovery pages", "Flexible-date guidance", "Part of Florida Deals Hub"].map((item) => (
+            <div key={item} className="rounded-2xl border border-slate-200 bg-sand p-4 text-sm font-black text-ink">
+              {item}
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );

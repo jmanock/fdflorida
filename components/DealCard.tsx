@@ -84,14 +84,10 @@ function getBestForTags(deal: FlightDeal) {
 
 function getCtaText(deal: FlightDeal, origin: string, destination: string) {
   if (!deal.price) {
-    return "Compare Current Fares";
+    return `Search ${origin} to ${destination} Fares`;
   }
 
-  if (deal.category.includes("Weekend")) {
-    return `Check ${origin} to ${destination} Fares`;
-  }
-
-  return `View Flights From $${deal.price}`;
+  return `Search Flights From $${deal.price}`;
 }
 
 export function DealCard({
@@ -148,8 +144,8 @@ export function DealCard({
             </h3>
           </div>
           <div className="shrink-0 text-right">
-            <p className="text-xs font-semibold uppercase text-slate-400">Recent fares</p>
-            <p className="text-3xl font-black text-gulf">from ${deal.price}</p>
+            <p className="text-xs font-semibold uppercase text-slate-400">Fare idea</p>
+            <p className="text-2xl font-black text-gulf">from ${deal.price}</p>
             <p className="mt-1 text-[11px] font-black uppercase text-slate-400">When available</p>
           </div>
         </div>
@@ -189,8 +185,8 @@ export function DealCard({
           rel="noopener noreferrer"
           onClick={() =>
             trackEvent({
-              action: "deal_click",
-              category: "deals",
+              action: "flight_card_click",
+              category: "flights",
               label: `${deal.from} to ${deal.to}`,
               value: deal.price,
               params: {
@@ -198,10 +194,13 @@ export function DealCard({
                 destination,
                 origin,
                 price: deal.price,
+                source_site: "flightdealsflorida.org",
+                price_range: deal.price ? `from $${deal.price}` : "current fares",
                 price_text: `Recent fares from $${deal.price} when available`,
                 cta_text: ctaText,
                 type: "flight",
                 provider: "google_flights",
+                route: `${origin} to ${destination}`,
                 route_or_destination: `${origin} to ${destination}`,
                 outbound_url: outboundUrl,
                 page_path: window.location.pathname

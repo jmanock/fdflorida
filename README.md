@@ -255,6 +255,42 @@ City guide content for `/flights/orlando`, `/flights/miami`, `/flights/tampa`, a
 lib/cityFlightPages.ts
 ```
 
+### Flights V2 Strategy
+
+Flights V2 turns the site from a simple deal board into a Florida flight discovery platform. The homepage should support multiple discovery paths:
+
+- trending Florida routes
+- popular destinations
+- weekend getaway flights
+- seasonal travel ideas
+- airport guides
+- flight planning guides
+- destination discovery
+- related hotel, cruise, local, and hub planning
+- newsletter signup and FAQs
+
+Keep the experience editorial and useful. Flight cards stay flight-focused, while hotels, cruises, and local links appear in page-level planning sections.
+
+### Airport Guide Strategy
+
+Airport guide pages are generated from `airportGuidePages` in `lib/seoFlightPages.ts`.
+
+Each airport guide should cover:
+
+- airport overview
+- cheapest times to fly
+- nearby destinations
+- major route and airline considerations
+- transportation and nearby planning
+- related hotels or cruise access when useful
+- FAQPage and BreadcrumbList schema
+
+### Seasonal Page Strategy
+
+Seasonal SEO pages are generated from `seasonalFlightPages` in `lib/seoFlightPages.ts`.
+
+Use these for summer, holiday, spring break, winter, Memorial Day, and other calendar-driven travel searches. Seasonal pages should explain route ideas, flexible-date strategy, airport comparisons, and full-trip planning context without fake urgency.
+
 ### Route Page Strategy
 
 Route pages should only be created when there is enough useful content to avoid thin pages. Each route page should include:
@@ -322,6 +358,28 @@ lib/siteLinks.ts
 ```
 
 Use descriptive internal anchors and keep internal links same-tab. Major pages render related flight searches and destination/route clusters so crawlers and visitors can move between airport, route, guide, and trip-intent pages.
+
+V2 discovery links live in:
+
+```text
+v2FlightDiscoveryLinks
+```
+
+Use these for airport guides, planning guides, seasonal pages, comparison pages, editorial policy, and flight-price education.
+
+### Analytics Events
+
+Current analytics events include:
+
+- `flight_card_click`
+- `route_click`
+- `airport_guide_click` when specifically added to airport guide CTAs
+- `network_site_click`
+- `newsletter_signup_started`
+- `newsletter_signup_success`
+- `image_fallback_used`
+
+Flight card clicks should include `source_site`, route or origin/destination, price range, CTA text, outbound URL, and current page path when available.
 
 ### Footer SEO Structure
 

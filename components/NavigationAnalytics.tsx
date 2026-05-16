@@ -19,12 +19,17 @@ export function NavigationAnalytics() {
         return;
       }
 
+      const isNetworkSite = href.startsWith("https://") && !href.includes("flightdealsflorida.org");
+      const isAirportGuide = href.includes("airport-guide");
+      const isRouteLink = href.includes("flight") || href.includes("airport") || href.includes("travel") || href.includes("getaway");
+
       trackEvent({
-        action: "navigation_click",
+        action: isNetworkSite ? "network_site_click" : isAirportGuide ? "airport_guide_click" : isRouteLink ? "route_click" : "navigation_click",
         category: "navigation",
         label: link.textContent?.trim() || href,
         params: {
           href,
+          source_site: "flightdealsflorida.org",
           page_path: window.location.pathname
         }
       });

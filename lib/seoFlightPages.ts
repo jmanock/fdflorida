@@ -143,6 +143,254 @@ function routeDeal(id: string, airline: string, origin: string, destination: str
   };
 }
 
+function airportGuidePage(slug: string, city: string, airportName: string, relatedSlugs: string[], extras: string): SeoFlightPage {
+  return {
+    slug,
+    title: `${city} Airport Guide | Flights, Routes & Travel Planning`,
+    description: `Use this ${city} airport guide to compare flight routes, airlines, transportation tips, nearby destinations, and Florida trip planning ideas.`,
+    h1: `${city} Airport Guide`,
+    eyebrow: "Airport guide",
+    intro: `${airportName} is a key Florida flight market for travelers comparing airfare, route options, nearby destinations, and full-trip planning.`,
+    detail: `${city} travelers should compare route availability, airline choice, flexible dates, ground transportation, and total trip cost before choosing a fare. ${extras} Flight fares can change quickly, so use this guide as a planning resource before confirming current prices with the booking source.`,
+    pageType: "guide",
+    contentSections: [
+      {
+        heading: "Cheapest times to fly",
+        body: "Flexible weekday departures, shoulder-season dates, and non-holiday travel windows often create better comparison opportunities than peak Friday and Sunday flights."
+      },
+      {
+        heading: "Routes and airlines to compare",
+        body: "Start with major domestic routes, then compare international or leisure routes when your dates are flexible. Review baggage, seat, and schedule details before booking."
+      },
+      {
+        heading: "Transportation and nearby planning",
+        body: "Airport convenience matters. Compare parking, rideshare, rental cars, hotel location, cruise access, and drive time before choosing a lower base fare."
+      }
+    ],
+    tips: ["Compare flexible dates before choosing a fare.", "Include transportation and fees in total trip cost.", "Confirm current availability with the booking source."],
+    relatedSlugs
+  };
+}
+
+function planningGuidePage(slug: string, title: string, description: string, h1: string, eyebrow: string, detail: string, relatedSlugs: string[]): SeoFlightPage {
+  return {
+    slug,
+    title,
+    description,
+    h1,
+    eyebrow,
+    intro: `${h1} helps Florida travelers compare airfare ideas with more context before opening a booking source.`,
+    detail,
+    pageType: "guide",
+    contentSections: [
+      {
+        heading: "Start with flexible dates",
+        body: "Move departure and return dates by one or two days before changing destinations. Many useful fare examples appear outside the most obvious weekend windows."
+      },
+      {
+        heading: "Compare airports and route type",
+        body: "Orlando, Miami, Fort Lauderdale, Tampa, and Jacksonville can behave differently by season, airline, and destination. Nearby airports are useful only when the total trip still makes sense."
+      },
+      {
+        heading: "Confirm before booking",
+        body: "Recent fare examples are planning signals. Always confirm current price, fees, schedule, and availability with the airline or travel search source."
+      }
+    ],
+    tips: ["Compare total trip cost.", "Use route pages for destination ideas.", "Check current fares before purchasing."],
+    relatedSlugs
+  };
+}
+
+function seasonalPage(slug: string, title: string, description: string, h1: string, season: string, relatedSlugs: string[]): SeoFlightPage {
+  return {
+    slug,
+    title,
+    description,
+    h1,
+    eyebrow: "Seasonal fare planning",
+    intro: `${h1} helps Florida travelers compare route ideas, airport choices, and flexible-date strategies for ${season}.`,
+    detail: `Seasonal airfare from Florida can move around school calendars, holidays, cruise departures, event weekends, weather patterns, and airline inventory. Use this page to compare airport markets, route ideas, and planning notes before checking current fares. Prices may change, and availability varies by date.`,
+    pageType: "guide",
+    contentSections: [
+      {
+        heading: "Routes to compare",
+        body: "Start with Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville, then compare destination types such as beaches, city escapes, family trips, and international getaways."
+      },
+      {
+        heading: "Flexible date strategy",
+        body: "Seasonal travel windows can be crowded. Try nearby dates, midweek departures, and alternate airports before deciding whether a fare is useful."
+      },
+      {
+        heading: "Planning the full trip",
+        body: "Flight timing, hotel cost, cruise schedules, and local events can change the real value of a fare. Compare the full trip before booking."
+      }
+    ],
+    tips: ["Check nearby dates.", "Compare multiple Florida airports.", "Review hotels and local plans before booking."],
+    relatedSlugs
+  };
+}
+
+const airportGuidePages = [
+  airportGuidePage("orlando-airport-guide", "Orlando", "Orlando International Airport", ["orlando-flight-deals", "cheap-flights-from-orlando", "orlando-airport-vs-sanford-airport"], "Orlando is especially important for family trips, theme parks, conventions, and Central Florida departures."),
+  airportGuidePage("miami-airport-guide", "Miami", "Miami International Airport", ["miami-flight-deals", "cheap-flights-from-miami", "miami-airport-vs-fort-lauderdale-airport"], "Miami is especially useful for international routes, cruises, South Florida city trips, and Caribbean or Latin America flights."),
+  airportGuidePage("tampa-airport-guide", "Tampa", "Tampa International Airport", ["tampa-flight-deals", "cheap-flights-from-tampa", "tampa-vs-orlando-flights"], "Tampa is useful for Gulf Coast travelers, St. Pete/Clearwater trips, cruises, and long-weekend leisure routes."),
+  airportGuidePage("fort-lauderdale-airport-guide", "Fort Lauderdale", "Fort Lauderdale-Hollywood International Airport", ["fort-lauderdale-flight-deals", "miami-airport-vs-fort-lauderdale-airport", "flights-to-florida-deals"], "Fort Lauderdale is a strong South Florida alternative for budget routes, beach trips, and cruise access."),
+  airportGuidePage("jacksonville-airport-guide", "Jacksonville", "Jacksonville International Airport", ["jacksonville-flight-deals", "jacksonville-to-nashville-flight-deals", "cheapest-airports-in-florida"], "Jacksonville is important for North Florida travelers comparing convenience, domestic routes, and nearby airport tradeoffs.")
+];
+
+const planningGuidePages = [
+  planningGuidePage("best-time-to-book-flights", "Best Time To Book Flights | Florida Airfare Planning Guide", "Learn when to book flights from Florida with flexible-date tips, seasonal timing notes, and airport comparison strategies.", "Best Time To Book Flights", "Booking timing guide", "The best time to book depends on route, season, airport, and flexibility. Peak holidays and school breaks usually need earlier comparison, while flexible shoulder-season trips may have more room to test dates and airports.", ["best-time-to-book-flights-from-florida", "florida-airfare-deals", "cheap-weekend-getaway-flights"]),
+  planningGuidePage("cheap-flights-from-florida", "Cheap Flights From Florida | Airport & Route Planning Guide", "Compare cheap flights from Florida with airport tips, route ideas, flexible-date strategies, and current fare search guidance.", "Cheap Flights From Florida", "Statewide planning guide", "Florida travelers can compare Orlando, Miami, Fort Lauderdale, Tampa, and Jacksonville for domestic, international, weekend, and family routes. The best fare is the one that works after fees, timing, and transportation are included.", ["florida-airfare-deals", "cheap-flights-from-orlando", "cheap-flights-from-miami"]),
+  planningGuidePage("weekend-flight-getaways", "Weekend Flight Getaways From Florida | Short Trip Ideas", "Explore weekend flight getaway ideas from Florida with route suggestions, flexible-date tips, and short-trip planning notes.", "Weekend Flight Getaways", "Weekend planning guide", "Weekend getaways work best when flight times preserve usable destination time. Compare Thursday-to-Monday, Friday-to-Monday, and Saturday-to-Tuesday patterns before deciding whether a fare is worth booking.", ["weekend-flight-deals-florida", "cheap-weekend-getaway-flights", "best-weekend-flight-destinations-from-florida"]),
+  planningGuidePage("best-airports-in-florida", "Best Airports In Florida | Flight Deal Comparison Guide", "Compare the best Florida airports for cheap flights, convenience, route options, international travel, and weekend getaways.", "Best Airports In Florida", "Airport planning guide", "The best Florida airport depends on trip purpose. Orlando has route depth, Miami has international strength, Fort Lauderdale can be useful for budget and cruise routes, Tampa works well for Gulf Coast trips, and Jacksonville serves North Florida convenience.", ["cheapest-airports-in-florida", "orlando-airport-guide", "miami-airport-guide"]),
+  planningGuidePage("family-flight-planning-guide", "Family Flight Planning Guide | Florida Airport & Fare Tips", "Plan family flights from Florida with airport tips, flexible-date advice, baggage reminders, and destination ideas for easier trips.", "Family Flight Planning Guide", "Family travel guide", "Family flight planning is about more than the lowest fare. Compare flight times, bags, seat selection, airport convenience, arrival time, and nearby hotels before choosing a route.", ["orlando-flight-deals", "cheap-flights-from-orlando", "flights-to-florida-deals"]),
+  planningGuidePage("how-to-find-cheap-flights", "How To Find Cheap Flights | Florida Route Search Guide", "Learn how to find cheap flights with flexible dates, airport comparisons, route examples, and safe fare-checking habits.", "How To Find Cheap Flights", "Fare search guide", "Cheap flight searches work best when travelers compare dates, airports, airlines, fees, and route type together. Use fare examples as route ideas, then verify the current fare before booking.", ["how-to-find-cheap-flights-from-florida", "florida-airfare-deals", "google-flights-vs-skyscanner-for-florida-routes"]),
+  planningGuidePage("best-florida-airports-for-international-travel", "Best Florida Airports For International Travel | Route Guide", "Compare Florida airports for international flights including Miami, Orlando, Fort Lauderdale, Tampa, and route planning tips.", "Best Florida Airports For International Travel", "International airport guide", "Miami is often strongest for international depth, but Orlando, Fort Lauderdale, and Tampa can all be useful depending on destination, airline, season, and schedule.", ["miami-flight-deals", "tampa-to-cancun-flight-deals", "miami-to-bahamas-flight-deals"]),
+  planningGuidePage("best-weekend-destinations-from-florida", "Best Weekend Destinations From Florida | Flight Getaway Ideas", "Compare weekend destinations from Florida including city escapes, beach trips, international getaways, and quick route ideas.", "Best Weekend Destinations From Florida", "Weekend destination guide", "The best weekend destinations balance airfare, flight time, hotel cost, and usable time away. City escapes, beach routes, and short international trips can all work when schedules line up.", ["best-weekend-flight-destinations-from-florida", "weekend-flight-deals-florida", "orlando-to-new-york-flight-deals"])
+];
+
+const seasonalFlightPages = [
+  seasonalPage("summer-flight-deals", "Summer Flight Deals From Florida | Route Ideas & Travel Tips", "Compare summer flight deals from Florida with route ideas, flexible-date tips, airport guidance, and family travel planning notes.", "Summer Flight Deals", "summer travel", ["cheap-summer-travel", "family-flight-planning-guide", "florida-airfare-deals"]),
+  seasonalPage("holiday-flights-from-florida", "Holiday Flights From Florida | Booking Tips & Route Ideas", "Plan holiday flights from Florida with airport comparison tips, flexible-date ideas, and route planning guidance.", "Holiday Flights From Florida", "holiday travel", ["best-time-to-book-flights", "florida-airfare-deals", "cheapest-airports-in-florida"]),
+  seasonalPage("spring-break-flights", "Spring Break Flights From Florida | Beach & Family Route Ideas", "Explore spring break flights from Florida with beach route ideas, family travel tips, and flexible-date fare guidance.", "Spring Break Flights", "spring break", ["family-flight-planning-guide", "tampa-to-cancun-flight-deals", "miami-to-bahamas-flight-deals"]),
+  seasonalPage("winter-getaway-flights", "Winter Getaway Flights From Florida | Warm Weather & City Escapes", "Compare winter getaway flights from Florida with route ideas, airport tips, and flexible-date travel planning guidance.", "Winter Getaway Flights", "winter getaways", ["weekend-flight-getaways", "best-weekend-destinations-from-florida", "flights-to-florida-deals"]),
+  seasonalPage("memorial-day-flight-deals", "Memorial Day Flight Deals From Florida | Weekend Route Ideas", "Plan Memorial Day flight deals from Florida with long-weekend route ideas, flexible-date tips, and airport comparisons.", "Memorial Day Flight Deals", "Memorial Day weekend", ["weekend-flight-deals-florida", "cheap-weekend-getaway-flights", "weekend-vs-weeklong-flight-deals"]),
+  seasonalPage("cheap-summer-travel", "Cheap Summer Travel From Florida | Flight Ideas & Airport Tips", "Find cheap summer travel ideas from Florida with flight route inspiration, airport comparisons, and flexible-date planning tips.", "Cheap Summer Travel", "summer travel", ["summer-flight-deals", "cheap-flights-from-florida", "family-flight-planning-guide"])
+];
+
+const v2ComparisonPages: SeoFlightPage[] = [
+  {
+    slug: "orlando-vs-miami-airport",
+    title: "Orlando vs Miami Airport | Florida Flight Comparison Guide",
+    description: "Compare Orlando and Miami airports for cheap flights, family trips, international routes, weekend getaways, and Florida travel planning.",
+    h1: "Orlando vs Miami Airport",
+    eyebrow: "Airport comparison",
+    intro: "Orlando and Miami are two of Florida's most important flight markets, but they serve very different trip types.",
+    detail:
+      "Orlando is often stronger for family travel, theme parks, domestic leisure routes, and Central Florida departures. Miami is often stronger for international routes, cruises, South Florida trips, and Latin America or Caribbean access. Compare route depth, airport convenience, ground transportation, and total trip cost before choosing.",
+    pageType: "guide",
+    contentSections: [
+      { heading: "Best for Orlando", body: "Family trips, theme parks, domestic leisure routes, Central Florida hotels, and flexible travelers comparing MCO with Sanford." },
+      { heading: "Best for Miami", body: "International flights, cruises, South Florida city trips, Miami Beach stays, and Caribbean or Latin America route searches." },
+      { heading: "Route recommendations", body: "Use Orlando for Denver, New York, Nashville, and family routes. Use Miami for New York, Bahamas, Bogota, Madrid, Lima, and Caribbean searches." }
+    ],
+    comparisonTable: {
+      columns: ["Compare", "Orlando", "Miami"],
+      rows: [
+        ["Best for", "Family trips and domestic leisure routes", "International routes and South Florida trips"],
+        ["Route strength", "Theme park, weekend, and U.S. city routes", "Caribbean, Latin America, Europe, and major U.S. cities"],
+        ["Watch out for", "Peak school break demand", "Ground transfers and winter demand"]
+      ]
+    },
+    tips: ["Choose based on trip purpose.", "Compare total cost, not only airfare.", "Confirm current fares before booking."],
+    relatedSlugs: ["orlando-flight-deals", "miami-flight-deals", "cheapest-airports-in-florida"]
+  },
+  {
+    slug: "tampa-vs-fort-lauderdale-flights",
+    title: "Tampa vs Fort Lauderdale Flights | Florida Airport Comparison",
+    description: "Compare Tampa and Fort Lauderdale flights for Gulf Coast trips, South Florida routes, cruises, beaches, and weekend airfare ideas.",
+    h1: "Tampa vs Fort Lauderdale Flights",
+    eyebrow: "Airport comparison",
+    intro: "Tampa and Fort Lauderdale can both work for Florida leisure trips, but they serve different regions and route patterns.",
+    detail:
+      "Tampa is often better for Gulf Coast, St. Pete, Clearwater, and Tampa Bay trips. Fort Lauderdale is often better for Broward County, South Florida beaches, budget routes, and cruise access. Compare airline options, destination, drive time, and fees before choosing.",
+    pageType: "guide",
+    contentSections: [
+      { heading: "Best for Tampa", body: "Gulf Coast hotels, Tampa Bay cruises, St. Pete/Clearwater trips, and easier regional airport logistics." },
+      { heading: "Best for Fort Lauderdale", body: "South Florida beaches, Port Everglades cruises, Miami alternatives, and budget-friendly domestic routes." },
+      { heading: "Route recommendations", body: "Use Tampa for Cancun, New York, Chicago, and New Orleans. Use Fort Lauderdale for Atlanta, San Juan, Las Vegas, and Washington, DC." }
+    ],
+    comparisonTable: {
+      columns: ["Compare", "Tampa", "Fort Lauderdale"],
+      rows: [
+        ["Best for", "Gulf Coast and Tampa Bay travel", "South Florida beaches and cruise access"],
+        ["Route strength", "Weekend and leisure routes", "Budget routes and South Florida alternatives"],
+        ["Watch out for", "Fewer options than larger markets", "Fees and Miami/FLL transfer choices"]
+      ]
+    },
+    tips: ["Compare airport convenience.", "Check cruise or hotel location.", "Review baggage and seat fees."],
+    relatedSlugs: ["tampa-flight-deals", "fort-lauderdale-flight-deals", "tampa-vs-orlando-flights"]
+  },
+  {
+    slug: "budget-airlines-vs-major-airlines",
+    title: "Budget Airlines vs Major Airlines | Florida Flight Planning Guide",
+    description: "Compare budget airlines and major airlines for Florida routes, baggage fees, seat costs, flexibility, and total trip value.",
+    h1: "Budget Airlines vs Major Airlines",
+    eyebrow: "Airline comparison",
+    intro: "Budget and major airlines can both be useful for Florida routes, but the cheapest displayed fare is not always the best total value.",
+    detail:
+      "Budget airlines may show lower base fares, especially on leisure and weekend routes. Major airlines can offer broader schedules, loyalty benefits, more connection options, and different fee structures. Compare bags, seats, schedule, airports, and flexibility before booking.",
+    pageType: "guide",
+    contentSections: [
+      { heading: "When budget airlines help", body: "Short trips, light packing, flexible schedules, and under-$100 fare examples can make budget airlines useful." },
+      { heading: "When major airlines help", body: "Family trips, checked bags, international routes, schedule reliability, and connection options can make major airlines a better fit." },
+      { heading: "Route recommendations", body: "Compare budget carriers on Orlando, Fort Lauderdale, Tampa, and Jacksonville routes, then check major airlines when bags or timing matter." }
+    ],
+    comparisonTable: {
+      columns: ["Compare", "Budget airlines", "Major airlines"],
+      rows: [
+        ["Best for", "Low base fares and light-pack trips", "Schedule depth, bags, loyalty, and connections"],
+        ["Main advantage", "Potentially lower starting fare", "More route and service options"],
+        ["Watch out for", "Bags, seats, and change fees", "Higher base fares on some routes"]
+      ]
+    },
+    tips: ["Compare final trip cost.", "Check bag and seat fees.", "Choose by schedule as well as fare."],
+    relatedSlugs: ["how-to-find-cheap-flights", "direct-vs-connecting-flights-from-florida", "florida-airfare-deals"]
+  },
+  {
+    slug: "weekend-trip-vs-long-vacation",
+    title: "Weekend Trip vs Long Vacation | Florida Flight Planning Guide",
+    description: "Compare weekend trips and long vacations from Florida with flight timing, hotel cost, flexible dates, and route planning tips.",
+    h1: "Weekend Trip vs Long Vacation",
+    eyebrow: "Trip planning comparison",
+    intro: "Weekend trips and longer vacations require different airfare strategies from Florida airports.",
+    detail:
+      "Weekend trips depend heavily on flight times and short windows. Longer vacations can use more flexible dates and wider route choices, but hotel and time-off costs matter. Compare trip length, destination, airport, and total value before booking.",
+    pageType: "guide",
+    contentSections: [
+      { heading: "Best for weekend trips", body: "City escapes, quick beach trips, event travel, and long weekends where flight times preserve usable destination time." },
+      { heading: "Best for long vacations", body: "Family trips, international routes, beach resorts, cruises, and destinations where midweek flights may help." },
+      { heading: "Route recommendations", body: "Use New York, Nashville, Atlanta, New Orleans, and Cancun for quick trips. Use Europe, West Coast, or longer Caribbean routes for longer vacations." }
+    ],
+    comparisonTable: {
+      columns: ["Compare", "Weekend trip", "Long vacation"],
+      rows: [
+        ["Best for", "Quick escapes and events", "Family, international, and resort trips"],
+        ["Main advantage", "Less time away", "More date flexibility"],
+        ["Watch out for", "Peak weekend fare pressure", "Hotel and time-off costs"]
+      ]
+    },
+    tips: ["Compare usable destination time.", "Try long-weekend dates.", "Check hotel costs before booking."],
+    relatedSlugs: ["weekend-vs-weeklong-flight-deals", "weekend-flight-getaways", "best-weekend-destinations-from-florida"]
+  },
+  {
+    slug: "domestic-vs-international-flights-from-florida",
+    title: "Domestic vs International Flights From Florida | Route Planning Guide",
+    description: "Compare domestic and international flights from Florida with airport strengths, route examples, timing, fees, and planning tips.",
+    h1: "Domestic vs International Flights From Florida",
+    eyebrow: "Route type comparison",
+    intro: "Florida travelers can compare domestic and international routes differently because timing, fees, airports, and documents all matter.",
+    detail:
+      "Domestic flights can be easier for weekends, family visits, city escapes, and quick route changes. International flights may offer strong value from Miami, Fort Lauderdale, Orlando, and Tampa, but require more planning around documents, bags, hotels, and entry rules.",
+    pageType: "guide",
+    contentSections: [
+      { heading: "Best for domestic flights", body: "Short weekends, city escapes, family visits, and flexible-date route watching from Orlando, Tampa, Jacksonville, Miami, and Fort Lauderdale." },
+      { heading: "Best for international flights", body: "Caribbean, Latin America, Europe, Mexico, and longer vacations where airport strengths and seasonality matter." },
+      { heading: "Route recommendations", body: "Compare Miami to Bahamas, Tampa to Cancun, Fort Lauderdale to San Juan, and Miami to Madrid for international planning ideas." }
+    ],
+    comparisonTable: {
+      columns: ["Compare", "Domestic flights", "International flights"],
+      rows: [
+        ["Best for", "Weekend trips and flexible city routes", "Caribbean, Mexico, Latin America, and Europe"],
+        ["Main advantage", "Simpler planning and shorter trips", "More destination variety from Florida gateways"],
+        ["Watch out for", "Peak weekend demand", "Documents, bags, and seasonal demand"]
+      ]
+    },
+    tips: ["Check route type before comparing fares.", "Confirm entry requirements.", "Use flexible dates for both trip types."],
+    relatedSlugs: ["florida-airfare-deals", "best-florida-airports-for-international-travel", "miami-to-bahamas-flight-deals"]
+  }
+];
+
 export const seoFlightPages: SeoFlightPage[] = [
   {
     slug: "orlando-flight-deals",
@@ -834,7 +1082,67 @@ export const seoFlightPages: SeoFlightPage[] = [
     ],
     tips: ["Choose destinations with useful flight times.", "Compare long-weekend date patterns.", "Check hotel rates before booking event weekends."],
     relatedSlugs: ["weekend-flight-deals-florida", "cheap-weekend-getaway-flights", "orlando-to-denver-flight-deals"]
-  }
+  },
+  {
+    slug: "editorial-policy",
+    title: "Editorial Policy | Florida Flight Deals",
+    description: "Learn how Florida Flight Deals organizes airfare examples, airport guides, route pages, and travel planning resources.",
+    h1: "Editorial Policy",
+    eyebrow: "Trust and transparency",
+    intro:
+      "Florida Flight Deals is part of the Florida Deals Hub travel network. We organize flight routes, travel ideas, airport guides, and destination planning resources to help travelers compare options faster.",
+    detail:
+      "Our pages use recent fare examples, route search links, airport context, and travel planning notes. Prices may change, availability varies by date, and no fare should be treated as available until confirmed with the booking source. We avoid fixed-price promises and focus on useful route discovery.",
+    pageType: "guide",
+    contentSections: [
+      {
+        heading: "How we describe fares",
+        body: "Fare examples are used as planning signals, not live inventory. Travelers should confirm current prices, fees, and availability before booking."
+      },
+      {
+        heading: "How we build pages",
+        body: "Pages are organized around Florida airports, route intent, destination type, seasonal travel, and planning questions."
+      },
+      {
+        heading: "How the network fits together",
+        body: "Flights are connected to Florida hotel, cruise, local deal, and hub resources when those links help complete a trip."
+      }
+    ],
+    tips: ["Prices may change.", "Availability varies by date.", "Confirm current fares with the booking source."],
+    relatedSlugs: ["how-flight-prices-work", "how-to-find-cheap-flights", "florida-airfare-deals"]
+  },
+  {
+    slug: "how-flight-prices-work",
+    title: "How Flight Prices Work | Florida Fare Planning Guide",
+    description: "Understand why Florida flight prices change, how availability works, and how to compare airfare examples responsibly.",
+    h1: "How Flight Prices Work",
+    eyebrow: "Fare education",
+    intro:
+      "Flight prices change because airlines adjust inventory, demand, schedules, and availability across routes and dates.",
+    detail:
+      "A fare that appears during one search may not be available later. Florida routes can move around holidays, cruise departures, school breaks, events, weather, and airline capacity. Treat airfare examples as route ideas, then confirm current prices, fees, and booking terms with the source before purchasing.",
+    pageType: "guide",
+    contentSections: [
+      {
+        heading: "Why prices move",
+        body: "Airline inventory, demand, seasonality, booking windows, and route competition can all affect the price shown to travelers."
+      },
+      {
+        heading: "Why flexible dates help",
+        body: "Nearby dates may have different inventory, demand, or flight schedules, which can change the fare available for the same route."
+      },
+      {
+        heading: "How to compare safely",
+        body: "Check current fares, baggage fees, seat rules, change terms, and arrival times before deciding whether a fare works."
+      }
+    ],
+    tips: ["Fares may change quickly.", "Availability varies by date.", "No fare is final until confirmed with the source."],
+    relatedSlugs: ["editorial-policy", "best-time-to-book-flights", "how-to-find-cheap-flights"]
+  },
+  ...airportGuidePages,
+  ...planningGuidePages,
+  ...seasonalFlightPages,
+  ...v2ComparisonPages
 ];
 
 export const seoFlightPageSlugs = seoFlightPages.map((page) => page.slug);
@@ -1261,5 +1569,20 @@ const seoFlightFaqs: Record<string, SeoFlightFaq[]> = {
 };
 
 export function getSeoFlightPageFaqs(page: SeoFlightPage) {
-  return seoFlightFaqs[page.slug] ?? [];
+  return (
+    seoFlightFaqs[page.slug] ?? [
+      {
+        question: `How should I use ${page.h1}?`,
+        answer: "Use this page as a planning resource, then confirm current fares, fees, schedules, and availability with the booking source before purchasing."
+      },
+      {
+        question: "Can flight prices change after I compare routes?",
+        answer: "Yes. Flight fares may change quickly, and availability varies by date, airline, airport, and booking source."
+      },
+      {
+        question: "Should I compare nearby Florida airports?",
+        answer: "Compare nearby airports when the drive time, parking, baggage rules, and schedule tradeoffs still make the total trip worthwhile."
+      }
+    ]
+  );
 }

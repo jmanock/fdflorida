@@ -1,10 +1,12 @@
 import { Plane } from "lucide-react";
-import { flightSearchLinks, networkLinks } from "@/lib/siteLinks";
+import { flightSearchLinks, networkLinks, v2FlightDiscoveryLinks } from "@/lib/siteLinks";
 
 const footerLinks = [
   ...networkLinks.map((item) => ({ label: item.label === "Flights" ? "Flight Deals" : item.label, href: item.href })),
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Editorial Policy", href: "/editorial-policy" },
+  { label: "How Prices Work", href: "/how-flight-prices-work" },
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" }
 ];
@@ -74,7 +76,7 @@ export function SiteFooter() {
         <div className="border-t border-slate-200 pt-7 md:col-span-2">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-ocean">Related Flight Searches</p>
           <nav className="mt-4 flex flex-wrap gap-2" aria-label="Related flight searches">
-            {flightSearchLinks.slice(0, 12).map((item) => (
+            {[...flightSearchLinks.slice(0, 10), ...v2FlightDiscoveryLinks.slice(0, 8)].map((item) => (
               <a key={item.href} href={item.href} className="rounded-full border border-slate-200 bg-sand px-3 py-2 text-xs font-black text-slateText transition hover:border-sky-200 hover:bg-skyline hover:text-ocean">
                 {item.label}
               </a>

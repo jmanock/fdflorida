@@ -9,7 +9,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { getSeoFlightPage, getSeoFlightPageDeals, getSeoFlightPageFaqs, seoFlightPageSlugs, type SeoFlightPage } from "@/lib/seoFlightPages";
-import { flightSearchLinks, siteUrl } from "@/lib/siteLinks";
+import { flightSearchLinks, siteUrl, v2FlightDiscoveryLinks } from "@/lib/siteLinks";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -144,7 +144,8 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const faqs = getSeoFlightPageFaqs(page);
   const relatedFlightLinks = [
     ...relatedPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
-    ...flightSearchLinks.filter((link) => link.href !== `/${page.slug}` && !page.relatedSlugs.some((slug) => link.href === `/${slug}`))
+    ...flightSearchLinks.filter((link) => link.href !== `/${page.slug}` && !page.relatedSlugs.some((slug) => link.href === `/${slug}`)),
+    ...v2FlightDiscoveryLinks.filter((link) => link.href !== `/${page.slug}`)
   ].slice(0, 9);
   const relatedSearchLinks = [...relatedFlightLinks, { label: "Florida Hotel Deals", href: "https://hoteldealsflorida.org" }].slice(0, 10);
   const structuredGraph = [
