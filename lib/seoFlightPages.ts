@@ -258,6 +258,21 @@ const seasonalFlightPages = [
   seasonalPage("cheap-summer-travel", "Cheap Summer Travel From Florida | Flight Ideas & Airport Tips", "Find cheap summer travel ideas from Florida with flight route inspiration, airport comparisons, and flexible-date planning tips.", "Cheap Summer Travel", "summer travel", ["summer-flight-deals", "cheap-flights-from-florida", "family-flight-planning-guide"])
 ];
 
+const v3DestinationFlightPages = [
+  planningGuidePage("key-west-flight-deals", "Key West Flight Deals | EYW Routes & Florida Keys Travel Tips", "Compare Key West flight deal ideas with Florida Keys airport tips, Miami connection planning, and hotel or local activity links.", "Key West Flight Deals", "Florida Keys flight guide", "Key West flight planning should compare EYW fares with Miami or Fort Lauderdale fly-and-drive options, final transportation time, hotel availability, and seasonal demand. Small airport convenience can be worth more than a lower fare that adds a long drive.", ["cheap-flights-from-florida", "miami-flight-deals", "best-florida-airports-for-international-travel"]),
+  planningGuidePage("clearwater-flight-deals", "Clearwater Flight Deals | Tampa Bay Airport Planning Guide", "Plan Clearwater flight deals by comparing Tampa, St. Pete-Clearwater, nearby hotels, beach timing, and Gulf Coast trip costs.", "Clearwater Flight Deals", "Gulf Coast flight guide", "Clearwater travelers usually start with Tampa International, then compare St. Pete-Clearwater when the route, schedule, baggage rules, and ground transportation still make sense for the beach trip.", ["tampa-flight-deals", "cheap-flights-from-tampa", "tampa-vs-orlando-flights"]),
+  planningGuidePage("st-augustine-flight-deals", "St. Augustine Flight Deals | Jacksonville Airport Travel Guide", "Compare St. Augustine flight deal ideas using Jacksonville airport, Northeast Florida drive times, hotel areas, and weekend travel tips.", "St. Augustine Flight Deals", "Historic Coast flight guide", "St. Augustine does not behave like a major airport market, so most travelers compare Jacksonville flights with the full drive, rental car, hotel location, and weekend itinerary before booking.", ["jacksonville-flight-deals", "cheap-flights-from-florida", "jacksonville-airport-guide"]),
+  planningGuidePage("daytona-beach-flight-deals", "Daytona Beach Flight Deals | DAB, Orlando & Beach Trip Tips", "Compare Daytona Beach flight deal ideas with Daytona, Orlando, and Sanford airport planning notes for beach weekends and events.", "Daytona Beach Flight Deals", "Atlantic Coast flight guide", "Daytona Beach trips can work through Daytona Beach International, Orlando International, or Sanford depending on fare, route, event timing, car needs, and hotel location. Compare the full trip before choosing the lowest base fare.", ["orlando-flight-deals", "orlando-airport-vs-sanford-airport", "cheap-flights-from-orlando"]),
+  planningGuidePage("naples-flight-deals", "Naples Flight Deals | Southwest Florida Airport Planning Guide", "Plan Naples flight deals by comparing Fort Myers, Miami, Fort Lauderdale, hotel rates, drive time, and seasonal travel demand.", "Naples Flight Deals", "Southwest Florida flight guide", "Naples travelers often compare Southwest Florida International with South Florida airports when prices differ. The better choice depends on flight times, rental car needs, hotel rates, and how much drive time the trip can absorb.", ["fort-lauderdale-flight-deals", "miami-flight-deals", "flights-to-florida-deals"]),
+  planningGuidePage("destin-flight-deals", "Destin Flight Deals | Panhandle Airport & Beach Trip Guide", "Compare Destin flight deal ideas with Northwest Florida airport options, beach-season timing, and total trip planning tips.", "Destin Flight Deals", "Panhandle flight guide", "Destin flight planning should compare nearby Panhandle airports, drive time to the beach, rental car needs, peak summer demand, and hotel availability before booking a fare.", ["cheap-flights-from-florida", "weekend-flight-getaways", "family-flight-planning-guide"]),
+  planningGuidePage("cheap-flights-to-florida-beaches", "Cheap Flights To Florida Beaches | Airport & Destination Guide", "Compare cheap flights to Florida beaches with airport choices for Miami, Fort Lauderdale, Tampa Bay, Daytona, Destin, and the Keys.", "Cheap Flights To Florida Beaches", "Beach airport guide", "Beach trips are rarely about airfare alone. Compare the closest airport, hotel rates, rental cars, parking, beach access, and seasonal weather so a low fare still creates a useful vacation.", ["flights-to-florida-deals", "miami-flight-deals", "tampa-flight-deals"])
+];
+
+const v3SeasonalFlightPages = [
+  seasonalPage("spring-break-flights-from-florida", "Spring Break Flights From Florida | Airport & Route Planning", "Plan spring break flights from Florida with airport comparisons, family route ideas, beach destinations, and flexible-date tips.", "Spring Break Flights From Florida", "spring break travel", ["spring-break-flights", "family-flight-planning-guide", "cheap-flights-from-florida"]),
+  seasonalPage("holiday-flight-deals-florida", "Holiday Flight Deals Florida | Booking Timing & Route Ideas", "Compare holiday flight deals in Florida with airport timing tips, route ideas, and safe fare-checking guidance.", "Holiday Flight Deals Florida", "holiday travel", ["holiday-flights-from-florida", "best-time-to-book-flights", "cheapest-airports-in-florida"])
+];
+
 const v2ComparisonPages: SeoFlightPage[] = [
   {
     slug: "orlando-vs-miami-airport",
@@ -1142,6 +1157,8 @@ export const seoFlightPages: SeoFlightPage[] = [
   ...airportGuidePages,
   ...planningGuidePages,
   ...seasonalFlightPages,
+  ...v3DestinationFlightPages,
+  ...v3SeasonalFlightPages,
   ...v2ComparisonPages
 ];
 
