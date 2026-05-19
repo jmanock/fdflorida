@@ -14,12 +14,13 @@ declare global {
 }
 
 export function trackEvent({ action, category, label, value, params }: AnalyticsEvent) {
-  if (typeof window === "undefined" || typeof window.gtag !== "function") {
+  if (typeof window === "undefined") {
     return;
   }
 
   const eventParams: Record<string, string | number | boolean | undefined> = {
     site: "flightdealsflorida.org",
+    source_site: "flightdealsflorida.org",
     source: "flights",
     ...params
   };
@@ -36,5 +37,9 @@ export function trackEvent({ action, category, label, value, params }: Analytics
     eventParams.value = value;
   }
 
-  window.gtag("event", action, eventParams);
+  window.gtag?.("event", action, eventParams);
+  window.dataLayer?.push({
+    event: action,
+    ...eventParams
+  });
 }

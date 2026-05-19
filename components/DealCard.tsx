@@ -183,30 +183,40 @@ export function DealCard({
           href={outboundUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() =>
+          onClick={() => {
+            const clickParams = {
+              airline: deal.airline,
+              content_type: "flight_deal",
+              destination,
+              origin,
+              price: deal.price,
+              source_site: "flightdealsflorida.org",
+              price_range: deal.price ? `from $${deal.price}` : "current fares",
+              price_text: `Recent fares from $${deal.price} when available`,
+              cta_text: ctaText,
+              type: "flight",
+              provider: "google_flights",
+              route: `${origin} to ${destination}`,
+              route_or_destination: `${origin} to ${destination}`,
+              outbound_url: outboundUrl,
+              page_path: window.location.pathname
+            };
+
+            trackEvent({
+              action: "deal_click",
+              category: "flights",
+              label: `${deal.from} to ${deal.to}`,
+              value: deal.price,
+              params: clickParams
+            });
             trackEvent({
               action: "flight_card_click",
               category: "flights",
               label: `${deal.from} to ${deal.to}`,
               value: deal.price,
-              params: {
-                airline: deal.airline,
-                destination,
-                origin,
-                price: deal.price,
-                source_site: "flightdealsflorida.org",
-                price_range: deal.price ? `from $${deal.price}` : "current fares",
-                price_text: `Recent fares from $${deal.price} when available`,
-                cta_text: ctaText,
-                type: "flight",
-                provider: "google_flights",
-                route: `${origin} to ${destination}`,
-                route_or_destination: `${origin} to ${destination}`,
-                outbound_url: outboundUrl,
-                page_path: window.location.pathname
-              }
-            })
-          }
+              params: clickParams
+            });
+          }}
           className="mt-auto flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gulf to-ocean px-4 text-sm font-black text-white shadow-lg shadow-sky-700/20 transition hover:-translate-y-0.5 hover:from-sky-600 hover:to-sky-400 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
           aria-label={`Check fares for ${origin} to ${destination}`}
         >

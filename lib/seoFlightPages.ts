@@ -273,6 +273,45 @@ const v3SeasonalFlightPages = [
   seasonalPage("holiday-flight-deals-florida", "Holiday Flight Deals Florida | Booking Timing & Route Ideas", "Compare holiday flight deals in Florida with airport timing tips, route ideas, and safe fare-checking guidance.", "Holiday Flight Deals Florida", "holiday travel", ["holiday-flights-from-florida", "best-time-to-book-flights", "cheapest-airports-in-florida"])
 ];
 
+function routeSearchPage(slug: string, title: string, description: string, h1: string, eyebrow: string, origin: string, destination: string, price: number, relatedSlugs: string[], badge: FlightDeal["badge"] = "Hot Deal"): SeoFlightPage {
+  return {
+    slug,
+    title,
+    description,
+    h1,
+    eyebrow,
+    intro: `${h1} helps travelers compare route ideas, airport choices, flexible dates, fees, and trip timing before opening a current fare search.`,
+    detail: `${origin} to ${destination} fares can change by season, airline inventory, holiday timing, event demand, baggage rules, and route schedule. Use this page as a planning resource, then confirm current price, fees, flight times, and availability with the booking source before buying.`,
+    pageType: "route",
+    contentSections: [
+      {
+        heading: "When this route is useful",
+        body: `The ${origin} to ${destination} route is useful when the flight time, hotel cost, airport convenience, and total trip budget work together. Compare nonstop and connecting options before deciding.`
+      },
+      {
+        heading: "How to compare the fare",
+        body: "Check nearby dates, bags, seats, arrival time, transportation, and cancellation terms. A slightly higher fare can be better when it preserves more usable trip time."
+      },
+      {
+        heading: "Plan the rest of the trip",
+        body: "After a fare looks promising, compare hotels, local activities, cruise schedules where relevant, and weather or event calendars before locking in dates."
+      }
+    ],
+    customDeals: [
+      routeDeal(`route-${slug}`, "Google Flights", origin, destination, price, "Flexible 2026 dates", "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80", badge)
+    ],
+    tips: ["Compare flexible dates first.", "Review baggage and seat fees.", "Confirm current fares with the source."],
+    relatedSlugs
+  };
+}
+
+const v5SearchIntentFlightPages = [
+  routeSearchPage("flights-from-miami-to-cancun", "Flights From Miami To Cancun | Fare Ideas & Travel Tips", "Compare flights from Miami to Cancun with flexible-date tips, baggage reminders, resort timing, and current fare search guidance.", "Flights From Miami To Cancun", "Miami to Cancun route", "Miami", "Cancun", 128, ["miami-flight-deals", "cheap-flights-from-miami", "best-florida-airports-for-international-travel"], "International"),
+  routeSearchPage("flights-from-tampa-to-new-york", "Flights From Tampa To New York | Weekend Fare Ideas", "Compare flights from Tampa to New York with airport tips, flexible weekend dates, hotel timing, and current fare search guidance.", "Flights From Tampa To New York", "Tampa to New York route", "Tampa", "New York", 98, ["tampa-flight-deals", "cheap-flights-from-tampa", "weekend-flight-deals-florida"]),
+  routeSearchPage("miami-to-cancun-flight-deals", "Miami To Cancun Flight Deals | Mexico Route Planning", "Find Miami to Cancun flight deal ideas with flexible-date guidance, international route tips, and current fare search links.", "Miami To Cancun Flight Deals", "South Florida to Mexico", "Miami", "Cancun", 128, ["flights-from-miami-to-cancun", "miami-flight-deals", "cheap-flights-from-miami"], "International"),
+  routeSearchPage("tampa-to-new-york-flight-deals", "Tampa To New York Flight Deals | Flexible Weekend Route Ideas", "Find Tampa to New York flight deal ideas with recent fare context, flexible-date tips, and airport planning guidance.", "Tampa To New York Flight Deals", "Gulf Coast to NYC", "Tampa", "New York", 98, ["flights-from-tampa-to-new-york", "tampa-flight-deals", "cheap-weekend-getaway-flights"])
+];
+
 const v2ComparisonPages: SeoFlightPage[] = [
   {
     slug: "orlando-vs-miami-airport",
@@ -1159,6 +1198,7 @@ export const seoFlightPages: SeoFlightPage[] = [
   ...seasonalFlightPages,
   ...v3DestinationFlightPages,
   ...v3SeasonalFlightPages,
+  ...v5SearchIntentFlightPages,
   ...v2ComparisonPages
 ];
 
