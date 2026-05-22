@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Building2, CheckCircle2, Hotel, Plane, Sailboat, Search, Ticket } from "lucide-react";
+import { AffiliateGearLink } from "@/components/AffiliateGearLink";
 import { DealCard } from "@/components/DealCard";
 import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { flightPiscifunGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { getSeoFlightPage, getSeoFlightPageDeals, getSeoFlightPageFaqs, seoFlightPageSlugs, type SeoFlightPage } from "@/lib/seoFlightPages";
 import { flightSearchLinks, siteUrl, v2FlightDiscoveryLinks } from "@/lib/siteLinks";
@@ -142,6 +144,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const floridaHotelDestinations = ["Orlando", "Miami", "Tampa", "Fort Lauderdale", "Jacksonville"];
   const relatedPages = page.relatedSlugs.map(getSeoFlightPage).filter((item): item is SeoFlightPage => Boolean(item));
   const faqs = getSeoFlightPageFaqs(page);
+  const showGearPicks = /carry-on|packing|gear|weekend-flight-packing/.test(page.slug);
   const relatedFlightLinks = [
     ...relatedPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
     ...flightSearchLinks.filter((link) => link.href !== `/${page.slug}` && !page.relatedSlugs.some((slug) => link.href === `/${slug}`)),
@@ -349,6 +352,25 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {pageDeals.map((deal, index) => (
               <DealCard key={deal.id} deal={deal} priority={index === 0} />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {showGearPicks ? (
+        <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Florida travel gear picks</p>
+              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Pack smarter for warm-weather flight trips.</h2>
+            </div>
+            <p className="max-w-md text-sm font-semibold leading-6 text-slateText">
+              Some links on this site may earn us a commission at no extra cost to you. Pack only what fits your airline rules and trip plans.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            {flightPiscifunGearPicks.map((item) => (
+              <AffiliateGearLink key={item.title} item={item} ctaText="Browse Piscifun Products" />
             ))}
           </div>
         </section>
