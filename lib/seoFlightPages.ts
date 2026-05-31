@@ -1190,6 +1190,22 @@ export const seoFlightPages: SeoFlightPage[] = [
       {
         heading: "How the network fits together",
         body: "Flights are connected to Florida hotel, cruise, local deal, and hub resources when those links help complete a trip."
+      },
+      {
+        heading:"How Florida travelers should verify fares",
+        body: "After finding a promising fard, confirm current price, baggage rules, and booking terms directly with the airline or booking source."
+      },
+      {
+        heading : "Florida airport comparison",
+        body: "Florida travelers should compare Orlando (MCO), Miami (MIA), Tampa (TPA), and Fort Lauderdale (FLL) before choosing a route. Google Flights makes it easier to comare nearby airports and flexible date combinations accross multiple Florida departure markets."
+      },
+      {
+        heading: "MCO vs TPA vs MIA vs FLL",
+        body: "Orlando often provides the largest route network, Miami is strongest for international destinations, Tampa works well for Gulf Coast travelers, and Fort Lauderdale can offer competitive fares for South Florida departures. Compare all four airports before locking in travel dates."
+      },
+      {
+        heading: "Google Flights price tracking tips",
+        body: "Use price tracking alerts, flexible date searches, and nearby airport comparisons before booking. Travelers should review multiple date combinations and confirm final pricing directly with the airline or booking provider before purchasing."
       }
     ],
     tips: ["Prices may change.", "Availability varies by date.", "Confirm current fares with the booking source."],
