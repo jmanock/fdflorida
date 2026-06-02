@@ -52,10 +52,13 @@ const routeClusters = [
     links: [
       { label: "Orlando Flight Deals", href: "/orlando-flight-deals" },
       { label: "Cheap Flights From Orlando", href: "/cheap-flights-from-orlando" },
+      { label: "Orlando Airport Guide", href: "/orlando-airport-guide" },
       { label: "Orlando to Denver Flight Deals", href: "/orlando-to-denver-flight-deals" },
       { label: "Orlando to New York Flight Deals", href: "/orlando-to-new-york-flight-deals" },
-      { label: "Orlando Hotel Deals", href: "https://hoteldealsflorida.org" },
-      { label: "Florida Deals Hub", href: "https://floridadealshub.com" }
+      { label: "Hotels Near Disney", href: "https://hoteldealsflorida.org/hotels-near-disney" },
+      { label: "Orlando Things To Do", href: "https://localdealsflorida.org/orlando-things-to-do" },
+      { label: "Orlando Travel Guide", href: "https://floridadealshub.com/orlando-travel-guide" },
+      { label: "Port Canaveral Cruises", href: "https://cruisedealsflorida.org/cruises-from-port-canaveral" }
     ]
   },
   {
@@ -63,10 +66,13 @@ const routeClusters = [
     links: [
       { label: "Miami Flight Deals", href: "/miami-flight-deals" },
       { label: "Cheap Flights From Miami", href: "/cheap-flights-from-miami" },
+      { label: "Miami Airport Guide", href: "/miami-airport-guide" },
       { label: "Miami to New York Flight Deals", href: "/miami-to-new-york-flight-deals" },
       { label: "Miami to Bahamas Flight Deals", href: "/miami-to-bahamas-flight-deals" },
-      { label: "Miami Hotel Deals", href: "https://hoteldealsflorida.org" },
-      { label: "Local Deals Florida", href: "https://localdealsflorida.org" }
+      { label: "Miami Beach Hotels", href: "https://hoteldealsflorida.org/miami-beach-hotels" },
+      { label: "Miami Cruise Port Guide", href: "https://cruisedealsflorida.org/miami-cruise-port-guide" },
+      { label: "Miami Boat Rentals", href: "https://localdealsflorida.org/miami-boat-rentals" },
+      { label: "Miami Travel Guide", href: "https://floridadealshub.com/miami-travel-guide" }
     ]
   },
   {
@@ -74,10 +80,13 @@ const routeClusters = [
     links: [
       { label: "Tampa Flight Deals", href: "/tampa-flight-deals" },
       { label: "Cheap Flights From Tampa", href: "/cheap-flights-from-tampa" },
+      { label: "Tampa Airport Guide", href: "/tampa-airport-guide" },
       { label: "Tampa to Cancun Flight Deals", href: "/tampa-to-cancun-flight-deals" },
       { label: "Tampa vs Orlando Flights", href: "/tampa-vs-orlando-flights" },
-      { label: "Tampa Hotel Deals", href: "https://hoteldealsflorida.org" },
-      { label: "Florida Weekend Getaways", href: "/weekend-flight-deals-florida" }
+      { label: "Tampa Hotel Deals", href: "https://hoteldealsflorida.org/tampa-hotel-deals" },
+      { label: "Cruises From Tampa", href: "https://cruisedealsflorida.org/cruises-from-tampa" },
+      { label: "Tampa Weekend Activities", href: "https://localdealsflorida.org/tampa-weekend-activities" },
+      { label: "Tampa Travel Guide", href: "https://floridadealshub.com/tampa-travel-guide" }
     ]
   }
 ];

@@ -26,6 +26,10 @@ The site automatically loads GA when this value is present and tracks:
 - `newsletter_signup_started`
 - `newsletter_signup_success`
 - `deal_click`
+- `affiliate_click`
+- `guide_click`
+- `destination_click`
+- `network_site_click`
 - `filter_click`
 - `hotel_crosslink_click`
 - `navigation_click`
@@ -373,8 +377,10 @@ Current analytics events include:
 
 - `flight_card_click`
 - `route_click`
-- `airport_guide_click` when specifically added to airport guide CTAs
+- `guide_click` for guide, airport, packing, best-of, and planning links
+- `destination_click` for Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, Clearwater, Key West, and Port Canaveral cluster links
 - `network_site_click`
+- `affiliate_click`
 - `newsletter_signup_started`
 - `newsletter_signup_success`
 - `image_fallback_used`
