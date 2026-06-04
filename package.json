@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "seo:indexnow": "node scripts/seo-automation.mjs --site=flightdealsflorida --mode=indexnow",
+    "seo:validate": "node scripts/seo-automation.mjs --site=flightdealsflorida --mode=validate",
+    "seo:report": "node scripts/seo-automation.mjs --site=flightdealsflorida --mode=report"
   },
   "dependencies": {
     "lucide-react": "0.468.0",
