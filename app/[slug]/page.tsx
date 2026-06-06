@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Building2, CheckCircle2, Hotel, Plane, Sailboat, Search, Ticket } from "lucide-react";
 import { AffiliateGearLink } from "@/components/AffiliateGearLink";
 import { DealCard } from "@/components/DealCard";
+import { FallbackImage } from "@/components/FallbackImage";
+import { FlightGuideAnalytics } from "@/components/FlightGuideAnalytics";
 import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -17,7 +19,7 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const lastUpdated = "May 2026";
+const lastUpdated = "June 2026";
 const ogImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80";
 
 const sisterSites = [
@@ -143,6 +145,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const canonical = `${siteUrl}/${page.slug}`;
+  const metadataImage = page.heroImage?.src ?? ogImage;
 
   return {
     title: page.title,
@@ -158,10 +161,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: "Florida Flight Deals",
       images: [
         {
-          url: ogImage,
+          url: metadataImage,
           width: 1200,
           height: 800,
-          alt: `${page.h1} flight travel preview`
+          alt: page.heroImage?.alt ?? `${page.h1} flight travel preview`
         }
       ]
     },
@@ -169,7 +172,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: page.title,
       description: page.description,
-      images: [ogImage]
+      images: [metadataImage]
     }
   };
 }
@@ -191,6 +194,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const relatedPages = page.relatedSlugs.map(getSeoFlightPage).filter((item): item is SeoFlightPage => Boolean(item));
   const faqs = getSeoFlightPageFaqs(page);
   const showGearPicks = /carry-on|packing|gear|weekend-flight-packing/.test(page.slug);
+  const isToolComparison = /google-flights-vs-/.test(page.slug);
   const relatedHubStories = getHubStoryLinks(page.slug);
   const relatedFlightLinks = [
     ...relatedPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
@@ -205,7 +209,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       headline: page.h1,
       url: `${siteUrl}/${page.slug}`,
       description: page.description,
-      dateModified: "2026-05-01",
+      dateModified: "2026-06-06",
       isPartOf: {
         "@type": "WebSite",
         name: "Florida Flight Deals",
@@ -269,6 +273,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      {isGuide ? <FlightGuideAnalytics slug={page.slug} isComparison={isToolComparison} /> : null}
       <SiteHeader />
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
@@ -311,27 +316,61 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
             </div>
           </div>
 
-          <aside className="rounded-[28px] border border-white/70 bg-white/90 p-5 shadow-premium backdrop-blur">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-ocean">Before you book</p>
-            <h2 className="mt-3 text-2xl font-black tracking-normal text-ink">{hasDeals ? "Use these as fare examples." : "Use this as a planning guide."}</h2>
-            <p className="mt-3 text-sm font-medium leading-6 text-slateText">
-              {hasDeals
-                ? "Prices may change and seats may be limited. View current fares through the linked airline or travel search before booking."
-                : "Compare airport options, flexible dates, and total trip cost before choosing a flight."}
-            </p>
-            <div className="mt-5 space-y-3">
-              {[`Updated: ${lastUpdated}`, "Recent fare finds", "Check current availability", "Fares may change"].map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-ocean" />
-                  <span className="text-sm font-black text-ink">{item}</span>
+          <aside className="overflow-hidden rounded-[28px] border border-white/70 bg-white/90 shadow-premium backdrop-blur">
+            {page.heroImage ? (
+              <figure>
+                <div className="relative aspect-[16/10] bg-sand">
+                  <FallbackImage
+                    src={page.heroImage.src}
+                    alt={page.heroImage.alt}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 48vw"
+                    className="object-cover"
+                  />
                 </div>
-              ))}
+                <figcaption className="border-b border-slate-200 bg-sand px-5 py-3 text-xs font-bold leading-5 text-slateText">
+                  {page.heroImage.caption}
+                </figcaption>
+              </figure>
+            ) : null}
+            <div className="p-5">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-ocean">Before you book</p>
+              <h2 className="mt-3 text-2xl font-black tracking-normal text-ink">{hasDeals ? "Use these as fare examples." : "Use this as a planning guide."}</h2>
+              <p className="mt-3 text-sm font-medium leading-6 text-slateText">
+                {hasDeals
+                  ? "Prices may change and seats may be limited. View current fares through the linked airline or travel search before booking."
+                  : "Compare airport options, flexible dates, and total trip cost before choosing a flight."}
+              </p>
+              <div className="mt-5 space-y-3">
+                {[`Updated: ${lastUpdated}`, "Recent fare finds", "Check current availability", "Fares may change"].map((item) => (
+                  <div key={item} className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-ocean" />
+                    <span className="text-sm font-black text-ink">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </aside>
         </div>
       </section>
 
       <section id="guide-content" className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        {page.quickAnswer ? (
+          <div className="mb-10 rounded-[28px] border border-sky-200 bg-skyline p-6 shadow-card sm:p-8">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-ocean">Quick answer</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">{page.quickAnswer.heading}</h2>
+            <p className="mt-4 max-w-4xl text-base font-semibold leading-8 text-slateText">{page.quickAnswer.summary}</p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {page.quickAnswer.items.map((item) => (
+                <div key={item.label} className="rounded-3xl border border-white bg-white p-5 shadow-sm">
+                  <p className="text-xs font-black uppercase tracking-[0.14em] text-ocean">{item.label}</p>
+                  <p className="mt-3 text-sm font-bold leading-6 text-ink">{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
         <div className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">{isGuide ? "Flight guide" : "Route notes"}</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">{isGuide ? "Practical guidance for Florida travelers." : "What to know before checking fares."}</h2>
@@ -373,6 +412,25 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
                 ))}
               </div>
             ))}
+          </div>
+        ) : null}
+        {page.airportCards ? (
+          <div className="mt-10">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Florida airports</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Compare major Florida airport markets.</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {page.airportCards.map((airport) => (
+                <Link key={airport.code} href={airport.href} className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+                  <span className="inline-flex rounded-xl bg-ocean px-3 py-2 text-sm font-black text-white">{airport.code}</span>
+                  <h3 className="mt-4 text-lg font-black text-ink">{airport.city}</h3>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-slateText">{airport.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                    View {airport.city} flights
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         ) : null}
         <div className="mt-7 grid gap-4 md:grid-cols-3">

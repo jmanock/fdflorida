@@ -13,6 +13,22 @@ export type SeoFlightPage = {
     heading: string;
     body: string;
   }[];
+  heroImage?: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
+  quickAnswer?: {
+    heading: string;
+    summary: string;
+    items: { label: string; value: string }[];
+  };
+  airportCards?: {
+    city: string;
+    code: string;
+    description: string;
+    href: string;
+  }[];
   comparisonTable?: {
     columns: [string, string, string];
     rows: [string, string, string][];
@@ -306,6 +322,183 @@ function routeSearchPage(slug: string, title: string, description: string, h1: s
     relatedSlugs
   };
 }
+
+const floridaAirportCards = [
+  { city: "Orlando", code: "MCO", description: "Compare theme-park, family, convention, and Central Florida routes.", href: "/orlando-flight-deals" },
+  { city: "Miami", code: "MIA", description: "Search a major gateway for South Florida, Caribbean, and international trips.", href: "/miami-flight-deals" },
+  { city: "Tampa", code: "TPA", description: "Compare Gulf Coast, city-break, cruise, and beach-trip routes.", href: "/tampa-flight-deals" },
+  { city: "Fort Lauderdale", code: "FLL", description: "Check South Florida budget routes, cruises, and beach access.", href: "/fort-lauderdale-flight-deals" },
+  { city: "Jacksonville", code: "JAX", description: "Compare convenient North Florida domestic routes and weekend trips.", href: "/jacksonville-flight-deals" }
+];
+
+const floridaFlightHero = {
+  src: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80",
+  alt: "Airplane wing above clouds while searching for Florida flights",
+  caption: "Compare flexible dates and Florida airports before choosing a fare."
+};
+
+function googleFlightsCityPage(city: string, code: string, nearbyNote: string, relatedSlugs: string[]): SeoFlightPage {
+  const slug = `google-flights-${city.toLowerCase().replaceAll(" ", "-")}`;
+
+  return {
+    slug,
+    title: `Google Flights ${city} (2026): Find Better ${code} Airfare Deals`,
+    description: `Use Google Flights for ${city}, Florida airfare searches. Compare ${code} dates, nearby airports, price alerts, and current flight deals before booking.`,
+    h1: `Google Flights ${city}: Find Better ${code} Airfare Deals`,
+    eyebrow: `${code} flight search guide`,
+    intro: `Use Google Flights to compare ${city} routes, flexible dates, airlines, stops, and nearby-airport options before booking.`,
+    detail: `${city} airfare can move with school calendars, events, holidays, airline schedules, and route demand. Google Flights makes it easier to scan a date grid and track a route, but the cheapest result is only useful when bags, flight times, transportation, and the rest of the trip still work. ${nearbyNote}`,
+    pageType: "guide",
+    heroImage: floridaFlightHero,
+    quickAnswer: {
+      heading: `The fastest way to search Google Flights for ${city}`,
+      summary: `Start with ${code}, test flexible dates, then compare the total trip cost before booking with the airline or booking source.`,
+      items: [
+        { label: "Best for", value: `${code} date comparisons and route tracking` },
+        { label: "Try next", value: "Nearby dates, nonstop filters, and alternate airports" },
+        { label: "Remember", value: "Final prices, bags, and booking terms can change" }
+      ]
+    },
+    contentSections: [
+      { heading: `Search flexible ${code} dates`, body: `Open the date grid before choosing a flight. Moving a ${city} departure or return by one or two days can reveal a different mix of schedules and fares.` },
+      { heading: `Compare ${city} route options`, body: `Filter by stops, airline, departure time, bags, and trip length. A useful result should protect the itinerary, not merely show the lowest base fare.` },
+      { heading: "Track the route before booking", body: "Price tracking can help when dates are not urgent. Recheck the airline's final price and terms before purchasing." }
+    ],
+    tips: [`Start with ${code}, then test nearby airports only when practical.`, "Use the date grid before setting a price alert.", "Compare final flight times and fees before booking."],
+    relatedSlugs
+  };
+}
+
+function flightToolComparisonPage(tool: string, strengths: string, caution: string): SeoFlightPage {
+  const toolSlug = tool.toLowerCase();
+
+  return {
+    slug: `google-flights-vs-${toolSlug}`,
+    title: `Google Flights vs ${tool}: Which Finds Better Florida Deals? (2026)`,
+    description: `Compare Google Flights vs ${tool} for Florida flight deals, flexible dates, price alerts, MCO, MIA, TPA, FLL, and JAX airfare searches.`,
+    h1: `Google Flights vs ${tool}: Which Is Better For Florida Flights?`,
+    eyebrow: "Flight search tool comparison",
+    intro: `Google Flights and ${tool} can both help with Florida airfare research, but they serve different parts of the search and booking process.`,
+    detail: `Google Flights is especially useful for fast date grids, route tracking, and nearby-airport comparisons. ${tool} is useful for ${strengths}. The best workflow depends on whether you are exploring, tracking, or ready to book. Always confirm the final itinerary and total price with the booking source.`,
+    pageType: "guide",
+    heroImage: floridaFlightHero,
+    quickAnswer: {
+      heading: `Google Flights vs ${tool}: quick answer`,
+      summary: `Use Google Flights for fast Florida route and date comparisons. Use ${tool} when ${strengths}.`,
+      items: [
+        { label: "Google Flights wins at", value: "Flexible dates, airport comparisons, and price tracking" },
+        { label: `${tool} wins at`, value: strengths },
+        { label: "Watch for", value: caution }
+      ]
+    },
+    contentSections: [
+      { heading: "Best tool for flexible Florida dates", body: "Google Flights gives travelers a fast calendar view for comparing MCO, MIA, TPA, FLL, and JAX routes across nearby travel dates." },
+      { heading: `When ${tool} is useful`, body: `${tool} can add another perspective when ${strengths}. Compare the same dates and itinerary before deciding.` },
+      { heading: "A safer comparison workflow", body: "Research with both tools when useful, then review the final airline, flight times, bags, change terms, and total price before booking." }
+    ],
+    comparisonTable: {
+      columns: ["Feature", "Google Flights", tool],
+      rows: [
+        ["Price alerts", "Strong route tracking", tool === "Booking" ? "Limited flight-first workflow" : "Available for selected searches"],
+        ["Flexible dates", "Excellent calendar and date grid", "Useful, but presentation varies"],
+        ["Multi-city", "Fast itinerary comparison", "Available for more complex searches"],
+        ["Florida route search", "Strong airport and route filters", strengths],
+        ["Mobile experience", "Clean browser experience", `${tool} app or mobile experience`],
+        ["Best use case", "Researching dates, airports, and routes", strengths]
+      ]
+    },
+    tips: ["Compare the exact same itinerary.", "Check the final booking source.", "Include bags and schedule quality in the decision."],
+    relatedSlugs: ["google-flights-florida", "best-flight-search-engines-for-florida", "how-to-find-cheap-florida-flights"]
+  };
+}
+
+const v11GoogleFlightsPages: SeoFlightPage[] = [
+  {
+    slug: "google-flights-florida",
+    title: "Google Flights Florida (2026): Find Cheap Flights To Orlando, Miami & Tampa",
+    description: "Use Google Flights to find Florida flight deals for Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville with flexible-date and airport tips.",
+    h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
+    eyebrow: "Florida flight search guide",
+    intro: "Learn how to use Google Flights to find the best Florida airfare deals across major airports, flexible dates, and popular routes.",
+    detail: "Google Flights is a flight research tool that helps travelers compare airline schedules, date grids, nearby airports, and tracked routes. It does not replace checking final booking terms, but it is a strong first stop for Florida trips because MCO, MIA, TPA, FLL, and JAX can show very different options for the same travel window.",
+    pageType: "guide",
+    heroImage: floridaFlightHero,
+    quickAnswer: {
+      heading: "What is Google Flights, and when should Florida travelers use it?",
+      summary: "Google Flights is best for quickly comparing dates, airports, airlines, stops, and tracked prices before booking through an airline or travel source.",
+      items: [
+        { label: "Best use cases", value: "Flexible dates, airport comparisons, route tracking, and multi-city planning" },
+        { label: "Main pros", value: "Fast calendar, useful filters, nearby airports, and price alerts" },
+        { label: "Main cons", value: "It is not the final booking source, and not every fare or seller appears" }
+      ]
+    },
+    airportCards: floridaAirportCards,
+    contentSections: [
+      { heading: "How to search Florida routes", body: "Enter a Florida airport or city, open the date grid, and compare nearby travel days before narrowing by airline, stops, bags, and departure time." },
+      { heading: "Cheapest times to fly to Florida", body: "Shoulder seasons, non-holiday weekdays, and dates outside school breaks often provide more options. Compare Tuesday, Wednesday, and Saturday flights, but judge the full itinerary instead of relying on a single rule." },
+      { heading: "Price tracking tips", body: "Track a specific route when dates are firm, or track flexible-date searches when the trip can move. Recheck the final itinerary, fees, and booking terms before purchasing." }
+    ],
+    comparisonTable: {
+      columns: ["Feature", "Google Flights", "Skyscanner"],
+      rows: [
+        ["Price alerts", "Strong route tracking", "Available for selected searches"],
+        ["Flexible dates", "Excellent calendar and date grid", "Broad month and destination exploration"],
+        ["Multi-city", "Fast itinerary comparison", "Useful broad search options"],
+        ["Florida route search", "Strong MCO, MIA, TPA, FLL, and JAX filters", "Useful seller and destination discovery"],
+        ["Mobile experience", "Clean mobile web experience", "App and mobile web options"],
+        ["Best use case", "Known routes, dates, and airport comparisons", "Broad destination and seller exploration"]
+      ]
+    },
+    tips: ["Compare MCO, MIA, TPA, FLL, and JAX when practical.", "Use flexible dates before tracking a fare.", "Confirm current price with the booking source."],
+    relatedSlugs: ["google-flights-vs-skyscanner-for-florida-routes", "best-flight-search-engines-for-florida", "cheap-flights-to-florida-guide", "florida-airfare-guide"]
+  },
+  googleFlightsCityPage("Orlando", "MCO", "Sanford can be worth comparing when its schedule and ground transportation fit the trip.", ["orlando-flight-deals", "orlando-airport-guide", "cheap-flights-from-orlando", "google-flights-florida"]),
+  googleFlightsCityPage("Miami", "MIA", "Fort Lauderdale can be a useful alternative when the fare savings outweigh the extra ground travel.", ["miami-flight-deals", "miami-airport-guide", "cheap-flights-from-miami", "google-flights-florida"]),
+  googleFlightsCityPage("Tampa", "TPA", "Orlando may add route choices, but include drive time, parking, and the final Gulf Coast itinerary.", ["tampa-flight-deals", "tampa-airport-guide", "cheap-flights-from-tampa", "google-flights-florida"]),
+  googleFlightsCityPage("Fort Lauderdale", "FLL", "Miami is close enough to compare for some trips, especially international routes, but total ground time matters.", ["fort-lauderdale-flight-deals", "fort-lauderdale-airport-guide", "cheap-flights-from-fort-lauderdale", "google-flights-florida"]),
+  googleFlightsCityPage("Jacksonville", "JAX", "JAX often wins on convenience for North Florida even when a larger airport shows a lower base fare.", ["jacksonville-flight-deals", "jacksonville-airport-guide", "cheap-flights-from-jacksonville", "google-flights-florida"]),
+  flightToolComparisonPage("Kayak", "comparing travel packages, filters, and fare options across providers", "Results and booking-provider terms can vary"),
+  flightToolComparisonPage("Expedia", "combining a flight search with hotel or package planning", "Package value depends on the full itinerary and terms"),
+  flightToolComparisonPage("Booking", "keeping flights and accommodations in one broader trip-planning ecosystem", "Flights are not its only or primary planning strength"),
+  flightToolComparisonPage("Momondo", "exploring fare patterns and comparing a wide mix of providers", "Provider quality and booking terms require review"),
+  flightToolComparisonPage("Skyscanner", "broad destination exploration and seller comparisons", "Seller terms and displayed prices can vary")
+];
+
+const v11BuyingGuideSections: Record<string, SeoFlightPage["contentSections"]> = {
+  "best-flight-search-engines-for-florida": [
+    { heading: "Best for flexible dates", body: "Google Flights is especially useful for date-grid research and nearby-airport comparisons across MCO, MIA, TPA, FLL, and JAX." },
+    { heading: "Best for broad discovery", body: "Skyscanner and Momondo can help when the destination or booking provider is still flexible. Compare the exact itinerary before choosing." },
+    { heading: "Best for planning the full trip", body: "Kayak and Expedia can add useful filters, hotel context, or package comparisons when airfare is only one part of the decision." }
+  ],
+  "how-to-find-cheap-florida-flights": [
+    { heading: "Choose practical airports first", body: "Compare airports that genuinely fit the destination. A lower fare can disappear after parking, rental cars, transfers, or a long drive." },
+    { heading: "Use flexible dates and alerts", body: "Test nearby departure and return days before tracking a route. Alerts are most useful after the search reflects a trip you would actually book." },
+    { heading: "Compare the total ticket", body: "Review bags, seats, stop count, arrival time, and change terms. The lowest base fare is not always the best Florida flight deal." }
+  ],
+  "best-time-to-book-florida-flights": [
+    { heading: "Peak Florida travel periods", body: "Spring break, holidays, cruise departures, major events, and school vacations often reward earlier research because useful flight times can disappear." },
+    { heading: "Shoulder-season opportunities", body: "Late spring, early fall, and non-holiday weeks may provide more date flexibility, depending on weather and the destination." },
+    { heading: "When to stop waiting", body: "Book when the fare, schedule, airport, and trip budget work together. No tool can guarantee that waiting will produce a lower price." }
+  ],
+  "cheap-flights-to-florida-guide": [
+    { heading: "Central Florida and Orlando", body: "Use MCO for Orlando and much of Central Florida. Compare Sanford only when its airline schedule and ground trip fit the itinerary." },
+    { heading: "South Florida and the beaches", body: "Compare MIA and FLL for Miami, Fort Lauderdale, cruises, and South Florida beach trips. Airport convenience varies by final destination." },
+    { heading: "Gulf Coast and North Florida", body: "TPA serves many Tampa Bay and Gulf Coast trips, while JAX is often the practical choice for Northeast Florida and nearby Atlantic Coast destinations." }
+  ],
+  "florida-airfare-guide": [
+    { heading: "How Florida airfare behaves", body: "Airfare changes with airport competition, airline schedules, events, cruise demand, school calendars, and seasonal travel patterns." },
+    { heading: "Build a useful comparison", body: "Compare dates, practical airports, nonstop and connecting options, bags, seats, and arrival times before judging the fare." },
+    { heading: "Turn airfare into a trip", body: "Check hotel rates, ground transportation, local plans, and cruise timing before booking. A strong fare should support the complete itinerary." }
+  ]
+};
+
+const v11BuyingGuides: SeoFlightPage[] = [
+  planningGuidePage("best-flight-search-engines-for-florida", "Best Flight Search Engines For Florida Travel (2026 Guide)", "Compare the best flight search engines for Florida flight deals, including Google Flights, Skyscanner, Kayak, Expedia, and Momondo.", "Best Flight Search Engines For Florida Travel", "Flight search engine guide", "The best flight search engine depends on the job. Google Flights is strong for flexible dates and airport comparisons, Skyscanner and Momondo help with broad discovery, Kayak adds travel filters, and Expedia can help when travelers also need lodging. Compare the same itinerary and final booking terms.", ["google-flights-florida", "google-flights-vs-skyscanner", "google-flights-vs-kayak"]),
+  planningGuidePage("how-to-find-cheap-florida-flights", "How To Find Cheap Florida Flights (2026): Airports, Dates & Alerts", "Find cheap Florida flights by comparing MCO, MIA, TPA, FLL, and JAX, flexible dates, price alerts, fees, and flight times.", "How To Find Cheap Florida Flights", "Cheap Florida flight guide", "Finding useful cheap Florida flights takes more than sorting by price. Start with flexible dates, compare practical airports, review nonstop and connecting options, and add bags, parking, transfers, and hotel timing before choosing.", ["google-flights-florida", "cheapest-airports-in-florida", "cheap-flights-to-florida-guide"]),
+  planningGuidePage("best-time-to-book-florida-flights", "Best Time To Book Florida Flights (2026): Seasonal Airfare Guide", "Learn the best time to book Florida flights for Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville with seasonal airfare tips.", "Best Time To Book Florida Flights", "Florida booking timing guide", "There is no single perfect booking day. Florida airfare reacts to school breaks, holidays, cruise departures, major events, weather, and route inventory. Start earlier for peak dates, track routes, and compare practical alternatives without waiting for a guaranteed low.", ["google-flights-florida", "best-time-to-book-flights-from-florida", "holiday-flights-from-florida"]),
+  planningGuidePage("cheap-flights-to-florida-guide", "Cheap Flights To Florida (2026): Orlando, Miami, Tampa & Beach Airports", "Find cheap flights to Florida by comparing Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, beach airports, dates, and trip costs.", "Cheap Flights To Florida Guide", "Inbound Florida airfare guide", "Cheap flights to Florida depend on the final destination. MCO can work for Central Florida, MIA and FLL serve South Florida, TPA fits much of the Gulf Coast, and JAX serves Northeast Florida. Compare the ground trip before choosing the cheapest airport.", ["google-flights-florida", "flights-to-florida-deals", "cheap-flights-to-florida-beaches"]),
+  planningGuidePage("florida-airfare-guide", "Florida Airfare Guide (2026): Compare Airports, Deals & Booking Tools", "Use this Florida airfare guide to compare flight deals, Google Flights, major airports, flexible dates, fees, and booking strategies.", "Florida Airfare Guide", "Complete Florida airfare guide", "Florida airfare varies by airport, route, season, airline, and trip purpose. A complete search compares flexible dates, major airports, smaller destination airports, route schedules, fees, and the cost of hotels or transportation after landing.", ["google-flights-florida", "florida-airfare-deals", "best-flight-search-engines-for-florida"])
+].map((page) => ({ ...page, heroImage: floridaFlightHero, airportCards: floridaAirportCards, contentSections: v11BuyingGuideSections[page.slug] }));
 
 const v5SearchIntentFlightPages = [
   routeSearchPage("flights-from-miami-to-cancun", "Flights From Miami To Cancun | Fare Ideas & Travel Tips", "Compare flights from Miami to Cancun with flexible-date tips, baggage reminders, resort timing, and current fare search guidance.", "Flights From Miami To Cancun", "Miami to Cancun route", "Miami", "Cancun", 128, ["miami-flight-deals", "cheap-flights-from-miami", "best-florida-airports-for-international-travel"], "International"),
@@ -1105,39 +1298,53 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "google-flights-vs-skyscanner-for-florida-routes",
-    title: "Google Flights Florida Guide: Skyscanner, Airport Comparisons & Fare Tips",
-    description: "Compare Google Flights and Skyscanner for Florida routes, MCO vs MIA vs TPA vs FLL searches, flexible dates, alerts, and current fare checks.",
-    h1: "Google Flights vs Skyscanner For Florida Routes",
-    eyebrow: "Search tool comparison",
+    title: "Google Flights Florida (2026): Find Cheap Flights To Orlando, Miami & Tampa",
+    description: "Use Google Flights to find Florida flight deals and compare Skyscanner, MCO, MIA, TPA, FLL, and JAX with flexible dates and price alerts.",
+    h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
+    eyebrow: "Complete Florida flight search guide",
     intro:
-      "Google Flights and Skyscanner can both help Florida travelers compare fares, but each tool is better for different search habits.",
+      "Learn how to use Google Flights to find the best Florida airfare deals, compare major airports, and decide when Skyscanner adds value.",
     detail:
-      "Google Flights is useful for fast route checks, flexible date calendars, airport comparisons, and filtering by airline or stop count. Skyscanner can be useful for broad destination exploration and comparing travel sellers. For Florida routes, a practical workflow is to use route examples as a starting point, compare dates in a flight search tool, then confirm final details with the booking source.",
+      "Google Flights is a flight research tool for comparing routes, flexible dates, nearby airports, airline schedules, stops, and tracked prices. Florida travelers use it because MCO, MIA, TPA, FLL, and JAX can produce very different results for similar trips. Skyscanner can add broader destination exploration and seller comparisons. Use both as research tools, then confirm final price, bags, and booking terms with the airline or booking source.",
     pageType: "guide",
+    heroImage: floridaFlightHero,
+    quickAnswer: {
+      heading: "Google Flights Florida: quick answer",
+      summary: "Use Google Flights for fast Florida airport, route, and date comparisons. Use Skyscanner when you want broader destination discovery or additional seller options.",
+      items: [
+        { label: "Best Google Flights use", value: "Known routes, flexible dates, price alerts, and airport comparisons" },
+        { label: "Best Skyscanner use", value: "Broad destination exploration and seller comparisons" },
+        { label: "Main tradeoff", value: "Neither replaces checking the final booking source and total fare" }
+      ]
+    },
+    airportCards: floridaAirportCards,
     contentSections: [
       {
-        heading: "Google Flights for Florida airport comparisons",
-        body: "Use Google Flights when you know the origin and destination and want a fast calendar-style comparison across dates, airlines, and nearby airports such as MCO, MIA, TPA, and FLL."
+        heading: "How to use Google Flights for Florida",
+        body: "Start with the airport closest to the actual trip, open the date grid, and compare nearby days. Then filter by stops, airline, flight times, bags, and practical alternate airports."
+      },
+      {
+        heading: "Cheapest times to fly",
+        body: "Shoulder-season dates, non-holiday weekdays, and travel outside school breaks often provide more choices. Compare Tuesday, Wednesday, and Saturday flights, but prioritize the full itinerary over a single cheap-day rule."
       },
       {
         heading: "When Skyscanner helps",
-        body: "Use Skyscanner when you are exploring broader destination ideas or want to compare multiple sellers for the same trip."
-      },
-      {
-        heading: "Price tracking tips for Florida routes",
-        body: "Use alerts, flexible date grids, and nearby-airport filters before booking. After finding a promising fare, confirm current price, baggage rules, and booking terms directly with the airline or booking source."
+        body: "Skyscanner is useful when the destination is flexible or when you want another view of sellers and broad fare patterns. Compare the exact same itinerary before deciding."
       }
     ],
     comparisonTable: {
-      columns: ["Compare", "Google Flights", "Skyscanner"],
+      columns: ["Feature", "Google Flights", "Skyscanner"],
       rows: [
-        ["Best for", "Known routes, flexible dates, fast filtering", "Broad searches and seller comparisons"],
-        ["Main advantage", "Clean calendar and airport comparison tools", "Wide marketplace-style discovery"],
-        ["Watch out for", "Final booking still happens elsewhere", "Seller terms can vary"]
+        ["Price alerts", "Strong route tracking", "Available for selected searches"],
+        ["Flexible dates", "Excellent calendar and date grid", "Broad month and destination exploration"],
+        ["Multi-city", "Fast itinerary comparison", "Useful broad search options"],
+        ["Florida route search", "Strong MCO, MIA, TPA, FLL, and JAX filters", "Useful seller and destination discovery"],
+        ["Mobile experience", "Clean mobile web experience", "App and mobile web options"],
+        ["Best use case", "Known routes, dates, and airport comparisons", "Broad destination and seller exploration"]
       ]
     },
-    tips: ["Use route examples before opening search tools.", "Confirm final fare with the booking source.", "Compare nearby Florida airports when practical."],
-    relatedSlugs: ["how-to-find-cheap-flights-from-florida", "florida-airfare-deals", "cheapest-airports-in-florida", "best-time-to-book-flights-from-florida", "miami-airport-vs-fort-lauderdale-airport"]
+    tips: ["Use the date grid before tracking a route.", "Confirm final fare and fees with the booking source.", "Compare nearby Florida airports only when the ground trip still works."],
+    relatedSlugs: ["google-flights-florida", "google-flights-vs-skyscanner", "best-flight-search-engines-for-florida", "how-to-find-cheap-florida-flights", "best-time-to-book-florida-flights"]
   },
   {
     slug: "best-weekend-flight-destinations-from-florida",
@@ -1246,7 +1453,9 @@ export const seoFlightPages: SeoFlightPage[] = [
   ...v3SeasonalFlightPages,
   ...v5SearchIntentFlightPages,
   ...v7FlightProgrammaticPages,
-  ...v2ComparisonPages
+  ...v2ComparisonPages,
+  ...v11GoogleFlightsPages,
+  ...v11BuyingGuides
 ];
 
 export const seoFlightPageSlugs = seoFlightPages.map((page) => page.slug);
@@ -1705,6 +1914,29 @@ const seoFlightFaqs: Record<string, SeoFlightFaq[]> = {
 };
 
 export function getSeoFlightPageFaqs(page: SeoFlightPage) {
+  if (page.slug.startsWith("google-flights")) {
+    return (
+      seoFlightFaqs[page.slug] ?? [
+        {
+          question: `How should I use ${page.h1}?`,
+          answer: `Start with the Florida airport and route that fit the trip, compare flexible dates and filters in Google Flights, then confirm the final itinerary and price with the booking source.`
+        },
+        {
+          question: "Does Google Flights sell Florida airline tickets directly?",
+          answer: "Google Flights primarily helps travelers research and compare itineraries. The final booking normally happens with an airline or another booking source."
+        },
+        {
+          question: "Which Florida airports should I compare?",
+          answer: "Compare MCO, MIA, TPA, FLL, and JAX when they are practical for the destination. Include ground transportation, parking, and drive time."
+        },
+        {
+          question: "Can Google Flights price alerts guarantee a lower fare?",
+          answer: "No. Alerts can show changes for tracked routes, but fares and availability can move at any time."
+        }
+      ]
+    );
+  }
+
   return (
     seoFlightFaqs[page.slug] ?? [
       {

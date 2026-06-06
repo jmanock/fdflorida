@@ -43,6 +43,23 @@ export function NavigationAnalytics() {
           page_path: window.location.pathname
         }
       });
+
+      const flightGuidePattern = /google-flights|flight-search-engines|cheap-flights-to-florida-guide|florida-airfare-guide|best-time-to-book-florida-flights|how-to-find-cheap-florida-flights/;
+      const isFlightGuidePage = flightGuidePattern.test(window.location.pathname) || flightGuidePattern.test(href);
+
+      if (isFlightGuidePage && !isNetworkSite) {
+        const isToolComparison = window.location.pathname.includes("-vs-") || href.includes("-vs-");
+        trackEvent({
+          action: isToolComparison ? "flight_tool_comparison_click" : "flight_guide_click",
+          category: "flight_guides",
+          label: link.textContent?.trim() || href,
+          params: {
+            content_type: isToolComparison ? "flight_tool_comparison" : "flight_guide",
+            href,
+            page_path: window.location.pathname
+          }
+        });
+      }
     }
 
     document.addEventListener("click", handleClick);

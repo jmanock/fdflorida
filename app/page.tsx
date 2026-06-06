@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight, Bell, Building2, CheckCircle2, Compass, Hotel, MapPinned, Plane, Sailboat, Sparkles, Sun, Ticket, WalletCards } from "lucide-react";
 import { deals, type FlightDeal } from "@/data/deals";
 import { cityFlightPages } from "@/lib/cityFlightPages";
@@ -12,7 +13,7 @@ import { NewsletterForm } from "@/components/NewsletterForm";
 import { SiteFooter } from "@/components/SiteFooter";
 
 const siteUrl = "https://flightdealsflorida.org";
-const lastUpdated = "May 2026";
+const lastUpdated = "June 2026";
 
 export const metadata: Metadata = {
   title: "Florida Flight Deals: Cheap Routes, Airport Guides & Weekend Getaways",
@@ -158,6 +159,36 @@ const planningGuides = [
   { label: "Family Flight Planning Guide", href: "/family-flight-planning-guide" },
   { label: "Weekend Flight Getaways", href: "/weekend-flight-getaways" },
   { label: "International Airports In Florida", href: "/best-florida-airports-for-international-travel" }
+];
+const popularFlightGuides = [
+  {
+    title: "Google Flights Florida",
+    description: "Compare flexible dates, price alerts, and Florida airports before booking.",
+    href: "/google-flights-florida",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=75",
+    alt: "Airplane wing above clouds for the Google Flights Florida guide"
+  },
+  {
+    title: "Google Flights vs Skyscanner",
+    description: "See which flight search tool fits Florida route research and broad discovery.",
+    href: "/google-flights-vs-skyscanner-for-florida-routes",
+    image: "https://images.unsplash.com/photo-1515569067071-ec3b51335dd0?auto=format&fit=crop&w=800&q=75",
+    alt: "Traveler comparing flight search tools on a laptop"
+  },
+  {
+    title: "Best Time To Book Florida Flights",
+    description: "Plan around seasonal demand, holidays, school breaks, and flexible dates.",
+    href: "/best-time-to-book-florida-flights",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=75",
+    alt: "Travel calendar and planning view for Florida airfare"
+  },
+  {
+    title: "Cheap Flights To Florida Guide",
+    description: "Choose the right airport for Orlando, Miami, Tampa, beaches, and more.",
+    href: "/cheap-flights-to-florida-guide",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=75",
+    alt: "Florida beach destination reached by a cheap flight"
+  }
 ];
 const destinationTypes = [
   { label: "Beach Destinations", href: "/flights-to-florida-deals", description: "Miami, Fort Lauderdale, Cancun, San Juan, and Gulf Coast route ideas." },
@@ -441,6 +472,36 @@ export default function Home() {
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </span>
             </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Popular Flight Guides</p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Search smarter before choosing a fare.</h2>
+          </div>
+          <Link href="/best-flight-search-engines-for-florida" className="inline-flex items-center gap-2 text-sm font-black text-ocean transition hover:text-ink">
+            Compare flight search engines
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {popularFlightGuides.map((guide) => (
+            <Link key={guide.href} href={guide.href} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+              <div className="relative aspect-[16/10] bg-sand">
+                <FallbackImage src={guide.image} alt={guide.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition duration-300 group-hover:scale-[1.03]" />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-black leading-6 text-ink">{guide.title}</h3>
+                <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{guide.description}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                  Read guide
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
