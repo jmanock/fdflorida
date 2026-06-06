@@ -478,9 +478,9 @@ const v2ComparisonPages: SeoFlightPage[] = [
 export const seoFlightPages: SeoFlightPage[] = [
   {
     slug: "orlando-flight-deals",
-    title: "Orlando Flight Deals | Cheap Routes & Weekend Fare Finds",
-    description: "Find Orlando flight deals, recent fare examples, flexible-date tips, and cheap route ideas from Central Florida airports.",
-    h1: "Orlando Flight Deals",
+    title: "Cheap Flights From Orlando: Popular Routes, Airport Tips & Getaway Ideas",
+    description: "Compare cheap flights from Orlando with popular routes, MCO and Sanford airport tips, flexible dates, and weekend getaway ideas.",
+    h1: "Cheap Flights From Orlando And Popular Route Ideas",
     eyebrow: "Central Florida fare finds",
     intro:
       "Find airfare deals from Orlando to popular domestic and international destinations. Browse current fare examples, weekend trip ideas, and cheap flights from Central Florida.",
@@ -492,9 +492,9 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "miami-flight-deals",
-    title: "Miami Flight Deals | Cheap Routes, Caribbean Fares & Weekend Ideas",
-    description: "Find Miami flight deals with recent fare examples, Caribbean route ideas, flexible-date tips, and South Florida airfare guidance.",
-    h1: "Miami Flight Deals",
+    title: "Miami Flight Deals: Caribbean Routes, Weekend Trips & Airport Tips",
+    description: "Compare Miami flight deals for Caribbean routes, domestic weekends, international trips, and flexible South Florida airport planning.",
+    h1: "Miami Flight Deals And Caribbean Route Ideas",
     eyebrow: "South Florida airfare watch",
     intro:
       "Track Miami fare examples for domestic trips, Caribbean routes, Latin America, Europe, and quick weekend escapes from South Florida.",
@@ -506,9 +506,9 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "tampa-flight-deals",
-    title: "Tampa Flight Deals | Cheap Routes & Gulf Coast Fare Finds",
-    description: "Find Tampa flight deals, weekend route examples, flexible-date tips, and cheap airfare ideas from Tampa International Airport.",
-    h1: "Tampa Flight Deals",
+    title: "Tampa Flight Deals: Weekend Routes, Gulf Coast Trips & Airport Tips",
+    description: "Compare Tampa flight deals with weekend route ideas, TPA airport tips, Gulf Coast trip planning, and flexible-date airfare guidance.",
+    h1: "Tampa Flight Deals And Weekend Route Ideas",
     eyebrow: "Tampa Bay fare alerts",
     intro:
       "Find Tampa flight deals for weekend routes, domestic trips, Mexico and Caribbean escapes, and cheap airfare from Tampa Bay.",
@@ -520,9 +520,9 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "fort-lauderdale-flight-deals",
-    title: "Fort Lauderdale Flight Deals | Cheap FLL Routes & Fare Finds",
-    description: "Find Fort Lauderdale flight deals with FLL fare examples, South Florida route ideas, weekend flights, and flexible-date tips.",
-    h1: "Fort Lauderdale Flight Deals",
+    title: "Fort Lauderdale Flight Deals: Cheap FLL Routes, Beaches & Cruises",
+    description: "Compare Fort Lauderdale flight deals with cheap FLL route ideas, beach weekends, cruise connections, and Miami airport alternatives.",
+    h1: "Fort Lauderdale Flight Deals And Cheap FLL Routes",
     eyebrow: "FLL fare examples",
     intro:
       "Browse Fort Lauderdale flight deals for South Florida getaways, weekend trips, domestic routes, and international fare examples from FLL.",
@@ -534,9 +534,9 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "jacksonville-flight-deals",
-    title: "Jacksonville Flight Deals | Cheap JAX Routes & Fare Finds",
-    description: "Find Jacksonville flight deals, recent JAX fare examples, weekend route ideas, and North Florida airfare tips.",
-    h1: "Jacksonville Flight Deals",
+    title: "Jacksonville Flight Deals: Cheap JAX Routes & Weekend Trip Ideas",
+    description: "Compare Jacksonville flight deals with cheap JAX routes, weekend trip ideas, flexible dates, and North Florida airport guidance.",
+    h1: "Jacksonville Flight Deals And Weekend Route Ideas",
     eyebrow: "North Florida fare finds",
     intro:
       "Find Jacksonville flight deals for domestic trips, weekend escapes, and airfare alerts from North Florida.",
@@ -548,9 +548,9 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "cheap-flights-from-orlando",
-    title: "Cheap Flights From Orlando | Routes, Fares & Flexible-Date Tips",
-    description: "Compare cheap flights from Orlando with route examples, weekend getaway ideas, and flexible-date airfare tips from Central Florida.",
-    h1: "Cheap Flights From Orlando",
+    title: "Cheap Flights From Orlando: Popular Routes, Weekend Trips & MCO Tips",
+    description: "Compare cheap flights from Orlando with popular routes, weekend getaway ideas, flexible dates, and practical MCO airport tips.",
+    h1: "Cheap Flights From Orlando For Weekends And Getaways",
     eyebrow: "Orlando route ideas",
     intro:
       "Browse cheap flights from Orlando, including domestic fare examples, weekend getaway routes, and airfare alerts from Central Florida.",

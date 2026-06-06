@@ -91,6 +91,43 @@ const routeClusters = [
   }
 ];
 
+const hubStoryLinks = [
+  {
+    match: /orlando|mco|sanford|theme-park|family/,
+    links: [
+      { label: "Disney vs Universal: Which Orlando Vacation Is Better?", href: "https://floridadealshub.com/journal/disney-vs-universal" },
+      { label: "Orlando vs Miami For A Florida Family Vacation", href: "https://floridadealshub.com/journal/orlando-vs-miami-family-vacation" },
+      { label: "Explore The Orlando Florida Travel Hub", href: "https://floridadealshub.com/orlando" }
+    ]
+  },
+  {
+    match: /miami|fort-lauderdale|fll|caribbean|bahamas/,
+    links: [
+      { label: "Miami Cruise Port Guide For First-Time Cruisers", href: "https://floridadealshub.com/journal/miami-cruise-port-guide-first-time-cruisers" },
+      { label: "How To Plan A Miami Boat Rental Day", href: "https://floridadealshub.com/journal/miami-boat-rental-day-guide" },
+      { label: "Explore The Miami Florida Travel Hub", href: "https://floridadealshub.com/miami" }
+    ]
+  },
+  {
+    match: /tampa|clearwater|gulf/,
+    links: [
+      { label: "Tampa Weekend Escape Story", href: "https://floridadealshub.com/journal/tampa-weekend-escape-story" },
+      { label: "Clearwater vs Destin Beach Trip", href: "https://floridadealshub.com/journal/clearwater-vs-destin-beach-trip" },
+      { label: "Explore The Tampa Florida Travel Hub", href: "https://floridadealshub.com/tampa" }
+    ]
+  }
+];
+
+function getHubStoryLinks(slug: string) {
+  return (
+    hubStoryLinks.find((group) => group.match.test(slug))?.links ?? [
+      { label: "Florida Weekend Trip Ideas", href: "https://floridadealshub.com/florida-weekend-getaways" },
+      { label: "Best Places To Visit In Florida", href: "https://floridadealshub.com/best-places-to-visit-in-florida" },
+      { label: "Browse The Florida Travel Journal", href: "https://floridadealshub.com/journal" }
+    ]
+  );
+}
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -154,6 +191,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const relatedPages = page.relatedSlugs.map(getSeoFlightPage).filter((item): item is SeoFlightPage => Boolean(item));
   const faqs = getSeoFlightPageFaqs(page);
   const showGearPicks = /carry-on|packing|gear|weekend-flight-packing/.test(page.slug);
+  const relatedHubStories = getHubStoryLinks(page.slug);
   const relatedFlightLinks = [
     ...relatedPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
     ...flightSearchLinks.filter((link) => link.href !== `/${page.slug}` && !page.relatedSlugs.some((slug) => link.href === `/${slug}`)),
@@ -430,8 +468,8 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Start Planning Your Florida Trip</p>
-          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Flights, hotels, cruises, and local plans in one flow.</h2>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Plan After You Land</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Turn this flight search into a complete Florida trip.</h2>
           <div className="mt-7 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <HotelCtaLink
               href={getExpediaHotelLink(primaryHotelDestinationKey)}
@@ -450,6 +488,27 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
             <a className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean" href="https://localdealsflorida.org">
               Find local Florida deals
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Related Florida Travel Stories</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Keep planning after the fare search.</h2>
+          <p className="mt-4 max-w-3xl text-base font-medium leading-8 text-slateText">
+            Use these Florida Deals Hub stories and destination guides to compare where to stay, what to do, and how this route fits the rest of the trip.
+          </p>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {relatedHubStories.map((story) => (
+              <a
+                key={story.href}
+                href={story.href}
+                className="rounded-3xl border border-slate-200 bg-sand p-5 text-sm font-black leading-6 text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
+              >
+                {story.label}
+              </a>
+            ))}
           </div>
         </div>
       </section>

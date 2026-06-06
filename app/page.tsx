@@ -15,11 +15,33 @@ const siteUrl = "https://flightdealsflorida.org";
 const lastUpdated = "May 2026";
 
 export const metadata: Metadata = {
-  title: "Florida Flight Deals | Cheap Flights & Weekend Getaways",
+  title: "Florida Flight Deals: Cheap Routes, Airport Guides & Weekend Getaways",
   description:
-    "Discover Florida flight deals, weekend getaway ideas, airport guides, cheap airfare routes, and destination travel planning resources.",
+    "Compare cheap flights from Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville with airport guides, popular routes, and Florida weekend getaway ideas.",
   alternates: {
     canonical: siteUrl
+  },
+  openGraph: {
+    title: "Florida Flight Deals: Cheap Routes, Airport Guides & Weekend Getaways",
+    description:
+      "Compare popular Florida routes, airport guides, flexible-date tips, and weekend flight ideas from major Florida airports.",
+    url: siteUrl,
+    siteName: "Florida Flight Deals",
+    type: "website",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80",
+        width: 1200,
+        height: 630,
+        alt: "Airplane wing above clouds for Florida flight deals and route planning"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Florida Flight Deals: Cheap Routes, Airport Guides & Weekend Getaways",
+    description: "Compare popular Florida routes, airport guides, and weekend flight ideas.",
+    images: ["https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80"]
   }
 };
 
