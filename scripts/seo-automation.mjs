@@ -9,6 +9,7 @@ const siteConfigs = {
   flightdealsflorida: {
     siteDir: "flightdealsflorida",
     host: "flightdealsflorida.org",
+    clarityId: "x2rrkkuyby",
     key: "527d3b7243c14f34832b1987a6bfedcd",
     keyFile: "527d3b7243c14f34832b1987a6bfedcd.txt",
     importantPaths: ["/", "/sitemap.xml", "/robots.txt"],
@@ -17,6 +18,7 @@ const siteConfigs = {
   hoteldealsflorida: {
     siteDir: "hoteldealsflorida",
     host: "hoteldealsflorida.org",
+    clarityId: "x2rr9176m5",
     key: "e7c0a9ff953b4d60ba8d5dac45755dd5",
     keyFile: "e7c0a9ff953b4d60ba8d5dac45755dd5.txt",
     importantPaths: ["/", "/sitemap.xml", "/robots.txt"],
@@ -25,6 +27,7 @@ const siteConfigs = {
   cruisedealsflorida: {
     siteDir: "cruisedealsflorida",
     host: "cruisedealsflorida.org",
+    clarityId: "x2rqxjxm7z",
     key: "5f632a722c894d23952d174b464073b6",
     keyFile: "5f632a722c894d23952d174b464073b6.txt",
     importantPaths: ["/", "/sitemap.xml", "/robots.txt"],
@@ -33,6 +36,7 @@ const siteConfigs = {
   localdealsflorida: {
     siteDir: "localdealsflorida",
     host: "localdealsflorida.org",
+    clarityId: "x2rqk7yk0w",
     key: "f39e0edd3bea4619a3bb32b8eb48cdd4",
     keyFile: "f39e0edd3bea4619a3bb32b8eb48cdd4.txt",
     importantPaths: ["/", "/sitemap.xml", "/robots.txt"],
@@ -41,6 +45,7 @@ const siteConfigs = {
   floridadealshub: {
     siteDir: "floridadealshub",
     host: "floridadealshub.com",
+    clarityId: "x2rq163j9a",
     key: "f542068487524e578003f56fc0c31b3a",
     keyFile: "f542068487524e578003f56fc0c31b3a.txt",
     importantPaths: ["/", "/journal", "/orlando", "/miami", "/sitemap.xml", "/robots.txt"],
@@ -385,6 +390,8 @@ async function runReport() {
     totalDestinationPages: classes.destinations || localCounts.destinations,
     sitemapUrlCount: urls.length || localCounts.estimatedRoutes,
     affiliateLandingPages: classes.affiliateLandingPages || localCounts.affiliateLandingPages,
+    clarity: config.clarityId ? "configured" : "not configured",
+    clarityId: config.clarityId || null,
     lastModifiedPages,
     indexNowSubmissionTotals: submissionTotals
   }, null, 2));

@@ -1,3 +1,5 @@
+import { trackClarityEvent } from "@/lib/clarity";
+
 type AnalyticsEvent = {
   action: string;
   category?: string;
@@ -10,6 +12,7 @@ declare global {
   interface Window {
     dataLayer?: unknown[];
     gtag?: (command: "event", action: string, params?: Record<string, string | number | boolean | undefined>) => void;
+    clarity?: (command: "event" | "set", name: string, value?: string) => void;
   }
 }
 
@@ -42,4 +45,5 @@ export function trackEvent({ action, category, label, value, params }: Analytics
     event: action,
     ...eventParams
   });
+  trackClarityEvent(action, eventParams);
 }
