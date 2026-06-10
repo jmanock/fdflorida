@@ -450,7 +450,7 @@ const v11GoogleFlightsPages: SeoFlightPage[] = [
       ]
     },
     tips: ["Compare MCO, MIA, TPA, FLL, and JAX when practical.", "Use flexible dates before tracking a fare.", "Confirm current price with the booking source."],
-    relatedSlugs: ["google-flights-vs-skyscanner-for-florida-routes", "best-flight-search-engines-for-florida", "cheap-flights-to-florida-guide", "florida-airfare-guide"]
+    relatedSlugs: ["google-flights-vs-skyscanner-for-florida-routes", "google-flights-price-tracking-explained", "google-flights-calendar-strategy", "best-google-flights-tips-for-florida-travelers", "multi-city-florida-flight-planning", "best-flight-search-engines-for-florida", "cheap-flights-to-florida-guide", "florida-airfare-guide"]
   },
   googleFlightsCityPage("Orlando", "MCO", "Sanford can be worth comparing when its schedule and ground transportation fit the trip.", ["orlando-flight-deals", "orlando-airport-guide", "cheap-flights-from-orlando", "google-flights-florida"]),
   googleFlightsCityPage("Miami", "MIA", "Fort Lauderdale can be a useful alternative when the fare savings outweigh the extra ground travel.", ["miami-flight-deals", "miami-airport-guide", "cheap-flights-from-miami", "google-flights-florida"]),
@@ -500,6 +500,72 @@ const v11BuyingGuides: SeoFlightPage[] = [
   planningGuidePage("florida-airfare-guide", "Florida Airfare Guide (2026): Compare Airports, Deals & Booking Tools", "Use this Florida airfare guide to compare flight deals, Google Flights, major airports, flexible dates, fees, and booking strategies.", "Florida Airfare Guide", "Complete Florida airfare guide", "Florida airfare varies by airport, route, season, airline, and trip purpose. A complete search compares flexible dates, major airports, smaller destination airports, route schedules, fees, and the cost of hotels or transportation after landing.", ["google-flights-florida", "florida-airfare-deals", "best-flight-search-engines-for-florida"])
 ].map((page) => ({ ...page, heroImage: floridaFlightHero, airportCards: floridaAirportCards, contentSections: v11BuyingGuideSections[page.slug] }));
 
+const v10SearchConsoleFlightGuides: SeoFlightPage[] = [
+  planningGuidePage(
+    "google-flights-price-tracking-explained",
+    "Google Flights Price Tracking Explained for Florida Trips (2026)",
+    "Learn how Google Flights price tracking works for Florida routes, flexible dates, MCO, MIA, TPA, FLL, and JAX airfare searches.",
+    "Google Flights Price Tracking Explained",
+    "Google Flights strategy",
+    "Google Flights price tracking is most useful after travelers define a Florida route, practical airports, and dates they would genuinely book. Alerts can reveal fare movement, but they cannot guarantee the lowest future price.",
+    ["google-flights-florida", "best-time-to-book-florida-flights", "google-flights-calendar-strategy"]
+  ),
+  planningGuidePage(
+    "best-google-flights-tips-for-florida-travelers",
+    "12 Google Flights Tips for Florida Travelers in 2026",
+    "Use these Google Flights tips to compare Florida airports, flexible dates, price alerts, route filters, and complete trip costs.",
+    "Best Google Flights Tips for Florida Travelers",
+    "Florida flight search strategy",
+    "A strong Google Flights search starts with the real Florida trip. Compare practical airports, scan flexible dates, filter schedules, and review the ground trip before tracking or booking a fare.",
+    ["google-flights-florida", "google-flights-price-tracking-explained", "google-flights-calendar-strategy"]
+  ),
+  planningGuidePage(
+    "google-flights-calendar-strategy",
+    "Google Flights Calendar Strategy for Cheaper Florida Airfare (2026)",
+    "Use the Google Flights calendar to compare cheaper Florida airfare dates, major airports, seasonal demand, and better booking windows.",
+    "Google Flights Calendar Strategy",
+    "Flexible-date flight guide",
+    "The Google Flights calendar helps travelers see how a Florida fare changes across nearby dates. It is most useful when the hotel, cruise, event, or family schedule can move with the flight.",
+    ["google-flights-florida", "best-time-to-book-florida-flights", "google-flights-price-tracking-explained"]
+  ),
+  planningGuidePage(
+    "multi-city-florida-flight-planning",
+    "Multi-City Florida Flight Planning With Google Flights (2026)",
+    "Plan multi-city Florida flights with Google Flights, open-jaw routes, MCO, MIA, TPA, FLL, JAX, rental cars, and realistic drive times.",
+    "Multi-City Florida Flight Planning",
+    "Multi-city airfare strategy",
+    "Multi-city and open-jaw flight searches can simplify Florida trips that begin in one region and end in another. The best itinerary balances airfare with rental-car terms, driving time, hotel nights, and the destinations between airports.",
+    ["google-flights-florida", "best-florida-airports-for-international-travel", "florida-airfare-guide"]
+  )
+].map((page) => ({
+  ...page,
+  heroImage: floridaFlightHero,
+  airportCards: floridaAirportCards,
+  contentSections: [
+    {
+      heading: `${page.h1}: the practical workflow`,
+      body: `${page.intro} Start with the trip dates and destinations that matter, then use Google Flights to compare only the airport and schedule options that support that plan.`
+    },
+    {
+      heading: "Florida airport alternatives",
+      body: "Compare MCO, MIA, TPA, FLL, and JAX only when each airport is practical for the final destination. Include parking, transfers, rental cars, hotel timing, and drive time."
+    },
+    {
+      heading: "When to book",
+      body: "Use alerts and flexible-date tools for research, then book when the fare, schedule, airport, and complete trip budget work together. Prices and availability can change."
+    },
+    {
+      heading: "Recommended flight-planning resources",
+      body: "Continue into the related Google Flights guides, airport pages, airfare guides, and destination route pages before confirming the final itinerary with the booking source."
+    }
+  ],
+  tips: [
+    "Compare the complete itinerary instead of only the base fare.",
+    "Use flexible dates before tracking or booking.",
+    "Confirm current prices and terms with the booking source."
+  ]
+}));
+
 const v5SearchIntentFlightPages = [
   routeSearchPage("flights-from-miami-to-cancun", "Flights From Miami To Cancun | Fare Ideas & Travel Tips", "Compare flights from Miami to Cancun with flexible-date tips, baggage reminders, resort timing, and current fare search guidance.", "Flights From Miami To Cancun", "Miami to Cancun route", "Miami", "Cancun", 128, ["miami-flight-deals", "cheap-flights-from-miami", "best-florida-airports-for-international-travel"], "International"),
   routeSearchPage("flights-from-tampa-to-new-york", "Flights From Tampa To New York | Weekend Fare Ideas", "Compare flights from Tampa to New York with airport tips, flexible weekend dates, hotel timing, and current fare search guidance.", "Flights From Tampa To New York", "Tampa to New York route", "Tampa", "New York", 98, ["tampa-flight-deals", "cheap-flights-from-tampa", "weekend-flight-deals-florida"]),
@@ -510,7 +576,6 @@ const v5SearchIntentFlightPages = [
 const v7FlightProgrammaticPages = [
   routeSearchPage("tampa-to-denver-flight-deals", "Tampa To Denver Flight Deals | Mountain Weekend Route Ideas", "Compare Tampa to Denver flight deal ideas with airport tips, flexible dates, baggage reminders, and full-trip planning notes.", "Tampa To Denver Flight Deals", "Tampa to Denver route", "Tampa", "Denver", 142, ["tampa-flight-deals", "cheap-flights-from-tampa", "weekend-flight-getaways"]),
   routeSearchPage("fort-lauderdale-to-san-juan-flight-deals", "Fort Lauderdale To San Juan Flight Deals | Caribbean Route Tips", "Compare Fort Lauderdale to San Juan flight deal ideas with flexible-date planning, bags, beach timing, and hotel notes.", "Fort Lauderdale To San Juan Flight Deals", "South Florida to Puerto Rico", "Fort Lauderdale", "San Juan", 118, ["fort-lauderdale-flight-deals", "cheap-flights-from-florida", "best-florida-airports-for-international-travel"], "International"),
-  routeSearchPage("jacksonville-to-nashville-flight-deals", "Jacksonville To Nashville Flight Deals | Weekend Route Guide", "Find Jacksonville to Nashville flight deal ideas with Northeast Florida airport notes, flexible weekends, and total trip planning.", "Jacksonville To Nashville Flight Deals", "Jacksonville weekend route", "Jacksonville", "Nashville", 96, ["jacksonville-flight-deals", "jacksonville-airport-guide", "weekend-flight-deals-florida"]),
   routeSearchPage("orlando-to-chicago-flight-deals", "Orlando To Chicago Flight Deals | Flexible Route Ideas", "Compare Orlando to Chicago flight deal ideas with airport timing, hotel cost context, and current fare search guidance.", "Orlando To Chicago Flight Deals", "Orlando to Chicago route", "Orlando", "Chicago", 112, ["orlando-flight-deals", "cheap-flights-from-orlando", "best-weekend-destinations-from-florida"]),
   routeSearchPage("miami-to-las-vegas-flight-deals", "Miami To Las Vegas Flight Deals | Weekend Fare Planning", "Compare Miami to Las Vegas flight deal ideas with flexible dates, baggage reminders, hotel timing, and route planning notes.", "Miami To Las Vegas Flight Deals", "Miami to Las Vegas route", "Miami", "Las Vegas", 156, ["miami-flight-deals", "cheap-flights-from-miami", "weekend-flight-getaways"]),
   routeSearchPage("tampa-to-boston-flight-deals", "Tampa To Boston Flight Deals | Flexible Fare Ideas", "Find Tampa to Boston flight deal ideas with airport comparison tips, flexible dates, and weekend planning context.", "Tampa To Boston Flight Deals", "Tampa to Boston route", "Tampa", "Boston", 122, ["tampa-flight-deals", "cheap-flights-from-tampa", "weekend-flight-deals-florida"]),
@@ -1455,7 +1520,8 @@ export const seoFlightPages: SeoFlightPage[] = [
   ...v7FlightProgrammaticPages,
   ...v2ComparisonPages,
   ...v11GoogleFlightsPages,
-  ...v11BuyingGuides
+  ...v11BuyingGuides,
+  ...v10SearchConsoleFlightGuides
 ];
 
 export const seoFlightPageSlugs = seoFlightPages.map((page) => page.slug);
