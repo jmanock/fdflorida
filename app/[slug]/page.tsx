@@ -8,6 +8,7 @@ import { FallbackImage } from "@/components/FallbackImage";
 import { FlightGuideAnalytics } from "@/components/FlightGuideAnalytics";
 import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { flightPiscifunGearPicks } from "@/lib/affiliate/piscifunLinks";
@@ -480,6 +481,14 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
           </div>
         </section>
       ) : null}
+
+      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-5 md:grid-cols-3">
+          <RevenueCtaCard eyebrow="Complete the trip" headline="Compare Florida vacation packages" benefits={["Combine flight planning with stays and activities", "Compare family, beach, and weekend trip styles"]} href="https://floridadealshub.com/vacation-packages" cta="Explore Vacation Packages" icon={<Building2 className="h-5 w-5" />} />
+          <RevenueCtaCard eyebrow="After you land" headline="Find Florida attractions and activities" benefits={["Theme parks, tours, and family activities", "Useful destination guides across Florida"]} href="https://localdealsflorida.org" cta="Find Florida Activities" icon={<Ticket className="h-5 w-5" />} />
+          <RevenueCtaCard eyebrow="Stay planning" headline="Compare hotels near your plans" benefits={["Check destination and airport-area stays", "Review current rates and cancellation terms"]} href="https://hoteldealsflorida.org" cta="Compare Florida Hotels" icon={<Hotel className="h-5 w-5" />} />
+        </div>
+      </section>
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
