@@ -9,12 +9,14 @@ import { FlightGuideAnalytics } from "@/components/FlightGuideAnalytics";
 import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
+import { ComparisonCard, ConversionScrollAnalytics, RecommendedPartnerCard } from "@/components/ConversionCards";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { flightPiscifunGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { getSeoFlightPage, getSeoFlightPageDeals, getSeoFlightPageFaqs, seoFlightPageSlugs, type SeoFlightPage } from "@/lib/seoFlightPages";
 import { flightSearchLinks, siteUrl, v2FlightDiscoveryLinks } from "@/lib/siteLinks";
+import { conversionSlugs } from "@/lib/revenuePartners";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -196,6 +198,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const faqs = getSeoFlightPageFaqs(page);
   const showGearPicks = /carry-on|packing|gear|weekend-flight-packing/.test(page.slug);
   const isToolComparison = /google-flights-vs-/.test(page.slug);
+  const showConversionCards = conversionSlugs.has(page.slug);
   const relatedHubStories = getHubStoryLinks(page.slug);
   const relatedFlightLinks = [
     ...relatedPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
@@ -275,6 +278,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       {isGuide ? <FlightGuideAnalytics slug={page.slug} isComparison={isToolComparison} /> : null}
+      {showConversionCards ? <ConversionScrollAnalytics /> : null}
       <SiteHeader />
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
@@ -443,6 +447,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
           ))}
         </div>
       </section>
+      {showConversionCards ? <section className="section-fade mx-auto grid w-full max-w-7xl gap-5 px-4 py-10 sm:px-6 md:grid-cols-2 lg:px-8"><ComparisonCard /><RecommendedPartnerCard /></section> : null}
 
       {hasDeals ? (
         <section id="fare-examples" className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
