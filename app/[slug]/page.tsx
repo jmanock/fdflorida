@@ -6,8 +6,10 @@ import { AffiliateGearLink } from "@/components/AffiliateGearLink";
 import { DealCard } from "@/components/DealCard";
 import { FallbackImage } from "@/components/FallbackImage";
 import { FlightGuideAnalytics } from "@/components/FlightGuideAnalytics";
+import { FlightAuthorityAnalytics } from "@/components/FlightAuthorityAnalytics";
 import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { RelatedFloridaGuides } from "@/components/RelatedFloridaGuides";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { ComparisonCard, ConversionScrollAnalytics, RecommendedPartnerCard } from "@/components/ConversionCards";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -278,6 +280,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       {isGuide ? <FlightGuideAnalytics slug={page.slug} isComparison={isToolComparison} /> : null}
+      {isGuide ? <FlightAuthorityAnalytics /> : null}
       {showConversionCards ? <ConversionScrollAnalytics /> : null}
       <SiteHeader />
 
@@ -447,7 +450,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
           ))}
         </div>
       </section>
-      {showConversionCards ? <section className="section-fade mx-auto grid w-full max-w-7xl gap-5 px-4 py-10 sm:px-6 md:grid-cols-2 lg:px-8"><ComparisonCard /><RecommendedPartnerCard /></section> : null}
+      {showConversionCards ? <section className={`section-fade mx-auto grid w-full max-w-7xl gap-5 px-4 py-10 sm:px-6 ${isToolComparison ? "md:grid-cols-2" : ""} lg:px-8`}>{isToolComparison ? <ComparisonCard /> : null}<RecommendedPartnerCard /></section> : null}
 
       {hasDeals ? (
         <section id="fare-examples" className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
@@ -606,23 +609,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Related Flight Searches</p>
-          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Keep exploring Florida fares.</h2>
-          <div className="mt-6 grid gap-3 md:grid-cols-3">
-            {relatedSearchLinks.map((related) => (
-              <a
-                key={related.href}
-                className="rounded-2xl border border-slate-200 bg-sand p-4 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
-                href={related.href}
-              >
-                {related.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RelatedFloridaGuides guides={relatedSearchLinks} />
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
@@ -630,10 +617,10 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Questions travelers ask before checking fares.</h2>
           <div className="mt-7 grid gap-4 md:grid-cols-2">
             {faqs.map((faq) => (
-              <article key={faq.question} className="rounded-3xl border border-slate-200 bg-sand p-5">
-                <h3 className="text-base font-black text-ink">{faq.question}</h3>
+              <details key={faq.question} className="rounded-3xl border border-slate-200 bg-sand p-5">
+                <summary className="cursor-pointer text-base font-black text-ink">{faq.question}</summary>
                 <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{faq.answer}</p>
-              </article>
+              </details>
             ))}
           </div>
         </div>

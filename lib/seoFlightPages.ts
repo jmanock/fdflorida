@@ -415,8 +415,8 @@ function flightToolComparisonPage(tool: string, strengths: string, caution: stri
 const v11GoogleFlightsPages: SeoFlightPage[] = [
   {
     slug: "google-flights-florida",
-    title: "Google Flights Florida (2026): Find Cheap Flights To Orlando, Miami & Tampa",
-    description: "Use Google Flights to find Florida flight deals for Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville with flexible-date and airport tips.",
+    title: "Google Flights Florida: Find Cheaper Florida Flights in 2026",
+    description: "Compare Florida flight prices, flexible dates, MCO, MIA, TPA, FLL, and JAX booking tips to find cheaper airfare before you book.",
     h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
     eyebrow: "Florida flight search guide",
     intro: "Learn how to use Google Flights to find the best Florida airfare deals across major airports, flexible dates, and popular routes.",
@@ -462,6 +462,9 @@ const v11GoogleFlightsPages: SeoFlightPage[] = [
   flightToolComparisonPage("Booking", "keeping flights and accommodations in one broader trip-planning ecosystem", "Flights are not its only or primary planning strength"),
   flightToolComparisonPage("Momondo", "exploring fare patterns and comparing a wide mix of providers", "Provider quality and booking terms require review"),
   flightToolComparisonPage("Skyscanner", "broad destination exploration and seller comparisons", "Seller terms and displayed prices can vary")
+  ,
+  flightToolComparisonPage("Hopper", "using app-based price predictions and trip monitoring", "Predictions are not guarantees and booking terms vary"),
+  flightToolComparisonPage("Priceline", "comparing bookable fares and broader trip options", "Displayed value depends on the final itinerary and provider terms")
 ];
 
 const v11BuyingGuideSections: Record<string, SeoFlightPage["contentSections"]> = {
@@ -498,6 +501,10 @@ const v11BuyingGuides: SeoFlightPage[] = [
   planningGuidePage("best-time-to-book-florida-flights", "Best Time To Book Florida Flights (2026): Seasonal Airfare Guide", "Learn the best time to book Florida flights for Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville with seasonal airfare tips.", "Best Time To Book Florida Flights", "Florida booking timing guide", "There is no single perfect booking day. Florida airfare reacts to school breaks, holidays, cruise departures, major events, weather, and route inventory. Start earlier for peak dates, track routes, and compare practical alternatives without waiting for a guaranteed low.", ["google-flights-florida", "best-time-to-book-flights-from-florida", "holiday-flights-from-florida"]),
   planningGuidePage("cheap-flights-to-florida-guide", "Cheap Flights To Florida (2026): Orlando, Miami, Tampa & Beach Airports", "Find cheap flights to Florida by comparing Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, beach airports, dates, and trip costs.", "Cheap Flights To Florida Guide", "Inbound Florida airfare guide", "Cheap flights to Florida depend on the final destination. MCO can work for Central Florida, MIA and FLL serve South Florida, TPA fits much of the Gulf Coast, and JAX serves Northeast Florida. Compare the ground trip before choosing the cheapest airport.", ["google-flights-florida", "flights-to-florida-deals", "cheap-flights-to-florida-beaches"]),
   planningGuidePage("florida-airfare-guide", "Florida Airfare Guide (2026): Compare Airports, Deals & Booking Tools", "Use this Florida airfare guide to compare flight deals, Google Flights, major airports, flexible dates, fees, and booking strategies.", "Florida Airfare Guide", "Complete Florida airfare guide", "Florida airfare varies by airport, route, season, airline, and trip purpose. A complete search compares flexible dates, major airports, smaller destination airports, route schedules, fees, and the cost of hotels or transportation after landing.", ["google-flights-florida", "florida-airfare-deals", "best-flight-search-engines-for-florida"])
+  ,
+  planningGuidePage("cheapest-months-to-fly-to-florida", "Cheapest Months To Fly To Florida (2026): Seasonal Fare Guide", "Compare cheaper months to fly to Florida, shoulder-season airfare patterns, major airports, flexible dates, and booking tips.", "Cheapest Months To Fly To Florida", "Seasonal airfare intelligence", "Lower Florida airfares are often easier to find outside major holidays, school breaks, spring break, and peak winter travel. Weather, events, route competition, and the final destination still matter.", ["best-time-to-book-florida-flights", "google-flights-florida", "florida-flight-price-trends"]),
+  planningGuidePage("florida-flight-price-trends", "Florida Flight Price Trends (2026): Airports, Seasons & Fare Patterns", "Understand Florida flight price trends across MCO, MIA, TPA, FLL, and JAX with seasonal demand and flexible-date tips.", "Florida Flight Price Trends", "Florida airfare intelligence", "Florida flight prices respond to airline schedules, airport competition, holidays, cruise departures, events, weather, and school calendars. Use trends as planning context rather than a promised future fare.", ["cheapest-months-to-fly-to-florida", "best-time-to-book-florida-flights", "florida-airport-guide"]),
+  planningGuidePage("florida-airport-guide", "Florida Airport Guide (2026): Compare MCO, MIA, TPA, FLL & JAX", "Compare Florida airports including Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville for flights, ground travel, and trip fit.", "Florida Airport Guide", "Florida airport comparison", "The best Florida airport is the one that supports the complete trip. Compare route options, fare patterns, transportation, hotel location, cruise access, and drive time before choosing.", ["google-flights-florida", "cheapest-airports-in-florida", "florida-flight-price-trends"])
 ].map((page) => ({ ...page, heroImage: floridaFlightHero, airportCards: floridaAirportCards, contentSections: v11BuyingGuideSections[page.slug] }));
 
 const v10SearchConsoleFlightGuides: SeoFlightPage[] = [
@@ -1363,8 +1370,8 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "google-flights-vs-skyscanner-for-florida-routes",
-    title: "Google Flights Florida (2026): Find Cheap Flights To Orlando, Miami & Tampa",
-    description: "Use Google Flights to find Florida flight deals and compare Skyscanner, MCO, MIA, TPA, FLL, and JAX with flexible dates and price alerts.",
+    title: "Google Flights vs Skyscanner: Find Cheaper Florida Flights in 2026",
+    description: "Compare Google Flights and Skyscanner for Florida prices, flexible dates, alerts, and major airports before booking your airfare.",
     h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
     eyebrow: "Complete Florida flight search guide",
     intro:
