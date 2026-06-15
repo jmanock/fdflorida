@@ -1370,8 +1370,8 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "google-flights-vs-skyscanner-for-florida-routes",
-    title: "Google Flights vs Skyscanner: Find Cheaper Florida Flights in 2026",
-    description: "Compare Google Flights and Skyscanner for Florida prices, flexible dates, alerts, and major airports before booking your airfare.",
+    title: "Google Flights vs Skyscanner for Florida Routes: Which Finds Cheaper Flights?",
+    description: "Compare Google Flights and Skyscanner for Florida routes, airport options, pricing tools, alerts, and booking strategies before you plan your trip.",
     h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
     eyebrow: "Complete Florida flight search guide",
     intro:

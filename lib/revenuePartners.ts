@@ -1,4 +1,5 @@
 export const EXPEDIA_GENERAL_AFFILIATE_URL = "https://expedia.com/affiliates/expedia-home.DHcy34V";
+export const AIRPORT_TRANSFER_AFFILIATE_URL = "https://www.awin1.com/awclick.php?gid=597088&mid=124434&awinaffid=2881665&linkid=4690637&clickref=";
 export const conversionSlugs = new Set([
   "google-flights-vs-skyscanner-for-florida-routes",
   "google-flights-vs-skyscanner",
@@ -17,3 +18,15 @@ export const conversionSlugs = new Set([
   "florida-airport-guide",
   "best-time-to-book-florida-flights"
 ]);
+
+export const airportTransferSlugs = new Set([
+  "google-flights-orlando",
+  "google-flights-tampa",
+  "google-flights-miami",
+  "google-flights-fort-lauderdale",
+  "google-flights-jacksonville",
+  "florida-airport-guide"
+]);
+
+export const getTransferAffiliateUrl = (slug: string) =>
+  `${AIRPORT_TRANSFER_AFFILIATE_URL}${encodeURIComponent(`flightdealsflorida:${slug}`)}`;
