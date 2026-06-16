@@ -9,12 +9,15 @@ import { FlightGuideAnalytics } from "@/components/FlightGuideAnalytics";
 import { FlightAuthorityAnalytics } from "@/components/FlightAuthorityAnalytics";
 import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { NewsletterCtaAnalytics } from "@/components/NewsletterCtaAnalytics";
 import { RelatedFloridaGuides } from "@/components/RelatedFloridaGuides";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { ComparisonCard, ConversionScrollAnalytics, RecommendedPartnerCard } from "@/components/ConversionCards";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SkylarkLuxuryCTA } from "@/components/SkylarkLuxuryCTA";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
+import { TripRouterSection } from "@/components/TripRouterSection";
 import { flightPiscifunGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { getSeoFlightPage, getSeoFlightPageDeals, getSeoFlightPageFaqs, seoFlightPageSlugs, type SeoFlightPage } from "@/lib/seoFlightPages";
@@ -203,6 +206,20 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const isToolComparison = /google-flights-vs-/.test(page.slug);
   const showConversionCards = conversionSlugs.has(page.slug);
   const showAirportTransfer = airportTransferSlugs.has(page.slug);
+  const isPrimaryGoogleFlightsPage = page.slug === "google-flights-vs-skyscanner-for-florida-routes";
+  const googleFlightsGuideLinks = isPrimaryGoogleFlightsPage
+    ? [
+        "google-flights-florida",
+        "google-flights-tampa",
+        "google-flights-orlando",
+        "google-flights-miami",
+        "google-flights-fort-lauderdale",
+        "google-flights-jacksonville",
+        "best-time-to-book-florida-flights",
+        "cheapest-months-to-fly-to-florida",
+        "florida-airport-guide"
+      ].map(getSeoFlightPage).filter((item): item is SeoFlightPage => Boolean(item)).map((item) => ({ label: item.h1, href: `/${item.slug}` }))
+    : null;
   const relatedHubStories = getHubStoryLinks(page.slug);
   const relatedFlightLinks = [
     ...relatedPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
@@ -364,6 +381,9 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
           </aside>
         </div>
       </section>
+
+      {isPrimaryGoogleFlightsPage ? <TripRouterSection sourcePage={page.slug} /> : null}
+      {isPrimaryGoogleFlightsPage ? <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><SkylarkLuxuryCTA sourcePage={page.slug} /></section> : null}
 
       <section id="guide-content" className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         {page.quickAnswer ? (
@@ -612,7 +632,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
         </div>
       </section>
 
-      <RelatedFloridaGuides guides={relatedSearchLinks} />
+      <RelatedFloridaGuides guides={googleFlightsGuideLinks ?? relatedSearchLinks} />
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
@@ -630,14 +650,15 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       </section>
 
       <section id="alerts" className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        {isPrimaryGoogleFlightsPage ? <NewsletterCtaAnalytics placement="google_flights_mid_page" /> : null}
         <div className="grid gap-8 overflow-hidden rounded-[28px] bg-ink p-6 text-white shadow-soft sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-sky-200">Free alerts</p>
-            <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">Get Florida Flight Deals Delivered</h2>
+            <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">Get Florida Flight Deal Alerts</h2>
           </div>
           <div>
             <p className="text-base font-medium leading-7 text-slate-200">
-              Join free alerts for cheap flights, weekend escapes, and hidden airfare deals.
+              Get occasional Florida flight deal alerts, airport tips, and travel ideas for Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville.
             </p>
             <NewsletterForm />
           </div>

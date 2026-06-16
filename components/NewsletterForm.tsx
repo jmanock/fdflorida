@@ -22,6 +22,13 @@ export function NewsletterForm() {
         source: "flights"
       }
     });
+    trackEvent({
+      action: "newsletter_signup_attempt",
+      params: {
+        site: "flightdealsflorida.org",
+        source: "flights"
+      }
+    });
     setHasTrackedStart(true);
   }
 
