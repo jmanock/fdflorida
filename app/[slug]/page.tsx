@@ -139,6 +139,69 @@ function getHubStoryLinks(slug: string) {
   );
 }
 
+function PrimaryGoogleFlightsQuickAnswer({ page }: { page: SeoFlightPage }) {
+  if (!page.quickAnswer) {
+    return null;
+  }
+
+  return (
+    <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="rounded-[28px] border border-sky-200 bg-skyline p-6 shadow-card sm:p-8">
+        <p className="text-sm font-black uppercase tracking-[0.18em] text-ocean">Quick answer</p>
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">{page.quickAnswer.heading}</h2>
+        <p className="mt-4 max-w-4xl text-base font-semibold leading-8 text-slateText">{page.quickAnswer.summary}</p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {page.quickAnswer.items.map((item) => (
+            <div key={item.label} className="rounded-3xl border border-white bg-white p-5 shadow-sm">
+              <p className="text-xs font-black uppercase tracking-[0.14em] text-ocean">{item.label}</p>
+              <p className="mt-3 text-sm font-bold leading-6 text-ink">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FlightAlertsInlineCta({ placement }: { placement: string }) {
+  return (
+    <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <NewsletterCtaAnalytics placement={placement} />
+      <div className="grid gap-6 rounded-[28px] bg-ink p-6 text-white shadow-soft sm:p-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <div>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-sky-200">Florida flight alerts</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal">Get Florida Flight Deal Alerts</h2>
+          <p className="mt-3 text-sm font-semibold leading-6 text-slate-200">
+            Watch Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville fare ideas while you keep planning the rest of the trip.
+          </p>
+        </div>
+        <NewsletterForm />
+      </div>
+    </section>
+  );
+}
+
+function TripsterReadyAttractionsCta() {
+  return (
+    <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+        <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Florida attractions</p>
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Add things to do after you compare flights.</h2>
+        <p className="mt-4 max-w-3xl text-base font-medium leading-8 text-slateText">
+          Once the flight dates and airport look right, compare theme parks, tours, family attractions, and local activities near the destination. This section is ready for Tripster attraction placement when a tracked link is available in the affiliate config.
+        </p>
+        <a
+          className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-ink px-6 text-sm font-black text-white transition hover:-translate-y-0.5 hover:shadow-premium"
+          href="https://localdealsflorida.org/best-things-to-do-in-florida"
+        >
+          Find Florida Attractions
+          <ArrowRight className="h-4 w-4" />
+        </a>
+      </div>
+    </section>
+  );
+}
+
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -382,11 +445,13 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
         </div>
       </section>
 
+      {isPrimaryGoogleFlightsPage ? <PrimaryGoogleFlightsQuickAnswer page={page} /> : null}
+      {isPrimaryGoogleFlightsPage ? <FlightAlertsInlineCta placement="google_flights_after_quick_answer" /> : null}
       {isPrimaryGoogleFlightsPage ? <TripRouterSection sourcePage={page.slug} /> : null}
       {isPrimaryGoogleFlightsPage ? <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><SkylarkLuxuryCTA sourcePage={page.slug} /></section> : null}
 
       <section id="guide-content" className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        {page.quickAnswer ? (
+        {page.quickAnswer && !isPrimaryGoogleFlightsPage ? (
           <div className="mb-10 rounded-[28px] border border-sky-200 bg-skyline p-6 shadow-card sm:p-8">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-ocean">Quick answer</p>
             <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">{page.quickAnswer.heading}</h2>
@@ -474,6 +539,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       </section>
       {showConversionCards ? <section className={`section-fade mx-auto grid w-full max-w-7xl gap-5 px-4 py-10 sm:px-6 ${isToolComparison ? "md:grid-cols-2" : ""} lg:px-8`}>{isToolComparison ? <ComparisonCard /> : null}<RecommendedPartnerCard /></section> : null}
       {showAirportTransfer ? <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><TransferBookingCard slug={page.slug} /></section> : null}
+      {isPrimaryGoogleFlightsPage ? <TripsterReadyAttractionsCta /> : null}
 
       {hasDeals ? (
         <section id="fare-examples" className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
@@ -633,6 +699,8 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       </section>
 
       <RelatedFloridaGuides guides={googleFlightsGuideLinks ?? relatedSearchLinks} />
+
+      {isPrimaryGoogleFlightsPage ? <FlightAlertsInlineCta placement="google_flights_before_faq" /> : null}
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-card sm:p-8">
