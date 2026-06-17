@@ -74,6 +74,13 @@ export function NewsletterForm() {
           source: "flights"
         }
       });
+      trackEvent({
+        action: "newsletter_signup",
+        params: {
+          site: "flightdealsflorida.org",
+          source: "flights"
+        }
+      });
 
       setStatus("success");
       setMessage("You’re in! Flight deals are on the way.");

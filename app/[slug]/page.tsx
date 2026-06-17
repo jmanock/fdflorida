@@ -7,6 +7,7 @@ import { DealCard } from "@/components/DealCard";
 import { FallbackImage } from "@/components/FallbackImage";
 import { FlightGuideAnalytics } from "@/components/FlightGuideAnalytics";
 import { FlightAuthorityAnalytics } from "@/components/FlightAuthorityAnalytics";
+import { ContinuePlanningFloridaTrip, ExitNewsletterCapture, FlightTripCostEstimator, HotelAfterFlightCtas } from "@/components/FlightEngagementBoosters";
 import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { NewsletterCtaAnalytics } from "@/components/NewsletterCtaAnalytics";
@@ -364,6 +365,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       {isGuide ? <FlightGuideAnalytics slug={page.slug} isComparison={isToolComparison} /> : null}
       {isGuide ? <FlightAuthorityAnalytics /> : null}
       {showConversionCards ? <ConversionScrollAnalytics /> : null}
+      {isPrimaryGoogleFlightsPage ? <ExitNewsletterCapture /> : null}
       <SiteHeader />
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
@@ -528,6 +530,8 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
             </div>
           </div>
         ) : null}
+        {isPrimaryGoogleFlightsPage ? <HotelAfterFlightCtas /> : null}
+        {isPrimaryGoogleFlightsPage ? <FlightTripCostEstimator /> : null}
         <div className="mt-7 grid gap-4 md:grid-cols-3">
           {page.tips.map((tip) => (
             <div key={tip} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card">
@@ -699,6 +703,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       </section>
 
       <RelatedFloridaGuides guides={googleFlightsGuideLinks ?? relatedSearchLinks} />
+      {isPrimaryGoogleFlightsPage ? <ContinuePlanningFloridaTrip /> : null}
 
       {isPrimaryGoogleFlightsPage ? <FlightAlertsInlineCta placement="google_flights_before_faq" /> : null}
 
