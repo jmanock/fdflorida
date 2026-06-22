@@ -29,7 +29,7 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const lastUpdated = "June 2026";
+const lastUpdated = "June 22, 2026";
 const ogImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80";
 
 const sisterSites = [
@@ -164,6 +164,68 @@ function PrimaryGoogleFlightsQuickAnswer({ page }: { page: SeoFlightPage }) {
   );
 }
 
+function GoogleFlightsPlanningSnapshot({ page }: { page: SeoFlightPage }) {
+  if (!page.flightPlanningTable && !page.featuredCallout) {
+    return null;
+  }
+
+  return (
+    <section className="section-fade mx-auto w-full max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
+      {page.flightPlanningTable ? (
+        <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-card">
+          <div className="border-b border-slate-200 bg-ink px-6 py-5 text-white">
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-sky-200">Florida fare planning snapshot</p>
+            <h2 className="mt-2 text-2xl font-black tracking-normal">Airports, popular routes, booking windows, and cheaper months</h2>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[760px] border-collapse text-left">
+              <thead className="bg-skyline text-sm font-black text-ink">
+                <tr>
+                  {page.flightPlanningTable.columns.map((column) => (
+                    <th key={column} className="border-b border-r border-slate-200 px-4 py-3 last:border-r-0">
+                      {column}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {page.flightPlanningTable.rows.map((row) => (
+                  <tr key={row[0]} className="align-top text-sm font-semibold leading-6 text-slateText">
+                    {row.map((cell, index) => (
+                      <td key={`${row[0]}-${index}`} className="border-b border-r border-slate-200 px-4 py-4 last:border-r-0">
+                        {cell}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="px-6 py-4 text-xs font-bold leading-5 text-slateText">
+            Booking windows and cheaper months are planning ranges, not price guarantees. Holidays, school breaks, events, and route demand can change airfare.
+          </p>
+        </div>
+      ) : null}
+
+      {page.featuredCallout ? (
+        <aside className="mt-6 rounded-[28px] border border-amber-200 bg-amber-50 p-6 shadow-card sm:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-amber-800">Featured advice</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">{page.featuredCallout.heading}</h2>
+          <p className="mt-3 max-w-4xl text-base font-semibold leading-8 text-slateText">{page.featuredCallout.intro}</p>
+          <ul className="mt-5 grid gap-3 md:grid-cols-3">
+            {page.featuredCallout.tips.map((tip) => (
+              <li key={tip} className="flex gap-3 rounded-2xl border border-amber-200 bg-white p-4 text-sm font-bold leading-6 text-ink">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
+                {tip}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      ) : null}
+    </section>
+  );
+}
+
 function FlightAlertsInlineCta({ placement }: { placement: string }) {
   return (
     <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -271,9 +333,15 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const showConversionCards = conversionSlugs.has(page.slug);
   const showAirportTransfer = airportTransferSlugs.has(page.slug);
   const isPrimaryGoogleFlightsPage = page.slug === "google-flights-vs-skyscanner-for-florida-routes";
-  const googleFlightsGuideLinks = isPrimaryGoogleFlightsPage
+  const isFeaturedGoogleFlightsPage = new Set([
+    "google-flights-vs-skyscanner-for-florida-routes",
+    "google-flights-florida",
+    "google-flights-tampa"
+  ]).has(page.slug);
+  const googleFlightsGuideLinks = isFeaturedGoogleFlightsPage
     ? [
         "google-flights-florida",
+        "google-flights-vs-skyscanner-for-florida-routes",
         "google-flights-tampa",
         "google-flights-orlando",
         "google-flights-miami",
@@ -282,7 +350,11 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
         "best-time-to-book-florida-flights",
         "cheapest-months-to-fly-to-florida",
         "florida-airport-guide"
-      ].map(getSeoFlightPage).filter((item): item is SeoFlightPage => Boolean(item)).map((item) => ({ label: item.h1, href: `/${item.slug}` }))
+      ]
+        .filter((slug) => slug !== page.slug)
+        .map(getSeoFlightPage)
+        .filter((item): item is SeoFlightPage => Boolean(item))
+        .map((item) => ({ label: item.h1, href: `/${item.slug}` }))
     : null;
   const relatedHubStories = getHubStoryLinks(page.slug);
   const relatedFlightLinks = [
@@ -298,7 +370,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       headline: page.h1,
       url: `${siteUrl}/${page.slug}`,
       description: page.description,
-      dateModified: "2026-06-06",
+      dateModified: "2026-06-22",
       isPartOf: {
         "@type": "WebSite",
         name: "Florida Flight Deals",
@@ -365,7 +437,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       {isGuide ? <FlightGuideAnalytics slug={page.slug} isComparison={isToolComparison} /> : null}
       {isGuide ? <FlightAuthorityAnalytics /> : null}
       {showConversionCards ? <ConversionScrollAnalytics /> : null}
-      {isPrimaryGoogleFlightsPage ? <ExitNewsletterCapture /> : null}
+      {isFeaturedGoogleFlightsPage ? <ExitNewsletterCapture /> : null}
       <SiteHeader />
 
       <section className="section-fade mx-auto w-full max-w-7xl px-4 pb-12 pt-10 sm:px-6 lg:px-8 lg:pb-16 lg:pt-14">
@@ -447,13 +519,14 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
         </div>
       </section>
 
-      {isPrimaryGoogleFlightsPage ? <PrimaryGoogleFlightsQuickAnswer page={page} /> : null}
+      {isFeaturedGoogleFlightsPage ? <PrimaryGoogleFlightsQuickAnswer page={page} /> : null}
+      {isFeaturedGoogleFlightsPage ? <GoogleFlightsPlanningSnapshot page={page} /> : null}
       {isPrimaryGoogleFlightsPage ? <FlightAlertsInlineCta placement="google_flights_after_quick_answer" /> : null}
       {isPrimaryGoogleFlightsPage ? <TripRouterSection sourcePage={page.slug} /> : null}
       {isPrimaryGoogleFlightsPage ? <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><SkylarkLuxuryCTA sourcePage={page.slug} /></section> : null}
 
       <section id="guide-content" className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        {page.quickAnswer && !isPrimaryGoogleFlightsPage ? (
+        {page.quickAnswer && !isFeaturedGoogleFlightsPage ? (
           <div className="mb-10 rounded-[28px] border border-sky-200 bg-skyline p-6 shadow-card sm:p-8">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-ocean">Quick answer</p>
             <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">{page.quickAnswer.heading}</h2>
@@ -530,8 +603,8 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
             </div>
           </div>
         ) : null}
-        {isPrimaryGoogleFlightsPage ? <HotelAfterFlightCtas /> : null}
-        {isPrimaryGoogleFlightsPage ? <FlightTripCostEstimator /> : null}
+        {isFeaturedGoogleFlightsPage ? <HotelAfterFlightCtas /> : null}
+        {isFeaturedGoogleFlightsPage ? <FlightTripCostEstimator /> : null}
         <div className="mt-7 grid gap-4 md:grid-cols-3">
           {page.tips.map((tip) => (
             <div key={tip} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card">
@@ -703,7 +776,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       </section>
 
       <RelatedFloridaGuides guides={googleFlightsGuideLinks ?? relatedSearchLinks} />
-      {isPrimaryGoogleFlightsPage ? <ContinuePlanningFloridaTrip /> : null}
+      {isFeaturedGoogleFlightsPage ? <ContinuePlanningFloridaTrip /> : null}
 
       {isPrimaryGoogleFlightsPage ? <FlightAlertsInlineCta placement="google_flights_before_faq" /> : null}
 

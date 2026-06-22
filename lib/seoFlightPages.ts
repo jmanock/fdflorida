@@ -33,6 +33,15 @@ export type SeoFlightPage = {
     columns: [string, string, string];
     rows: [string, string, string][];
   };
+  flightPlanningTable?: {
+    columns: [string, string, string, string];
+    rows: [string, string, string, string][];
+  };
+  featuredCallout?: {
+    heading: string;
+    intro: string;
+    tips: string[];
+  };
   tips: string[];
   dealIds?: string[];
   customDeals?: FlightDeal[];
@@ -337,7 +346,13 @@ const floridaFlightHero = {
   caption: "Compare flexible dates and Florida airports before choosing a fare."
 };
 
-function googleFlightsCityPage(city: string, code: string, nearbyNote: string, relatedSlugs: string[]): SeoFlightPage {
+function googleFlightsCityPage(
+  city: string,
+  code: string,
+  nearbyNote: string,
+  relatedSlugs: string[],
+  overrides: Partial<SeoFlightPage> = {}
+): SeoFlightPage {
   const slug = `google-flights-${city.toLowerCase().replaceAll(" ", "-")}`;
 
   return {
@@ -365,7 +380,8 @@ function googleFlightsCityPage(city: string, code: string, nearbyNote: string, r
       { heading: "Track the route before booking", body: "Price tracking can help when dates are not urgent. Recheck the airline's final price and terms before purchasing." }
     ],
     tips: [`Start with ${code}, then test nearby airports only when practical.`, "Use the date grid before setting a price alert.", "Compare final flight times and fees before booking."],
-    relatedSlugs
+    relatedSlugs,
+    ...overrides
   };
 }
 
@@ -415,8 +431,8 @@ function flightToolComparisonPage(tool: string, strengths: string, caution: stri
 const v11GoogleFlightsPages: SeoFlightPage[] = [
   {
     slug: "google-flights-florida",
-    title: "Google Flights Florida: Find Cheaper Florida Flights in 2026",
-    description: "Compare Florida flight prices, flexible dates, MCO, MIA, TPA, FLL, and JAX booking tips to find cheaper airfare before you book.",
+    title: "Google Flights Florida (2026): Compare Airports, Track Fares & Save",
+    description: "Use Google Flights to compare Florida airfare at MCO, MIA, TPA, FLL and JAX. Find flexible dates, track prices and choose the best airport for your trip.",
     h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
     eyebrow: "Florida flight search guide",
     intro: "Learn how to use Google Flights to find the best Florida airfare deals across major airports, flexible dates, and popular routes.",
@@ -449,12 +465,59 @@ const v11GoogleFlightsPages: SeoFlightPage[] = [
         ["Best use case", "Known routes, dates, and airport comparisons", "Broad destination and seller exploration"]
       ]
     },
+    flightPlanningTable: {
+      columns: ["Florida airport", "Popular routes", "Best booking window", "Cheapest travel months"],
+      rows: [
+        ["Orlando (MCO)", "New York, Chicago, Atlanta, Boston", "3-8 weeks; earlier for school breaks", "Late August, September, early November"],
+        ["Miami (MIA)", "New York, Atlanta, Dallas, Caribbean", "4-10 weeks; earlier for winter", "September, October, early December"],
+        ["Tampa (TPA)", "New York, Chicago, Nashville, Boston", "3-8 weeks; earlier for spring", "September, October, early November"],
+        ["Fort Lauderdale (FLL)", "New York, Boston, Atlanta, Caribbean", "3-8 weeks; compare MIA too", "September, October, early December"],
+        ["Jacksonville (JAX)", "Atlanta, Charlotte, Nashville, Washington", "3-7 weeks for domestic trips", "August, September, early November"]
+      ]
+    },
+    featuredCallout: {
+      heading: "Florida Flight Deal Tips",
+      intro: "A lower airfare is useful only when the airport, schedule, bags, hotel, and ground transportation still fit the trip.",
+      tips: [
+        "Search MCO, MIA, TPA, FLL, and JAX separately before using a broad Florida search.",
+        "Open the date grid before setting a price alert so you know which days are genuinely practical.",
+        "Compare the full trip cost, especially hotel nights, airport transfers, parking, and baggage fees."
+      ]
+    },
     tips: ["Compare MCO, MIA, TPA, FLL, and JAX when practical.", "Use flexible dates before tracking a fare.", "Confirm current price with the booking source."],
-    relatedSlugs: ["google-flights-vs-skyscanner-for-florida-routes", "google-flights-price-tracking-explained", "google-flights-calendar-strategy", "best-google-flights-tips-for-florida-travelers", "multi-city-florida-flight-planning", "best-flight-search-engines-for-florida", "cheap-flights-to-florida-guide", "florida-airfare-guide"]
+    relatedSlugs: ["google-flights-vs-skyscanner-for-florida-routes", "google-flights-tampa", "google-flights-price-tracking-explained", "google-flights-calendar-strategy", "best-google-flights-tips-for-florida-travelers", "multi-city-florida-flight-planning", "best-flight-search-engines-for-florida", "cheap-flights-to-florida-guide", "florida-airfare-guide"]
   },
   googleFlightsCityPage("Orlando", "MCO", "Sanford can be worth comparing when its schedule and ground transportation fit the trip.", ["orlando-flight-deals", "orlando-airport-guide", "cheap-flights-from-orlando", "google-flights-florida"]),
   googleFlightsCityPage("Miami", "MIA", "Fort Lauderdale can be a useful alternative when the fare savings outweigh the extra ground travel.", ["miami-flight-deals", "miami-airport-guide", "cheap-flights-from-miami", "google-flights-florida"]),
-  googleFlightsCityPage("Tampa", "TPA", "Orlando may add route choices, but include drive time, parking, and the final Gulf Coast itinerary.", ["tampa-flight-deals", "tampa-airport-guide", "cheap-flights-from-tampa", "google-flights-florida"]),
+  googleFlightsCityPage(
+    "Tampa",
+    "TPA",
+    "Orlando may add route choices, but include drive time, parking, and the final Gulf Coast itinerary.",
+    ["google-flights-florida", "google-flights-vs-skyscanner-for-florida-routes", "tampa-flight-deals", "tampa-airport-guide", "cheap-flights-from-tampa"],
+    {
+      title: "Google Flights Tampa (2026): Find Cheap TPA Flights & Track Fares",
+      description: "Find cheaper Tampa flights with Google Flights. Compare TPA routes, flexible dates, price alerts, nearby Orlando options and the best months to fly.",
+      h1: "Google Flights Tampa: Find Cheap TPA Flights & Track Fares",
+      flightPlanningTable: {
+        columns: ["Florida airport", "Popular routes", "Best booking window", "Cheapest travel months"],
+        rows: [
+          ["Tampa (TPA)", "New York, Chicago, Nashville, Boston", "3-8 weeks; earlier for spring break", "September, October, early November"],
+          ["Orlando (MCO)", "New York, Chicago, Denver, Dallas", "3-8 weeks; earlier for holidays", "Late August, September, early November"],
+          ["Sarasota (SRQ)", "Atlanta, Charlotte, New York, Chicago", "4-9 weeks for peak Gulf travel", "September, October, early December"],
+          ["St. Pete-Clearwater (PIE)", "Midwest and Northeast leisure routes", "4-8 weeks; check limited schedules", "September, October, early November"]
+        ]
+      },
+      featuredCallout: {
+        heading: "Florida Flight Deal Tips",
+        intro: "TPA is usually the most convenient airport for Tampa and the Gulf Coast, but a nearby airport can help when its schedule and total trip cost are clearly better.",
+        tips: [
+          "Compare TPA with MCO only after adding drive time, tolls, parking, or rental-car costs.",
+          "Track both nonstop and one-stop Tampa options when your dates are flexible.",
+          "Check hotel prices before locking a Friday or Sunday flight during major events and cruise weekends."
+        ]
+      }
+    }
+  ),
   googleFlightsCityPage("Fort Lauderdale", "FLL", "Miami is close enough to compare for some trips, especially international routes, but total ground time matters.", ["fort-lauderdale-flight-deals", "fort-lauderdale-airport-guide", "cheap-flights-from-fort-lauderdale", "google-flights-florida"]),
   googleFlightsCityPage("Jacksonville", "JAX", "JAX often wins on convenience for North Florida even when a larger airport shows a lower base fare.", ["jacksonville-flight-deals", "jacksonville-airport-guide", "cheap-flights-from-jacksonville", "google-flights-florida"]),
   flightToolComparisonPage("Kayak", "comparing travel packages, filters, and fare options across providers", "Results and booking-provider terms can vary"),
@@ -1370,8 +1433,8 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "google-flights-vs-skyscanner-for-florida-routes",
-    title: "Google Flights Florida: Find Cheap Flights to Orlando, Miami, Tampa & More (2026)",
-    description: "Find cheap Florida flights using Google Flights. Compare Orlando, Miami, Tampa, Fort Lauderdale and Jacksonville routes, track fares, and plan your trip with hotels, transfers, cruises and activities.",
+    title: "Google Flights Florida (2026): Find Cheap Flights & Compare Airports",
+    description: "Compare Google Flights for Orlando, Miami, Tampa, Fort Lauderdale and Jacksonville. Track fares, find cheaper dates and learn when Skyscanner helps.",
     h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
     eyebrow: "Complete Florida flight search guide",
     intro:
@@ -1414,6 +1477,25 @@ export const seoFlightPages: SeoFlightPage[] = [
         ["Florida route search", "Strong MCO, MIA, TPA, FLL, and JAX filters", "Useful seller and destination discovery"],
         ["Mobile experience", "Clean mobile web experience", "App and mobile web options"],
         ["Best use case", "Known routes, dates, and airport comparisons", "Broad destination and seller exploration"]
+      ]
+    },
+    flightPlanningTable: {
+      columns: ["Florida airport", "Popular routes", "Best booking window", "Cheapest travel months"],
+      rows: [
+        ["Orlando (MCO)", "New York, Chicago, Atlanta, Denver", "3-8 weeks; earlier for theme-park breaks", "Late August, September, early November"],
+        ["Miami (MIA)", "New York, Atlanta, Dallas, Caribbean", "4-10 weeks; earlier for winter trips", "September, October, early December"],
+        ["Tampa (TPA)", "New York, Chicago, Nashville, Boston", "3-8 weeks; earlier for spring", "September, October, early November"],
+        ["Fort Lauderdale (FLL)", "New York, Boston, Atlanta, Caribbean", "3-8 weeks; compare MIA too", "September, October, early December"],
+        ["Jacksonville (JAX)", "Atlanta, Charlotte, Nashville, Washington", "3-7 weeks for domestic trips", "August, September, early November"]
+      ]
+    },
+    featuredCallout: {
+      heading: "Florida Flight Deal Tips",
+      intro: "Use Google Flights for fast airport and date research, then use Skyscanner as a second check when you want broader seller or destination discovery.",
+      tips: [
+        "Compare the exact same dates, airports, bags, and flight times in both tools.",
+        "Track the route only after deciding which Florida airports are realistic for the trip.",
+        "Confirm the final price and booking terms with the airline or booking provider."
       ]
     },
     tips: ["Best for flexible date searches.", "Best for comparing nearby Florida airports.", "Best for finding cheaper routes before booking."],
@@ -1543,6 +1625,50 @@ export function getSeoFlightPageDeals(page: SeoFlightPage) {
 }
 
 const seoFlightFaqs: Record<string, SeoFlightFaq[]> = {
+  "google-flights-florida": [
+    {
+      question: "Is Google Flights useful for finding cheap Florida flights?",
+      answer: "Yes. It is especially useful for comparing flexible dates, route schedules, nearby airports, and tracked fares before booking with an airline or travel source."
+    },
+    {
+      question: "Which Florida airports should I compare?",
+      answer: "Start with Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville when they are practical for your destination. Include drive time, parking, transfers, and hotel location."
+    },
+    {
+      question: "What are the cheapest months to fly to Florida?",
+      answer: "Late August, September, October, and parts of early November can offer more options on some routes, but hurricanes, events, holidays, and school calendars can change demand."
+    },
+    {
+      question: "How far ahead should I book a Florida flight?",
+      answer: "Many domestic trips are worth tracking about three to eight weeks ahead. Start earlier for spring break, winter escapes, holidays, cruises, and major events."
+    },
+    {
+      question: "Can Google Flights guarantee the lowest price?",
+      answer: "No. Google Flights is a comparison and tracking tool. Always verify the final fare, baggage fees, schedule, and booking terms with the booking source."
+    }
+  ],
+  "google-flights-tampa": [
+    {
+      question: "Is Google Flights good for finding cheap flights to Tampa?",
+      answer: "Yes. Use it to compare TPA dates, nonstop options, airlines, nearby airports, and tracked fares before confirming the final itinerary."
+    },
+    {
+      question: "Should Tampa travelers compare Orlando airport?",
+      answer: "Compare MCO only when the fare or schedule improvement outweighs the longer drive, tolls, parking, rental-car cost, and lost trip time."
+    },
+    {
+      question: "What routes are popular from Tampa?",
+      answer: "New York, Chicago, Nashville, Boston, Atlanta, and other major domestic markets are useful starting points, though schedules vary by season and airline."
+    },
+    {
+      question: "When should I book a Tampa flight?",
+      answer: "Start comparing about three to eight weeks ahead for many domestic trips and earlier for spring break, holidays, cruise departures, and major Tampa Bay events."
+    },
+    {
+      question: "What should I plan after finding a Tampa fare?",
+      answer: "Compare Tampa hotels, Gulf Coast transportation, cruise schedules, parking, and local activities before booking so the flight works with the complete trip."
+    }
+  ],
   "orlando-flight-deals": [
     {
       question: "What airports serve Orlando flight deals?",

@@ -24,6 +24,7 @@ export const conversionSlugs = new Set([
 
 export const airportTransferSlugs = new Set([
   "google-flights-vs-skyscanner-for-florida-routes",
+  "google-flights-florida",
   "google-flights-orlando",
   "google-flights-tampa",
   "google-flights-miami",
