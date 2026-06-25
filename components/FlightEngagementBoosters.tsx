@@ -31,15 +31,22 @@ const relatedGuides = [
     copy: "Find attractions, tours, activities, and local ideas.",
     href: "https://localdealsflorida.org/best-things-to-do-in-florida",
     cta: "Find activities"
+  },
+  {
+    title: "Vacation Packages",
+    copy: "Connect flights with hotels, cruises, and attractions.",
+    href: "https://floridadealshub.com/vacation-packages",
+    cta: "Build a trip plan"
   }
 ];
 
 function trackRelatedGuide(title: string, href: string) {
-  trackEvent({
-    action: "related_guide_click",
-    category: "engagement",
-    params: { content_type: "flight_guide", item_title: title, outbound_url: href, page_path: window.location.pathname }
-  });
+  const params = { content_type: "flight_guide", item_title: title, outbound_url: href, page_path: window.location.pathname };
+  trackEvent({ action: "related_guide_click", category: "engagement", params });
+  trackEvent({ action: "continue_planning_click", category: "engagement", params });
+  if (href.startsWith("https://")) {
+    trackEvent({ action: "cross_site_click", category: "engagement", params });
+  }
 }
 
 function trackAffiliate(action: string, partner: string, url: string, ctaText: string) {
@@ -142,7 +149,7 @@ export function ContinuePlanningFloridaTrip() {
         <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">The next smart click after comparing flights.</h2>
         <div className="mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {relatedGuides.map((guide, index) => {
-            const icons = [Hotel, Sailboat, Plane, Ticket];
+            const icons = [Hotel, Sailboat, Plane, Ticket, Calculator];
             const Icon = icons[index] ?? ArrowRight;
             return (
               <a key={guide.href} href={guide.href} className="group rounded-3xl border border-slate-200 bg-sand p-5 transition hover:-translate-y-1 hover:border-sky-200 hover:bg-skyline hover:shadow-soft" onClick={() => trackRelatedGuide(guide.title, guide.href)}>

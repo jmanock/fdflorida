@@ -1433,8 +1433,8 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "google-flights-vs-skyscanner-for-florida-routes",
-    title: "Google Flights Florida (2026): Find Cheap Flights & Compare Airports",
-    description: "Compare Google Flights for Orlando, Miami, Tampa, Fort Lauderdale and Jacksonville. Track fares, find cheaper dates and learn when Skyscanner helps.",
+    title: "Google Flights Florida (2026): Find Cheap Flights To Orlando, Miami & Tampa",
+    description: "Use Google Flights Florida to compare Orlando, Miami, Tampa, Fort Lauderdale and Jacksonville airports, track fares, find cheaper dates and plan the full trip.",
     h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
     eyebrow: "Complete Florida flight search guide",
     intro:
