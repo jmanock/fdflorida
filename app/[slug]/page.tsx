@@ -18,6 +18,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SkylarkLuxuryCTA } from "@/components/SkylarkLuxuryCTA";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
+import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TripRouterSection } from "@/components/TripRouterSection";
 import { flightPiscifunGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
@@ -605,6 +606,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
         ) : null}
         {isFeaturedGoogleFlightsPage ? <HotelAfterFlightCtas /> : null}
         {isFeaturedGoogleFlightsPage ? <FlightTripCostEstimator /> : null}
+        <TravelEssentialsBlock slug={page.slug} />
         <div className="mt-7 grid gap-4 md:grid-cols-3">
           {page.tips.map((tip) => (
             <div key={tip} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card">

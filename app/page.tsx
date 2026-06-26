@@ -11,6 +11,7 @@ import { DealsExplorer } from "@/components/DealsExplorer";
 import { FallbackImage } from "@/components/FallbackImage";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 
 const siteUrl = "https://flightdealsflorida.org";
 const lastUpdated = "June 2026";
@@ -774,6 +775,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <TravelEssentialsBlock slug="home" />
 
       <section id="sister-sites" className="section-fade mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
