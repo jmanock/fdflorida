@@ -390,8 +390,8 @@ function flightToolComparisonPage(tool: string, strengths: string, caution: stri
 
   return {
     slug: `google-flights-vs-${toolSlug}`,
-    title: `Google Flights vs ${tool}: Which Finds Better Florida Deals? (2026)`,
-    description: `Compare Google Flights vs ${tool} for Florida flight deals, flexible dates, price alerts, MCO, MIA, TPA, FLL, and JAX airfare searches.`,
+    title: `Google Flights vs ${tool}: Best Tool For Florida Flight Deals?`,
+    description: `Compare Google Flights vs ${tool} for Florida flight deals, flexible dates, price alerts and MCO, MIA, TPA, FLL and JAX airfare searches.`,
     h1: `Google Flights vs ${tool}: Which Is Better For Florida Flights?`,
     eyebrow: "Flight search tool comparison",
     intro: `Google Flights and ${tool} can both help with Florida airfare research, but they serve different parts of the search and booking process.`,
@@ -431,8 +431,8 @@ function flightToolComparisonPage(tool: string, strengths: string, caution: stri
 const v11GoogleFlightsPages: SeoFlightPage[] = [
   {
     slug: "google-flights-florida",
-    title: "Google Flights Florida (2026): Compare Airports, Track Fares & Save",
-    description: "Use Google Flights to compare Florida airfare at MCO, MIA, TPA, FLL and JAX. Find flexible dates, track prices and choose the best airport for your trip.",
+    title: "Google Flights Florida: Cheap Routes, Airport Tips & Fare Tracking",
+    description: "Use Google Flights Florida to compare MCO, MIA, TPA, FLL and JAX, track fares, find flexible dates and plan hotels, transfers and activities.",
     h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
     eyebrow: "Florida flight search guide",
     intro: "Learn how to use Google Flights to find the best Florida airfare deals across major airports, flexible dates, and popular routes.",
@@ -495,8 +495,8 @@ const v11GoogleFlightsPages: SeoFlightPage[] = [
     "Orlando may add route choices, but include drive time, parking, and the final Gulf Coast itinerary.",
     ["google-flights-florida", "google-flights-vs-skyscanner-for-florida-routes", "tampa-flight-deals", "tampa-airport-guide", "cheap-flights-from-tampa"],
     {
-      title: "Google Flights Tampa (2026): Find Cheap TPA Flights & Track Fares",
-      description: "Find cheaper Tampa flights with Google Flights. Compare TPA routes, flexible dates, price alerts, nearby Orlando options and the best months to fly.",
+      title: "Google Flights Tampa: Cheap TPA Routes, Fare Alerts & Airport Tips",
+      description: "Use Google Flights Tampa to compare TPA routes, flexible dates, fare alerts, nearby Orlando options, hotels and Gulf Coast trip timing.",
       h1: "Google Flights Tampa: Find Cheap TPA Flights & Track Fares",
       flightPlanningTable: {
         columns: ["Florida airport", "Popular routes", "Best booking window", "Cheapest travel months"],
@@ -890,9 +890,9 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "flights-to-florida-deals",
-    title: "Flights To Florida Deals | Orlando, Miami, Tampa & More",
-    description: "Find flight deals to Florida including Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and other popular Florida destinations.",
-    h1: "Flights To Florida Deals",
+    title: "Flights To Florida Deals: Cheap Routes To Orlando, Miami, Tampa & More",
+    description: "Find flights to Florida deals for Orlando, Miami, Tampa, Fort Lauderdale and Jacksonville with airport comparisons, fare examples and trip-planning links.",
+    h1: "Flights To Florida Deals: Compare Cheap Florida Routes",
     eyebrow: "Inbound Florida fares",
     intro:
       "Find flight deals to Florida, including fare examples into Orlando, Miami, Tampa, Fort Lauderdale, Jacksonville, and other popular Florida destinations.",
@@ -1433,8 +1433,8 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "google-flights-vs-skyscanner-for-florida-routes",
-    title: "Google Flights Florida (2026): Find Cheap Flights To Orlando, Miami & Tampa",
-    description: "Use Google Flights Florida to compare Orlando, Miami, Tampa, Fort Lauderdale and Jacksonville airports, track fares, find cheaper dates and plan the full trip.",
+    title: "Google Flights Florida: Cheap Routes, Airport Tips & Fare Tracking",
+    description: "Use Google Flights Florida to compare Orlando, Miami, Tampa, Fort Lauderdale and Jacksonville routes, track fares and plan hotels, transfers and activities.",
     h1: "Google Flights Florida: Find Cheap Flights To Orlando, Miami, Tampa & More",
     eyebrow: "Complete Florida flight search guide",
     intro:
