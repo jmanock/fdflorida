@@ -11,6 +11,7 @@ import { ContinuePlanningFloridaTrip, ExitNewsletterCapture, FlightTripCostEstim
 import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { NewsletterCtaAnalytics } from "@/components/NewsletterCtaAnalytics";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { RelatedFloridaGuides } from "@/components/RelatedFloridaGuides";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { ComparisonCard, ConversionScrollAnalytics, RecommendedPartnerCard } from "@/components/ConversionCards";
@@ -434,6 +435,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
 
   return (
     <main>
+      <ReadingProgressBar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       {isGuide ? <FlightGuideAnalytics slug={page.slug} isComparison={isToolComparison} /> : null}
       {isGuide ? <FlightAuthorityAnalytics /> : null}
