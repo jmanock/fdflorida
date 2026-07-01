@@ -83,7 +83,7 @@ export function SiteFooter() {
             ))}
           </nav>
           <p className="mt-5 max-w-3xl text-xs font-semibold leading-5 text-slateText">
-            Some links on this site may earn us a commission at no extra cost to you. This helps keep our deal alerts free.
+            Some links may be sponsored or affiliate links. We may earn a commission if you book or buy through them, at no extra cost to you.
           </p>
         </div>
       </div>

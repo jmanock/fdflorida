@@ -11,16 +11,22 @@ const rel = "sponsored nofollow noopener noreferrer";
 function eventForAdvertiser(advertiser: TravelEssentialItem["advertiser"]) {
   if (advertiser === "nomatic") return "affiliate_click_nomatic";
   if (advertiser === "airport_transfer") return "affiliate_click_transfer";
+  if (advertiser === "esimshop" || advertiser === "esimania") return "affiliate_click_esim";
+  if (advertiser === "bookafly") return "affiliate_click_bookafly";
   return "travel_essentials_click";
 }
 
 export function TravelEssentialsBlock({ slug }: { slug: string }) {
   const transferUrl = getTransferAffiliateUrl(slug);
+  const isInternational = /cancun|bahamas|caribbean|mexico|international|europe|san-juan/.test(slug);
+  const toolkitItems = flightTravelEssentials
+    .filter((item) => item.category !== "esim" || isInternational)
+    .slice(0, isInternational ? 4 : 3);
   const items: TravelEssentialItem[] = [
-    ...flightTravelEssentials,
+    ...toolkitItems,
     {
       title: "Airport transfer plan",
-      description: "Before you chase the cheap flight, make sure your carry-on, travel jacket, and airport transfer are handled.",
+      description: "Flying into Florida? Check airport transfer options before you land so you are not comparing rides after baggage claim.",
       cta: "Compare Airport Transfers",
       affiliateUrl: transferUrl,
       advertiser: "airport_transfer",
@@ -42,12 +48,18 @@ export function TravelEssentialsBlock({ slug }: { slug: string }) {
       advertiser: item.advertiser,
       category: item.category,
       cta_text: item.cta,
+      affiliate_partner: item.advertiser,
       item_title: item.title,
       outbound_url: item.affiliateUrl,
+      page_topic: slug,
       page_type: "flight",
-      page_path: window.location.pathname
+      page_path: window.location.pathname,
+      placement_type: "travel_toolkit",
+      tool_type: item.category
     };
     trackEvent({ action: "travel_essentials_click", category: "affiliate", params });
+    trackEvent({ action: "toolkit_click", category: "affiliate", params });
+    trackEvent({ action: "affiliate_click", category: "affiliate", params });
     trackEvent({ action: eventForAdvertiser(item.advertiser), category: "affiliate", params });
   }
 
