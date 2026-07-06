@@ -21,6 +21,7 @@ import { SkylarkLuxuryCTA } from "@/components/SkylarkLuxuryCTA";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TripRouterSection } from "@/components/TripRouterSection";
+import { V14DiscoveryRail } from "@/components/V14DiscoveryRail";
 import { flightPiscifunGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { getSeoFlightPage, getSeoFlightPageDeals, getSeoFlightPageFaqs, seoFlightPageSlugs, type SeoFlightPage } from "@/lib/seoFlightPages";
@@ -524,6 +525,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
 
       {isFeaturedGoogleFlightsPage ? <PrimaryGoogleFlightsQuickAnswer page={page} /> : null}
       {isFeaturedGoogleFlightsPage ? <GoogleFlightsPlanningSnapshot page={page} /> : null}
+      <V14DiscoveryRail slug={page.slug} />
       {isPrimaryGoogleFlightsPage ? <FlightAlertsInlineCta placement="google_flights_after_quick_answer" /> : null}
       {isPrimaryGoogleFlightsPage ? <TripRouterSection sourcePage={page.slug} /> : null}
       {isPrimaryGoogleFlightsPage ? <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><SkylarkLuxuryCTA sourcePage={page.slug} /></section> : null}
