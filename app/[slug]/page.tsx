@@ -7,6 +7,7 @@ import { DealCard } from "@/components/DealCard";
 import { FallbackImage } from "@/components/FallbackImage";
 import { FlightGuideAnalytics } from "@/components/FlightGuideAnalytics";
 import { FlightAuthorityAnalytics } from "@/components/FlightAuthorityAnalytics";
+import { FloridaIntelligenceEngine } from "@/components/FloridaIntelligenceEngine";
 import { ContinuePlanningFloridaTrip, ExitNewsletterCapture, FlightTripCostEstimator, HotelAfterFlightCtas } from "@/components/FlightEngagementBoosters";
 import { HotelCtaLink } from "@/components/HotelCtaLink";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -526,6 +527,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       {isFeaturedGoogleFlightsPage ? <PrimaryGoogleFlightsQuickAnswer page={page} /> : null}
       {isFeaturedGoogleFlightsPage ? <GoogleFlightsPlanningSnapshot page={page} /> : null}
       <V14DiscoveryRail slug={page.slug} />
+      <FloridaIntelligenceEngine slug={page.slug} />
       {isPrimaryGoogleFlightsPage ? <FlightAlertsInlineCta placement="google_flights_after_quick_answer" /> : null}
       {isPrimaryGoogleFlightsPage ? <TripRouterSection sourcePage={page.slug} /> : null}
       {isPrimaryGoogleFlightsPage ? <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><SkylarkLuxuryCTA sourcePage={page.slug} /></section> : null}
