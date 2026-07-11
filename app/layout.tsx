@@ -93,7 +93,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="fdn-site">
+        <div className="fdn-network-bar" role="note" aria-label="Florida Deals Network family">
+          <strong>Florida Deals Network</strong>
+          <span>Flights · Hotels · Cruises · Things to do</span>
+        </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(globalStructuredData) }} />
         {children}
         <NavigationAnalytics />
