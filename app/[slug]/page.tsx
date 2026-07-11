@@ -22,6 +22,7 @@ import { SkylarkLuxuryCTA } from "@/components/SkylarkLuxuryCTA";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TripRouterSection } from "@/components/TripRouterSection";
+import { V22AffiliateResources } from "@/components/V22AffiliateResources";
 import { V14DiscoveryRail } from "@/components/V14DiscoveryRail";
 import { flightPiscifunGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getDestinationKey, getExpediaHotelLink } from "@/lib/affiliateLinks";
@@ -624,6 +625,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       </section>
       {showConversionCards ? <section className={`section-fade mx-auto grid w-full max-w-7xl gap-5 px-4 py-10 sm:px-6 ${isToolComparison ? "md:grid-cols-2" : ""} lg:px-8`}>{isToolComparison ? <ComparisonCard /> : null}<RecommendedPartnerCard /></section> : null}
       {showAirportTransfer ? <section className="section-fade mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><TransferBookingCard slug={page.slug} /></section> : null}
+      {showAirportTransfer ? <V22AffiliateResources slug={page.slug} /> : null}
       {isPrimaryGoogleFlightsPage ? <TripsterReadyAttractionsCta /> : null}
 
       {hasDeals ? (
