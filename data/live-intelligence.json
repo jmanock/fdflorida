@@ -1,0 +1,870 @@
+{
+  "generatedAt": "2026-07-13T08:49:51-04:00",
+  "status": "current",
+  "locations": [
+    {
+      "locationId": "clearwater-beach",
+      "name": "Clearwater Beach",
+      "generatedAt": "2026-07-13T08:49:51-04:00",
+      "status": "current",
+      "weather": {
+        "summary": {
+          "value": "Isolated Showers And Thunderstorms",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "temperature": {
+          "value": 84,
+          "unit": "F",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windSpeed": {
+          "value": "3 mph",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windDirection": {
+          "value": "WSW",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "precipitationProbability": {
+          "value": 19,
+          "unit": "percent",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        }
+      },
+      "officialAlerts": [],
+      "marine": {
+        "officialAlerts": [],
+        "summary": "Official coastal alerts are listed when issued; no beach flag is inferred."
+      },
+      "tides": {
+        "station": "8726724",
+        "predictions": [
+          {
+            "value": 1.905,
+            "unit": "feet",
+            "observedAt": "2026-07-13 00:56",
+            "issuedAt": "2026-07-13 00:56",
+            "expiresAt": null,
+            "sourceId": "noaa-coops",
+            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
+            "confidence": 95,
+            "status": "prediction",
+            "type": "H"
+          },
+          {
+            "value": 1.554,
+            "unit": "feet",
+            "observedAt": "2026-07-13 04:24",
+            "issuedAt": "2026-07-13 04:24",
+            "expiresAt": null,
+            "sourceId": "noaa-coops",
+            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
+            "confidence": 95,
+            "status": "prediction",
+            "type": "L"
+          },
+          {
+            "value": 3.528,
+            "unit": "feet",
+            "observedAt": "2026-07-13 10:44",
+            "issuedAt": "2026-07-13 10:44",
+            "expiresAt": null,
+            "sourceId": "noaa-coops",
+            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
+            "confidence": 95,
+            "status": "prediction",
+            "type": "H"
+          },
+          {
+            "value": -0.77,
+            "unit": "feet",
+            "observedAt": "2026-07-13 18:27",
+            "issuedAt": "2026-07-13 18:27",
+            "expiresAt": null,
+            "sourceId": "noaa-coops",
+            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
+            "confidence": 95,
+            "status": "prediction",
+            "type": "L"
+          }
+        ]
+      },
+      "waterTemperature": {
+        "value": 88.9,
+        "unit": "degrees Fahrenheit",
+        "observedAt": "2026-07-13 08:42",
+        "issuedAt": "2026-07-13 08:42",
+        "expiresAt": null,
+        "sourceId": "noaa-coops",
+        "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
+        "confidence": 95,
+        "status": "current"
+      },
+      "sourceAttribution": [
+        "nws-api",
+        "noaa-coops"
+      ],
+      "warnings": [],
+      "unavailableSections": []
+    },
+    {
+      "locationId": "miami-beach",
+      "name": "Miami Beach",
+      "generatedAt": "2026-07-13T08:49:51-04:00",
+      "status": "current",
+      "weather": {
+        "summary": {
+          "value": "Sunny",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "temperature": {
+          "value": 86,
+          "unit": "F",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windSpeed": {
+          "value": "7 mph",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windDirection": {
+          "value": "SE",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "precipitationProbability": {
+          "value": 2,
+          "unit": "percent",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        }
+      },
+      "officialAlerts": [],
+      "marine": {
+        "officialAlerts": [],
+        "summary": "Official coastal alerts are listed when issued; no beach flag is inferred."
+      },
+      "tides": {
+        "station": "8723170",
+        "predictions": [
+          {
+            "value": 0.01,
+            "unit": "feet",
+            "observedAt": "2026-07-13 01:39",
+            "issuedAt": "2026-07-13 01:39",
+            "expiresAt": null,
+            "sourceId": "noaa-coops",
+            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+            "confidence": 95,
+            "status": "prediction",
+            "type": "L"
+          },
+          {
+            "value": 2.693,
+            "unit": "feet",
+            "observedAt": "2026-07-13 07:38",
+            "issuedAt": "2026-07-13 07:38",
+            "expiresAt": null,
+            "sourceId": "noaa-coops",
+            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+            "confidence": 95,
+            "status": "prediction",
+            "type": "H"
+          },
+          {
+            "value": -0.633,
+            "unit": "feet",
+            "observedAt": "2026-07-13 13:59",
+            "issuedAt": "2026-07-13 13:59",
+            "expiresAt": null,
+            "sourceId": "noaa-coops",
+            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+            "confidence": 95,
+            "status": "prediction",
+            "type": "L"
+          },
+          {
+            "value": 2.945,
+            "unit": "feet",
+            "observedAt": "2026-07-13 20:27",
+            "issuedAt": "2026-07-13 20:27",
+            "expiresAt": null,
+            "sourceId": "noaa-coops",
+            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+            "confidence": 95,
+            "status": "prediction",
+            "type": "H"
+          }
+        ]
+      },
+      "waterTemperature": null,
+      "sourceAttribution": [
+        "nws-api",
+        "noaa-coops"
+      ],
+      "warnings": [],
+      "unavailableSections": []
+    },
+    {
+      "locationId": "orlando",
+      "name": "Orlando",
+      "generatedAt": "2026-07-13T08:49:51-04:00",
+      "status": "current",
+      "weather": {
+        "summary": {
+          "value": "Sunny",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "temperature": {
+          "value": 77,
+          "unit": "F",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windSpeed": {
+          "value": "5 mph",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windDirection": {
+          "value": "SW",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "precipitationProbability": {
+          "value": 3,
+          "unit": "percent",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        }
+      },
+      "officialAlerts": [],
+      "marine": {
+        "officialAlerts": [],
+        "summary": "Official coastal alerts are listed when issued; no beach flag is inferred."
+      },
+      "tides": {
+        "station": null,
+        "predictions": []
+      },
+      "waterTemperature": null,
+      "sourceAttribution": [
+        "nws-api"
+      ],
+      "warnings": [],
+      "unavailableSections": [
+        "tides"
+      ]
+    }
+  ],
+  "airports": [
+    {
+      "code": "MCO",
+      "name": "Orlando International Airport",
+      "status": "no_active_official_weather_alert_found",
+      "label": "No active official weather alert found",
+      "weather": {
+        "summary": {
+          "value": "Sunny",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "temperature": {
+          "value": 77,
+          "unit": "F",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windSpeed": {
+          "value": "5 mph",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windDirection": {
+          "value": "SW",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "precipitationProbability": {
+          "value": 3,
+          "unit": "percent",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        }
+      },
+      "officialAlerts": [],
+      "operationalStatus": "unavailable",
+      "operationalVerificationUrl": "https://nasstatus.faa.gov/",
+      "sourceId": "nws-api",
+      "warning": "This is weather-impact context, not individual flight or airport delay confirmation."
+    },
+    {
+      "code": "MIA",
+      "name": "Miami International Airport",
+      "status": "no_active_official_weather_alert_found",
+      "label": "No active official weather alert found",
+      "weather": {
+        "summary": {
+          "value": "Sunny",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "temperature": {
+          "value": 83,
+          "unit": "F",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windSpeed": {
+          "value": "3 mph",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windDirection": {
+          "value": "SE",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "precipitationProbability": {
+          "value": 2,
+          "unit": "percent",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        }
+      },
+      "officialAlerts": [],
+      "operationalStatus": "unavailable",
+      "operationalVerificationUrl": "https://nasstatus.faa.gov/",
+      "sourceId": "nws-api",
+      "warning": "This is weather-impact context, not individual flight or airport delay confirmation."
+    },
+    {
+      "code": "TPA",
+      "name": "Tampa International Airport",
+      "status": "no_active_official_weather_alert_found",
+      "label": "No active official weather alert found",
+      "weather": {
+        "summary": {
+          "value": "Isolated Showers And Thunderstorms",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "temperature": {
+          "value": 82,
+          "unit": "F",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windSpeed": {
+          "value": "2 mph",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windDirection": {
+          "value": "S",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "precipitationProbability": {
+          "value": 20,
+          "unit": "percent",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        }
+      },
+      "officialAlerts": [],
+      "operationalStatus": "unavailable",
+      "operationalVerificationUrl": "https://nasstatus.faa.gov/",
+      "sourceId": "nws-api",
+      "warning": "This is weather-impact context, not individual flight or airport delay confirmation."
+    },
+    {
+      "code": "FLL",
+      "name": "Fort Lauderdale-Hollywood International Airport",
+      "status": "no_active_official_weather_alert_found",
+      "label": "No active official weather alert found",
+      "weather": {
+        "summary": {
+          "value": "Sunny",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "temperature": {
+          "value": 84,
+          "unit": "F",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windSpeed": {
+          "value": "3 mph",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "windDirection": {
+          "value": "SE",
+          "unit": null,
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        },
+        "precipitationProbability": {
+          "value": 2,
+          "unit": "percent",
+          "observedAt": "2026-07-13T08:00:00-04:00",
+          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "expiresAt": null,
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov",
+          "confidence": 95,
+          "status": "current"
+        }
+      },
+      "officialAlerts": [],
+      "operationalStatus": "unavailable",
+      "operationalVerificationUrl": "https://nasstatus.faa.gov/",
+      "sourceId": "nws-api",
+      "warning": "This is weather-impact context, not individual flight or airport delay confirmation."
+    }
+  ],
+  "cruisePorts": [
+    {
+      "portId": "port-canaveral",
+      "name": "Port Canaveral",
+      "status": "tide_prediction_available",
+      "tideStation": "8721604",
+      "tidePredictions": [
+        {
+          "value": -0.122,
+          "unit": "feet",
+          "observedAt": "2026-07-13 01:19",
+          "issuedAt": "2026-07-13 01:19",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
+        },
+        {
+          "value": 2.909,
+          "unit": "feet",
+          "observedAt": "2026-07-13 07:04",
+          "issuedAt": "2026-07-13 07:04",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "H"
+        },
+        {
+          "value": -0.926,
+          "unit": "feet",
+          "observedAt": "2026-07-13 13:05",
+          "issuedAt": "2026-07-13 13:05",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
+        },
+        {
+          "value": 4.427,
+          "unit": "feet",
+          "observedAt": "2026-07-13 19:50",
+          "issuedAt": "2026-07-13 19:50",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "H"
+        }
+      ],
+      "operationalStatus": "unavailable",
+      "warning": "Tide predictions do not confirm port or sailing operations. Verify with the port and cruise line.",
+      "sourceId": "noaa-coops"
+    },
+    {
+      "portId": "port-miami",
+      "name": "PortMiami",
+      "status": "tide_prediction_available",
+      "tideStation": "8723170",
+      "tidePredictions": [
+        {
+          "value": 0.01,
+          "unit": "feet",
+          "observedAt": "2026-07-13 01:39",
+          "issuedAt": "2026-07-13 01:39",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
+        },
+        {
+          "value": 2.693,
+          "unit": "feet",
+          "observedAt": "2026-07-13 07:38",
+          "issuedAt": "2026-07-13 07:38",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "H"
+        },
+        {
+          "value": -0.633,
+          "unit": "feet",
+          "observedAt": "2026-07-13 13:59",
+          "issuedAt": "2026-07-13 13:59",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
+        },
+        {
+          "value": 2.945,
+          "unit": "feet",
+          "observedAt": "2026-07-13 20:27",
+          "issuedAt": "2026-07-13 20:27",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "H"
+        }
+      ],
+      "operationalStatus": "unavailable",
+      "warning": "Tide predictions do not confirm port or sailing operations. Verify with the port and cruise line.",
+      "sourceId": "noaa-coops"
+    },
+    {
+      "portId": "port-everglades",
+      "name": "Port Everglades",
+      "status": "tide_prediction_available",
+      "tideStation": "8722956",
+      "tidePredictions": [
+        {
+          "value": -0.026,
+          "unit": "feet",
+          "observedAt": "2026-07-13 01:37",
+          "issuedAt": "2026-07-13 01:37",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
+        },
+        {
+          "value": 2.521,
+          "unit": "feet",
+          "observedAt": "2026-07-13 07:39",
+          "issuedAt": "2026-07-13 07:39",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "H"
+        },
+        {
+          "value": -0.713,
+          "unit": "feet",
+          "observedAt": "2026-07-13 13:51",
+          "issuedAt": "2026-07-13 13:51",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
+        },
+        {
+          "value": 2.939,
+          "unit": "feet",
+          "observedAt": "2026-07-13 20:30",
+          "issuedAt": "2026-07-13 20:30",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "H"
+        }
+      ],
+      "operationalStatus": "unavailable",
+      "warning": "Tide predictions do not confirm port or sailing operations. Verify with the port and cruise line.",
+      "sourceId": "noaa-coops"
+    },
+    {
+      "portId": "port-tampa-bay",
+      "name": "Port Tampa Bay",
+      "status": "tide_prediction_available",
+      "tideStation": "8726520",
+      "tidePredictions": [
+        {
+          "value": 2.998,
+          "unit": "feet",
+          "observedAt": "2026-07-13 12:50",
+          "issuedAt": "2026-07-13 12:50",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726520",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "H"
+        },
+        {
+          "value": -0.429,
+          "unit": "feet",
+          "observedAt": "2026-07-13 21:17",
+          "issuedAt": "2026-07-13 21:17",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726520",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
+        }
+      ],
+      "operationalStatus": "unavailable",
+      "warning": "Tide predictions do not confirm port or sailing operations. Verify with the port and cruise line.",
+      "sourceId": "noaa-coops"
+    }
+  ],
+  "tropicalWeather": {
+    "status": "official_feed_available",
+    "activeSystems": [],
+    "sourceId": "nhc-current-products",
+    "sourceUrl": "https://www.nhc.noaa.gov/CurrentStorms.json",
+    "warning": "An active system does not by itself establish a Florida impact. Follow official NHC and local guidance."
+  },
+  "sourceAttribution": [
+    {
+      "sourceId": "nws-api",
+      "name": "National Weather Service",
+      "url": "https://api.weather.gov"
+    },
+    {
+      "sourceId": "noaa-coops",
+      "name": "NOAA Tides and Currents",
+      "url": "https://tidesandcurrents.noaa.gov"
+    },
+    {
+      "sourceId": "nhc-current-products",
+      "name": "National Hurricane Center",
+      "url": "https://www.nhc.noaa.gov"
+    }
+  ],
+  "warnings": [],
+  "validatedAt": "2026-07-13T08:49:51-04:00",
+  "quality": {
+    "recordsRejected": 0,
+    "warnings": []
+  }
+}

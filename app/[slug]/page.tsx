@@ -375,7 +375,6 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
       headline: page.h1,
       url: `${siteUrl}/${page.slug}`,
       description: page.description,
-      dateModified: "2026-06-22",
       isPartOf: {
         "@type": "WebSite",
         name: "Florida Flight Deals",

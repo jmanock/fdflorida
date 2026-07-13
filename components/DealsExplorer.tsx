@@ -33,7 +33,7 @@ export function DealsExplorer({ initialDeals }: { initialDeals: FlightDeal[] }) 
     <section id="deals" className="section-fade mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
       <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Main deals feed · Updated May 2026</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Main deals feed</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">
             Fresh Florida fares, organized for quick scanning.
           </h2>
