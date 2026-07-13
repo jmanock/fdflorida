@@ -34,7 +34,6 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const lastUpdated = "June 22, 2026";
 const ogImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80";
 
 const sisterSites = [
@@ -463,7 +462,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
               <Search className="h-4 w-4 text-gold" />
               {page.eyebrow}
             </div>
-            <p className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-slateText">Updated: {lastUpdated}</p>
+            <p className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-slateText">Current search links and planning guidance</p>
             <h1 className="mt-6 max-w-3xl text-5xl font-black leading-[0.96] tracking-normal text-ink sm:text-6xl">
               {page.h1}
             </h1>
@@ -512,7 +511,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
                   : "Compare airport options, flexible dates, and total trip cost before choosing a flight."}
               </p>
               <div className="mt-5 space-y-3">
-                {[`Updated: ${lastUpdated}`, "Recent fare finds", "Check current availability", "Fares may change"].map((item) => (
+                {["Recent fare finds", "Check current availability", "Fares may change"].map((item) => (
                   <div key={item} className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3">
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-ocean" />
                     <span className="text-sm font-black text-ink">{item}</span>
@@ -635,7 +634,7 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
               <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Fare examples worth checking.</h2>
             </div>
             <p className="max-w-md text-sm font-semibold leading-6 text-slateText">
-              Updated: {lastUpdated}. Recent fares are examples when available. Use the fare links to check current availability.
+              Recent fares are examples when available. Use the fare links to check current availability.
             </p>
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

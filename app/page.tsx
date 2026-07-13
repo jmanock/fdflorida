@@ -9,12 +9,12 @@ import { cityFlightLinks, flightSearchLinks } from "@/lib/siteLinks";
 import { DealCard } from "@/components/DealCard";
 import { DealsExplorer } from "@/components/DealsExplorer";
 import { FallbackImage } from "@/components/FallbackImage";
+import { FloridaRightNow } from "@/components/FloridaRightNow";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 
 const siteUrl = "https://flightdealsflorida.org";
-const lastUpdated = "June 2026";
 
 export const metadata: Metadata = {
   title: "Florida Flight Deals: Cheap Routes, Airport Guides & Weekend Getaways",
@@ -379,7 +379,7 @@ export default function Home() {
             <Sparkles className="h-4 w-4 text-gold" />
             Part of Florida Deals Hub
           </div>
-          <p className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-slateText">Updated: {lastUpdated}</p>
+          <p className="mt-4 text-sm font-black uppercase tracking-[0.16em] text-slateText">Florida routes and current planning tools</p>
           <h1 className="mt-6 max-w-3xl text-5xl font-black leading-[0.96] tracking-normal text-ink sm:text-6xl lg:text-7xl">
             Cheap Flights In & Out of Florida
           </h1>
@@ -425,6 +425,8 @@ export default function Home() {
         <RouteGraphic featuredDeal={heroDeal} />
       </section>
 
+      <FloridaRightNow />
+
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-card sm:p-6">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -432,7 +434,7 @@ export default function Home() {
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Popular Florida Flight Searches</p>
               <h2 className="mt-2 text-2xl font-black tracking-normal text-ink">Quick routes and city pages to check next.</h2>
             </div>
-            <p className="text-sm font-semibold text-slateText">Updated: {lastUpdated}. Fares may change fast.</p>
+            <p className="text-sm font-semibold text-slateText">Fares may change fast. Check current availability before booking.</p>
           </div>
           <nav className="mt-5 flex flex-wrap gap-2" aria-label="Popular Florida flight searches">
             {[...cityFlightLinks, ...flightSearchLinks].map((item) => (
@@ -565,7 +567,7 @@ export default function Home() {
             Seasonal pages help compare Florida airfare around summer, holidays, spring break, and winter escapes.
           </p>
         </div>
-        <div className="mt-7 grid gap-4 md:grid-cols-4">
+        <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {seasonalIdeas.map((idea) => (
             <a key={idea.href} href={idea.href} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
               <h3 className="text-lg font-black text-ink">{idea.label}</h3>
@@ -635,7 +637,7 @@ export default function Home() {
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Featured deals · Updated {lastUpdated}</p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Featured fare finds</p>
             <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Featured fare finds from Florida airports.</h2>
             <p className="mt-3 max-w-2xl text-sm font-semibold leading-6 text-slateText">
               Fares are examples from recent searches. Prices and availability may change.
@@ -660,7 +662,7 @@ export default function Home() {
           <p className="mt-3 max-w-3xl text-base font-medium leading-8 text-slateText">
             Once a route looks promising, compare hotels, cruises, and local plans across the Florida Deals Hub network.
           </p>
-          <div className="mt-7 grid gap-4 md:grid-cols-4">
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {[
               { label: "Compare Florida Hotels", href: "https://hoteldealsflorida.org" },
               { label: "Browse Florida Cruise Deals", href: "https://cruisedealsflorida.org" },

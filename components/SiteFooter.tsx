@@ -7,6 +7,8 @@ const footerLinks = [
   { label: "Contact", href: "/contact" },
   { label: "Editorial Policy", href: "/editorial-policy" },
   { label: "How Prices Work", href: "/how-flight-prices-work" },
+  { label: "Airport Status", href: "/florida-airport-status" },
+  { label: "How Live Data Works", href: "https://floridadealshub.com/how-florida-live-data-works" },
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" }
 ];

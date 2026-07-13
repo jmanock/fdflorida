@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-07-13T08:49:51-04:00",
+  "generatedAt": "2026-07-13T12:06:26-04:00",
   "status": "current",
   "locations": [
     {
       "locationId": "clearwater-beach",
       "name": "Clearwater Beach",
-      "generatedAt": "2026-07-13T08:49:51-04:00",
+      "generatedAt": "2026-07-13T12:06:26-04:00",
       "status": "current",
       "weather": {
         "summary": {
           "value": "Isolated Showers And Thunderstorms",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T11:00:00-04:00",
+          "issuedAt": "2026-07-13T11:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -20,10 +20,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 84,
+          "value": 88,
           "unit": "F",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T11:00:00-04:00",
+          "issuedAt": "2026-07-13T11:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -31,10 +31,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "3 mph",
+          "value": "7 mph",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T11:00:00-04:00",
+          "issuedAt": "2026-07-13T11:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -42,10 +42,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "WSW",
+          "value": "W",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T11:00:00-04:00",
+          "issuedAt": "2026-07-13T11:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -53,10 +53,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 19,
+          "value": 21,
           "unit": "percent",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T11:00:00-04:00",
+          "issuedAt": "2026-07-13T11:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -123,10 +123,10 @@
         ]
       },
       "waterTemperature": {
-        "value": 88.9,
+        "value": 89.4,
         "unit": "degrees Fahrenheit",
-        "observedAt": "2026-07-13 08:42",
-        "issuedAt": "2026-07-13 08:42",
+        "observedAt": "2026-07-13 12:00",
+        "issuedAt": "2026-07-13 12:00",
         "expiresAt": null,
         "sourceId": "noaa-coops",
         "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -143,14 +143,14 @@
     {
       "locationId": "miami-beach",
       "name": "Miami Beach",
-      "generatedAt": "2026-07-13T08:49:51-04:00",
+      "generatedAt": "2026-07-13T12:06:26-04:00",
       "status": "current",
       "weather": {
         "summary": {
           "value": "Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -158,10 +158,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 86,
+          "value": 90,
           "unit": "F",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -171,8 +171,8 @@
         "windSpeed": {
           "value": "7 mph",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -182,8 +182,8 @@
         "windDirection": {
           "value": "SE",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -191,10 +191,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 2,
+          "value": 3,
           "unit": "percent",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -271,14 +271,14 @@
     {
       "locationId": "orlando",
       "name": "Orlando",
-      "generatedAt": "2026-07-13T08:49:51-04:00",
+      "generatedAt": "2026-07-13T12:06:26-04:00",
       "status": "current",
       "weather": {
         "summary": {
-          "value": "Sunny",
+          "value": "Mostly Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -286,10 +286,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 77,
+          "value": 89,
           "unit": "F",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -299,8 +299,8 @@
         "windSpeed": {
           "value": "5 mph",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -308,10 +308,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "SW",
+          "value": "W",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -319,10 +319,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 3,
+          "value": 6,
           "unit": "percent",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -357,10 +357,10 @@
       "label": "No active official weather alert found",
       "weather": {
         "summary": {
-          "value": "Sunny",
+          "value": "Mostly Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -368,10 +368,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 77,
+          "value": 89,
           "unit": "F",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -381,8 +381,8 @@
         "windSpeed": {
           "value": "5 mph",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -390,10 +390,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "SW",
+          "value": "W",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -401,10 +401,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 3,
+          "value": 6,
           "unit": "percent",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -427,8 +427,8 @@
         "summary": {
           "value": "Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -436,10 +436,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 83,
+          "value": 92,
           "unit": "F",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -447,10 +447,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "3 mph",
+          "value": "6 mph",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -460,8 +460,8 @@
         "windDirection": {
           "value": "SE",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -469,10 +469,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 2,
+          "value": 4,
           "unit": "percent",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -495,8 +495,8 @@
         "summary": {
           "value": "Isolated Showers And Thunderstorms",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -504,10 +504,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 82,
+          "value": 89,
           "unit": "F",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -515,10 +515,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "2 mph",
+          "value": "8 mph",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -526,10 +526,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "S",
+          "value": "SSW",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -537,10 +537,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 20,
+          "value": 22,
           "unit": "percent",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -563,8 +563,8 @@
         "summary": {
           "value": "Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -572,10 +572,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 84,
+          "value": 92,
           "unit": "F",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -583,10 +583,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "3 mph",
+          "value": "7 mph",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -596,8 +596,8 @@
         "windDirection": {
           "value": "SE",
           "unit": null,
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -605,10 +605,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 2,
+          "value": 4,
           "unit": "percent",
-          "observedAt": "2026-07-13T08:00:00-04:00",
-          "issuedAt": "2026-07-13T08:00:00-04:00",
+          "observedAt": "2026-07-13T12:00:00-04:00",
+          "issuedAt": "2026-07-13T12:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -862,7 +862,7 @@
     }
   ],
   "warnings": [],
-  "validatedAt": "2026-07-13T08:49:51-04:00",
+  "validatedAt": "2026-07-13T12:06:26-04:00",
   "quality": {
     "recordsRejected": 0,
     "warnings": []

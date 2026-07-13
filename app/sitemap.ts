@@ -25,6 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 1
     },
+    {
+      url: `${siteUrl}/florida-airport-status`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9
+    },
     ...cityFlightPages,
     ...flightPages,
     {

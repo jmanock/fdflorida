@@ -150,7 +150,7 @@ export default async function CityFlightPage({ params }: PageProps) {
             <span className="text-ink">{page.h1}</span>
           </nav>
           <p className="inline-flex rounded-full border border-sky-200 bg-white px-3 py-1.5 text-sm font-black text-ocean shadow-sm">
-            Updated: May 2026
+            Current route-planning guide
           </p>
           <h1 className="mt-6 text-5xl font-black leading-[0.96] tracking-normal text-ink sm:text-6xl">{page.h1}</h1>
           <p className="mt-6 text-lg font-medium leading-8 text-slateText">{page.intro}</p>
