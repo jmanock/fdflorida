@@ -115,11 +115,11 @@ input {
   justify-content: space-between;
   gap: 1rem;
 }
-.fdn-network-navigation strong {
+.fdn-network-navigation__brand {
   flex: 0 0 auto;
   color: var(--fdn-teal-deep);
   font-size: .76rem;
-  font-weight: 900;
+  font-weight: 900 !important;
   letter-spacing: .02em;
 }
 .fdn-network-navigation__desktop {
@@ -189,5 +189,5 @@ input {
 }
 @media (max-width: 430px) {
   .fdn-network-navigation__inner { width: min(100% - 1rem, 1180px); }
-  .fdn-network-navigation strong { font-size: .7rem; }
+  .fdn-network-navigation__brand { font-size: .7rem; }
 }

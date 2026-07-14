@@ -52,7 +52,7 @@ export function DealsExplorer({ initialDeals }: { initialDeals: FlightDeal[] }) 
       </div>
 
       <div className="mt-7 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-black leading-6 text-slateText shadow-sm">
-        Curated Florida fare finds • Updated regularly • Fares and availability may change
+        Curated Florida fare finds • Fares and availability may change
       </div>
 
       <div className="sticky top-[72px] z-30 -mx-4 mt-8 border-y border-slate-200/80 bg-white/85 px-4 py-3 shadow-sm backdrop-blur-xl sm:mx-0 sm:rounded-2xl sm:border sm:px-3">

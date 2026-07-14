@@ -11,7 +11,9 @@ export function NetworkNavigation() {
   return (
     <div className="fdn-network-navigation">
       <div className="fdn-network-navigation__inner">
-        <strong>Florida Deals Network</strong>
+        <a className="fdn-network-navigation__brand" href="https://floridadealshub.com" aria-label="Florida Deals Network home">
+          Florida Deals Network
+        </a>
         <nav className="fdn-network-navigation__desktop" aria-label="Florida Deals Network">
           {links.map((link) => (
             <a key={link.label} href={link.href} aria-current={link.active ? "page" : undefined}>

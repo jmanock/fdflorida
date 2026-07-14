@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   }
 };
 
-const trustSignals = ["Curated Florida deals", "Updated often", "Free deal alerts", "No spam"];
+const trustSignals = ["Curated Florida deals", "Official airport context", "Free deal alerts", "No spam"];
 
 const navItems = [
   { label: "Flights", href: "/", active: true },
@@ -260,7 +260,7 @@ function RouteGraphic({ featuredDeal }: { featuredDeal: FlightDeal }) {
               <h2 className="mt-1 text-2xl font-black tracking-normal text-ink sm:text-3xl">
                 {featuredDeal.from} to {featuredDeal.to}
               </h2>
-              <p className="mt-2 text-sm font-bold text-slateText">{featuredDeal.dates} roundtrip</p>
+              <p className="mt-2 text-sm font-bold text-slateText">Flexible dates · confirm current schedule</p>
             </div>
             <div className="text-right">
               <p className="text-xs font-black uppercase text-slate-400">Recent fares</p>
@@ -282,7 +282,7 @@ function RouteGraphic({ featuredDeal }: { featuredDeal: FlightDeal }) {
         </div>
 
         <div className="mt-5 grid grid-cols-3 gap-3">
-          {["Updated regularly", "Fares may change", "Check availability"].map((item) => (
+          {["Current search links", "Fares may change", "Check availability"].map((item) => (
             <div key={item} className="rounded-2xl border border-slate-200 bg-white/80 p-3 text-center shadow-sm">
               <CheckCircle2 className="mx-auto h-4 w-4 text-ocean" />
               <p className="mt-2 text-xs font-black leading-4 text-ink">{item}</p>
@@ -373,7 +373,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="section-fade mx-auto grid w-full max-w-7xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 md:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-20 lg:pt-16">
+      <section className="section-fade mx-auto grid w-full max-w-7xl items-center gap-8 px-4 pb-9 pt-8 sm:px-6 md:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-12 lg:pt-10">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3 py-1.5 text-sm font-black text-ocean shadow-sm">
             <Sparkles className="h-4 w-4 text-gold" />
@@ -401,9 +401,16 @@ export default function Home() {
               <Bell className="h-4 w-4" />
               Get Alerts
             </a>
+            <Link
+              href="/florida-airport-status"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white px-6 text-sm font-black text-ocean shadow-sm transition hover:border-ocean hover:text-ink focus:outline-none focus:ring-4 focus:ring-sky-200"
+            >
+              <Plane className="h-4 w-4" />
+              Airport Status
+            </Link>
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-7 hidden flex-wrap gap-3 sm:flex">
             {trustSignals.map((signal) => (
               <span key={signal} className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-black text-slateText shadow-sm">
                 <CheckCircle2 className="h-4 w-4 text-ocean" />
@@ -412,7 +419,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="mt-8 hidden grid-cols-2 gap-3 sm:grid sm:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.label} className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
                 <p className="text-2xl font-black text-gold">{stat.value}</p>
@@ -422,7 +429,9 @@ export default function Home() {
           </div>
         </div>
 
-        <RouteGraphic featuredDeal={heroDeal} />
+        <div className="hidden md:block">
+          <RouteGraphic featuredDeal={heroDeal} />
+        </div>
       </section>
 
       <FloridaRightNow />
@@ -737,7 +746,7 @@ export default function Home() {
             Florida Flight Deals is part of the Florida Deals Hub network. We organize flight searches by Florida airport, route type, destination, and trip intent so visitors can compare airfare ideas faster.
           </p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {["Updated regularly", "Fares may change", "Availability varies by date", "Confirm current fares with the booking source"].map((item) => (
+            {["Source details included", "Fares may change", "Availability varies by date", "Confirm current fares with the booking source"].map((item) => (
               <div key={item} className="rounded-2xl border border-slate-200 bg-sand p-4 text-sm font-black text-ink">
                 {item}
               </div>

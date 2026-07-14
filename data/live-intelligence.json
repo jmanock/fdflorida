@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-07-13T12:06:26-04:00",
+  "generatedAt": "2026-07-14T08:07:12-04:00",
   "status": "current",
   "locations": [
     {
       "locationId": "clearwater-beach",
       "name": "Clearwater Beach",
-      "generatedAt": "2026-07-13T12:06:26-04:00",
+      "generatedAt": "2026-07-14T08:07:12-04:00",
       "status": "current",
       "weather": {
         "summary": {
           "value": "Isolated Showers And Thunderstorms",
           "unit": null,
-          "observedAt": "2026-07-13T11:00:00-04:00",
-          "issuedAt": "2026-07-13T11:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -20,10 +20,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 88,
+          "value": 84,
           "unit": "F",
-          "observedAt": "2026-07-13T11:00:00-04:00",
-          "issuedAt": "2026-07-13T11:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -31,10 +31,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "7 mph",
+          "value": "5 mph",
           "unit": null,
-          "observedAt": "2026-07-13T11:00:00-04:00",
-          "issuedAt": "2026-07-13T11:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -42,10 +42,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "W",
+          "value": "SSW",
           "unit": null,
-          "observedAt": "2026-07-13T11:00:00-04:00",
-          "issuedAt": "2026-07-13T11:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -53,10 +53,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 21,
+          "value": 23,
           "unit": "percent",
-          "observedAt": "2026-07-13T11:00:00-04:00",
-          "issuedAt": "2026-07-13T11:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -73,10 +73,10 @@
         "station": "8726724",
         "predictions": [
           {
-            "value": 1.905,
+            "value": 1.938,
             "unit": "feet",
-            "observedAt": "2026-07-13 00:56",
-            "issuedAt": "2026-07-13 00:56",
+            "observedAt": "2026-07-14 01:32",
+            "issuedAt": "2026-07-14 01:32",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -85,10 +85,10 @@
             "type": "H"
           },
           {
-            "value": 1.554,
+            "value": 1.44,
             "unit": "feet",
-            "observedAt": "2026-07-13 04:24",
-            "issuedAt": "2026-07-13 04:24",
+            "observedAt": "2026-07-14 05:23",
+            "issuedAt": "2026-07-14 05:23",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -97,10 +97,10 @@
             "type": "L"
           },
           {
-            "value": 3.528,
+            "value": 3.616,
             "unit": "feet",
-            "observedAt": "2026-07-13 10:44",
-            "issuedAt": "2026-07-13 10:44",
+            "observedAt": "2026-07-14 11:37",
+            "issuedAt": "2026-07-14 11:37",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -109,10 +109,10 @@
             "type": "H"
           },
           {
-            "value": -0.77,
+            "value": -0.687,
             "unit": "feet",
-            "observedAt": "2026-07-13 18:27",
-            "issuedAt": "2026-07-13 18:27",
+            "observedAt": "2026-07-14 19:12",
+            "issuedAt": "2026-07-14 19:12",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -123,10 +123,10 @@
         ]
       },
       "waterTemperature": {
-        "value": 89.4,
+        "value": 88.3,
         "unit": "degrees Fahrenheit",
-        "observedAt": "2026-07-13 12:00",
-        "issuedAt": "2026-07-13 12:00",
+        "observedAt": "2026-07-14 08:00",
+        "issuedAt": "2026-07-14 08:00",
         "expiresAt": null,
         "sourceId": "noaa-coops",
         "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -143,14 +143,14 @@
     {
       "locationId": "miami-beach",
       "name": "Miami Beach",
-      "generatedAt": "2026-07-13T12:06:26-04:00",
+      "generatedAt": "2026-07-14T08:07:12-04:00",
       "status": "current",
       "weather": {
         "summary": {
-          "value": "Sunny",
+          "value": "Mostly Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -158,10 +158,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 90,
+          "value": 85,
           "unit": "F",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -171,8 +171,8 @@
         "windSpeed": {
           "value": "7 mph",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -182,8 +182,8 @@
         "windDirection": {
           "value": "SE",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -191,10 +191,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 3,
+          "value": 2,
           "unit": "percent",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -211,10 +211,10 @@
         "station": "8723170",
         "predictions": [
           {
-            "value": 0.01,
+            "value": -0.122,
             "unit": "feet",
-            "observedAt": "2026-07-13 01:39",
-            "issuedAt": "2026-07-13 01:39",
+            "observedAt": "2026-07-14 02:35",
+            "issuedAt": "2026-07-14 02:35",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -223,10 +223,10 @@
             "type": "L"
           },
           {
-            "value": 2.693,
+            "value": 2.785,
             "unit": "feet",
-            "observedAt": "2026-07-13 07:38",
-            "issuedAt": "2026-07-13 07:38",
+            "observedAt": "2026-07-14 08:35",
+            "issuedAt": "2026-07-14 08:35",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -235,10 +235,10 @@
             "type": "H"
           },
           {
-            "value": -0.633,
+            "value": -0.661,
             "unit": "feet",
-            "observedAt": "2026-07-13 13:59",
-            "issuedAt": "2026-07-13 13:59",
+            "observedAt": "2026-07-14 14:54",
+            "issuedAt": "2026-07-14 14:54",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -247,10 +247,10 @@
             "type": "L"
           },
           {
-            "value": 2.945,
+            "value": 3.001,
             "unit": "feet",
-            "observedAt": "2026-07-13 20:27",
-            "issuedAt": "2026-07-13 20:27",
+            "observedAt": "2026-07-14 21:19",
+            "issuedAt": "2026-07-14 21:19",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -271,14 +271,14 @@
     {
       "locationId": "orlando",
       "name": "Orlando",
-      "generatedAt": "2026-07-13T12:06:26-04:00",
+      "generatedAt": "2026-07-14T08:07:12-04:00",
       "status": "current",
       "weather": {
         "summary": {
           "value": "Mostly Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -286,10 +286,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 89,
+          "value": 75,
           "unit": "F",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -299,8 +299,8 @@
         "windSpeed": {
           "value": "5 mph",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -308,10 +308,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "W",
+          "value": "SSW",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -319,10 +319,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 6,
+          "value": 4,
           "unit": "percent",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -359,8 +359,8 @@
         "summary": {
           "value": "Mostly Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -368,10 +368,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 89,
+          "value": 75,
           "unit": "F",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -381,8 +381,8 @@
         "windSpeed": {
           "value": "5 mph",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -390,10 +390,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "W",
+          "value": "SSW",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -401,10 +401,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 6,
+          "value": 4,
           "unit": "percent",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -421,14 +421,14 @@
     {
       "code": "MIA",
       "name": "Miami International Airport",
-      "status": "no_active_official_weather_alert_found",
-      "label": "No active official weather alert found",
+      "status": "potential_weather_impact",
+      "label": "Potential weather impact",
       "weather": {
         "summary": {
           "value": "Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T07:00:00-04:00",
+          "issuedAt": "2026-07-14T07:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -436,10 +436,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 92,
+          "value": 80,
           "unit": "F",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T07:00:00-04:00",
+          "issuedAt": "2026-07-14T07:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -447,10 +447,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "6 mph",
+          "value": "2 mph",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T07:00:00-04:00",
+          "issuedAt": "2026-07-14T07:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -458,10 +458,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "SE",
+          "value": "E",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T07:00:00-04:00",
+          "issuedAt": "2026-07-14T07:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -469,10 +469,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 4,
+          "value": 2,
           "unit": "percent",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T07:00:00-04:00",
+          "issuedAt": "2026-07-14T07:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -480,7 +480,20 @@
           "status": "current"
         }
       },
-      "officialAlerts": [],
+      "officialAlerts": [
+        {
+          "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.405fa14c695027c55eae2c770d8c7ebcca958e37.001.1",
+          "event": "Heat Advisory",
+          "severity": "Moderate",
+          "headline": "Heat Advisory issued July 14 at 3:44AM EDT until July 14 at 7:00PM EDT by NWS Miami FL",
+          "description": "* WHAT...Heat index values between 105-109 possible.\n\n* WHERE...Coastal Broward County, Coastal Miami Dade County, Coastal\nPalm Beach County, Metro Broward County, Metro Palm Beach County,\nMetropolitan Miami Dade, Coastal Collier County, Inland Collier\nCounty, and Mainland Monroe Counties.\n\n* WHEN...From 11 AM this morning to 7 PM EDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
+          "issuedAt": "2026-07-14T03:44:00-04:00",
+          "expiresAt": "2026-07-14T17:00:00-04:00",
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.405fa14c695027c55eae2c770d8c7ebcca958e37.001.1",
+          "status": "current"
+        }
+      ],
       "operationalStatus": "unavailable",
       "operationalVerificationUrl": "https://nasstatus.faa.gov/",
       "sourceId": "nws-api",
@@ -495,8 +508,8 @@
         "summary": {
           "value": "Isolated Showers And Thunderstorms",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -504,10 +517,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 89,
+          "value": 82,
           "unit": "F",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -515,10 +528,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "8 mph",
+          "value": "3 mph",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -526,10 +539,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "SSW",
+          "value": "S",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -537,10 +550,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 22,
+          "value": 15,
           "unit": "percent",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -557,14 +570,14 @@
     {
       "code": "FLL",
       "name": "Fort Lauderdale-Hollywood International Airport",
-      "status": "no_active_official_weather_alert_found",
-      "label": "No active official weather alert found",
+      "status": "potential_weather_impact",
+      "label": "Potential weather impact",
       "weather": {
         "summary": {
-          "value": "Sunny",
+          "value": "Mostly Sunny",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -572,10 +585,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 92,
+          "value": 83,
           "unit": "F",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -583,10 +596,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "7 mph",
+          "value": "2 mph",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -596,8 +609,8 @@
         "windDirection": {
           "value": "SE",
           "unit": null,
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -605,10 +618,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 4,
+          "value": 2,
           "unit": "percent",
-          "observedAt": "2026-07-13T12:00:00-04:00",
-          "issuedAt": "2026-07-13T12:00:00-04:00",
+          "observedAt": "2026-07-14T08:00:00-04:00",
+          "issuedAt": "2026-07-14T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -616,7 +629,20 @@
           "status": "current"
         }
       },
-      "officialAlerts": [],
+      "officialAlerts": [
+        {
+          "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.405fa14c695027c55eae2c770d8c7ebcca958e37.001.1",
+          "event": "Heat Advisory",
+          "severity": "Moderate",
+          "headline": "Heat Advisory issued July 14 at 3:44AM EDT until July 14 at 7:00PM EDT by NWS Miami FL",
+          "description": "* WHAT...Heat index values between 105-109 possible.\n\n* WHERE...Coastal Broward County, Coastal Miami Dade County, Coastal\nPalm Beach County, Metro Broward County, Metro Palm Beach County,\nMetropolitan Miami Dade, Coastal Collier County, Inland Collier\nCounty, and Mainland Monroe Counties.\n\n* WHEN...From 11 AM this morning to 7 PM EDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
+          "issuedAt": "2026-07-14T03:44:00-04:00",
+          "expiresAt": "2026-07-14T17:00:00-04:00",
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.405fa14c695027c55eae2c770d8c7ebcca958e37.001.1",
+          "status": "current"
+        }
+      ],
       "operationalStatus": "unavailable",
       "operationalVerificationUrl": "https://nasstatus.faa.gov/",
       "sourceId": "nws-api",
@@ -631,10 +657,10 @@
       "tideStation": "8721604",
       "tidePredictions": [
         {
-          "value": -0.122,
+          "value": -0.261,
           "unit": "feet",
-          "observedAt": "2026-07-13 01:19",
-          "issuedAt": "2026-07-13 01:19",
+          "observedAt": "2026-07-14 02:16",
+          "issuedAt": "2026-07-14 02:16",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
@@ -643,10 +669,10 @@
           "type": "L"
         },
         {
-          "value": 2.909,
+          "value": 3.044,
           "unit": "feet",
-          "observedAt": "2026-07-13 07:04",
-          "issuedAt": "2026-07-13 07:04",
+          "observedAt": "2026-07-14 08:04",
+          "issuedAt": "2026-07-14 08:04",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
@@ -655,10 +681,10 @@
           "type": "H"
         },
         {
-          "value": -0.926,
+          "value": -0.946,
           "unit": "feet",
-          "observedAt": "2026-07-13 13:05",
-          "issuedAt": "2026-07-13 13:05",
+          "observedAt": "2026-07-14 14:04",
+          "issuedAt": "2026-07-14 14:04",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
@@ -667,10 +693,10 @@
           "type": "L"
         },
         {
-          "value": 4.427,
+          "value": 4.433,
           "unit": "feet",
-          "observedAt": "2026-07-13 19:50",
-          "issuedAt": "2026-07-13 19:50",
+          "observedAt": "2026-07-14 20:45",
+          "issuedAt": "2026-07-14 20:45",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
@@ -690,10 +716,10 @@
       "tideStation": "8723170",
       "tidePredictions": [
         {
-          "value": 0.01,
+          "value": -0.122,
           "unit": "feet",
-          "observedAt": "2026-07-13 01:39",
-          "issuedAt": "2026-07-13 01:39",
+          "observedAt": "2026-07-14 02:35",
+          "issuedAt": "2026-07-14 02:35",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -702,10 +728,10 @@
           "type": "L"
         },
         {
-          "value": 2.693,
+          "value": 2.785,
           "unit": "feet",
-          "observedAt": "2026-07-13 07:38",
-          "issuedAt": "2026-07-13 07:38",
+          "observedAt": "2026-07-14 08:35",
+          "issuedAt": "2026-07-14 08:35",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -714,10 +740,10 @@
           "type": "H"
         },
         {
-          "value": -0.633,
+          "value": -0.661,
           "unit": "feet",
-          "observedAt": "2026-07-13 13:59",
-          "issuedAt": "2026-07-13 13:59",
+          "observedAt": "2026-07-14 14:54",
+          "issuedAt": "2026-07-14 14:54",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -726,10 +752,10 @@
           "type": "L"
         },
         {
-          "value": 2.945,
+          "value": 3.001,
           "unit": "feet",
-          "observedAt": "2026-07-13 20:27",
-          "issuedAt": "2026-07-13 20:27",
+          "observedAt": "2026-07-14 21:19",
+          "issuedAt": "2026-07-14 21:19",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -749,10 +775,10 @@
       "tideStation": "8722956",
       "tidePredictions": [
         {
-          "value": -0.026,
+          "value": -0.152,
           "unit": "feet",
-          "observedAt": "2026-07-13 01:37",
-          "issuedAt": "2026-07-13 01:37",
+          "observedAt": "2026-07-14 02:33",
+          "issuedAt": "2026-07-14 02:33",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
@@ -761,10 +787,10 @@
           "type": "L"
         },
         {
-          "value": 2.521,
+          "value": 2.622,
           "unit": "feet",
-          "observedAt": "2026-07-13 07:39",
-          "issuedAt": "2026-07-13 07:39",
+          "observedAt": "2026-07-14 08:39",
+          "issuedAt": "2026-07-14 08:39",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
@@ -773,10 +799,10 @@
           "type": "H"
         },
         {
-          "value": -0.713,
+          "value": -0.737,
           "unit": "feet",
-          "observedAt": "2026-07-13 13:51",
-          "issuedAt": "2026-07-13 13:51",
+          "observedAt": "2026-07-14 14:47",
+          "issuedAt": "2026-07-14 14:47",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
@@ -785,10 +811,10 @@
           "type": "L"
         },
         {
-          "value": 2.939,
+          "value": 2.985,
           "unit": "feet",
-          "observedAt": "2026-07-13 20:30",
-          "issuedAt": "2026-07-13 20:30",
+          "observedAt": "2026-07-14 21:24",
+          "issuedAt": "2026-07-14 21:24",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
@@ -808,10 +834,10 @@
       "tideStation": "8726520",
       "tidePredictions": [
         {
-          "value": 2.998,
+          "value": 3.018,
           "unit": "feet",
-          "observedAt": "2026-07-13 12:50",
-          "issuedAt": "2026-07-13 12:50",
+          "observedAt": "2026-07-14 13:45",
+          "issuedAt": "2026-07-14 13:45",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726520",
@@ -820,10 +846,10 @@
           "type": "H"
         },
         {
-          "value": -0.429,
+          "value": -0.368,
           "unit": "feet",
-          "observedAt": "2026-07-13 21:17",
-          "issuedAt": "2026-07-13 21:17",
+          "observedAt": "2026-07-14 22:03",
+          "issuedAt": "2026-07-14 22:03",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726520",
@@ -862,7 +888,7 @@
     }
   ],
   "warnings": [],
-  "validatedAt": "2026-07-13T12:06:26-04:00",
+  "validatedAt": "2026-07-14T08:07:12-04:00",
   "quality": {
     "recordsRejected": 0,
     "warnings": []

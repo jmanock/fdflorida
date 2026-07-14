@@ -36,13 +36,13 @@ export function FloridaRightNow() {
             <article className="min-w-0 bg-white p-5" key={airport.code}>
               <div className="flex items-center justify-between gap-3"><strong className="text-xl text-ink">{airport.code}</strong><CloudSun className="h-5 w-5 text-gold" /></div>
               <p className="mt-3 text-sm font-black text-ink">{unavailable ? "Temporarily unavailable" : airport.weather?.summary?.value || "Weather unavailable"}</p>
-              <p className="mt-1 text-xs font-semibold leading-5 text-slateText">{airport.weather?.temperature?.value != null ? `${airport.weather.temperature.value}°F · ` : ""}{airport.officialAlerts?.length ? `${airport.officialAlerts.length} official alert${airport.officialAlerts.length === 1 ? "" : "s"}` : "No active official weather alert found"}</p>
+              <p className="mt-1 text-xs font-semibold leading-5 text-slateText">{unavailable ? "Current temperature and alert status unavailable" : <>{airport.weather?.temperature?.value != null ? `${airport.weather.temperature.value}°F · ` : ""}{airport.officialAlerts?.length ? `${airport.officialAlerts.length} official alert${airport.officialAlerts.length === 1 ? "" : "s"}` : "No active official weather alert found"}</>}</p>
             </article>
           ))}
         </div>
         <div className="flex flex-col gap-2 px-5 py-4 text-xs font-bold text-slateText sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <span className="flex items-center gap-2"><AlertTriangle className="h-4 w-4 text-gold" /> {unavailable ? "Live source unavailable" : alerts ? `${alerts} official weather alerts in the latest update` : "No active official airport weather alerts found"}</span>
-          <span>Conditions updated <time dateTime={data.generatedAt}>{formatUpdate(data.generatedAt)}</time> · Sources: NWS, FAA status link</span>
+          <span>{unavailable ? "Last successful package" : "Conditions updated"} <time dateTime={data.generatedAt}>{formatUpdate(data.generatedAt)}</time> · Sources: NWS, FAA status link</span>
         </div>
       </div>
     </section>

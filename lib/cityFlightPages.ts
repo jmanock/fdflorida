@@ -34,7 +34,7 @@ function flightDeal(id: string, from: string, to: string, price: number, airline
     image: "",
     badge: price < 100 ? "Under $99" : "Limited",
     quality_tag: price < 100 ? "Low Fare" : "Good Deal",
-    freshness: "Updated regularly"
+    freshness: "Current search context"
   };
 }
 
