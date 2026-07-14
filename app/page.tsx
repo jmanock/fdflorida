@@ -436,6 +436,29 @@ export default function Home() {
 
       <FloridaRightNow />
 
+      <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8" aria-labelledby="flight-reality-title">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-ocean">Plan beyond the fare</p>
+            <h2 id="flight-reality-title" className="mt-2 text-2xl font-black text-ink sm:text-3xl">Florida flight reality guides</h2>
+            <p className="mt-2 max-w-2xl text-sm font-semibold leading-6 text-slateText">Practical tradeoffs, airport preparation, and costs that can change whether a cheap itinerary is worthwhile.</p>
+          </div>
+        </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {[
+            ["When a cheap flight is not actually cheap", "/trip-reality/when-a-cheap-florida-flight-is-not-actually-cheap", "Check baggage, airport, timing, and ground-transport tradeoffs."],
+            ["Direct flight or connection?", "/trip-reality/direct-flight-vs-connection-florida", "Compare total travel time, disruption risk, and schedule fit."],
+            ["International traveler checklist", "/trip-reality/international-traveler-checklist-florida", "Prepare documents, arrival plans, connectivity, and airport transfers."],
+          ].map(([title, href, description]) => (
+            <Link key={href} href={href} className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:border-sky-200 hover:shadow-card">
+              <h3 className="font-black text-ink">{title}</h3>
+              <p className="mt-2 text-sm font-medium leading-6 text-slateText">{description}</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-ocean">Read the reality guide <ArrowRight className="h-4 w-4" /></span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="section-fade mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-card sm:p-6">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
