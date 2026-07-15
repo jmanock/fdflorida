@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FloridaRightNow } from "@/components/FloridaRightNow";
+import { TripRetentionTools } from "@/components/TripRetentionTools";
 import data from "@/data/live-intelligence.json";
 export const metadata: Metadata = {
   title: "Florida Airport Status: MCO, MIA, TPA & FLL Weather Impacts",
@@ -76,6 +77,7 @@ export default function Page() {
             </p>
           </section>
         </section>
+        <TripRetentionTools liveDataKey="florida-airports" pageType="live_condition_page" route="/florida-airport-status" site="flightdealsflorida" title="Florida Airport Status" />
       </main>
       <SiteFooter />
     </>

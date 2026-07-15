@@ -9,6 +9,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ContextualAffiliateCard, GuideLink, TripChecklist } from "@/components/TripGuideActions";
 import { ConversionScrollAnalytics } from "@/components/ConversionCards";
+import { TripRetentionTools } from "@/components/TripRetentionTools";
 
 function GuidanceList({ items }: { items: Array<{ title: string; body: string }> }) {
   return <div className="mt-5 grid gap-4">{items.map((item) => <article className="rounded-lg border border-slate-200 bg-white p-5" key={item.title}><h3 className="font-black text-ink">{item.title}</h3><p className="mt-2 text-sm font-semibold leading-6 text-slateText">{item.body}</p></article>)}</div>;
@@ -94,6 +95,7 @@ export function TripRealityGuidePage({ guide }: { guide: TripRealityGuide }) {
             <div className="rounded-lg border border-slate-200 bg-white p-6"><h2 className="text-2xl font-black text-ink">Sources and methodology</h2><p className="mt-3 text-sm font-semibold leading-6 text-slateText">Official sources support changeable facts. Planning judgments are conditional and identify the traveler who benefits. No first-person trip is implied.</p><ul className="mt-4 grid gap-2">{guide.sources.map((source) => <li key={source.href}><a className="inline-flex items-center gap-2 text-sm font-black text-ocean hover:underline" href={source.href} rel="noopener noreferrer" target="_blank">{source.label}<ExternalLink className="h-4 w-4" /></a></li>)}</ul><details className="mt-5 border-t border-slate-200 pt-4"><summary className="cursor-pointer font-black text-ink">Editorial freshness</summary><p className="mt-3 text-sm font-semibold leading-6 text-slateText">Published and editorially reviewed July 14, 2026. Live timestamps update independently. Recheck when airline, airport, baggage, entry, transport, or affiliate policies change.</p></details></div>
           </div>
         </section>
+        <TripRetentionTools image={guide.heroImage} route={route} site="flightdealsflorida" title={guide.title} />
       </main>
       <SiteFooter />
     </>
