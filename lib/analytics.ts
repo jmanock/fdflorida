@@ -1,49 +1,33 @@
 import { trackClarityEvent } from "@/lib/clarity";
 
-type AnalyticsEvent = {
-  action: string;
-  category?: string;
-  label?: string;
-  value?: number;
-  params?: Record<string, string | number | boolean | undefined>;
-};
-
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    gtag?: (command: "event", action: string, params?: Record<string, string | number | boolean | undefined>) => void;
-    clarity?: (command: "event" | "set", name: string, value?: string) => void;
-  }
+export const SITE_ID = "flightdealsflorida";
+export const SITE_DOMAIN = "flightdealsflorida.org";
+export const NETWORK_VERSION = "v31.1";
+export const NETWORK_DOMAINS = ["flightdealsflorida.org", "hoteldealsflorida.org", "cruisedealsflorida.org", "localdealsflorida.org", "floridadealshub.com"];
+type Value = string | number | boolean | undefined | null;
+type Params = Record<string, Value>;
+type LegacyEvent = { action: string; category?: string; label?: string; value?: number; params?: Params };
+export type AnalyticsDebugRecord = { event: string; timestamp: string; route: string; properties: Params; status: "sent" | "suppressed"; reason: string; environment: string };
+declare global { interface Window { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; clarity?: (command: "event" | "set", name: string, value?: string) => void; __FDN_ANALYTICS_DEBUG_EVENTS?: AnalyticsDebugRecord[] } }
+const recent = new Map<string, number>();
+const automated = /FloridaDealsNetwork(?:Quality)?Monitor|HeadlessChrome|Lighthouse|PageSpeed|screenshot|bot\b|crawler|spider/i;
+function cleanHost(value: string){return value.toLowerCase().replace(/^www\./, "")}
+export function analyticsDecision(){
+  if(typeof window === "undefined") return {enabled:false,debug:false,environment:"server",reason:"server_render"};
+  const host=cleanHost(window.location.hostname), port=window.location.port;
+  const debug=process.env.NODE_ENV === "development" && process.env.NEXT_PUBLIC_ANALYTICS_DEBUG === "true";
+  if(process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "false") return {enabled:false,debug,environment:"disabled",reason:"explicitly_disabled"};
+  if(process.env.NODE_ENV !== "production") return {enabled:false,debug,environment:"development",reason:"non_production_build"};
+  if(process.env.NEXT_PUBLIC_VERCEL_ENV && process.env.NEXT_PUBLIC_VERCEL_ENV !== "production") return {enabled:false,debug,environment:"preview",reason:"preview_deployment"};
+  if(host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0" || host.endsWith(".local") || host.endsWith(".vercel.app") || host !== SITE_DOMAIN || (port && port !== "80" && port !== "443")) return {enabled:false,debug,environment:"development",reason:"non_production_origin"};
+  if(new URLSearchParams(window.location.search).get("fdn_monitor") === "1" || navigator.webdriver || automated.test(navigator.userAgent)) return {enabled:false,debug,environment:"monitor",reason:"automated_monitor"};
+  return {enabled:true,debug,environment:"production",reason:"production_origin"};
 }
-
-export function trackEvent({ action, category, label, value, params }: AnalyticsEvent) {
-  if (typeof window === "undefined") {
-    return;
-  }
-
-  const eventParams: Record<string, string | number | boolean | undefined> = {
-    site: "flightdealsflorida.org",
-    source_site: "flightdealsflorida.org",
-    source: "flights",
-    ...params
-  };
-
-  if (category) {
-    eventParams.event_category = category;
-  }
-
-  if (label) {
-    eventParams.event_label = label;
-  }
-
-  if (typeof value === "number") {
-    eventParams.value = value;
-  }
-
-  window.gtag?.("event", action, eventParams);
-  window.dataLayer?.push({
-    event: action,
-    ...eventParams
-  });
-  trackClarityEvent(action, eventParams);
-}
+function scrub(params: Params){const output:Params={};for(const [key,value] of Object.entries(params)){if(/comment|notes?|email|phone|ip_address|user_agent/i.test(key))continue;if(typeof value === "string" && /url|href|destination/i.test(key) && /^(?:https?:\/\/|\/)/.test(value)){try{const url=new URL(value,window.location.origin);output[key]=`${url.origin}${url.pathname}`}catch{output[key]=value.split("?")[0]}}else output[key]=value}return output}
+function record(event:string,properties:Params,status:"sent"|"suppressed",reason:string,environment:string){const item={event,timestamp:new Date().toISOString(),route:window.location.pathname,properties,status,reason,environment};window.__FDN_ANALYTICS_DEBUG_EVENTS=[...(window.__FDN_ANALYTICS_DEBUG_EVENTS||[]),item].slice(-100);if(analyticsDecision().debug){console.info("[FDN analytics]",item);window.dispatchEvent(new CustomEvent("fdn-analytics-debug"))}}
+export function subscribeAnalyticsDebug(listener:(records:AnalyticsDebugRecord[])=>void){if(typeof window==="undefined")return()=>{};const update=()=>listener(window.__FDN_ANALYTICS_DEBUG_EVENTS||[]);update();window.addEventListener("fdn-analytics-debug",update);return()=>window.removeEventListener("fdn-analytics-debug",update)}
+export function resetAnalyticsDebug(){if(typeof window!=="undefined"){window.__FDN_ANALYTICS_DEBUG_EVENTS=[];window.dispatchEvent(new CustomEvent("fdn-analytics-debug"))}}
+function installGtag(){const queue=(...args:unknown[])=>window.dataLayer?.push(args);window.gtag=(...args:unknown[])=>{if(args[0]==="event"&&typeof args[1]==="string"){args[2]=scrub({site:SITE_ID,domain:SITE_DOMAIN,route:location.pathname,page_title:document.title,page_type:"unknown",article_cluster:"unknown",destination:"unknown",placement:"unknown",component_type:"unknown",link_type:"unknown",target_domain:"unknown",environment:"production",network_version:NETWORK_VERSION,...((args[2]||{}) as Params)})}queue(...args)}}
+export function initializeAnalytics(measurementId:string,clarityId?:string){const decision=analyticsDecision();if(!decision.enabled){window.gtag=(...args:unknown[])=>{if(args[0]==="event"&&typeof args[1]==="string")record(args[1],scrub((args[2]as Params)||{}),"suppressed",decision.reason,decision.environment)};record("analytics_init",{},"suppressed",decision.reason,decision.environment);return}if(document.getElementById("fdn-ga-script")){record("analytics_init",{},"suppressed","already_initialized",decision.environment);return}window.dataLayer=window.dataLayer||[];installGtag();window.gtag?.("js",new Date());window.gtag?.("config",measurementId,{send_page_view:true,page_location:`${location.origin}${location.pathname}`,page_title:document.title});const script=document.createElement("script");script.id="fdn-ga-script";script.async=true;script.src=`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;document.head.appendChild(script);if(clarityId&&!document.getElementById("fdn-clarity-script")){window.clarity=window.clarity||function(...args:unknown[]){(window.clarity as unknown as {q:unknown[]}).q=((window.clarity as unknown as {q?:unknown[]}).q||[]);(window.clarity as unknown as {q:unknown[]}).q.push(args)};const clarity=document.createElement("script");clarity.id="fdn-clarity-script";clarity.async=true;clarity.src=`https://www.clarity.ms/tag/${encodeURIComponent(clarityId)}`;document.head.appendChild(clarity)}record("analytics_init",{},"sent","initialized",decision.environment)}
+export function trackEvent(input:string|LegacyEvent,extra:Params={}){const name=typeof input==="string"?input:input.action;const supplied=typeof input==="string"?extra:{...input.params,event_category:input.category,event_label:input.label,value:input.value};if(typeof window==="undefined")return;const decision=analyticsDecision();const properties=scrub({site:SITE_ID,domain:SITE_DOMAIN,route:window.location.pathname,page_title:document.title,page_type:"unknown",article_cluster:"unknown",destination:"unknown",placement:"unknown",component_type:"unknown",link_type:"unknown",target_domain:"unknown",environment:decision.environment,network_version:NETWORK_VERSION,...supplied});const fingerprint=`${name}:${JSON.stringify(Object.entries(properties).sort())}`;const now=Date.now();if((recent.get(fingerprint)||0)>now-750){record(name,properties,"suppressed","duplicate_event",decision.environment);return}recent.set(fingerprint,now);if(!decision.enabled||!window.gtag){record(name,properties,"suppressed",!decision.enabled?decision.reason:"analytics_not_initialized",decision.environment);return}window.gtag("event",name,properties);trackClarityEvent(name,properties as Record<string,string|number|boolean|undefined>);record(name,properties,"sent","intentional_user_action",decision.environment)}
+export function decorateNetworkUrl(href:string){if(typeof window==="undefined")return href;try{const url=new URL(href,window.location.href);if(!NETWORK_DOMAINS.includes(cleanHost(url.hostname))||cleanHost(url.hostname)===SITE_DOMAIN)return href;url.searchParams.set("fdn_source",SITE_DOMAIN);url.searchParams.set("fdn_medium","internal_network");return url.toString()}catch{return href}}

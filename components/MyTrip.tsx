@@ -1,11 +1,11 @@
 "use client";
-import { useEffect,useRef,useState } from "react";
+import { useRef,useState } from "react";
 type Item={id:string;type:string;site:string;route:string;title:string;destination:string;savedAt:string;lastVisitedAt:string;liveDataKey:string;notes:string};
 const KEY="fdn-my-trip-v31";
 const valid=(x:unknown):x is Item=>{if(!x||typeof x!=="object")return false;const i=x as Item;return typeof i.id==="string"&&typeof i.title==="string"&&typeof i.route==="string"&&i.route.startsWith("/")&&!i.route.startsWith("//")&&!i.route.includes("..")};
 const track=(name:string,p:Record<string,string>)=>{const w=window as typeof window&{dataLayer?:unknown[];gtag?:(...a:unknown[])=>void};if(w.gtag)w.gtag("event",name,p);else{w.dataLayer=w.dataLayer||[];w.dataLayer.push({event:name,...p})}};
 export function MyTrip({siteName,siteId}:{siteName:string;siteId:string}){const [items,setItems]=useState<Item[]>(()=>{try{const v=JSON.parse(localStorage.getItem(KEY)||"[]");return Array.isArray(v)?v.filter(valid):[]}catch{return[]}}),[message,setMessage]=useState(""),file=useRef<HTMLInputElement>(null);
- useEffect(()=>{track("view_my_trip",{site:siteId,route:"/my-trip"})},[siteId]);
+
  const save=(next:Item[])=>{setItems(next);localStorage.setItem(KEY,JSON.stringify(next))};
  const remove=(id:string)=>{const item=items.find(x=>x.id===id);save(items.filter(x=>x.id!==id));if(item)track("remove_trip_item",{site:siteId,route:item.route,item_type:item.type,destination:item.destination||""})};
  const copy=async()=>{await navigator.clipboard.writeText(items.map(x=>x.title+" - "+location.origin+x.route).join("\n"));setMessage("Trip list copied.")};

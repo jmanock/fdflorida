@@ -176,7 +176,6 @@ export function ExitNewsletterCapture() {
       const progress = max > 0 ? window.scrollY / max : 0;
       if (progress >= 0.7 && !dismissed && !visible) {
         setVisible(true);
-        trackEvent({ action: "newsletter_signup", category: "engagement", params: { trigger: "scroll_70", page_path: window.location.pathname } });
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });

@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
-import { NavigationAnalytics } from "@/components/NavigationAnalytics";
+import { AnalyticsBootstrap } from "@/components/AnalyticsBootstrap";
 import { NetworkNavigation } from "@/components/NetworkNavigation";
-import { CLARITY_ID } from "@/lib/clarity";
 import "./globals.css";
 
 const siteUrl = "https://flightdealsflorida.org";
-const GA_MEASUREMENT_ID = "G-6Y3PZJ046S";
 const defaultOgImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80";
 const globalStructuredData = {
   "@context": "https://schema.org",
@@ -98,25 +95,7 @@ export default function RootLayout({
         <NetworkNavigation />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(globalStructuredData) }} />
         {children}
-        <NavigationAnalytics />
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "${CLARITY_ID}");
-          `}
-        </Script>
+        <AnalyticsBootstrap />
       </body>
     </html>
   );

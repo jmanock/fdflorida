@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-07-15T09:06:44-04:00",
+  "generatedAt": "2026-07-20T08:41:15-04:00",
   "status": "current",
   "locations": [
     {
       "locationId": "clearwater-beach",
       "name": "Clearwater Beach",
-      "generatedAt": "2026-07-15T09:06:44-04:00",
+      "generatedAt": "2026-07-20T08:41:15-04:00",
       "status": "current",
       "weather": {
         "summary": {
-          "value": "Mostly Sunny",
+          "value": "Chance Showers And Thunderstorms",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -20,10 +20,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 83,
+          "value": 82,
           "unit": "F",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -31,10 +31,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "2 mph",
+          "value": "14 mph",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -42,10 +42,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "WSW",
+          "value": "S",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -53,10 +53,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 13,
+          "value": 73,
           "unit": "percent",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -64,19 +64,45 @@
           "status": "current"
         }
       },
-      "officialAlerts": [],
+      "officialAlerts": [
+        {
+          "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ed67208f99325e3c16624159b88b347ae2fee483.002.1",
+          "event": "Small Craft Advisory",
+          "severity": "Minor",
+          "headline": "Small Craft Advisory issued July 20 at 12:52AM EDT until July 21 at 8:00PM EDT by NWS Tampa Bay Ruskin FL",
+          "description": "* WHAT...South winds 20 to 25 knots and rough waters.\n\n* WHERE...Coastal waters from Englewood to Suwannee River out to\n60 nm including the Tampa Bay waters.\n\n* WHEN...Until 8 PM EDT Tuesday.\n\n* IMPACTS...Conditions will be hazardous to small craft.",
+          "issuedAt": "2026-07-20T00:52:00-04:00",
+          "expiresAt": "2026-07-20T09:00:00-04:00",
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ed67208f99325e3c16624159b88b347ae2fee483.002.1",
+          "status": "current"
+        }
+      ],
       "marine": {
-        "officialAlerts": [],
+        "officialAlerts": [
+          {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ed67208f99325e3c16624159b88b347ae2fee483.002.1",
+            "event": "Small Craft Advisory",
+            "severity": "Minor",
+            "headline": "Small Craft Advisory issued July 20 at 12:52AM EDT until July 21 at 8:00PM EDT by NWS Tampa Bay Ruskin FL",
+            "description": "* WHAT...South winds 20 to 25 knots and rough waters.\n\n* WHERE...Coastal waters from Englewood to Suwannee River out to\n60 nm including the Tampa Bay waters.\n\n* WHEN...Until 8 PM EDT Tuesday.\n\n* IMPACTS...Conditions will be hazardous to small craft.",
+            "issuedAt": "2026-07-20T00:52:00-04:00",
+            "expiresAt": "2026-07-20T09:00:00-04:00",
+            "sourceId": "nws-api",
+            "sourceUrl": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ed67208f99325e3c16624159b88b347ae2fee483.002.1",
+            "status": "current"
+          }
+        ],
         "summary": "Official coastal alerts are listed when issued; no beach flag is inferred."
       },
       "tides": {
         "station": "8726724",
         "predictions": [
           {
-            "value": 1.985,
+            "value": 2.526,
             "unit": "feet",
-            "observedAt": "2026-07-15 02:07",
-            "issuedAt": "2026-07-15 02:07",
+            "observedAt": "2026-07-20 04:33",
+            "issuedAt": "2026-07-20 04:33",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -85,10 +111,10 @@
             "type": "H"
           },
           {
-            "value": 1.307,
+            "value": 0.901,
             "unit": "feet",
-            "observedAt": "2026-07-15 06:16",
-            "issuedAt": "2026-07-15 06:16",
+            "observedAt": "2026-07-20 11:10",
+            "issuedAt": "2026-07-20 11:10",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -97,10 +123,10 @@
             "type": "L"
           },
           {
-            "value": 3.583,
+            "value": 2.016,
             "unit": "feet",
-            "observedAt": "2026-07-15 12:28",
-            "issuedAt": "2026-07-15 12:28",
+            "observedAt": "2026-07-20 17:05",
+            "issuedAt": "2026-07-20 17:05",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -109,10 +135,10 @@
             "type": "H"
           },
           {
-            "value": -0.478,
+            "value": 1.208,
             "unit": "feet",
-            "observedAt": "2026-07-15 19:55",
-            "issuedAt": "2026-07-15 19:55",
+            "observedAt": "2026-07-20 22:39",
+            "issuedAt": "2026-07-20 22:39",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -123,10 +149,10 @@
         ]
       },
       "waterTemperature": {
-        "value": 88.5,
+        "value": 84.2,
         "unit": "degrees Fahrenheit",
-        "observedAt": "2026-07-15 09:00",
-        "issuedAt": "2026-07-15 09:00",
+        "observedAt": "2026-07-20 08:30",
+        "issuedAt": "2026-07-20 08:30",
         "expiresAt": null,
         "sourceId": "noaa-coops",
         "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726724",
@@ -143,14 +169,14 @@
     {
       "locationId": "miami-beach",
       "name": "Miami Beach",
-      "generatedAt": "2026-07-15T09:06:44-04:00",
+      "generatedAt": "2026-07-20T08:41:15-04:00",
       "status": "current",
       "weather": {
         "summary": {
-          "value": "Partly Sunny",
+          "value": "Slight Chance Showers And Thunderstorms",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -158,10 +184,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 85,
+          "value": 86,
           "unit": "F",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -169,10 +195,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "6 mph",
+          "value": "16 mph",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -180,10 +206,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "E",
+          "value": "S",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -191,10 +217,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 2,
+          "value": 22,
           "unit": "percent",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -211,22 +237,10 @@
         "station": "8723170",
         "predictions": [
           {
-            "value": -0.224,
+            "value": 2.502,
             "unit": "feet",
-            "observedAt": "2026-07-15 03:28",
-            "issuedAt": "2026-07-15 03:28",
-            "expiresAt": null,
-            "sourceId": "noaa-coops",
-            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
-            "confidence": 95,
-            "status": "prediction",
-            "type": "L"
-          },
-          {
-            "value": 2.833,
-            "unit": "feet",
-            "observedAt": "2026-07-15 09:30",
-            "issuedAt": "2026-07-15 09:30",
+            "observedAt": "2026-07-20 01:21",
+            "issuedAt": "2026-07-20 01:21",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -235,10 +249,10 @@
             "type": "H"
           },
           {
-            "value": -0.622,
+            "value": -0.066,
             "unit": "feet",
-            "observedAt": "2026-07-15 15:47",
-            "issuedAt": "2026-07-15 15:47",
+            "observedAt": "2026-07-20 07:41",
+            "issuedAt": "2026-07-20 07:41",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -247,16 +261,28 @@
             "type": "L"
           },
           {
-            "value": 2.998,
+            "value": 2.397,
             "unit": "feet",
-            "observedAt": "2026-07-15 22:09",
-            "issuedAt": "2026-07-15 22:09",
+            "observedAt": "2026-07-20 14:01",
+            "issuedAt": "2026-07-20 14:01",
             "expiresAt": null,
             "sourceId": "noaa-coops",
             "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
             "confidence": 95,
             "status": "prediction",
             "type": "H"
+          },
+          {
+            "value": 0.297,
+            "unit": "feet",
+            "observedAt": "2026-07-20 20:06",
+            "issuedAt": "2026-07-20 20:06",
+            "expiresAt": null,
+            "sourceId": "noaa-coops",
+            "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+            "confidence": 95,
+            "status": "prediction",
+            "type": "L"
           }
         ]
       },
@@ -271,14 +297,14 @@
     {
       "locationId": "orlando",
       "name": "Orlando",
-      "generatedAt": "2026-07-15T09:06:44-04:00",
+      "generatedAt": "2026-07-20T08:41:15-04:00",
       "status": "current",
       "weather": {
         "summary": {
-          "value": "Sunny",
+          "value": "Mostly Sunny",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -286,10 +312,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 77,
+          "value": 79,
           "unit": "F",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -297,10 +323,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "5 mph",
+          "value": "10 mph",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -308,10 +334,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "W",
+          "value": "SSE",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -321,8 +347,8 @@
         "precipitationProbability": {
           "value": 1,
           "unit": "percent",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -357,10 +383,10 @@
       "label": "No active official weather alert found",
       "weather": {
         "summary": {
-          "value": "Sunny",
+          "value": "Mostly Sunny",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -368,10 +394,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 77,
+          "value": 79,
           "unit": "F",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -379,10 +405,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "5 mph",
+          "value": "10 mph",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -390,10 +416,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "W",
+          "value": "SSE",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -403,8 +429,8 @@
         "precipitationProbability": {
           "value": 1,
           "unit": "percent",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -425,10 +451,10 @@
       "label": "Potential weather impact",
       "weather": {
         "summary": {
-          "value": "Mostly Sunny",
+          "value": "Slight Chance Showers And Thunderstorms",
           "unit": null,
-          "observedAt": "2026-07-15T09:00:00-04:00",
-          "issuedAt": "2026-07-15T09:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -436,10 +462,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 85,
+          "value": 83,
           "unit": "F",
-          "observedAt": "2026-07-15T09:00:00-04:00",
-          "issuedAt": "2026-07-15T09:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -447,10 +473,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "3 mph",
+          "value": "9 mph",
           "unit": null,
-          "observedAt": "2026-07-15T09:00:00-04:00",
-          "issuedAt": "2026-07-15T09:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -458,10 +484,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "E",
+          "value": "S",
           "unit": null,
-          "observedAt": "2026-07-15T09:00:00-04:00",
-          "issuedAt": "2026-07-15T09:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -469,10 +495,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 2,
+          "value": 23,
           "unit": "percent",
-          "observedAt": "2026-07-15T09:00:00-04:00",
-          "issuedAt": "2026-07-15T09:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -482,15 +508,15 @@
       },
       "officialAlerts": [
         {
-          "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ed28c22d123289687f2972cef4cf3f1df05b1d87.001.1",
+          "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3963ad744989a99172e08a0eec9eb1661d304728.001.1",
           "event": "Heat Advisory",
           "severity": "Moderate",
-          "headline": "Heat Advisory issued July 15 at 2:18AM EDT until July 15 at 7:00PM EDT by NWS Miami FL",
-          "description": "* WHAT...Heat index values between 105-108 expected.\n\n* WHERE...Coastal Broward County, Coastal Miami Dade County, Coastal\nPalm Beach County, Metro Broward County, Metro Palm Beach County,\nMetropolitan Miami Dade, Coastal Collier County, and Inland\nCollier County Counties.\n\n* WHEN...From 11 AM this morning to 7 PM EDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
-          "issuedAt": "2026-07-15T02:18:00-04:00",
-          "expiresAt": "2026-07-15T19:00:00-04:00",
+          "headline": "Heat Advisory issued July 20 at 2:14AM EDT until July 20 at 7:00PM EDT by NWS Miami FL",
+          "description": "* WHAT...Heat index values up to 108 expected.\n\n* WHERE...Coastal Broward County, Coastal Miami Dade County, Far\nSouth Miami-Dade County, Inland Broward County, Inland Miami-Dade\nCounty, Metro Broward County, and Metropolitan Miami Dade Counties.\n\n* WHEN...From 11 AM this morning to 7 PM EDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
+          "issuedAt": "2026-07-20T02:14:00-04:00",
+          "expiresAt": "2026-07-20T19:00:00-04:00",
           "sourceId": "nws-api",
-          "sourceUrl": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ed28c22d123289687f2972cef4cf3f1df05b1d87.001.1",
+          "sourceUrl": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3963ad744989a99172e08a0eec9eb1661d304728.001.1",
           "status": "current"
         }
       ],
@@ -502,14 +528,14 @@
     {
       "code": "TPA",
       "name": "Tampa International Airport",
-      "status": "no_active_official_weather_alert_found",
-      "label": "No active official weather alert found",
+      "status": "potential_weather_impact",
+      "label": "Potential weather impact",
       "weather": {
         "summary": {
-          "value": "Mostly Sunny",
+          "value": "Chance Showers And Thunderstorms",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -519,8 +545,8 @@
         "temperature": {
           "value": 81,
           "unit": "F",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -528,10 +554,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "0 mph",
+          "value": "12 mph",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -539,10 +565,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "",
+          "value": "SSE",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -550,10 +576,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 12,
+          "value": 57,
           "unit": "percent",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -561,7 +587,20 @@
           "status": "current"
         }
       },
-      "officialAlerts": [],
+      "officialAlerts": [
+        {
+          "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.40721cc619e61b8743f6cf7f95a49b27b52be295.001.1",
+          "event": "Rip Current Statement",
+          "severity": "Moderate",
+          "headline": "Rip Current Statement issued July 20 at 12:52AM EDT until July 21 at 8:00PM EDT by NWS Tampa Bay Ruskin FL",
+          "description": "* WHAT...Dangerous rip currents.\n\n* WHERE...Pinellas, Coastal Hillsborough, Coastal Manatee,\nCoastal Sarasota, Coastal Charlotte and Coastal Lee Counties.\n\n* WHEN...through 8 PM Tuesday.\n\n* IMPACTS...Rip currents can sweep even the best swimmers away\nfrom shore into deeper water.",
+          "issuedAt": "2026-07-20T00:52:00-04:00",
+          "expiresAt": "2026-07-20T09:00:00-04:00",
+          "sourceId": "nws-api",
+          "sourceUrl": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.40721cc619e61b8743f6cf7f95a49b27b52be295.001.1",
+          "status": "current"
+        }
+      ],
       "operationalStatus": "unavailable",
       "operationalVerificationUrl": "https://nasstatus.faa.gov/",
       "sourceId": "nws-api",
@@ -574,10 +613,10 @@
       "label": "Potential weather impact",
       "weather": {
         "summary": {
-          "value": "Mostly Sunny",
+          "value": "Chance Showers And Thunderstorms",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -585,10 +624,10 @@
           "status": "current"
         },
         "temperature": {
-          "value": 82,
+          "value": 84,
           "unit": "F",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -596,10 +635,10 @@
           "status": "current"
         },
         "windSpeed": {
-          "value": "2 mph",
+          "value": "12 mph",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -607,10 +646,10 @@
           "status": "current"
         },
         "windDirection": {
-          "value": "E",
+          "value": "S",
           "unit": null,
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -618,10 +657,10 @@
           "status": "current"
         },
         "precipitationProbability": {
-          "value": 2,
+          "value": 28,
           "unit": "percent",
-          "observedAt": "2026-07-15T08:00:00-04:00",
-          "issuedAt": "2026-07-15T08:00:00-04:00",
+          "observedAt": "2026-07-20T08:00:00-04:00",
+          "issuedAt": "2026-07-20T08:00:00-04:00",
           "expiresAt": null,
           "sourceId": "nws-api",
           "sourceUrl": "https://api.weather.gov",
@@ -631,15 +670,15 @@
       },
       "officialAlerts": [
         {
-          "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ed28c22d123289687f2972cef4cf3f1df05b1d87.001.1",
+          "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3963ad744989a99172e08a0eec9eb1661d304728.001.1",
           "event": "Heat Advisory",
           "severity": "Moderate",
-          "headline": "Heat Advisory issued July 15 at 2:18AM EDT until July 15 at 7:00PM EDT by NWS Miami FL",
-          "description": "* WHAT...Heat index values between 105-108 expected.\n\n* WHERE...Coastal Broward County, Coastal Miami Dade County, Coastal\nPalm Beach County, Metro Broward County, Metro Palm Beach County,\nMetropolitan Miami Dade, Coastal Collier County, and Inland\nCollier County Counties.\n\n* WHEN...From 11 AM this morning to 7 PM EDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
-          "issuedAt": "2026-07-15T02:18:00-04:00",
-          "expiresAt": "2026-07-15T19:00:00-04:00",
+          "headline": "Heat Advisory issued July 20 at 2:14AM EDT until July 20 at 7:00PM EDT by NWS Miami FL",
+          "description": "* WHAT...Heat index values up to 108 expected.\n\n* WHERE...Coastal Broward County, Coastal Miami Dade County, Far\nSouth Miami-Dade County, Inland Broward County, Inland Miami-Dade\nCounty, Metro Broward County, and Metropolitan Miami Dade Counties.\n\n* WHEN...From 11 AM this morning to 7 PM EDT this evening.\n\n* IMPACTS...Hot temperatures and high humidity may cause heat\nillnesses.",
+          "issuedAt": "2026-07-20T02:14:00-04:00",
+          "expiresAt": "2026-07-20T19:00:00-04:00",
           "sourceId": "nws-api",
-          "sourceUrl": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.ed28c22d123289687f2972cef4cf3f1df05b1d87.001.1",
+          "sourceUrl": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3963ad744989a99172e08a0eec9eb1661d304728.001.1",
           "status": "current"
         }
       ],
@@ -657,22 +696,10 @@
       "tideStation": "8721604",
       "tidePredictions": [
         {
-          "value": -0.363,
+          "value": 3.152,
           "unit": "feet",
-          "observedAt": "2026-07-15 03:08",
-          "issuedAt": "2026-07-15 03:08",
-          "expiresAt": null,
-          "sourceId": "noaa-coops",
-          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
-          "confidence": 95,
-          "status": "prediction",
-          "type": "L"
-        },
-        {
-          "value": 3.181,
-          "unit": "feet",
-          "observedAt": "2026-07-15 09:03",
-          "issuedAt": "2026-07-15 09:03",
+          "observedAt": "2026-07-20 00:52",
+          "issuedAt": "2026-07-20 00:52",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
@@ -681,10 +708,10 @@
           "type": "H"
         },
         {
-          "value": -0.875,
+          "value": -0.188,
           "unit": "feet",
-          "observedAt": "2026-07-15 15:01",
-          "issuedAt": "2026-07-15 15:01",
+          "observedAt": "2026-07-20 07:17",
+          "issuedAt": "2026-07-20 07:17",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
@@ -693,16 +720,28 @@
           "type": "L"
         },
         {
-          "value": 4.329,
+          "value": 3.32,
           "unit": "feet",
-          "observedAt": "2026-07-15 21:37",
-          "issuedAt": "2026-07-15 21:37",
+          "observedAt": "2026-07-20 13:37",
+          "issuedAt": "2026-07-20 13:37",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
           "confidence": 95,
           "status": "prediction",
           "type": "H"
+        },
+        {
+          "value": 0.354,
+          "unit": "feet",
+          "observedAt": "2026-07-20 19:52",
+          "issuedAt": "2026-07-20 19:52",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8721604",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
         }
       ],
       "operationalStatus": "unavailable",
@@ -716,22 +755,10 @@
       "tideStation": "8723170",
       "tidePredictions": [
         {
-          "value": -0.224,
+          "value": 2.502,
           "unit": "feet",
-          "observedAt": "2026-07-15 03:28",
-          "issuedAt": "2026-07-15 03:28",
-          "expiresAt": null,
-          "sourceId": "noaa-coops",
-          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
-          "confidence": 95,
-          "status": "prediction",
-          "type": "L"
-        },
-        {
-          "value": 2.833,
-          "unit": "feet",
-          "observedAt": "2026-07-15 09:30",
-          "issuedAt": "2026-07-15 09:30",
+          "observedAt": "2026-07-20 01:21",
+          "issuedAt": "2026-07-20 01:21",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -740,10 +767,10 @@
           "type": "H"
         },
         {
-          "value": -0.622,
+          "value": -0.066,
           "unit": "feet",
-          "observedAt": "2026-07-15 15:47",
-          "issuedAt": "2026-07-15 15:47",
+          "observedAt": "2026-07-20 07:41",
+          "issuedAt": "2026-07-20 07:41",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
@@ -752,16 +779,28 @@
           "type": "L"
         },
         {
-          "value": 2.998,
+          "value": 2.397,
           "unit": "feet",
-          "observedAt": "2026-07-15 22:09",
-          "issuedAt": "2026-07-15 22:09",
+          "observedAt": "2026-07-20 14:01",
+          "issuedAt": "2026-07-20 14:01",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
           "confidence": 95,
           "status": "prediction",
           "type": "H"
+        },
+        {
+          "value": 0.297,
+          "unit": "feet",
+          "observedAt": "2026-07-20 20:06",
+          "issuedAt": "2026-07-20 20:06",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8723170",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
         }
       ],
       "operationalStatus": "unavailable",
@@ -775,22 +814,10 @@
       "tideStation": "8722956",
       "tidePredictions": [
         {
-          "value": -0.254,
+          "value": 2.436,
           "unit": "feet",
-          "observedAt": "2026-07-15 03:26",
-          "issuedAt": "2026-07-15 03:26",
-          "expiresAt": null,
-          "sourceId": "noaa-coops",
-          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
-          "confidence": 95,
-          "status": "prediction",
-          "type": "L"
-        },
-        {
-          "value": 2.691,
-          "unit": "feet",
-          "observedAt": "2026-07-15 09:37",
-          "issuedAt": "2026-07-15 09:37",
+          "observedAt": "2026-07-20 01:25",
+          "issuedAt": "2026-07-20 01:25",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
@@ -799,10 +826,10 @@
           "type": "H"
         },
         {
-          "value": -0.686,
+          "value": -0.14,
           "unit": "feet",
-          "observedAt": "2026-07-15 15:41",
-          "issuedAt": "2026-07-15 15:41",
+          "observedAt": "2026-07-20 07:44",
+          "issuedAt": "2026-07-20 07:44",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
@@ -811,16 +838,28 @@
           "type": "L"
         },
         {
-          "value": 2.975,
+          "value": 2.433,
           "unit": "feet",
-          "observedAt": "2026-07-15 22:15",
-          "issuedAt": "2026-07-15 22:15",
+          "observedAt": "2026-07-20 14:07",
+          "issuedAt": "2026-07-20 14:07",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
           "confidence": 95,
           "status": "prediction",
           "type": "H"
+        },
+        {
+          "value": 0.248,
+          "unit": "feet",
+          "observedAt": "2026-07-20 20:12",
+          "issuedAt": "2026-07-20 20:12",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8722956",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
         }
       ],
       "operationalStatus": "unavailable",
@@ -834,10 +873,22 @@
       "tideStation": "8726520",
       "tidePredictions": [
         {
-          "value": 2.948,
+          "value": 0.714,
           "unit": "feet",
-          "observedAt": "2026-07-15 14:42",
-          "issuedAt": "2026-07-15 14:42",
+          "observedAt": "2026-07-20 00:57",
+          "issuedAt": "2026-07-20 00:57",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726520",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "L"
+        },
+        {
+          "value": 1.988,
+          "unit": "feet",
+          "observedAt": "2026-07-20 07:12",
+          "issuedAt": "2026-07-20 07:12",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726520",
@@ -846,16 +897,28 @@
           "type": "H"
         },
         {
-          "value": -0.229,
+          "value": 0.748,
           "unit": "feet",
-          "observedAt": "2026-07-15 22:45",
-          "issuedAt": "2026-07-15 22:45",
+          "observedAt": "2026-07-20 13:51",
+          "issuedAt": "2026-07-20 13:51",
           "expiresAt": null,
           "sourceId": "noaa-coops",
           "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726520",
           "confidence": 95,
           "status": "prediction",
           "type": "L"
+        },
+        {
+          "value": 1.629,
+          "unit": "feet",
+          "observedAt": "2026-07-20 19:46",
+          "issuedAt": "2026-07-20 19:46",
+          "expiresAt": null,
+          "sourceId": "noaa-coops",
+          "sourceUrl": "https://tidesandcurrents.noaa.gov/stationhome.html?id=8726520",
+          "confidence": 95,
+          "status": "prediction",
+          "type": "H"
         }
       ],
       "operationalStatus": "unavailable",
@@ -867,104 +930,323 @@
     "status": "official_feed_available",
     "activeSystems": [
       {
+        "id": "al022026",
+        "binNumber": "AT2",
+        "name": "Two",
+        "classification": "TD",
+        "intensity": "30",
+        "pressure": "1006",
+        "latitude": "28.6N",
+        "longitude": "85.6W",
+        "latitudeNumeric": 28.6,
+        "longitudeNumeric": -85.6,
+        "movementDir": 320,
+        "movementSpeed": 3,
+        "lastUpdate": "2026-07-20T12:00:00.000Z",
+        "publicAdvisory": {
+          "advNum": "004a",
+          "issuance": "2026-07-20T12:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T11:46:45.982Z",
+          "url": "https://www.nhc.noaa.gov/text/MIATCPAT2.shtml"
+        },
+        "forecastAdvisory": {
+          "advNum": "004",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:45:39.476Z",
+          "url": "https://www.nhc.noaa.gov/text/MIATCMAT2.shtml"
+        },
+        "windSpeedProbabilities": {
+          "advNum": "004",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:47:08.009Z",
+          "url": "https://www.nhc.noaa.gov/text/MIAPWSAT2.shtml"
+        },
+        "forecastDiscussion": {
+          "advNum": "004",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:50:09.569Z",
+          "url": "https://www.nhc.noaa.gov/text/MIATCDAT2.shtml"
+        },
+        "forecastGraphics": {
+          "advNum": "004a",
+          "issuance": "2026-07-20T12:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T11:46:45.982Z",
+          "url": "https://www.nhc.noaa.gov/graphics_at2.shtml"
+        },
+        "forecastTrack": {
+          "advNum": "004a",
+          "issuance": "2026-07-20T12:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T11:48:08.892Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/al022026_5day_004A.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/AL022026_004Aadv_TRACK.kmz"
+        },
+        "windWatchesWarnings": {
+          "advNum": "004a",
+          "issuance": "2026-07-20T12:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T11:48:10.767Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/al022026_5day_004A.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/AL022026_004Aadv_WW.kmz"
+        },
+        "trackCone": {
+          "advNum": "004a",
+          "issuance": "2026-07-20T12:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T11:48:06.971Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/al022026_5day_004A.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/AL022026_004Aadv_CONE.kmz"
+        },
+        "initialWindExtent": {
+          "advNum": "004a",
+          "issuance": "2026-07-20T12:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T11:48:39.755Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/al022026_fcst_004A.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/AL022026_initialradii_004Aadv.kmz"
+        },
+        "forecastWindRadiiGIS": {
+          "advNum": "004a",
+          "issuance": "2026-07-20T12:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T11:48:35.805Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/al022026_fcst_004A.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/AL022026_forecastradii_004Aadv.kmz"
+        },
+        "bestTrackGIS": {
+          "issuance": "2026-07-20T12:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T11:48:20.842Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/best_track/al022026_best_track.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/gis/best_track/al022026_best_track.kmz"
+        },
+        "earliestArrivalTimeTSWindsGIS": {
+          "advNum": "004",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:52:20.965Z",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/AL022026_004adv_earliest_reasonable_toa_34.kmz"
+        },
+        "mostLikelyTimeTSWindsGIS": {
+          "advNum": "004",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:52:23.023Z",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/AL022026_004adv_most_likely_toa_34.kmz"
+        },
+        "windSpeedProbabilitiesGIS": {
+          "issuance": "2026-07-20T06:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T09:22:41.598Z",
+          "zipFile5km": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp_120hr5km.zip",
+          "zipFile0p5deg": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp_120hrhalfDeg.zip",
+          "kmzFile34kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp34knt120hr_5km.kmz",
+          "kmzFile50kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp50knt120hr_5km.kmz",
+          "kmzFile64kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp64knt120hr_5km.kmz"
+        },
+        "stormSurgeWatchWarningGIS": null,
+        "potentialStormSurgeFloodingGIS": null,
+        "peakSurgeKML": {
+          "advNum": "4",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:55:23.116Z",
+          "peakSurgeKMLFile": "https://www.nhc.noaa.gov/storm_graphics/api/AL022026_PeakStormSurge_004adv.kml"
+        }
+      },
+      {
+        "id": "ep062026",
+        "binNumber": "EP1",
+        "name": "Fausto",
+        "classification": "TS",
+        "intensity": "50",
+        "pressure": "996",
+        "latitude": "12.9N",
+        "longitude": "115.6W",
+        "latitudeNumeric": 12.9,
+        "longitudeNumeric": -115.6,
+        "movementDir": 290,
+        "movementSpeed": 12,
+        "lastUpdate": "2026-07-20T09:00:00.000Z",
+        "publicAdvisory": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:32:38.333Z",
+          "url": "https://www.nhc.noaa.gov/text/MIATCPEP1.shtml"
+        },
+        "forecastAdvisory": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:32:10.759Z",
+          "url": "https://www.nhc.noaa.gov/text/MIATCMEP1.shtml"
+        },
+        "windSpeedProbabilities": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:33:09.169Z",
+          "url": "https://www.nhc.noaa.gov/text/MIAPWSEP1.shtml"
+        },
+        "forecastDiscussion": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:33:39.236Z",
+          "url": "https://www.nhc.noaa.gov/text/MIATCDEP1.shtml"
+        },
+        "forecastGraphics": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:32:38.333Z",
+          "url": "https://www.nhc.noaa.gov/graphics_ep1.shtml"
+        },
+        "forecastTrack": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:35:44.661Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep062026_5day_006.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP062026_006adv_TRACK.kmz"
+        },
+        "windWatchesWarnings": null,
+        "trackCone": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:35:38.849Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep062026_5day_006.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP062026_006adv_CONE.kmz"
+        },
+        "initialWindExtent": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:36:13.889Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep062026_fcst_006.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP062026_initialradii_006adv.kmz"
+        },
+        "forecastWindRadiiGIS": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:36:10.137Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep062026_fcst_006.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP062026_forecastradii_006adv.kmz"
+        },
+        "bestTrackGIS": {
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:35:54.210Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/best_track/ep062026_best_track.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/gis/best_track/ep062026_best_track.kmz"
+        },
+        "earliestArrivalTimeTSWindsGIS": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:35:40.785Z",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP062026_006adv_earliest_reasonable_toa_34.kmz"
+        },
+        "mostLikelyTimeTSWindsGIS": {
+          "advNum": "006",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:35:42.719Z",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP062026_006adv_most_likely_toa_34.kmz"
+        },
+        "windSpeedProbabilitiesGIS": {
+          "issuance": "2026-07-20T06:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T09:22:41.598Z",
+          "zipFile5km": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp_120hr5km.zip",
+          "zipFile0p5deg": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp_120hrhalfDeg.zip",
+          "kmzFile34kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp34knt120hr_5km.kmz",
+          "kmzFile50kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp50knt120hr_5km.kmz",
+          "kmzFile64kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp64knt120hr_5km.kmz"
+        },
+        "stormSurgeWatchWarningGIS": null,
+        "potentialStormSurgeFloodingGIS": null,
+        "peakSurgeKML": null
+      },
+      {
         "id": "ep052026",
         "binNumber": "EP5",
         "name": "Elida",
         "classification": "TS",
-        "intensity": "35",
-        "pressure": "1003",
-        "latitude": "14.9N",
-        "longitude": "111.8W",
-        "latitudeNumeric": 14.9,
-        "longitudeNumeric": -111.8,
-        "movementDir": 275,
-        "movementSpeed": 15,
-        "lastUpdate": "2026-07-15T09:00:00.000Z",
+        "intensity": "45",
+        "pressure": "996",
+        "latitude": "25.3N",
+        "longitude": "127.1W",
+        "latitudeNumeric": 25.3,
+        "longitudeNumeric": -127.1,
+        "movementDir": 340,
+        "movementSpeed": 13,
+        "lastUpdate": "2026-07-20T09:00:00.000Z",
         "publicAdvisory": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:34:48.932Z",
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:47:07.496Z",
           "url": "https://www.nhc.noaa.gov/text/MIATCPEP5.shtml"
         },
         "forecastAdvisory": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:34:18.447Z",
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:46:39.221Z",
           "url": "https://www.nhc.noaa.gov/text/MIATCMEP5.shtml"
         },
         "windSpeedProbabilities": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:35:19.398Z",
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:47:37.816Z",
           "url": "https://www.nhc.noaa.gov/text/MIAPWSEP5.shtml"
         },
         "forecastDiscussion": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:36:15.702Z",
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:48:09.972Z",
           "url": "https://www.nhc.noaa.gov/text/MIATCDEP5.shtml"
         },
         "forecastGraphics": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:34:48.932Z",
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:47:07.496Z",
           "url": "https://www.nhc.noaa.gov/graphics_ep5.shtml"
         },
         "forecastTrack": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:38:01.119Z",
-          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep052026_5day_003.zip",
-          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_003adv_TRACK.kmz"
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:49:23.560Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep052026_5day_023.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_023adv_TRACK.kmz"
         },
         "windWatchesWarnings": null,
         "trackCone": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:37:55.466Z",
-          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep052026_5day_003.zip",
-          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_003adv_CONE.kmz"
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:49:17.752Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep052026_5day_023.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_023adv_CONE.kmz"
         },
         "initialWindExtent": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:38:31.008Z",
-          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep052026_fcst_003.zip",
-          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_initialradii_003adv.kmz"
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:49:54.616Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep052026_fcst_023.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_initialradii_023adv.kmz"
         },
         "forecastWindRadiiGIS": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:38:27.091Z",
-          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep052026_fcst_003.zip",
-          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_forecastradii_003adv.kmz"
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:49:50.487Z",
+          "zipFile": "https://www.nhc.noaa.gov/gis/forecast/archive/ep052026_fcst_023.zip",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_forecastradii_023adv.kmz"
         },
         "bestTrackGIS": {
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:38:11.048Z",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:49:33.669Z",
           "zipFile": "https://www.nhc.noaa.gov/gis/best_track/ep052026_best_track.zip",
           "kmzFile": "https://www.nhc.noaa.gov/gis/best_track/ep052026_best_track.kmz"
         },
         "earliestArrivalTimeTSWindsGIS": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:37:57.368Z",
-          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_003adv_earliest_reasonable_toa_34.kmz"
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:49:19.709Z",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_023adv_earliest_reasonable_toa_34.kmz"
         },
         "mostLikelyTimeTSWindsGIS": {
-          "advNum": "003",
-          "issuance": "2026-07-15T09:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T08:37:59.233Z",
-          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_003adv_most_likely_toa_34.kmz"
+          "advNum": "023",
+          "issuance": "2026-07-20T09:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T08:49:21.644Z",
+          "kmzFile": "https://www.nhc.noaa.gov/storm_graphics/api/EP052026_023adv_most_likely_toa_34.kmz"
         },
         "windSpeedProbabilitiesGIS": {
-          "issuance": "2026-07-15T06:00:00.000Z",
-          "fileUpdateTime": "2026-07-15T09:22:08.006Z",
-          "zipFile5km": "https://www.nhc.noaa.gov/gis/forecast/archive/2026071506_wsp_120hr5km.zip",
-          "zipFile0p5deg": "https://www.nhc.noaa.gov/gis/forecast/archive/2026071506_wsp_120hrhalfDeg.zip",
-          "kmzFile34kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026071506_wsp34knt120hr_5km.kmz",
-          "kmzFile50kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026071506_wsp50knt120hr_5km.kmz",
-          "kmzFile64kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026071506_wsp64knt120hr_5km.kmz"
+          "issuance": "2026-07-20T06:00:00.000Z",
+          "fileUpdateTime": "2026-07-20T09:22:41.598Z",
+          "zipFile5km": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp_120hr5km.zip",
+          "zipFile0p5deg": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp_120hrhalfDeg.zip",
+          "kmzFile34kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp34knt120hr_5km.kmz",
+          "kmzFile50kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp50knt120hr_5km.kmz",
+          "kmzFile64kt": "https://www.nhc.noaa.gov/gis/forecast/archive/2026072006_wsp64knt120hr_5km.kmz"
         },
         "stormSurgeWatchWarningGIS": null,
         "potentialStormSurgeFloodingGIS": null,
@@ -993,7 +1275,7 @@
     }
   ],
   "warnings": [],
-  "validatedAt": "2026-07-15T09:06:44-04:00",
+  "validatedAt": "2026-07-20T08:41:15-04:00",
   "quality": {
     "recordsRejected": 0,
     "warnings": []
