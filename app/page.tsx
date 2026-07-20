@@ -374,7 +374,7 @@ export default function Home() {
       </header>
 
       <section className="section-fade mx-auto grid w-full max-w-7xl items-center gap-8 px-4 pb-9 pt-8 sm:px-6 md:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:pb-12 lg:pt-10">
-        <div>
+        <div className="min-w-0">
           <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3 py-1.5 text-sm font-black text-ocean shadow-sm">
             <Sparkles className="h-4 w-4 text-gold" />
             Part of Florida Deals Hub
@@ -429,7 +429,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden min-w-0 md:block">
           <RouteGraphic featuredDeal={heroDeal} />
         </div>
       </section>

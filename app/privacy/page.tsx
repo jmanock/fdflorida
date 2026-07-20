@@ -4,7 +4,8 @@ import { ArrowLeft, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Florida Flight Deals",
-  description: "Privacy policy for Florida Flight Deals."
+  description: "Privacy policy for Florida Flight Deals.",
+  alternates: { canonical: "https://flightdealsflorida.org/privacy" }
 };
 
 export default function PrivacyPage() {

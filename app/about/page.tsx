@@ -4,7 +4,8 @@ import { ArrowLeft, Plane } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About | Florida Flight Deals",
-  description: "Learn how Florida Flight Deals organizes airfare routes, airport guides, travel ideas, and planning resources as part of Florida Deals Hub."
+  description: "Learn how Florida Flight Deals organizes airfare routes, airport guides, travel ideas, and planning resources as part of Florida Deals Hub.",
+  alternates: { canonical: "https://flightdealsflorida.org/about" }
 };
 
 export default function AboutPage() {

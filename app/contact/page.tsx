@@ -4,7 +4,8 @@ import { ArrowLeft, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact | Florida Flight Deals",
-  description: "Contact Florida Flight Deals."
+  description: "Contact Florida Flight Deals.",
+  alternates: { canonical: "https://flightdealsflorida.org/contact" }
 };
 
 export default function ContactPage() {

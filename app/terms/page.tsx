@@ -4,7 +4,8 @@ import { ArrowLeft, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms | Florida Flight Deals",
-  description: "Terms of use for Florida Flight Deals."
+  description: "Terms of use for Florida Flight Deals.",
+  alternates: { canonical: "https://flightdealsflorida.org/terms" }
 };
 
 export default function TermsPage() {

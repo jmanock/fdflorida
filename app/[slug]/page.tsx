@@ -331,6 +331,12 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const primaryHotelDestinationKey = getDestinationKey(primaryHotelDestination);
   const floridaHotelDestinations = ["Orlando", "Miami", "Tampa", "Fort Lauderdale", "Jacksonville"];
   const relatedPages = page.relatedSlugs.map(getSeoFlightPage).filter((item): item is SeoFlightPage => Boolean(item));
+  const pageIndex = seoFlightPageSlugs.indexOf(page.slug);
+  const neighboringPages = [-1, 1, -7, 7]
+    .map((offset) => seoFlightPageSlugs[(pageIndex + offset + seoFlightPageSlugs.length) % seoFlightPageSlugs.length])
+    .map(getSeoFlightPage)
+    .filter((item): item is SeoFlightPage => Boolean(item))
+    .filter((item) => item.slug !== page.slug);
   const faqs = getSeoFlightPageFaqs(page);
   const showGearPicks = /carry-on|packing|gear|weekend-flight-packing/.test(page.slug);
   const isToolComparison = /google-flights-vs-/.test(page.slug);
@@ -363,10 +369,11 @@ export default async function SeoFlightLandingPage({ params }: PageProps) {
   const relatedHubStories = getHubStoryLinks(page.slug);
   const relatedFlightLinks = [
     ...relatedPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
+    ...neighboringPages.map((related) => ({ label: related.h1, href: `/${related.slug}` })),
     ...flightSearchLinks.filter((link) => link.href !== `/${page.slug}` && !page.relatedSlugs.some((slug) => link.href === `/${slug}`)),
     ...v2FlightDiscoveryLinks.filter((link) => link.href !== `/${page.slug}`)
-  ].slice(0, 9);
-  const relatedSearchLinks = [...relatedFlightLinks, { label: "Florida Hotel Deals", href: "https://hoteldealsflorida.org" }].slice(0, 10);
+  ].filter((link, index, links) => links.findIndex((candidate) => candidate.href === link.href) === index).slice(0, 5);
+  const relatedSearchLinks = relatedFlightLinks;
   const structuredGraph = [
     {
       "@type": isGuide ? "Article" : "CollectionPage",
