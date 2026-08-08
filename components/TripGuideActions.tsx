@@ -3,12 +3,12 @@
 import { Check, Copy, Printer, RotateCcw } from "lucide-react";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type EventValue = string | number | boolean;
 
 function emit(event: string, payload: Record<string, EventValue>) {
-  window.gtag?.("event", event, payload);
-  window.dataLayer?.push({ event, ...payload });
+  trackEvent(event, payload);
 }
 
 export function GuideLink({ href, route, children, className, eventName = "related_guide_click", placement = "trip_reality_next_steps" }: { href: string; route: string; children: ReactNode; className?: string; eventName?: string; placement?: string }) {

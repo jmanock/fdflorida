@@ -1,6 +1,7 @@
 "use client";
 
 import { getTransferAffiliateUrl, ZENHOTELS_AFFILIATE_URL } from "@/lib/revenuePartners";
+import { trackEvent } from "@/lib/analytics";
 
 type Resource = {
   partner: string;
@@ -13,10 +14,6 @@ type Resource = {
 };
 
 function trackAffiliateClick(resource: Resource, slug: string, placement: string) {
-  const analyticsWindow = window as Window & {
-    gtag?: (...args: unknown[]) => void;
-    dataLayer?: Array<Record<string, unknown>>;
-  };
   const payload = {
     partner: resource.partner,
     creative_id: resource.creativeId,
@@ -27,8 +24,7 @@ function trackAffiliateClick(resource: Resource, slug: string, placement: string
     cta_text: resource.cta
   };
 
-  analyticsWindow.gtag?.("event", "affiliate_click", payload);
-  analyticsWindow.dataLayer?.push({ event: "affiliate_click", ...payload });
+  trackEvent({ action: "affiliate_click", category: "conversion", params: payload });
 }
 
 export function V22AffiliateResources({ slug }: { slug: string }) {
