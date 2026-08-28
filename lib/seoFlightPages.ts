@@ -1433,19 +1433,19 @@ export const seoFlightPages: SeoFlightPage[] = [
   },
   {
     slug: "google-flights-vs-skyscanner-for-florida-routes",
-    title: "Google Flights Florida (2026): Cheapest Days & Routes",
-    description: "Compare Florida flight prices, cheaper travel dates, airport tradeoffs and booking strategies updated for 2026 before choosing a route.",
-    h1: "Google Flights Florida: Cheapest Days, Airports & Routes",
-    eyebrow: "Updated 2026 flight search guide",
+    title: "Google Flights vs Skyscanner for Florida Routes",
+    description: "Compare Google Flights and Skyscanner for Florida routes, flexible dates, airport choices, seller checks, and total trip cost before booking.",
+    h1: "Google Flights vs Skyscanner for Florida Routes",
+    eyebrow: "Florida flight search comparison",
     intro:
-      "Use this guide to compare Florida airports, cheaper travel days, route tradeoffs, and when Skyscanner is worth checking before you book.",
+      "Google Flights is the clearer first choice for a known Florida route and flexible dates. Skyscanner is a useful second check for broader destination or seller discovery.",
     detail:
       "Google Flights is strongest when Florida travelers compare flexible dates, nearby airports, airline schedules, stops, bags, and tracked prices together. MCO, MIA, TPA, FLL, and JAX can produce different trip costs for similar dates, especially once hotels and transfers are included. Skyscanner adds value for broader destination discovery and seller comparisons. Use both as research tools, then confirm final price, bags, and booking terms with the airline or booking source.",
     pageType: "guide",
     heroImage: floridaFlightHero,
     quickAnswer: {
       heading: "Google Flights Florida: quick answer",
-      summary: "Google Flights is best for known Florida routes, flexible date grids, nearby-airport checks, and price alerts. For 2026 Florida trips, compare Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville before choosing a fare. Skyscanner is useful when the destination is flexible or you want a second view of sellers and broad trip ideas.",
+      summary: "Google Flights is best for known Florida routes, flexible date grids, nearby-airport checks, and price alerts. Compare Orlando, Miami, Tampa, Fort Lauderdale, and Jacksonville before choosing a fare. Skyscanner is useful when the destination is flexible or you want a second view of sellers and broad trip ideas.",
       items: [
         { label: "What Google Flights is", value: "A flight research tool for comparing fares, airlines, routes, schedules, stops, flexible dates, and tracked prices." },
         { label: "Why it works for Florida", value: "Major Florida airports can price very differently, so checking MCO, MIA, TPA, FLL, and JAX can change the full trip cost." },
@@ -1490,7 +1490,7 @@ export const seoFlightPages: SeoFlightPage[] = [
       ]
     },
     featuredCallout: {
-      heading: "Florida Flight Deal Tips For 2026",
+      heading: "Florida flight search checks",
       intro: "Use Google Flights for fast airport and date research, then use Skyscanner as a second check when you want broader seller or destination discovery.",
       tips: [
         "Compare the exact same dates, airports, bags, and flight times in both tools.",
