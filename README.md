@@ -15,13 +15,7 @@ Copy `.env.example` to `.env.local` and fill in the values for your deployment.
 
 ### Google Analytics
 
-Add your Google Analytics Measurement ID:
-
-```bash
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-```
-
-The site automatically loads GA when this value is present and tracks:
+The public production Measurement ID is checked into `lib/analyticsConfig.ts`; it is not supplied by an environment variable. The site tracks:
 
 - `newsletter_signup_started`
 - `newsletter_signup_success`

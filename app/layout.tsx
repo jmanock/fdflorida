@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AnalyticsBootstrap } from "@/components/AnalyticsBootstrap";
+import { ANALYTICS_CONFIG } from "@/lib/analyticsConfig";
 import { NetworkNavigation } from "@/components/NetworkNavigation";
 import "./globals.css";
 
@@ -91,6 +92,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          id="fdn-ga-library"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_CONFIG.measurementId}`}
+        />
+      </head>
       <body className="fdn-site">
         <NetworkNavigation />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(globalStructuredData) }} />
